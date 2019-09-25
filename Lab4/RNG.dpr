@@ -20,7 +20,7 @@ begin
   Writeln(outp,Random(21));
   for i:=0 to n-1 do
   begin
-     Writeln(outp,Random(21), ' ', Random(21));
+     Writeln(outp,Random(21)-10, ' ', Random(21)-10);
   end;
   CloseFile(outp);
 end.
