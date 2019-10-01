@@ -18,43 +18,50 @@ begin
   E:=-1;
 
   writeln('Введите количество элементов массивов');
-  while (n<1) or (n>20) do           //введение n
-  begin
+
   readln(n);
   if n<1 then Writeln('Некорректное n: n<1');
   if n>20 then Writeln('Некорректное n: n>20');
-  if (n<1) or (n>20) then writeln('Введите корректное n');
+  if (n<1) or (n>20) then
+  begin
+    readln;
+    exit;
   end;
 
+
+
   writeln('Введите критическое значение E');
-  while (E<0) or (E>20) do        //введение E
-  begin
   readln(E);
   if E<0 then Writeln('Некорректное E: E<0');
   if E>20 then Writeln('Некорректное E: E>20');
-  if (E<0) or (E>20) then writeln('Введите корректное E');
+  if (E<0) or (E>20) then
+  begin
+    readln;
+    exit;
   end;
-
+  
   writeln('Введите элементы массивов'); //введение чисел массива
   for i:=0 to n-1 do
      begin
         Readln(x[i],y[i]);
-        while Abs(x[i])>10 do  //проверка x[i]
+        if Abs(x[i])>10 then  //проверка x[i]
         begin
-          writeln('Неверное x[',i+1,']. |x[',i+1,'|>10. Ожидание нового x[',i+1,'].');
-          readln(x[i]);
+          writeln('Неверное x[',i+1,']. |x[',i+1,'|>10.');
+          readln;
+          exit;
         end;
 
-        while Abs(y[i])>10 do //проверка y[i]
+        if Abs(y[i])>10 then //проверка y[i]
         begin
-          writeln('Неверное y[',i+1,']. |y[',i+1,']|>10. Ожидание нового y[',i+1,'].');
-          Readln(y[i]);
+          writeln('Неверное y[',i+1,']. |y[',i+1,']|>10.');
+          readln;
+          exit;
         end;
            end;
 
   Writeln('--------------------------------------------------------------------------------');
   
-  writeln('Лабораторная работа №2':50);
+  writeln('Лабораторная работа №3':50);
   writeln;
 
   writeln('Количество элементов массивов n = ':55, n);
@@ -69,14 +76,18 @@ begin
   for i:=0 to n-1 do
      begin
         writeln(x[i]:37:1,' ',y[i]:5:1);
-        ChangedCount:= 0; 
+     end;
+  writeln;
+
+  ChangedCount:= 0; 
+  for i:=0 to n-1 do
+  begin
         if (Abs(x[i]-y[i])<=E) then    //Обработка чисел
            begin
                  x[i]:=y[i];
                  ChangedCount:=ChangedCount + 1;
            end;
-     end;
-  writeln;
+  end;
 
   writeln('--------------------------------------------------------------------------------');
   writeln('Выходные данные:':47);
@@ -94,6 +105,6 @@ begin
   else if (ChangedCount=n) then Writeln('Все ':20,n,' элементов были изменены. ChangedCount = ', n)
   else Writeln('Количество измененных элементов ChangedCount = ':60, ChangedCount);
   writeln;         
-
+  Writeln('END');
   readln;
 end.

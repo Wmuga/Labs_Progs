@@ -12,15 +12,15 @@ var
 const outpf = 'input.txt';
 
 begin
-  AssignFile(outp, outpf); //Добавление файла AssignFile(перменная, файл)
-  Rewrite(outp);           //Открытие файла на перезапись (замена файла)
+  AssignFile(outp, outpf); 
+  Rewrite(outp);           
   Randomize;
   n:=Random(19)+1;
-  Writeln(outp,n);         //Вывод в файл
+  Writeln(outp,n);         
   Writeln(outp,Random(21));
   for i:=0 to n-1 do
   begin
      Writeln(outp,Random(21)-10, ' ', Random(21)-10);
   end;
-  CloseFile(outp);         //Закрываем файл
+  CloseFile(outp);         
 end.

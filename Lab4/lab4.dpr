@@ -7,7 +7,7 @@ uses
   Windows;
 
 const ar_length = 20;
-const inp_file = 'input.txt';
+const inp_file = 'input_files/input_anomaly6.txt';
 const out_file = 'output.txt';
 var
   x,y:array[0..ar_length] of real;
@@ -18,23 +18,57 @@ begin
   setConsoleCP(1251);
   setConsoleOutputCP(1251);
 
-  AssignFile(inputdata,inp_file);
-  Reset(inputdata);
-  AssignFile(outputdata,out_file);
-  Rewrite(outputdata);
-
-  Readln(inputdata,n);
+  AssignFile(inputdata,inp_file);  //Подключаем файл на вход
+  Reset(inputdata);                //Открытие файла на чтение
+  AssignFile(outputdata,out_file); //Подключаем файл на выход
+  rewrite(outputdata);             //Открытие файла на перезапись
+  Readln(inputdata,n);             //Чтение из файла
+  if (n>20) then
+  begin
+    Writeln('outputdata,Неверное n. n>20');
+    CloseFile(outputdata);
+    Exit;
+  end;
+  if (n<0) then
+  begin
+    Writeln('outputdata,Неверное n. n<0');
+    CloseFile(outputdata);
+    Exit;
+  end;
   Readln(inputdata,E);
+  if (E>14) then
+  begin
+    Writeln('outputdata,Неверное E. E>14');
+    CloseFile(outputdata);
+    Exit;
+  end;
+  if (E<0) then
+  begin
+    Writeln('outputdata,Неверное E. E<0');
+    CloseFile(outputdata); 
+    Exit;
+  end;
   for i:=0 to n-1 do
   begin
     read(inputdata,x[i]); readln(inputdata,y[i]);
+    if (Abs(x[i])>10) then
+    begin
+      Writeln(outputdata,'Неверное X[',i+1,']>10');
+      CloseFile(outputdata); 
+      Exit;
+    end;
+    if (Abs(y[i])>10) then
+    begin
+      Writeln(outputdata,'Неверное Y[',i+1,']>10');
+      CloseFile(outputdata); 
+      Exit;
+    end;
   end;
 
   CloseFile(inputdata);
 
-  Writeln('--------------------------------------------------------------------------------');
-  
-  writeln('Лабораторная работа №4':50);
+
+  writeln(outputdata,'Лабораторная работа №4':50);   //Вывод данных
   writeln;
 
   writeln('Количество элементов массивов n = ':55, n);
@@ -57,12 +91,10 @@ begin
                  ChangedCount:=ChangedCount + 1;
            end;
      end;
-  writeln;
 
-  rewrite(outputdata);
-  writeln(outputdata,'Лабораторная работа №4':50);
   writeln(outputdata);
-
+  Writeln(outputdata,'--------------------------------------------------------------------------------');
+  writeln(outputdata);
   writeln(outputdata,'Элементы массивов X, Y:':50);
   Writeln;
   for i:=0 to n-1 do
