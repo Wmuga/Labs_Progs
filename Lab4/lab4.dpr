@@ -18,20 +18,22 @@ begin
   setConsoleCP(1251);
   setConsoleOutputCP(1251);
 
-  AssignFile(inputdata,inp_file);  //Подключаем файл на вход
-  Reset(inputdata);                //Открытие файла на чтение
-  AssignFile(outputdata,out_file); //Подключаем файл на выход
-  rewrite(outputdata);             //Открытие файла на перезапись
-  Readln(inputdata,n);             //Чтение из файла
+  AssignFile(inputdata,inp_file);  //Подключаем входного файла  AssignFile(перменная, название файла)
+  Reset(inputdata);                //Открытие файла на чтение Reset(переменная)
+  AssignFile(outputdata,out_file); //Подключаем файл на вывод
+  rewrite(outputdata);             //Открытие файла на перезапись  Rewrite(переменная)
+  Readln(inputdata,n);             //Чтение из файла Read/Readln(переменная,куда)
   if (n>20) then
   begin
     Writeln('outputdata,Неверное n. n>20');
-    CloseFile(outputdata);
+    CloseFile(inputdata);
+    CloseFile(outputdata);              //Закрытие файла  CloseFile(перменная)
     Exit;
   end;
   if (n<0) then
   begin
     Writeln('outputdata,Неверное n. n<0');
+    CloseFile(inputdata);
     CloseFile(outputdata);
     Exit;
   end;
@@ -39,12 +41,14 @@ begin
   if (E>14) then
   begin
     Writeln('outputdata,Неверное E. E>14');
+    CloseFile(inputdata);
     CloseFile(outputdata);
     Exit;
   end;
   if (E<0) then
   begin
     Writeln('outputdata,Неверное E. E<0');
+    CloseFile(inputdata);
     CloseFile(outputdata); 
     Exit;
   end;
@@ -54,12 +58,14 @@ begin
     if (Abs(x[i])>10) then
     begin
       Writeln(outputdata,'Неверное X[',i+1,']>10');
+      CloseFile(inputdata);
       CloseFile(outputdata); 
       Exit;
     end;
     if (Abs(y[i])>10) then
     begin
       Writeln(outputdata,'Неверное Y[',i+1,']>10');
+      CloseFile(inputdata);
       CloseFile(outputdata); 
       Exit;
     end;
@@ -68,7 +74,7 @@ begin
   CloseFile(inputdata);
 
 
-  writeln(outputdata,'Лабораторная работа №4':50);   //Вывод данных
+  writeln(outputdata,'Лабораторная работа №4':50);   //Вывод данных write/writeln(переменная,текст)
   writeln;
 
   writeln('Количество элементов массивов n = ':55, n);
