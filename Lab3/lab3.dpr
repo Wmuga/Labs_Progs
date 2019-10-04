@@ -10,6 +10,7 @@ const ar_length = 20;
 var
   x,y:array[0..ar_length] of real;
   i,n,E,ChangedCount: integer;
+  cont:Boolean;
 
 begin
   setConsoleCP(1251);
@@ -39,7 +40,8 @@ begin
     readln;
     exit;
   end;
-  
+
+  cont:=True;
   writeln('Введите элементы массивов'); //введение чисел массива
   for i:=0 to n-1 do
      begin
@@ -47,17 +49,23 @@ begin
         if Abs(x[i])>10 then  //проверка x[i]
         begin
           writeln('Неверное x[',i+1,']. |x[',i+1,'|>10.');
-          readln;
-          exit;
+          cont:=False;
         end;
 
         if Abs(y[i])>10 then //проверка y[i]
         begin
           writeln('Неверное y[',i+1,']. |y[',i+1,']|>10.');
-          readln;
-          exit;
+          cont:=False;
         end;
            end;
+
+  if cont=False then
+  begin
+        writeln('END');
+         readln;
+          exit;
+  end.
+
 
   Writeln('--------------------------------------------------------------------------------');
   
