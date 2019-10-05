@@ -1,28 +1,34 @@
-program Lab5;
+program Lab5_1;
 
 {$APPTYPE CONSOLE}
 
 uses
   SysUtils;
 
-const inp_file='input.txt';
-const out_file='output.txt';
+const inp_file='input_files\input';
+const out_file='output_files\output';
 const max_value = 20;
 const ar_len = 30;
 
 
 var
   in_data,out_data:TextFile;
-  i,n,num:Integer;
+  i,z,n,k,num:Integer;
   minAbs:Real;
   A:array[0..ar_len] of real;
   cont:Boolean;
+  inp_filename,out_filename:string;
 
 
 begin
-  AssignFile(in_data,inp_file);
+  read(k);
+  for z:=1 to k do
+  begin
+  inp_filename:=inp_file+IntToStr(z)+'.txt';
+  out_filename:=out_file+IntToStr(z)+'.txt';
+  AssignFile(in_data,inp_filename);
   Reset(in_data);
-  AssignFile(out_data,out_file);
+  AssignFile(out_data,out_filename);
   rewrite(out_data);
 
   Readln(in_data,n);
@@ -89,4 +95,5 @@ begin
   writeln(out_data,'ћинимальное абсолютное значение элемнтов массива находитс€ под номером ', num);
   CloseFile(in_data);
   CloseFile(out_data);
-  end.
+  end;
+end.

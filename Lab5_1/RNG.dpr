@@ -7,12 +7,17 @@ uses
 
 var
   outp:TextFile;
-  n,i:Integer;
+  n,i,k,z:Integer;
+  out_filename:string;
 
-const outpf = 'input.txt';
+const outpf = 'input_files\input';
 
 begin
-  AssignFile(outp, outpf); //Добавление файла AssignFile(перменная, файл)
+  read(k);
+  for z:=1 to k do
+  begin
+  out_filename:=outpf+IntToStr(z)+'.txt';
+  AssignFile(outp, out_filename); //Добавление файла AssignFile(перменная, файл)
   Rewrite(outp);           //Открытие файла на перезапись (замена файла)
   Randomize;
   n:=Random(19)+1;
@@ -22,4 +27,5 @@ begin
      Writeln(outp,Random(40)-20);
   end;
   CloseFile(outp);         //Закрываем файл
+  end;
 end.
