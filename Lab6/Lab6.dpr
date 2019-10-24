@@ -1,37 +1,27 @@
-program Lab5_1;
+program Lab6;
 
 {$APPTYPE CONSOLE}
 
 uses
-  SysUtils,Windows;
+  SysUtils;
 
-const inp_file='input_files\input';
-const out_file='output_files\output';
+const inp_file='input.txt';
+const out_file='output.txt';
 const max_value = 20;
 const ar_len = 30;
 
 
 var
   in_data,out_data:TextFile;
-  i,z,n,k,num:Integer;
-  minAbs:Real;
-  A:array[0..ar_len] of real;
+  i,n,num,min_value:Integer;
+  A:array[0..ar_len] of Integer;
   cont:Boolean;
-  inp_filename,out_filename:string;
 
 
 begin
-  setConsoleCP(1251);
-  setConsoleOutputCP(1251);
-  Writeln('Ââåäèòå êîëè÷åñòâî òåñòîâ');
-  read(k);
-  for z:=1 to k do
-  begin
-  inp_filename:=inp_file+IntToStr(z)+'.txt';
-  out_filename:=out_file+IntToStr(z)+'.txt';
-  AssignFile(in_data,inp_filename);
+  AssignFile(in_data,inp_file);
   Reset(in_data);
-  AssignFile(out_data,out_filename);
+  AssignFile(out_data,out_file);
   rewrite(out_data);
 
   Readln(in_data,n);
@@ -53,15 +43,20 @@ begin
 
   cont:=True;
 
+  num:=-1;
+
   for i:=0 to n-1 do
   begin
     read(in_data,A[i]);
+    if (A[i] mod 5 = 0) and (num=-1) then num:=i;
     if (Abs(A[i])>max_value) then
     begin
       Writeln(out_data,'Íåâåğíîå |A[',i+1,']|>',max_value);
       cont:=False;
     end;
   end;
+
+  if num=-1 then num:=0;
 
   if (cont=False) then
   begin
@@ -70,7 +65,7 @@ begin
       exit;
   end;
 
-  writeln(out_data,'Ëàáîğàòîğíàÿ ğàáîòà ¹5':50);
+  writeln(out_data,'Ëàáîğàòîğíàÿ ğàáîòà ¹6':50);
   writeln(out_data,'');
 
   writeln(out_data,'Êîëè÷åñòâî ıëåìåíòîâ ìàññèâà n = ':55, n);
@@ -80,23 +75,22 @@ begin
   writeln(out_data,'İëåìåíòû ìàññèâà A:':50);
   for i:=0 to n-1 do
   begin
-    writeln(out_data,A[i]:37:1);
+    writeln(out_data,A[i]:37);
   end;
   Writeln(out_data,'');
 
-  minAbs:=max_value ;
-  num:=1;
-  for i:=0 to n-1 do
+  min_value:=max_value;
+
+  for i:=num to n-1 do
   begin
-    if minAbs>Abs(A[i]) then
-    begin
-      minAbs:=Abs(A[i]);
-      num:=i+1;
-    end;
+    if (A[i]>=0) and (A[i]<min_value) then min_value:=A[i];
   end;
+
+
   writeln(out_data,'---------------------------------------------------------------');
-  writeln(out_data,'Ìèíèìàëüíîå àáñîëşòíîå çíà÷åíèå ıëåìíòîâ ìàññèâà íàõîäèòñÿ ïîä íîìåğîì ', num);
+  writeln(out_data,'Ìèíèìàëüíûé ıëåìåíò ìàññèâà À, óäîâëåòâîğÿşùèé óñëîâèå ğàâåí ',min_value);
   CloseFile(in_data);
   CloseFile(out_data);
-  end;
+  Writeln('Succesfull end');
+  Readln;
 end.

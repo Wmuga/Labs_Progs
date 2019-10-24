@@ -1,0 +1,24 @@
+                            Лабораторная работа №7
+
+                     Количество элементов массивов n = 12
+
+                 Использованный метод сортировки: метод выбора
+
+                               Элементы массива А:
+z v n m l h g f d c b a 
+1:a v n m l h g f d c b z 
+2:a b n m l h g f d c v z 
+3:a b c m l h g f d n v z 
+4:a b c d l h g f m n v z 
+5:a b c d f h g l m n v z 
+6:a b c d f g h l m n v z 
+7:a b c d f g h l m n v z 
+8:a b c d f g h l m n v z 
+9:a b c d f g h l m n v z 
+10:a b c d f g h l m n v z 
+11:a b c d f g h l m n v z 
+
+--------------------------------------------------------------------------------
+
+                         Отсортированный массив A:
+a b c d f g h l m n v z 
