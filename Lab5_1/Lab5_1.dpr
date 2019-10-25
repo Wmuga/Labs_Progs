@@ -27,7 +27,7 @@ begin
   read(k);
   for z:=1 to k do
   begin
-  inp_filename:=inp_file+IntToStr(z)+'.txt';
+  inp_filename:=inp_file+IntToStr(z)+'.txt';            //params
   out_filename:=out_file+IntToStr(z)+'.txt';
   AssignFile(in_data,inp_filename);
   Reset(in_data);
@@ -98,5 +98,8 @@ begin
   writeln(out_data,'Минимальное абсолютное значение элемнтов массива находится под номером ', num);
   CloseFile(in_data);
   CloseFile(out_data);
+  Writeln('Тест ', k, ' закончен');
   end;
+  Writeln('end');
+  readln;
 end.
