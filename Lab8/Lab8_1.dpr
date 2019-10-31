@@ -7,8 +7,6 @@ uses
   Windows;
 
 const ar_length = 20;
-const inp_file = 'in\input.txt';
-const out_file = 'out\output_1.txt';
 const max_value = 9;
 var
   B:array[0..ar_length,0..ar_length] of real;
@@ -16,14 +14,15 @@ var
   i,i1,n:Integer;
   inputdata,outputdata: TextFile;
   cont:Boolean;
+  product:Real;
 
 begin
   setConsoleCP(1251);
   setConsoleOutputCP(1251);
 
-  AssignFile(inputdata,inp_file);
+  AssignFile(inputdata,ParamStr(1));
   Reset(inputdata);
-  AssignFile(outputdata,out_file);
+  AssignFile(outputdata,ParamStr(2));
   rewrite(outputdata);
   Readln(inputdata,n);
 
@@ -73,22 +72,25 @@ begin
   end;
   Writeln(outputdata,'');
 
-  cont:=True;
+  product:=1;
+  cont:=False;
+  
   for i:=0 to n-1 do
   begin
-    i1:=0;
-    while ((cont) and (i1<n)) do
+    for i1:=0 to n-1 do
     begin
-      if ((B[i][i1]<1) or (B[i1][i]<1)) then cont:=False;
-      Inc(i1);
+      if ((B[i][i1]>=1) or (B[i1][i]>=1)) then cont:=True;
+      product:=product*B[i][i1];
     end;
     if (cont) then x[i]:=1
     else x[i]:=0;
-    cont:=True;
+    cont:=False;
   end;
 
   writeln(outputdata);
   Writeln(outputdata,'--------------------------------------------------------------------------------');
+  writeln(outputdata);
+  writeln(outputdata,'Произведение всех элементов матрицы = ', product:5:3);
   writeln(outputdata);
   writeln(outputdata,'Полученный массив X:':50);
   for i:=0 to n-1 do
@@ -98,6 +100,4 @@ begin
   writeln(outputdata);
 
   CloseFile(outputdata);
-  Writeln('END');
-  readln;
 end.

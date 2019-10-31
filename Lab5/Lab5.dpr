@@ -5,8 +5,6 @@ program Lab5;
 uses
   SysUtils;
 
-const inp_file='input.txt';
-const out_file='output.txt';
 const max_value = 20;
 const ar_len = 30;
 
@@ -20,9 +18,9 @@ var
 
 
 begin
-  AssignFile(in_data,inp_file);
+  AssignFile(in_data,ParamStr(1));
   Reset(in_data);
-  AssignFile(out_data,out_file);
+  AssignFile(out_data,ParamStr(2));
   rewrite(out_data);
 
   Readln(in_data,n);

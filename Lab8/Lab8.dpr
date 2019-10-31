@@ -7,8 +7,6 @@ uses
   Windows;
 
 const ar_length = 20;
-const inp_file = 'in\input.txt';
-const out_file = 'out\output.txt';
 const max_value = 9;
 var
   B:array[0..ar_length*ar_length] of real;
@@ -21,9 +19,9 @@ begin
   setConsoleCP(1251);
   setConsoleOutputCP(1251);
 
-  AssignFile(inputdata,inp_file);
+  AssignFile(inputdata,ParamStr(1));
   Reset(inputdata);
-  AssignFile(outputdata,out_file);
+  AssignFile(outputdata,ParamStr(2));
   rewrite(outputdata);
   Readln(inputdata,n);
 
@@ -98,6 +96,6 @@ begin
   writeln(outputdata);
 
   CloseFile(outputdata);
-  Writeln('END');
-  readln;
+  //Writeln('END');
+  //readln;
 end.
