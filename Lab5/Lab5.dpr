@@ -24,14 +24,14 @@ begin
   rewrite(out_data);
 
   Readln(in_data,n);
-  if (n>31) then
+  if (n>ar_len+1) then
   begin
     Writeln(out_data,'Неверное n. n>20');
     CloseFile(in_data);
     CloseFile(out_data);
     Exit;
   end;
-  if (n<0) then
+  if (n<1) then
   begin
     Writeln(out_data,'Неверное n. n<0');
     CloseFile(in_data);
@@ -83,6 +83,7 @@ begin
       num:=i+1;
     end;
   end;
+
   writeln(out_data,'---------------------------------------------------------------');
   writeln(out_data,'Минимальное абсолютное значение элемнтов массива находится под номером ', num);
   CloseFile(in_data);

@@ -6,10 +6,10 @@ uses
   SysUtils,
   Windows;
 
-const ar_length = 20;
+const ar_length = 10;
 const max_value = 9;
 var
-  B:array[0..ar_length,0..ar_length] of real;
+  B:array[0..ar_length-1,0..ar_length-1] of real;
   X:array[0..ar_length] of Integer;
   i,i1,n:Integer;
   inputdata,outputdata: TextFile;
@@ -54,16 +54,16 @@ begin
   CloseFile(inputdata);
 
 
-  writeln(outputdata,'Лабораторная работа №8':55);   //Вывод данных write/writeln(переменная,текст)
+  writeln(outputdata,'Лабораторная работа №8':55);
   writeln(outputdata,'');
 
   writeln(outputdata,'Размерность матрицы n*n = ':55, n, '*',n);
   writeln(outputdata,'');
 
-  writeln(outputdata,'Матрица B:':50);
+  writeln(outputdata,'Матрица B:');
   for i:=0 to n-1 do
   begin
-    write(outputdata,' ':38);
+    write(outputdata,' ':10);
     for i1:=0 to n-1 do
     begin
       write(outputdata,B[i][i1]:4:1);
@@ -90,7 +90,7 @@ begin
   writeln(outputdata);
   Writeln(outputdata,'--------------------------------------------------------------------------------');
   writeln(outputdata);
-  writeln(outputdata,'Произведение всех элементов матрицы = ', product:5:3);
+  writeln(outputdata,'Произведение всех элементов матрицы = ', product:10:3);
   writeln(outputdata);
   writeln(outputdata,'Полученный массив X:':50);
   for i:=0 to n-1 do

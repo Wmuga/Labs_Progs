@@ -6,13 +6,13 @@ uses
   SysUtils,
   Windows;
 
-const ar_length = 20;
+const ar_length = 10;
 const max_value = 9;
 var
   B:array[0..ar_length,0..ar_length] of real;
-  i,i1,n1,n2,num:Integer;
+  i,i1,num,n1,n2:Integer;
   inputdata,outputdata: TextFile;
-  cont,isZero:Boolean;
+  cont,isZero,br:Boolean;
 
 begin
   setConsoleCP(1251);
@@ -26,48 +26,54 @@ begin
   try
   rewrite(outputdata);
   try
+  try
+
   read(inputdata,n1);
-  read(inputdata,n2);
-
-  if (n1>ar_length+1) then
-  begin
-    Writeln(outputdata,'Неверное n1. n1>', ar_length+1);
-    CloseFile(inputdata);
-    CloseFile(outputdata);
-    Exit;
-  end;
-
-    if (n2>ar_length+1) then
-  begin
-    Writeln(outputdata,'Неверное n2. n2>', ar_length+1);
-    CloseFile(inputdata);
-    CloseFile(outputdata);
-    Exit;
-  end;
+  readln(inputdata,n2);
 
   if (n1<0) then
   begin
-    Writeln(outputdata,'Неверное n1. n1<0');
-    CloseFile(inputdata);
-    CloseFile(outputdata);
+    Writeln(outputdata,'Неверное n1(<0)');
+    Exit;
+  end;
+  if (n1>max_value) then
+  begin
+    Writeln(outputdata,'Неверное n1(>',max_value,')');
     Exit;
   end;
   if (n2<0) then
   begin
-    Writeln(outputdata,'Неверное n2. n2<0');
-    CloseFile(inputdata);
-    CloseFile(outputdata);
+    Writeln(outputdata,'Неверное n1(<0)');
     Exit;
   end;
+  if (n2>max_value) then
+  begin
+    Writeln(outputdata,'Неверное n2(>',max_value,')');
+    Exit;
+  end;
+
+  br:=False;
 
   for i:=0 to n1-1 do
   begin
     for i1:=0 to n2-2 do
     begin
       read(inputdata,B[i][i1]);
+      if Abs(b[i][i1])>max_value then
+      begin
+        Writeln(outputdata,'Неверное B[',i,'][',i1,']');
+        br:=True;
+      end;
     end;
     readln(inputdata,B[i][n2-1]);
+    if Abs(b[i][n2-1])>max_value then
+      begin
+        Writeln(outputdata,'Неверное B[',i,'][',n2-1,']');
+        br:=True;
+      end;
   end;
+
+  if (br) then Exit;
 
   writeln(outputdata,'Лабораторная работа №9':55);   //Вывод данных write/writeln(переменная,текст)
   writeln(outputdata,'');
@@ -111,10 +117,14 @@ begin
   Writeln(outputdata,'--------------------------------------------------------------------------------');
   writeln(outputdata);
   writeln(outputdata,'Номер первной нулевой строки: ', num);
-  finally CloseFile(outputdata); end;
-  except Writeln('Ошибка при открытии выходного файла'); end;
-  finally CloseFile(inputdata); end;
-  except Writeln('Ошибка при открытии входного файла'); end;
-  Writeln('END');
-  readln;
+  except Writeln(outputdata,'Ошибка при работе программы');
+  end;
+  finally CloseFile(outputdata);
+  end;
+  except writeln('Ошибка при подключении выходного файла'); Readln;
+  end;
+  finally CloseFile(inputdata)
+  end;
+  except writeln('Ошибка при подключении входного файла');  readln;
+  end;
 end.

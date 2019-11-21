@@ -1,1 +1,1 @@
-for /l %%i in (1,1,2) do start Lab9.exe "in/input%%i.txt" "out/output%%i.txt"
+start Lab9.exe "in/input0.txt" "out/output0.txt"
