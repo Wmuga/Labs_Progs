@@ -31,9 +31,9 @@ begin
   read(inputdata,n1);
   readln(inputdata,n2);
 
-  if (n1<0) then
+  if (n1<1) then
   begin
-    Writeln(outputdata,'Неверное n1(<0)');
+    Writeln(outputdata,'Неверное n1(<1)');
     Exit;
   end;
   if (n1>max_value) then
@@ -41,9 +41,9 @@ begin
     Writeln(outputdata,'Неверное n1(>',max_value,')');
     Exit;
   end;
-  if (n2<0) then
+  if (n2<1) then
   begin
-    Writeln(outputdata,'Неверное n1(<0)');
+    Writeln(outputdata,'Неверное n1(<1)');
     Exit;
   end;
   if (n2>max_value) then
