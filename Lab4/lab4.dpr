@@ -10,7 +10,7 @@ const ar_length = 20;
 const inp_file = 'input_files/input.txt';
 const out_file = 'output.txt';
 var
-  x,y:array[0..ar_length] of real;
+  x,y:array[0..ar_length-1] of real;
   i,n,E,ChangedCount: integer;
   inputdata,outputdata: TextFile;
   cont: Boolean;
@@ -95,26 +95,26 @@ begin
   end;
   Writeln(outputdata,'');
 
-  ChangedCount:= 0;
-
-
-  for i:=0 to n-1 do
+ { for i:=0 to n-1 do
      begin
         if (Abs(x[i]-y[i])<=E) then    //ќбработка чисел
            begin
                  x[i]:=y[i];
-                 ChangedCount:=ChangedCount + 1;
+                 Inc(ChangedCount);
            end;
      end;
+ }
+
+
 
   writeln(outputdata);
   Writeln(outputdata,'--------------------------------------------------------------------------------');
   writeln(outputdata);
-  writeln(outputdata,'Ёлементы массивов X, Y:':50);
+  writeln(outputdata,'Ёлементы массивa X:':50);
   Writeln;
   for i:=0 to n-1 do
      begin
-        writeln(outputdata,x[i]:37:1,' ',y[i]:5:1);
+        writeln(outputdata,x[i]:50:1);
            end;
   Writeln;
 

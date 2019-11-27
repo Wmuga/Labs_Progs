@@ -1,0 +1,1 @@
+start Lab11_p.exe "in/input1.txt" "out/output_p1.txt"

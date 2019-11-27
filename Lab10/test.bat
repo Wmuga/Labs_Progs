@@ -1,0 +1,1 @@
+start Lab10.exe "in/input.txt" "out/output.txt"

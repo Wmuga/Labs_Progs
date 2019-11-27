@@ -100,7 +100,7 @@ Conditionals=
 DebugSourceDirs=
 UsePackages=0
 [Parameters]
-RunParams="in\input_an6.txt" "out/output_an6.txt"
+RunParams=
 HostApplication=
 Launcher=
 UseLauncher=0

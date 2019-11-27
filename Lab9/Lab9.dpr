@@ -36,19 +36,19 @@ begin
     Writeln(outputdata,'Неверное n1(<1)');
     Exit;
   end;
-  if (n1>max_value) then
+  if (n1>ar_length) then
   begin
-    Writeln(outputdata,'Неверное n1(>',max_value,')');
+    Writeln(outputdata,'Неверное n1(>',ar_length,')');
     Exit;
   end;
   if (n2<1) then
   begin
-    Writeln(outputdata,'Неверное n1(<1)');
+    Writeln(outputdata,'Неверное n2(<1)');
     Exit;
   end;
-  if (n2>max_value) then
+  if (n2>ar_length) then
   begin
-    Writeln(outputdata,'Неверное n2(>',max_value,')');
+    Writeln(outputdata,'Неверное n2(>',ar_length,')');
     Exit;
   end;
 
@@ -116,8 +116,9 @@ begin
   writeln(outputdata);
   Writeln(outputdata,'--------------------------------------------------------------------------------');
   writeln(outputdata);
-  writeln(outputdata,'Номер первной нулевой строки: ', num);
-  except Writeln(outputdata,'Ошибка при работе программы');
+  if (num<>-1) then writeln(outputdata,'Номер первой нулевой строки: ', num)
+  else writeln(outputdata,'Нет нулевых строк');
+  except Writeln('Ошибка при чтении файла'); Readln;
   end;
   finally CloseFile(outputdata);
   end;
