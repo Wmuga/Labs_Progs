@@ -5,7 +5,7 @@ program Lab10;
 uses
   SysUtils;
 
-const ar_len = 30;
+const ar_len = 10;
 
 type intarr = array[0..ar_len] of Integer;
 
@@ -52,10 +52,10 @@ begin
   writeln(out_data,' оличество элементов массива n = ':55, n);
   writeln(out_data,'');
 
-  writeln(out_data,'Ёлементы массива A:':50);
+  write(out_data,'Ёлементы массива A: ':40);
   for i:=0 to n-1 do
   begin
-    writeln(out_data,A[i]:37);
+    write(out_data,A[i]:3);
   end;
   Writeln(out_data,'');
 
@@ -77,12 +77,9 @@ begin
 
   find_elem(n, A, num);
 
-  min_value:=a[num];
+  min_value:=Abs(a[num]);
 
   search_value(n, A, num, min_value);
 
   data_out(n,A, min_value);
-
-  Writeln('Succesfull end');
-  Readln;
 end.

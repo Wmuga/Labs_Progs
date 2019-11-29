@@ -11,39 +11,18 @@ const ar_length = 5;
 type matrix = array[0..ar_length-1,0..ar_length-1] of Integer;
 type intarr = array[0..ar_length] of Integer;
 
-procedure get_data(var nA:Integer; var nB:Integer; var nC:Integer; var A:matrix; var B:matrix; var C:matrix);
-var i,i1:Byte; in_data:TextFile;
+procedure get_data(var n:Integer; var M:matrix; var in_data:TextFile);
+var i,i1:Integer;
 begin
-  AssignFile(in_data,ParamStr(1));
-  Reset(in_data);
-  Readln(in_data,nA);
-  for i:=0 to nA-1 do
+  Readln(in_data,n);
+  for i:=0 to n-1 do
   begin
-    for i1:=0 to nA-2 do
+    for i1:=0 to n-1 do
     begin
-      read(in_data,A[i][i1]);
+      read(in_data,M[i][i1]);
     end;
-    readln(in_data,A[i][nA-1]);
+    readln(in_data);
   end;
-  Readln(in_data,nB);
-  for i:=0 to nB-1 do
-  begin
-    for i1:=0 to nB-2 do
-    begin
-      read(in_data,B[i][i1]);
-    end;
-    readln(in_data,B[i][nB-1]);
-  end;
-  Readln(in_data,nC);
-  for i:=0 to nC-1 do
-  begin
-    for i1:=0 to nC-2 do
-    begin
-      read(in_data,C[i][i1]);
-    end;
-    readln(in_data,C[i][nC-1]);
-  end;
-  CloseFile(in_data);
 end;
 
 procedure processing(const n:Integer; const M:matrix; var product:Int64; var x:intarr);
@@ -81,7 +60,7 @@ begin
     write(outputdata,' ':10);
     for i1:=0 to n-1 do
     begin
-      write(outputdata,M[i][i1]:2);
+      write(outputdata,M[i][i1]:3);
     end;
     Writeln(outputdata);
   end;
@@ -124,13 +103,19 @@ var
   XA,XB,XC:intarr;
   nA,nB,nC:Integer;
   productA,productB,productC:int64;
+  in_data:TextFile;
 
 begin
-  setConsoleCP(1251);
-  setConsoleOutputCP(1251);
 
-  get_data(nA,nB,nC,A,B,C);
+  AssignFile(in_data,ParamStr(1));
+  Reset(in_data);
 
+  get_data(nA,A,in_data);
+  get_data(nB,B,in_data);
+  get_data(nC,C,in_data);
+
+  CloseFile(in_data);
+  
   productA:=1;
   productB:=1;
   productC:=1;
