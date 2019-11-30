@@ -27,17 +27,18 @@ var i:Byte;
 begin
   for i:=0 to n-1 do
   begin
-    if (A[i] mod 5 = 0) and (num=-1) then num:=i;
+    if (A[i] mod 5 = 0) and (num=-1) then num:=i+1;
   end;
   if num=-1 then num:=0;
 end;
 
 procedure search_value(const n:Integer; const A:intarr; const num:Integer; var min_value:Integer);
-var i:Byte;
+var i,min_v:Byte;
 begin
   for i:=num+1 to n-1 do
   begin
-    if (A[i]>=0) and (A[i]<min_value) then min_value:=A[i];
+    min_v:=min_value;
+    if (A[i]>=0) and (A[i]<min_v) then min_value:=A[i];
   end;
 end;
 
@@ -60,7 +61,8 @@ begin
   Writeln(out_data,'');
 
   writeln(out_data,'---------------------------------------------------------------');
-  writeln(out_data,'Минимальный элемент массива А, удовлетворяющий условие равен ',min_value);
+  if (min_value<0) then Writeln(out_data,'Нет такого элемента массива А, который удовлетворял заданным условиям')
+  else writeln(out_data,'Минимальный элемент массива А, удовлетворяющий условие равен ',min_value);
   CloseFile(out_data);
 end;
 
@@ -70,16 +72,18 @@ var
 
 
 begin
-  n:=-1;
   get_data(n, A);
 
   num:=-1;
 
   find_elem(n, A, num);
 
-  min_value:=Abs(a[num]);
-
+  if (num=n) then min_value:=-1
+  else
+  begin
+  min_value:=A[num];
   search_value(n, A, num, min_value);
+  end;
 
   data_out(n,A, min_value);
 end.
