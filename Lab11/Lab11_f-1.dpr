@@ -7,9 +7,11 @@ uses
   Windows;
 
 const ar_length = 5;
+const max_m_count = 5;
 
 type matrix = array[0..ar_length-1,0..ar_length-1] of Integer;
 type intarr = array[0..ar_length] of Integer;
+type int64arr = array[0..max_m_count] of int64;
 
 procedure get_data(var n:Integer; var M:matrix; var in_data:TextFile);
 var i,i1:Integer;
@@ -43,10 +45,10 @@ begin
   processing:=product;
 end;
 
-procedure data_out(const n:Integer; const M:matrix; const name:char; const product:int64; const X:intarr; var outputdata:TextFile);
+procedure data_out(const n:Integer; const M:matrix; const name:byte; const product:int64; const X:intarr; var outputdata:TextFile);
 var i,i1:Byte;
 begin
-  if (name='A') then writeln(outputdata,'Лабораторная работа №11':55);
+  if (name=0) then writeln(outputdata,'Лабораторная работа №11':55);
   writeln(outputdata,'');
 
   writeln(outputdata,'Размерность матрицы ',name,' = ', n, '*',n);
@@ -75,27 +77,29 @@ begin
   Writeln(outputdata,'--------------------------------------------------------------------------------');
 end;
 
-procedure search_min(const productA:Int64; const productB:Int64; const productC:Int64; var outputdata:TextFile);
+procedure search_min(const product:int64arr; const n:Integer; var outputdata:TextFile);
+var min_prod:Int64; i,num:Integer;
 begin
    Writeln(outputdata);
-   if productA>productB then
+   num:=0;
+   min_prod:=product[i];
+   for i:=1 to n-1 do
    begin
-     if productB>productC  then Writeln(outputdata,'Минимальное произведение всех элементов массива у матрицы C (',productC,')')
-      else Writeln(outputdata,'Минимальное произведение всех элементов массива у матрицы B (',productB,')');
-   end
-   else
-   begin
-     if productA<productC then Writeln(outputdata,'Минимальное произведение всех элементов массива у матрицы A (',productA,')')
-     else Writeln(outputdata,'Минимальное произведение всех элементов массива у матрицы C (',productC,')');
+     if product[i]<min_prod then
+     begin
+       num:=i;
+       min_prod:=product[i];
+     end;
    end;
+   Writeln(outputdata,'Наименьшее произведение элементов у матрицы ',num,'(',product[num],')');
 end;
 
 const max_value = 5;
 var
   M:matrix;
   X:intarr;
-  n:Integer;
-  product:array[0..ar_length] of int64;
+  i,n,m_count:Integer;
+  product:int64arr;
   in_data,fout:TextFile;
 
 begin
@@ -104,24 +108,20 @@ begin
 
   AssignFile(in_data,ParamStr(1));
   Reset(in_data);
-
-  get_data(nA,A,in_data);
-  get_data(nB,B,in_data);
-  get_data(nC,C,in_data);
-
-  CloseFile(in_data);
-
-  productA:=processing(nA,A,XA);
-  productB:=processing(nB,B,XB);
-  productC:=processing(nC,C,XC);
-
   AssignFile(fout,ParamStr(2));
   Rewrite(fout);
 
-  data_out(nA,A,'A',productA,XA,fout);
-  data_out(nB,B,'B',productB,XB,fout);
-  data_out(nC,C,'C',productC,XC,fout);
+  Readln(in_data,m_count);
 
-  search_min(productA,productB,productC,fout);
+  for i:=0 to m_count-1 do
+  begin
+    get_data(n,M,in_data);
+    product[i]:=processing(n,M,X);
+    data_out(n,M,i,product[i],X,fout);
+  end;
+
+  search_min(product,m_count,fout);
+
+  CloseFile(in_data);
   CloseFile(fout);
 end.
