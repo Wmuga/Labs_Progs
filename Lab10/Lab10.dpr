@@ -17,7 +17,7 @@ begin
   Readln(in_data,n);
   for i:=0 to n-1 do
   begin
-    read(in_data,A[i]);
+    readln(in_data,A[i]);
   end;
   CloseFile(in_data);
 end;
@@ -25,9 +25,11 @@ end;
 procedure find_elem(const n:Integer; const A:intarr; var num:Integer);
 var i:Byte;
 begin
-  for i:=0 to n-1 do
+  i:=0;
+  while (i<n) and (num=-1) do
   begin
-    if (A[i] mod 5 = 0) and (num=-1) then num:=i+1;
+    if (A[i] mod 5 = 0) then num:=i+1;
+    Inc(i);
   end;
   if num=-1 then num:=0;
 end;
@@ -35,14 +37,15 @@ end;
 procedure search_value(const n:Integer; const A:intarr; const num:Integer; var min_value:Integer);
 var i,min_v:Byte;
 begin
+  min_value:=A[num];
   for i:=num+1 to n-1 do
   begin
     min_v:=min_value;
-    if (A[i]>=0) and (A[i]<min_v) then min_value:=A[i];
+    if (A[i]>0) and (A[i]<min_v) then min_value:=A[i];
   end;
 end;
 
-procedure data_out(const n:Integer; const A:intarr; const min_value:Integer);
+procedure data_out(const n:Integer; const A:intarr; const min_value:Integer; const num:Integer);
 var i:Byte; out_data:TextFile;
 begin
   AssignFile(out_data,ParamStr(2));
@@ -56,13 +59,15 @@ begin
   write(out_data,'Элементы массива A: ':40);
   for i:=0 to n-1 do
   begin
-    write(out_data,A[i]:3);
+    write(out_data,A[i],' ');
   end;
   Writeln(out_data,'');
 
   writeln(out_data,'---------------------------------------------------------------');
-  if (min_value<0) then Writeln(out_data,'Нет такого элемента массива А, который удовлетворял заданным условиям')
-  else writeln(out_data,'Минимальный элемент массива А, удовлетворяющий условие равен ',min_value);
+  if (min_value<0) then if (num>0) then Writeln(out_data,'Нет положительных элементов массива А, расположенного после ', num,' элемента массива')
+  else Writeln(out_data,'Нет положительных элементов массива А')
+  else if (num>0) then writeln(out_data,'Минимальный положительный элемент массива А, расположенный после ', num,' элемента массива равен ',min_value)
+  else writeln(out_data,'Минимальный положитльный элемент массива А, расположенный после начала массива (нет кратных 5) равен ',min_value);
   CloseFile(out_data);
 end;
 
@@ -80,10 +85,7 @@ begin
 
   if (num=n) then min_value:=-1
   else
-  begin
-  min_value:=A[num];
   search_value(n, A, num, min_value);
-  end;
 
-  data_out(n,A, min_value);
+  data_out(n,A, min_value, num);
 end.

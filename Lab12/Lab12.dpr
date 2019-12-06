@@ -17,10 +17,9 @@ begin
   try
     Reset(in_data);
     try
-      get_data(n,A,in_data,P,E);
+      errType:=get_data(n,A,in_data,P,E);
     finally CloseFile(in_data); end;
-
-    errType:=checkData(n,P,E);
+    if errType=0 then errType:=checkData(n,P,E);
     if errType=1 then  Writeln('Неверное n(<1)')
     else if errType=2 then Writeln('Неверное n(>',ar_length,')')
     else if errType=3 then Writeln('Неверное P(<0)')
@@ -45,7 +44,7 @@ begin
           try
             data_out(n,A,P,E,av_value,out_data);
           finally CloseFile(out_data); end;
-        except Writeln('Взлом жопы'); end;
+        except Writeln('Невозможно создать файл с выходными данными'); end;
       end
       else writeln('Элемент А[',matrixValid div 10,',',matrixValid mod 10,'] неверен');
     end;

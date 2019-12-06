@@ -1,4 +1,4 @@
-unit UT; //Unit Task (UselessTrash)
+unit UT;
 
 interface
 
@@ -14,7 +14,7 @@ const max_P = 18;
 type matrix = array[0..ar_length-1,0..ar_length-1] of Integer;
 type intarr = array[0..ar_length] of Integer;
 
-procedure get_data(var n:Integer; var M:matrix; var in_data:TextFile; var P:Integer; var E:Integer);
+function  get_data(var n:Integer; var M:matrix; var in_data:TextFile; var P:Integer; var E:Integer):byte;
 function  checkData(const n:Integer; const P:Integer; const E:Integer):byte;
 function  checkMatrix(const n:Integer; const A:matrix):Integer;
 function  testValid(const n:Integer; const A:matrix; const P:Integer; const E:Integer):Boolean;
@@ -23,10 +23,14 @@ procedure data_out(const n:Integer; const M:matrix; const P:Integer; const E:Int
 
 implementation
 
-procedure get_data(var n:Integer; var M:matrix; var in_data:TextFile; var P:Integer; var E:Integer);
+function  get_data(var n:Integer; var M:matrix; var in_data:TextFile; var P:Integer; var E:Integer):byte;
 var i,i1:Integer;
 begin
   Readln(in_data,n);
+  if (n<1) then get_data:=1
+  else if (n>ar_length) then get_data:=2
+  else
+  begin
   Readln(in_data,P);
   Readln(in_data,E);
   for i:=0 to n-1 do
@@ -37,16 +41,17 @@ begin
     end;
     readln(in_data);
   end;
+  get_data:=0;
+  end;
 end;
 
 function  checkData(const n:Integer; const P:Integer; const E:Integer):byte;
 begin
-  if (n<1) then checkData:=1
-  else if (n>ar_length) then checkData:=2
-  else if (P<0) then checkData:=3
+  if (P<0) then checkData:=3
   else if (P>max_P) then checkData:=4
   else if (E<-9) then checkData:=5
-  else if (E>max_E) then checkData:=6;
+  else if (E>max_E) then checkData:=6
+  else checkData:=0;
 end;
 
 function  checkMatrix(const n:Integer; const A:matrix):Integer;

@@ -25,21 +25,22 @@ begin
   end;
 end;
 
-procedure processing(const n:Integer; const M:matrix; var product:Int64; var x:intarr);
-var i,i1:Byte; cont:Boolean;
+function processing(const n:Integer; const M:matrix;var x:intarr):int64;
+var i,i1:Byte;product:int64;cont:Boolean;
 begin
-  cont:=False;
+  product:=1;
   for i:=0 to n-1 do
   begin
+    cont:=False;
     for i1:=0 to n-1 do
     begin
-      if ((M[i][i1]>=1) or (M[i1][i]>=1)) then cont:=True;
       product:=product*M[i][i1];
+      if ((M[i][i1]>=1) or (M[i1][i]>=1)) then cont:=True;
     end;
     if (cont) then x[i]:=1
     else x[i]:=0;
-    cont:=False;
   end;
+  processing:=product;
 end;
 
 procedure data_out(const n:Integer; const M:matrix; const name:char; const product:int64; const X:intarr; var outputdata:TextFile);
@@ -91,13 +92,15 @@ end;
 
 const max_value = 5;
 var
-  A,B,C:matrix;
-  XA,XB,XC:intarr;
-  nA,nB,nC:Integer;
-  productA,productB,productC:int64;
+  M:matrix;
+  X:intarr;
+  n:Integer;
+  product:array[0..ar_length] of int64;
   in_data,fout:TextFile;
 
 begin
+  setConsoleCP(1251);
+  setConsoleOutputCP(1251);
 
   AssignFile(in_data,ParamStr(1));
   Reset(in_data);
@@ -108,13 +111,9 @@ begin
 
   CloseFile(in_data);
 
-  productA:=1;
-  productB:=1;
-  productC:=1;
-
-  processing(nA,A,productA,XA);
-  processing(nB,B,productB,XB);
-  processing(nC,C,productC,XC);
+  productA:=processing(nA,A,XA);
+  productB:=processing(nB,B,XB);
+  productC:=processing(nC,C,XC);
 
   AssignFile(fout,ParamStr(2));
   Rewrite(fout);

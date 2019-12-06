@@ -25,45 +25,27 @@ begin
   end;
 end;
 
-function processing(const n:Integer; const M:matrix):intarr;
-var i,i1:Byte; cont:Boolean; x:intarr;
-begin
-  cont:=False;
-  for i:=0 to n-1 do
-  begin
-    i1:=0;
-    while (not cont) and (i1<n-1) do
-    begin
-      if ((M[i][i1]>=1) or (M[i1][i]>=1)) then cont:=True;
-      Inc(i1);
-    end;
-    if (cont) then x[i]:=1
-    else x[i]:=0;
-    cont:=False;
-  end;
-  processing:=x;
-end;
-
-function product_calc(const n:Integer; const M:matrix):int64;
-var i,i1:Byte;product:int64;
+function processing(const n:Integer; const M:matrix;var x:intarr):int64;
+var i,i1:Byte;product:int64;cont:Boolean;
 begin
   product:=1;
   for i:=0 to n-1 do
   begin
+    cont:=False;
     for i1:=0 to n-1 do
     begin
       product:=product*M[i][i1];
+      if ((M[i][i1]>=1) or (M[i1][i]>=1)) then cont:=True;
     end;
+    if (cont) then x[i]:=1
+    else x[i]:=0;
   end;
-  product_calc:=product;
+  processing:=product;
 end;
 
-procedure data_out(const n:Integer; const M:matrix; const name:char; const product:int64; const X:intarr);
-var i,i1:Byte; outputdata:TextFile;
+procedure data_out(const n:Integer; const M:matrix; const name:char; const product:int64; const X:intarr; var outputdata:TextFile);
+var i,i1:Byte;
 begin
-  AssignFile(outputdata,ParamStr(2));
-  if name='A' then Rewrite(outputdata)
-  else Append(outputdata);
   if (name='A') then writeln(outputdata,'Лабораторная работа №11':55);
   writeln(outputdata,'');
 
@@ -91,14 +73,10 @@ begin
      end;
   writeln(outputdata);
   Writeln(outputdata,'--------------------------------------------------------------------------------');
-  CloseFile(outputdata);
 end;
 
-procedure search_min(const productA:Int64; const productB:Int64; const productC:Int64);
-var outputdata:TextFile;
+procedure search_min(const productA:Int64; const productB:Int64; const productC:Int64; var outputdata:TextFile);
 begin
-   AssignFile(outputdata, ParamStr(2));
-   Append(outputdata);
    Writeln(outputdata);
    if productA>productB then
    begin
@@ -110,7 +88,6 @@ begin
      if productA<productC then Writeln(outputdata,'Минимальное произведение всех элементов массива у матрицы A (',productA,')')
      else Writeln(outputdata,'Минимальное произведение всех элементов массива у матрицы C (',productC,')');
    end;
-   CloseFile(outputdata);
 end;
 
 const max_value = 5;
@@ -119,7 +96,7 @@ var
   XA,XB,XC:intarr;
   nA,nB,nC:Integer;
   productA,productB,productC:int64;
-  in_data:TextFile;
+  in_data,fout:TextFile;
 
 begin
   setConsoleCP(1251);
@@ -134,17 +111,17 @@ begin
 
   CloseFile(in_data);
 
-  productA:=product_calc(nA, A);
-  productB:=product_calc(nB, B);
-  productC:=product_calc(nC, C);
+  productA:=processing(nA,A,XA);
+  productB:=processing(nB,B,XB);
+  productC:=processing(nC,C,XC);
 
-  XA:=processing(nA,A);
-  XB:=processing(nB,B);
-  XC:=processing(nC,C);
+  AssignFile(fout,ParamStr(2));
+  Rewrite(fout);
 
-  data_out(nA,A,'A',productA,XA);
-  data_out(nB,B,'B',productB,XB);
-  data_out(nC,C,'C',productC,XC);
+  data_out(nA,A,'A',productA,XA,fout);
+  data_out(nB,B,'B',productB,XB,fout);
+  data_out(nC,C,'C',productC,XC,fout);
 
-  search_min(productA,productB,productC);
+  search_min(productA,productB,productC,fout);
+  CloseFile(fout);
 end.
