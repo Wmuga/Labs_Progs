@@ -8,27 +8,36 @@ SysUtils,
 
 const ar_length = 9;
 const max_value = 9;
-const max_E = 9;
-const max_P = 18;
+const max_E = 18;
+const max_P = 9;
 
 type matrix = array[0..ar_length-1,0..ar_length-1] of Integer;
-type intarr = array[0..ar_length] of Integer;
+type realarr = array[0..ar_length] of real;
 
-function  get_data(var n:Integer; var M:matrix; var in_data:TextFile; var P:Integer; var E:Integer):byte;
-function  checkData(const n:Integer; const P:Integer; const E:Integer):byte;
-function  checkMatrix(const n:Integer; const A:matrix):Integer;
+function  get_data(var n:Integer; var M:matrix; var in_data:TextFile; var P:Integer; var E:Integer):Boolean;
+function  checkData(const P:Integer; const E:Integer):Boolean;
+function  checkMatrix(const n:Integer; const A:matrix):Boolean;
 function  testValid(const n:Integer; const A:matrix; const P:Integer; const E:Integer):Boolean;
-function  calc_av(const n:Integer; const A:Matrix):intarr;
-procedure data_out(const n:Integer; const M:matrix; const P:Integer; const E:Integer; const x:Intarr; var outputdata:TextFile);
+function  calc_av(const n:Integer; const A:Matrix):realarr;
+procedure data_out(const n:Integer; const M:matrix; const P:Integer; const E:Integer; const x:realarr; var outputdata:TextFile);
 
 implementation
 
-function  get_data(var n:Integer; var M:matrix; var in_data:TextFile; var P:Integer; var E:Integer):byte;
-var i,i1:Integer;
+function  get_data(var n:Integer; var M:matrix; var in_data:TextFile; var P:Integer; var E:Integer):boolean;
+var i,i1:Integer; flag:Boolean;
 begin
+  flag:=True;
   Readln(in_data,n);
-  if (n<1) then get_data:=1
-  else if (n>ar_length) then get_data:=2
+  if (n<1) then
+  begin
+    Writeln('Неверное n(<1)');
+    flag:=False;
+  end
+  else if (n>ar_length) then
+  begin
+    Writeln('Неверное n(>',ar_length,')');
+    flag:=False;
+  end
   else
   begin
   Readln(in_data,P);
@@ -41,37 +50,57 @@ begin
     end;
     readln(in_data);
   end;
-  get_data:=0;
   end;
+  get_data:=flag;
 end;
 
-function  checkData(const n:Integer; const P:Integer; const E:Integer):byte;
+function  checkData(const P:Integer; const E:Integer):boolean;
+var flag:Boolean;
 begin
-  if (P<0) then checkData:=3
-  else if (P>max_P) then checkData:=4
-  else if (E<-9) then checkData:=5
-  else if (E>max_E) then checkData:=6
-  else checkData:=0;
+  flag := True;
+  if (E<0) then
+  begin
+    Writeln('Неверное E(<0)');
+    flag := False;
+  end
+  else if (E>max_E) then
+  begin
+    Writeln('Неверное E(>',max_E,')');
+    flag := False;
+  end
+  else if (P<-(max_P)) then
+  begin
+    Writeln('Неверное P(<',-(max_P),')');
+    flag := False;
+  end
+  else if (P>max_P) then
+  begin
+    Writeln('Неверное P(>',max_P,')');
+    flag := False;
+  end;
+  checkData:=flag;
 end;
 
-function  checkMatrix(const n:Integer; const A:matrix):Integer;
-var MatrixErr:Integer; i,i1:Byte; err:Boolean;
+function  checkMatrix(const n:Integer; const A:matrix):Boolean;
+var i,i1:Byte; err:Boolean;
 begin
   i:=0;
   err:=False;
-  while (i<n-1) and (not err) do
+  while (i<n) and (not err) do
   begin
     i1:=0;
-    while (i1<n-1) and (not err) do
+    while (i1<n) and (not err) do
     begin
-      if Abs(A[i][i1])>max_value then err:=True;
+      if Abs(A[i][i1])>max_value then
+      begin
+      err:=True;
+      writeln('Элемент А[',i+1,',',i1+1,'] неверен');
+      end;
       Inc(i1);
     end;
     Inc(i);
   end;
-  if (err) then MatrixErr:=i*10+i1
-  else MatrixErr:=-1;
-  checkMatrix:=MatrixErr;
+  checkMatrix:=not err;
 end;
 
 function  testValid(const n:Integer; const A:matrix; const P:Integer; const E:Integer):Boolean;
@@ -79,10 +108,10 @@ var i,i1:Byte; isValid:Boolean;
 begin
   i:=0;
   isValid:=True;
-  while (i<n-1) and (isValid) do
+  while (i<n) and (isValid) do
   begin
     i1:=0;
-    while (i1<n-1) and (isValid) do
+    while (i1<n) and (isValid) do
     begin
       if Abs((A[i][i1])-P)<E then isValid:=False;
       Inc(i1);
@@ -92,8 +121,8 @@ begin
   testValid:=isValid;
 end;
 
-function  calc_av(const n:Integer; const A:matrix):intarr;
-var x:intarr; i,i1,p_count:byte;
+function  calc_av(const n:Integer; const A:matrix):realarr;
+var x:realarr; i,i1,p_count:byte;
 begin
   for i:=0 to n-1 do
   begin
@@ -107,12 +136,12 @@ begin
       Inc(p_count);
     end;
     end;
-    if (p_count<>0) then x[i]:=x[i] div p_count;
+    if (p_count<>0) then x[i]:=x[i]/p_count;
   end;
   calc_av:=x; 
 end;
 
-procedure data_out(const n:Integer; const M:matrix; const P:Integer; const E:Integer; const x:Intarr; var outputdata:TextFile);
+procedure data_out(const n:Integer; const M:matrix; const P:Integer; const E:Integer; const x:realarr; var outputdata:TextFile);
 var i,i1:Byte;
 begin
   writeln(outputdata,'Лабораторная работа №12':55);
@@ -140,7 +169,7 @@ begin
   begin
     for i:=0 to n-1 do
     begin
-      Writeln(outputdata,'Среднее значение положительных элементов строки ',i+1,' = ', x[i]);
+      Writeln(outputdata,'Среднее значение положительных элементов строки ',i+1,' = ', x[i]:4:2);
     end;
     end;
 end;

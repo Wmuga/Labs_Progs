@@ -100,7 +100,7 @@ Conditionals=
 DebugSourceDirs=
 UsePackages=0
 [Parameters]
-RunParams="in/input1.txt" "out/output1.txt"
+RunParams="in/input1.txt" "output1.txt"
 HostApplication=
 Launcher=
 UseLauncher=0
