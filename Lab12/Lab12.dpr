@@ -44,7 +44,7 @@ begin
     finally CloseFile(out_data); end;
     except Writeln('Невозможно создать файл с выходными данными'); end;
     finally CloseFile(in_data); end;
-  except Writeln('Невозможно открыть входной файл.');  end;
+    except Writeln('Невозможно открыть входной файл.');  end;
   write('End');
   Readln;
 end.
