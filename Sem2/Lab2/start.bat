@@ -1,0 +1,1 @@
+for /l %%i in (1,1,8) do start Lab2.exe "typed/typed%%i" "input/test%%i.txt"
