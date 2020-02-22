@@ -209,7 +209,7 @@ begin
 
   repeat
     Readln(k);  Dec(k);
-    if (k>i) or (k<1) then Writeln('Выходит за допустимые пределы')
+    if (k>i) or (k<0) then Writeln('Выходит за допустимые пределы')
     else flag:=True;
   until (flag);
 
