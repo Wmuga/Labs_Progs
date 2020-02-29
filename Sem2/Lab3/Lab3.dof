@@ -100,7 +100,7 @@ Conditionals=
 DebugSourceDirs=
 UsePackages=0
 [Parameters]
-RunParams="in/list.txt"
+RunParams="in/in7.txt"
 HostApplication=
 Launcher=
 UseLauncher=0

@@ -4,7 +4,7 @@ interface
 
 type
   TInfo = string;
-
+  TStrSet = array[0..60] of string;
   PElem = ^TElem;
   TElem = record
       info: TInfo;
@@ -22,6 +22,12 @@ procedure AddLast(ListN: PElem; var ListK: PElem; r: TInfo);
 procedure AddMedium(ListN,ListC,ListK: PElem; r: TInfo);
 // очистить список
 procedure FreeList(var ListN, ListK: PElem);
+//получить слова
+procedure GetDict(var Dict:TStrSet; var DictLen:byte);
+//Проверка на наличие слова в словаре
+function inDict(var Dict:TStrSet; var DictLen:byte;const r:TInfo):boolean;
+//записать получившийся словарь
+procedure WriteDict(const Dict:TstrSet; const DictLen:byte);
 
 implementation
 
@@ -85,6 +91,47 @@ begin
     Elem:=ListN;
   end;
   ListK:=nil;
+end;
+
+procedure GetDict;
+var inp:TextFile; i:Integer; buff:string;
+begin
+  AssignFile(inp,'in/dict.txt');
+  Reset(inp);
+  try
+  i:=0;
+  while not(eof(inp)) do
+  begin
+    Readln(inp,buff);
+    Dict[i]:=buff;
+    Inc(i);
+  end;
+  DictLen:=i;
+  finally CloseFile(inp); end;
+end;
+
+function inDict;
+var i:Byte;
+begin
+  result:=False;
+  for i:=0 to DictLen-1 do
+    if Dict[i]=r then
+    begin
+    result:=True;
+    exit;
+    end;
+end;
+
+procedure WriteDict;
+var outp:TextFile; i:Integer;
+begin
+  AssignFile(outp,'in/dict.txt');
+  Rewrite(outp);
+  for i:=0 to DictLen-1 do
+  begin
+    Writeln(outp,Dict[i]);
+  end;
+  CLoseFile(outp);
 end;
 
 end.

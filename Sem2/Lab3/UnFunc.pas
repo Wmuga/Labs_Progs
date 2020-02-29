@@ -19,6 +19,11 @@ implementation
 procedure AddR(var ListN, ListK: PElem; r: TInfo); // адреса начала и конца списка и R
 var ListC: PElem;  // текущий элемент списка
 begin
+  if not inDict(Dict,DictLen,r) then
+  begin
+    Dict[DictLen]:=r;
+    Inc(DictLen);
+  end;
   if ListN = nil then CreateList(ListN, ListK, r)  // если список пуст
   else
     if Length(r) >= Length(ListN^.info) then AddFirst(ListN, ListK, r)  // добавить в начало
@@ -36,13 +41,13 @@ end;
 //  "Добавить псевдослучайные N элементов" в текущий список
 procedure AddN;
 var n,i: integer; r: Integer;
-const words:array[0..14] of string = ('жил','был','бюрер','нетужил','пришел','дегтярев','бюрера','не','стало','бывает','же','такое','ОлегБылЗдесь','Всем','Пока');
 begin
   write('Сколько N=?'); readln(n);
   for i:=0 to n-1 do
   begin
-    r:=Random(14);
-    AddR(NachaloSpiska, KonecSpiska, words[r]);
+    if i mod 5 = 0 then Randomize;
+    r:=Random(DictLen-1);
+    AddR(NachaloSpiska, KonecSpiska, Dict[r]);
   end;
 end;
 
@@ -92,20 +97,23 @@ procedure SearchIt;
 var
   ListC: PElem;
   isFound:Boolean;
+  i:Integer;
 
 const letters:set of char = ['Б','В','Г'];
 
 begin
   ListC:=NachaloSpiska;
   isFound:=false;
+  i:=1;
   while (ListC<>nil) and (not isFound) do
   begin
     if ((AnsiUpperCase(ListC^.info))[1] in letters) then
     begin
-      Writeln('Найдена строка, начинающаяся на одну из заданных букв:',ListC^.info);
+      Writeln('Найдена строка, удовлетворяющая заданным условием.Её номер:',i);
       isFound:=True;
     end
     else ListC:=ListC^.next;
+    Inc(i);
   end;
   if not isFound then writeln('Нет таких элементов списка');
 end;

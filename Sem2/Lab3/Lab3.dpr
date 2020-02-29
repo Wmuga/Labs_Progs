@@ -1,5 +1,4 @@
 program Lab3;
-
 {$APPTYPE CONSOLE}
 
 uses
