@@ -1,0 +1,7 @@
+first
+middle
+last
+none
+one by one is
+one by one none
+two
