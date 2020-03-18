@@ -38,7 +38,7 @@ int main(int argc, char** argv) {
                 printf("Unknown command\n");
                 break;
         }
-        printf("-------------------------------");
+        printf("-------------------------------\n");
     }
     return 0;
 }

@@ -12,7 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="46f5acaa-1f7f-4aff-9b92-fdaf9f7dc25b" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,21 +26,15 @@
   </component>
   <component name="ProjectId" id="1ZDlsqnHjL3xIpGlZZQRg3XiVvs" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RunManager">
     <configuration name="Lab7" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="&quot;D:\Documents\GitHub\Labs_Progs\Sem2\Lab7\in.txt&quot; &quot;D:\Documents\GitHub\Labs_Progs\Sem2\Lab7\out.bin&quot;" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Lab7" TARGET_NAME="Lab7" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Lab7" RUN_TARGET_NAME="Lab7">
@@ -62,6 +55,7 @@
       <updated>1584381754984</updated>
       <workItem from="1584381758813" duration="1326000" />
       <workItem from="1584433496127" duration="8761000" />
+      <workItem from="1584554480178" duration="3200000" />
     </task>
     <servers />
   </component>
@@ -80,5 +74,43 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="94" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584554675786">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="94" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.984@0.0.1280.984" timestamp="1584554675786" />
+    <state x="405" y="293" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584555176364">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="405" y="293" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.984@0.0.1280.984" timestamp="1584555176364" />
+    <state x="420" y="245" key="FileChooserDialogImpl" timestamp="1584554570571">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="420" y="245" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1584554570571" />
+    <state width="1236" height="258" key="GridCell.Tab.0.bottom" timestamp="1584557996816">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1236" height="258" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1584557996816" />
+    <state width="1236" height="258" key="GridCell.Tab.0.center" timestamp="1584557996816">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1236" height="258" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1584557996816" />
+    <state width="1236" height="258" key="GridCell.Tab.0.left" timestamp="1584557996816">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1236" height="258" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1584557996816" />
+    <state width="1236" height="258" key="GridCell.Tab.0.right" timestamp="1584557996816">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1236" height="258" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1584557996816" />
+    <state x="141" y="122" key="SettingsEditor" timestamp="1584554589186">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="141" y="122" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1584554589186" />
+    <state x="341" y="314" key="com.intellij.ide.util.TipDialog" timestamp="1584554481405">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="341" y="314" key="com.intellij.ide.util.TipDialog/0.0.1280.984@0.0.1280.984" timestamp="1584554481405" />
   </component>
 </project>
