@@ -29,6 +29,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -43,7 +44,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Lab7" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Lab7" TARGET_NAME="Lab7" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Lab7" RUN_TARGET_NAME="Lab7">
+    <configuration name="Lab7" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="&quot;D:\Documents\GitHub\Labs_Progs\Sem2\Lab7\in.txt&quot; &quot;D:\Documents\GitHub\Labs_Progs\Sem2\Lab7\out.bin&quot;" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Lab7" TARGET_NAME="Lab7" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Lab7" RUN_TARGET_NAME="Lab7">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -60,6 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1584381754984</updated>
       <workItem from="1584381758813" duration="1326000" />
+      <workItem from="1584433496127" duration="8761000" />
     </task>
     <servers />
   </component>
@@ -71,7 +73,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
