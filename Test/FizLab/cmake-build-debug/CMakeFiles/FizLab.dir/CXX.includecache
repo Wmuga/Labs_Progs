@@ -7,7 +7,7 @@
 #IncludeRegexTransform: 
 
 D:/Documents/GitHub/Labs_Progs/Test/FizLab/main.cpp
-iostream
+cstdio
 -
 cmath
 -

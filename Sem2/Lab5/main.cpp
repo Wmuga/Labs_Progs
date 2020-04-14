@@ -15,7 +15,7 @@ double Coeff(double x, int i) //Рекуррентное соотношение
 
 double func(double x) //Контрольная формула
 {
-    return 2*x*atan(x)-2*log(pow(1+pow(x,2),1/2));
+    return 2*x*atan(x)-2*log(pow(1+pow(x,2),1.0/2));
 }
 
 #pragma argsused

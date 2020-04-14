@@ -1,28 +1,28 @@
 #include <cstdlib>
+//Массив названий пород
+char* catType[] = {(char*)"Сиамский",(char*)"Мейн-кун",(char*)"Британская",(char*)"Сибирская",(char*)"Сфинкс",(char*)"Тайская"};
 
-char* catType[] = {(char*)"Siam",(char*)"Test"};
-
-struct Cat
+struct Cat //Структура она же запись
 {
-    int     type;
-    char    name[30];
-    char    color[30];
-    int     age;
-    char    OSName[30];
-    int     place;
+    int   type;        //Порода (храниться как индекс по массиву)
+    char  name[30];    //Кличка
+    char  color[30];   //Окрас
+    int   age;         //Возраст
+    char  OSName[30];  //Фамилия хозяина
+    int   place;       //Место
 };
 
-void CreateNew(char* in, char* out)
+void CreateNew(char* in, char* out) //Создание нового файла
 {
-    FILE* inp  = fopen(in,"r");
-    FILE* outp = fopen(out,"wb");
+    FILE* inp  = fopen(in,"r");    //Открытие файлов ввода и вывода
+    FILE* outp = fopen(out,"wb");  //Приписка b - бинарный файл
     int count = 0;
-    while (true)
+    while (true)   //Считывание данных
     {
         Cat newCat;
         char buffer[3];
         fscanf(inp,"%s",buffer);  newCat.type = atoi(buffer);
-        if (newCat.type==0 || feof(inp)) break;
+        if (newCat.type==0 || feof(inp)) break;  //Проверка на окончание файла или стоп-знак
         fscanf(inp,"%30s",newCat.name);
         fscanf(inp,"%30s",newCat.color);
         fscanf(inp,"%s",buffer); newCat.age = atoi(buffer);
@@ -33,79 +33,94 @@ void CreateNew(char* in, char* out)
     }
     fclose(inp);
     fclose(outp);
-    if (count==0) printf("Created empty file\n");
-    else printf("Created file with %d records\n",count);
-    printf("-------------------------------\nPress any key to continue");
+    if (count==0) printf("Создан пустой файл\n");
+    else printf("Создан файл с %d записями\n",count);
+    printf("-------------------------------\nНажмите ENTER чтобы продолжить\n");
     fgetc(stdin); fflush(stdin);
 }
 
-void ViewBinary(char* file)
+void ViewBinary(char* file) //Просмотр файла
 {
     FILE* pFBin = fopen(file,"rb");
     int count=0;
-    while (true)
+    while (true)  //Считывание данных....
     {
         Cat newCat;
         fread(&newCat, sizeof(newCat),1,pFBin);
-        if (feof(pFBin)) break;
-        printf("Cat N %d:\n  Name:%s\n  Type:%s\n  Age:%d\n  Owner name:%s\n  Place:%d\n",
-                count+1,newCat.name,catType[newCat.type-1],newCat.age,newCat.OSName,newCat.place);
+        if (feof(pFBin)) break;    //...пока не конец файла
+        printf("Кот %d:\n  Кличка: %s\n  Порода: %s\n  Окрас: %s\n  Возраст: %d\n  Хозяин: %s\n  Место: %d\n",
+                count+1,newCat.name,catType[newCat.type-1],newCat.color,newCat.age,newCat.OSName,newCat.place);
         count++;
     }
     fclose(pFBin);
-    if (count==0) printf("EmptyFile\n");
-    printf("-------------------------------\nPress any key to continue");
+    if (count==0) printf("Пустой файл\n");
+    printf("-------------------------------\nНажмите ENTER чтобы продолжить\n");
     fgetc(stdin); fflush(stdin);
 }
 
-void SearchContent(char* file)
+void SearchContent(char* file) //Поиск по ключу
 {
-    int i=-1,count=0;
-    Cat newCat;
+    int i=-1,count=0, av_age=0;
     FILE* pFBin = fopen(file,"rb");
-    int av_age=0;
-    do
+    do //Пока не конец файла
     {
+        Cat newCat;
         i++;
-        fread(&newCat, sizeof(newCat),1,pFBin);
-        if (newCat.type==1 and newCat.place<=10) {
+        fread(&newCat, sizeof(newCat),1,pFBin); //Считывание
+        if (newCat.type==1 and newCat.place<=10 and !feof(pFBin)) //проверка на условие
+        {
             count++;
-            printf("Found cat:\n  Name:%s\n  Type:%s\n  Age:%d\n  Owner name:%s\n  Place:%d\n",
-                    newCat.name,"Siam",newCat.age,newCat.OSName,newCat.place);
+            printf("Найден кот:\n  Кличка: %s\n  Порода: %s\n  Окрас: %s\n  Возраст: %d\n  Хозяин: %s\n  Место: %d\n",
+                   newCat.name,catType[newCat.type-1],newCat.color,newCat.age,newCat.OSName,newCat.place);
             av_age+=newCat.age;
         }
     }while(!feof(pFBin));
     fclose(pFBin);
-    if (i==0) printf("EmptyFile\n");
-    else printf("Average age of these cats is %d\n",av_age/count);
-    printf("-------------------------------\nPress any key to continue");
+    if (i==0) printf("Пустой файл\n");
+    else if (count==0) printf("Не найдено элементов, удовлетворяющих условию\n");
+    else printf("Средний возраст котов:%d\n",av_age/count);
+    printf("-------------------------------\nНажмите ENTER чтобы продолжить\n");
     fgetc(stdin); fflush(stdin);
 }
 
-void ChangeContent(char* file)
+void ChangeContent(char* file) //Корректировка содержимого
 {
     int i=-1,count=0;
     Cat newCat;
     FILE* pFBin = fopen(file,"rb+");
-    do
-    {
-        bool flag=false;
+    do {
+        bool flag = false;
         i++;
-        fread(&newCat, sizeof(newCat),1,pFBin);
-        if (newCat.age<0)   {newCat.age=0; flag=true;}
-        if (newCat.age>15)  {newCat.age=15; flag=true;}
-        if (newCat.place<0) {newCat.place=abs(newCat.place); flag=true;}
-        if (flag)
-        {
-            printf("Corrected %d record:\n  Name:%s\n  Type:%s\n  Age:%d\n  Owner name:%s\n  Place:%d\n",
-                    i,newCat.name,catType[newCat.type-1],newCat.age,newCat.OSName,newCat.place);
-            count++;
+        fread(&newCat, sizeof(newCat), 1, pFBin);
+        //Условия замены
+        if (!feof(pFBin)){ //Проверка на конец файла
+        if (newCat.age < 0) {
+            newCat.age = 0;
+            flag = true;
         }
+        if (newCat.age > 15) {
+            newCat.age = 15;
+            flag = true;
+        }
+        if (newCat.place < 0) {
+            newCat.place = abs(newCat.place);
+            flag = true;
+        }
+        //---
+        if (flag) {
+            printf("Исправлена %d запись:\n  Кличка: %s\n  Порода: %s\n  Окрас: %s\n  Возраст: %d\n  Хозяин: %s\n  Место: %d\n",
+                   i+1, newCat.name, catType[newCat.type - 1], newCat.color, newCat.age, newCat.OSName, newCat.place);
+            count++;
+            fseek(pFBin, 0 - sizeof(newCat), SEEK_CUR); //Двигаемся на заменяемую запись
+            fwrite(&newCat, sizeof(Cat), 1, pFBin); //перезаписываем
+            fseek(pFBin, 0, SEEK_CUR);
+        }
+    }
     }while(!feof(pFBin));
     fclose(pFBin);
-    if (i==0) printf("EmptyFile\n");
-    if (count==0) printf("Needless in correction\n");
-    else printf("Mad %d corrections\n",count);
-    printf("-------------------------------\nPress any key to continue");
+    if (i==0) printf("Пустой файл\n");
+    else if (count==0) printf("Ничего не изменено\n");
+    else printf("Сделано %d изменений\n",count);
+    printf("-------------------------------\nНажмите ENTER чтобы продолжить\n");
     fgetc(stdin); fflush(stdin);
 }

@@ -33,10 +33,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = D:\Programs\JetBrains\CLion\bin\cmake\win\bin\cmake.exe
+CMAKE_COMMAND = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe
 
 # The command to remove a file.
-RM = D:\Programs\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E remove -f
+RM = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,15 +59,15 @@ include CMakeFiles/FizLab.dir/flags.make
 CMakeFiles/FizLab.dir/main.cpp.obj: CMakeFiles/FizLab.dir/flags.make
 CMakeFiles/FizLab.dir/main.cpp.obj: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\Labs_Progs\Test\FizLab\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/FizLab.dir/main.cpp.obj"
-	D:\Programs\mingw-w64\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\FizLab.dir\main.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Test\FizLab\main.cpp
+	D:\Mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\FizLab.dir\main.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Test\FizLab\main.cpp
 
 CMakeFiles/FizLab.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FizLab.dir/main.cpp.i"
-	D:\Programs\mingw-w64\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Test\FizLab\main.cpp > CMakeFiles\FizLab.dir\main.cpp.i
+	D:\Mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Test\FizLab\main.cpp > CMakeFiles\FizLab.dir\main.cpp.i
 
 CMakeFiles/FizLab.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FizLab.dir/main.cpp.s"
-	D:\Programs\mingw-w64\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Test\FizLab\main.cpp -o CMakeFiles\FizLab.dir\main.cpp.s
+	D:\Mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Test\FizLab\main.cpp -o CMakeFiles\FizLab.dir\main.cpp.s
 
 # Object files for target FizLab
 FizLab_OBJECTS = \

@@ -1,15 +1,18 @@
-#include <iostream>
+#include <cstdio>
 #include <cmath>
 
 int main() {
-    double Umv,Uv,Ud;
-    std::cin>>Umv>>Uv>>Ud;
-    double e,dle,de;
-    e = Uv*(Umv-Ud)/(Ud*(Umv-Uv));
-    dle= sqrt(
-            pow(Umv*0.03/(Uv*(Umv-Uv)),2) + pow(Umv*0.03/(Ud*(Umv-Ud)),2) + pow((Uv-Ud)*0.03/((Umv-Uv)*(Umv-Ud)),2)
+    double l = 0.0025;
+    double r = 0.002;
+    double N = 100.0;
+    double I = 0.2;
+    double x0 = -1*l*29.0/27.0;
+    double u0 = 4*3.14*pow(10,-7);
+    double res = u0*I*N/2*(
+            ((l/2-x0)/pow(r*r+(l/2-x0)*(l/2-x0),0.5))
+            +
+            ((l/2+x0)/pow(r*r+(l/2+x0)*(l/2+x0),0.5))
             );
-    de = e*dle;
-    std::cout<< e << std::endl << dle << std::endl << de;
+    printf("%.10f",res);
     return 0;
 }

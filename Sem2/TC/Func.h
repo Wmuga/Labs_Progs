@@ -22,16 +22,16 @@ void MakeTree(FILE* pLog) {
     NewNode(head);
     bstart(current);
     fprintf(pLog,"Making new tree w/o key\n");
-    FILE *pFile = fopen("in.txt", "r");
-    char *buffer;
+    fflush(pLog);
+    FILE *pFile = fopen("D:\\Documents\\GitHub\\Labs_Progs\\Sem2\\TC\\in.txt", "r");
+    char *buffer = new char[50];
     while (!feof(pFile)) {
-        fscanf(pFile, "%s", &buffer);
+        fscanf(pFile, "%s", buffer);
         while (buffer[0] != '*') {
-            data newinfo;
+            data newinfo{};
             newinfo.FName = buffer;
-            *buffer = '\0';
-            fscanf(pFile, "%s", &newinfo.SName);
-            fscanf(pFile, "%s", &newinfo.LName);
+            fscanf(pFile, "%s", newinfo.SName);
+            fscanf(pFile, "%s", newinfo.LName);
 
             fscanf(pFile, "%d", &newinfo.dBirth.day);
             fscanf(pFile, "%d", &newinfo.dBirth.month);
@@ -40,8 +40,7 @@ void MakeTree(FILE* pLog) {
             fscanf(pFile, "%d", &newinfo.dDeath.year);
             fscanf(pFile, "%d", &newinfo.dDeath.year);
             fscanf(pFile, "%d", &newinfo.dDeath.year);
-
-            fscanf(pFile, "%s", &newinfo.BPlace);
+            fscanf(pFile, "%s", newinfo.BPlace);
             fprintf(pLog,"-----%s %s %s",newinfo.FName,newinfo.SName,newinfo.LName);
             fflush(pLog);
 
@@ -49,15 +48,11 @@ void MakeTree(FILE* pLog) {
 
             NewNode(current, current->nextL);
             curL(current);
-
-
+            fscanf(pFile, "%s", buffer);
         }
         current->info.FName = (char *) "**";
-        if (IsEmpty(current->nextR)) {
-            NewNode(current, current->nextR);
-            curR(current);
-        } else
-            while (current->nextR != nullptr || current->nextL != nullptr) {
+        back(current);
+            while (!IsEmpty(current->nextR) || !(IsEmpty(current->nextL))) {
                 back(current);
             }
         if (IsEmpty(current->nextR)) {

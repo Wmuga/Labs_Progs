@@ -1,0 +1,3 @@
+D:/Documents/GitHub/Labs_Progs/Sem2/Lab8/cmake-build-debug/CMakeFiles/Lab8.dir
+D:/Documents/GitHub/Labs_Progs/Sem2/Lab8/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Documents/GitHub/Labs_Progs/Sem2/Lab8/cmake-build-debug/CMakeFiles/rebuild_cache.dir

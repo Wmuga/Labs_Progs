@@ -1,0 +1,3 @@
+D:/Documents/GitHub/Labs_Progs/Test/Win/cmake-build-debug/CMakeFiles/Win.dir
+D:/Documents/GitHub/Labs_Progs/Test/Win/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Documents/GitHub/Labs_Progs/Test/Win/cmake-build-debug/CMakeFiles/rebuild_cache.dir
