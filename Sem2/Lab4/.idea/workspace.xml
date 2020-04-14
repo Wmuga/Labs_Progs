@@ -12,7 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d455fc1a-ffe2-4ed2-a5a3-cf683001bba2" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,23 +26,17 @@
   </component>
   <component name="ProjectId" id="1Z9tGvNCzimSf3WLOe7cNL0ECsy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
   </component>
   <component name="RunManager">
-    <configuration name="Lab4" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Lab4" TARGET_NAME="Lab4" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Lab4" RUN_TARGET_NAME="Lab4">
+    <configuration name="Lab4" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Lab4" TARGET_NAME="Lab4" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Lab4" RUN_TARGET_NAME="Lab4">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -61,23 +54,46 @@
       <updated>1584263045421</updated>
       <workItem from="1584263048660" duration="2982000" />
       <workItem from="1584266632779" duration="2354000" />
+      <workItem from="1586888984882" duration="1321000" />
+      <workItem from="1586890715701" duration="289000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="420" y="245" key="FileChooserDialogImpl" timestamp="1586889470556">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="420" y="245" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1586889470556" />
+    <state width="1236" height="258" key="GridCell.Tab.0.bottom" timestamp="1586891004855">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1236" height="258" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1586891004855" />
+    <state width="1236" height="258" key="GridCell.Tab.0.center" timestamp="1586891004855">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1236" height="258" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1586891004855" />
+    <state width="1236" height="258" key="GridCell.Tab.0.left" timestamp="1586891004854">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1236" height="258" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1586891004854" />
+    <state width="1236" height="258" key="GridCell.Tab.0.right" timestamp="1586891004855">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1236" height="258" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1586891004855" />
   </component>
 </project>

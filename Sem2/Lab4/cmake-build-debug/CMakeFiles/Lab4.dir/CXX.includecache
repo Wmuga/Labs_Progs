@@ -7,8 +7,10 @@
 #IncludeRegexTransform: 
 
 D:/Documents/GitHub/Labs_Progs/Sem2/Lab4/main.cpp
-iostream
+cstdio
 -
 cmath
+-
+cstdlib
 -
 
