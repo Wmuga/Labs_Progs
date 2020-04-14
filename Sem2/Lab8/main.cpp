@@ -26,24 +26,22 @@ int main() {
         }
 
         printf("Для первой функции:\n");
-        TableStart(1, a, b); //Начало таблцы
+        TableStart(24, a, b); //Начало таблцы
         for (int i = 0; i < n; i++) { //Поиск корня
             int n1 = 0;
             int n2 = 0;
             double x1 = FindRootDiv(a, b, e[i], funcF, &n1); //Деление пополам
             double x2 = FindRootChord(a, b, e[i], funcF, &n2); //Метод хорд
             TableCell(e[i], x1, n1, x2, n2); //Вывод в таблицу
-            i++;
         }
         printf("Для второй функции:\n");
-        TableStart(2, a, b); //Начало таблцы
+        TableStart(27, a, b); //Начало таблцы
         for (int i = 0; i < n; i++) { //Поиск корня
             int n1 = 0;
             int n2 = 0;
             double x1 = FindRootDiv(a, b, e[i], funcS, &n1); //Деление пополам
             double x2 = FindRootSec(a, b, e[i], funcS, &n2); //Метод хорд
             TableCell(e[i], x1, n1, x2, n2); //Вывод в таблицу
-            i++;
         }
     }
     catch (int errNum) {

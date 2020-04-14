@@ -1,4 +1,4 @@
-typedef double (*func)(double);
+typedef double (*func)(double); //Указатель на функцию типа double с принимаемым значением double
 
 double funcF(double x) //Функция N24
 {
@@ -79,17 +79,17 @@ double FindRootSec(double a, double b, double e, func f,int *nIter) //Метод
     return x3;
 }
 
-void TableStart(int n,double a,double b)
+void TableStart(int n,double a,double b) //Личное удобство для вывода таблицы
 {
     char* fname;
-    if (n==1) fname =(char*)"      Метод хорд      ";
+    if (n==24) fname =(char*)"      Метод хорд      ";
     else fname=(char*)"    Метод секущих     ";
     printf("Отрезок [%.5f, %.5f]\n",a,b);
-    printf("|Функция N%d  |   Деление отрезка    |%s|\n",n,fname);
+    printf("|Функция N%d |   Деление отрезка    |%s|\n",n,fname);
     printf("|Точность    |Корень      |Итерации |Корень      |Итерации |\n");
 }
 
-void TableCell(double e,double x1,int n1, double x2, int n2)
+void TableCell(double e,double x1,int n1, double x2, int n2) //Личное удобство для вывода таблицы
 {
     int z = ceil(fabs(log(e)/log(10)));
     char* r1 = new char[z+2];
