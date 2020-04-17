@@ -9,6 +9,8 @@
 D:/Documents/GitHub/Labs_Progs/Sem2/Lab10/Func.h
 Hstack.h
 D:/Documents/GitHub/Labs_Progs/Sem2/Lab10/Hstack.h
+cstdio
+-
 
 D:/Documents/GitHub/Labs_Progs/Sem2/Lab10/Hstack.h
 cstdlib
@@ -17,6 +19,6 @@ cstdlib
 D:/Documents/GitHub/Labs_Progs/Sem2/Lab10/main.cpp
 Func.h
 D:/Documents/GitHub/Labs_Progs/Sem2/Lab10/Func.h
-cstdio
+cctype
 -
 

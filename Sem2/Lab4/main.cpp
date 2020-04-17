@@ -2,17 +2,17 @@
 #include <cmath>
 #include <cstdlib>
 
-bool RCheckElems(double *array, int start, int end) //Рекурсионная функция
+bool RCheckElems(double *array, int start, int end) //Рекурсия
 {
     bool  res = false;
     if (start>end) start=end;
-    if (start==end) {
-        res = pow((int)array[start], 2) / (end + 1) > 2;
+    if (start==end) { //Достигли одного элемента
+        res = pow((int)array[start], 2) / (end + 1) > 2; //Проверк условия
         if (res) {
             printf("Найден элемент (#%d), удовлетворяющитй условию поиска\n",start+1);
         }else{}
         }
-    else
+    else //Иначе берем еще треть
     {
         double oot = (end-start)/3.0;
         res = RCheckElems(array, start, (trunc(oot)) + start);

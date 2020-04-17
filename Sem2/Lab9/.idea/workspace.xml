@@ -35,7 +35,7 @@
     <property name="cf.first.check.clang-format" value="false" />
   </component>
   <component name="RunManager">
-    <configuration name="Lab9" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Lab9" TARGET_NAME="Lab9" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Lab9" RUN_TARGET_NAME="Lab9">
+    <configuration name="Lab9" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="D:\Documents\GitHub\Labs_Progs\Sem2\Lab9\in.txt" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Lab9" TARGET_NAME="Lab9" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Lab9" RUN_TARGET_NAME="Lab9">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -53,10 +53,36 @@
       <updated>1586944445000</updated>
       <workItem from="1586944446705" duration="1273000" />
       <workItem from="1586945763642" duration="2887000" />
+      <workItem from="1587136916515" duration="1936000" />
+      <workItem from="1587138885171" duration="681000" />
+      <workItem from="1587139587008" duration="350000" />
+      <workItem from="1587140007125" duration="25000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="94" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587139079618">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="94" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.984@0.0.1280.984" timestamp="1587139079618" />
+    <state width="1200" height="240" key="GridCell.Tab.0.bottom" timestamp="1587140031252">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1200" height="240" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1587140031252" />
+    <state width="1200" height="240" key="GridCell.Tab.0.center" timestamp="1587140031252">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1200" height="240" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1587140031252" />
+    <state width="1200" height="240" key="GridCell.Tab.0.left" timestamp="1587140031252">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1200" height="240" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1587140031252" />
+    <state width="1200" height="240" key="GridCell.Tab.0.right" timestamp="1587140031252">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state width="1200" height="240" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1587140031252" />
   </component>
 </project>

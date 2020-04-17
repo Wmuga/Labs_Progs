@@ -1,9 +1,9 @@
 #include <cstdlib>
 
 typedef int TInfo; //удобство для написания абстрактных функций при конкретной задаче заменено
-struct stack{     //Элемент стэка
+struct stack{      //Элемент стэка
     TInfo data;    //содержание
-    stack* back;  //указатель на предыдущий
+    stack* back;   //указатель на предыдущий
 };
 void s_push(stack** pstack, TInfo Data)
 {
