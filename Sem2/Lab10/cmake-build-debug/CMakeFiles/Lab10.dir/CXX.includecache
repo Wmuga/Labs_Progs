@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/Labs_Progs/Sem2/Lab10/Func.h
+Hstack.h
+D:/Documents/GitHub/Labs_Progs/Sem2/Lab10/Hstack.h
+
+D:/Documents/GitHub/Labs_Progs/Sem2/Lab10/Hstack.h
+cstdlib
+-
+
+D:/Documents/GitHub/Labs_Progs/Sem2/Lab10/main.cpp
+Func.h
+D:/Documents/GitHub/Labs_Progs/Sem2/Lab10/Func.h
+cstdio
+-
+

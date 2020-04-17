@@ -16,67 +16,64 @@ double funcS(double x) //Функция N27
 
 double FindRootDiv(double a, double b, double e, func f,int *nIter) //Метод деления отрезка
 {
-    double x,FA,FB,FX;
-    bool flag = true; //Проверка на наличие корня на отрезке
-    do  //Цикл с постусловием
-    {
-        x = (b+a)/(double)2; //Середина отрезка
-        FA = f(a); //F(a) левый край
-        FB = f(b); //F(b) правый край
-        FX = f(x); //F(X)
-        if (FX*FB<0) a = x; //Сравнение знаков F(x) и F(b)
-        else b = x;
-        (*nIter)++;
-        if (FA*FB>0) flag=false; //Если знак одинаковый - нет корня
-    } while (fabs(a-b)>=e and FX!=0 and flag); //Ищем, пока не пересечем Ox или пока отрезок не будет меньше точности(погрешности)
-    if (!flag) return -1;
-    return x;
+    double x,FB,FX;
+    if (f(a)*f(b)<0) { //Проверка на наличие корня на отрезке
+        do  //Цикл с постусловием
+        {
+            x = (b + a) / (double) 2; //Середина отрезка
+            FB = f(b); //F(b) правый край
+            FX = f(x); //F(X)
+            if (FX * FB < 0) a = x; //Сравнение знаков F(x) и F(b)
+            else b = x;
+            (*nIter)++;
+        } while (fabs(a - b) >= e and FX != 0); //Ищем, пока не пересечем Ox или пока отрезок не будет меньше точности(погрешности)
+        return x;
+    }
+    return -1; //если нет - возращаем -1
 }
 
 double FindRootChord(double a, double b, double e, func f,int *nIter) //Метод хорд
 {
     double x,FA,FB,FX,d;
-    bool flag = true; //Проверка на наличие корня на отрезке
-    do  //Цикл с постусловием
-    {
-        FA = f(a); //F(a) левый край
-        FB = f(b); //F(b) правый край
-        x = a - (FA*(b-a)/(FB-FA));
-        FX = f(x); //F(X)
-        if (FX*FB<0) { //Сравнение знаков F(x) и F(b)
-            d = fabs(a-x);
-            a = x;
-        }
-        else {
-            d = fabs(b-x);
-            b = x;
-        }
-        (*nIter)++;
-        if (FA*FB>0) flag=false; //Если знак одинаковый - нет корня
+    if (f(a)*f(b)<0) { //Проверка на наличие корня на отрезке
+        do  //Цикл с постусловием
+        {
+            FA = f(a); //F(a) левый край
+            FB = f(b); //F(b) правый край
+            x = a - (FA * (b - a) / (FB - FA));
+            FX = f(x); //F(X)
+            if (FX * FB < 0) { //Сравнение знаков F(x) и F(b)
+                d = fabs(a - x);
+                a = x;
+            } else {
+                d = fabs(b - x);
+                b = x;
+            }
+            (*nIter)++;
+        } while (d >= e and FX != 0); //Ищем, пока не пересечем Ox или пока один из отрезков не будет меньше точности(погрешности)
+        return x;
     }
-    while(d>=e and FX!=0 and flag); //Ищем, пока не пересечем Ox или пока один из отрезков не будет меньше точности(погрешности)
-    if (!flag) return -1;
-    return x;
+    return -1; //если нет - возращаем -1
 }
 
 double FindRootSec(double a, double b, double e, func f,int *nIter) //Метод секущекй
 {
     double x1,x2,x3,FL,FR,FX;
     x1=a; x2=b;
-    bool flag = true; //Проверка на наличие корня на отрезке
-    do  //Цикл с постусловием
-    {
-        FL = f(x1); //Левый край
-        FR = f(x2); //Правый край
-        x3 = x1 - FL/(FR-FL)*(x2-x1);
-        FX = f(x3);
-        x1=x2;x2=x3; //Переходим к следующему отрезку
-        (*nIter)++;
-        if (FL*FR>0) flag=false; //Если знак одинаковый - нет корня
+    if (f(a)*f(b)<0) { //Проверка на наличие корня на отрезке
+        do  //Цикл с постусловием
+        {
+            FL = f(x1); //Левый край
+            FR = f(x2); //Правый край
+            x3 = x1 - FL / (FR - FL) * (x2 - x1);
+            FX = f(x3);
+            x1 = x2;
+            x2 = x3; //Переходим к следующему отрезку
+            (*nIter)++;
+        } while (fabs(x2 - x1) >= e and FX != 0); //Ищем, пока не пересечем Ox или пока отрезок не будет меньше точности(погрешности)
+        return x3;
     }
-    while(fabs(x2-x1)>=e and FX!=0 and flag); //Ищем, пока не пересечем Ox или пока отрезок не будет меньше точности(погрешности)
-    if (!flag) return -1;
-    return x3;
+    return -1; //если нет - возращаем -1
 }
 
 void TableStart(int n,double a,double b) //Личное удобство для вывода таблицы
