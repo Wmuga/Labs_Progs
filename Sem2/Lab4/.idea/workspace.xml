@@ -34,6 +34,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Test/RadomTest/CMakeLists.txt" />
   </component>
   <component name="RunManager">
     <configuration name="Lab4" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Lab4" TARGET_NAME="Lab4" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Lab4" RUN_TARGET_NAME="Lab4">
@@ -61,6 +62,7 @@
       <workItem from="1587549585108" duration="2354000" />
       <workItem from="1587577485345" duration="3928000" />
       <workItem from="1587627684636" duration="4402000" />
+      <workItem from="1588144328873" duration="1008000" />
     </task>
     <servers />
   </component>
@@ -80,25 +82,25 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="420" y="245" key="FileChooserDialogImpl" timestamp="1586944432228">
+    <state x="420" y="245" key="FileChooserDialogImpl" timestamp="1588144663174">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="420" y="245" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1586944432228" />
-    <state width="1236" height="258" key="GridCell.Tab.0.bottom" timestamp="1587633312251">
+    <state x="420" y="245" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1588144663174" />
+    <state width="1236" height="258" key="GridCell.Tab.0.bottom" timestamp="1588145340774">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1587633312251" />
-    <state width="1236" height="258" key="GridCell.Tab.0.center" timestamp="1587633312251">
+    <state width="1236" height="258" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1588145340774" />
+    <state width="1236" height="258" key="GridCell.Tab.0.center" timestamp="1588145340774">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1587633312251" />
-    <state width="1236" height="258" key="GridCell.Tab.0.left" timestamp="1587633312251">
+    <state width="1236" height="258" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1588145340774" />
+    <state width="1236" height="258" key="GridCell.Tab.0.left" timestamp="1588145340774">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1587633312251" />
-    <state width="1236" height="258" key="GridCell.Tab.0.right" timestamp="1587633312251">
+    <state width="1236" height="258" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1588145340774" />
+    <state width="1236" height="258" key="GridCell.Tab.0.right" timestamp="1588145340774">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1587633312251" />
+    <state width="1236" height="258" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1588145340774" />
   </component>
 </project>

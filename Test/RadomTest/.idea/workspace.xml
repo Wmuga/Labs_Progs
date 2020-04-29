@@ -33,6 +33,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CMakeLists.txt" />
   </component>
   <component name="RunManager">
     <configuration name="RadomTest" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RadomTest" TARGET_NAME="RadomTest" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="RadomTest" RUN_TARGET_NAME="RadomTest">
@@ -52,6 +53,7 @@
       <option name="presentableId" value="Default" />
       <updated>1587055810860</updated>
       <workItem from="1587055812927" duration="768000" />
+      <workItem from="1588144668531" duration="650000" />
     </task>
     <servers />
   </component>
