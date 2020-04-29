@@ -11,7 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2f9aa4c-e2a3-4d18-afe2-8117cf56777e" name="Default Changelist" comment="" />
+    <list default="true" id="4376e112-65a1-4da5-9ba3-624c6d4248c1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="ProjectId" id="1aZYB6NOC3goF5T8gwY1ir51pdV" />
+  <component name="ProjectId" id="1ax2Sb4HENKD66ExqPcNiojwYKH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -35,7 +35,7 @@
     <property name="cf.first.check.clang-format" value="false" />
   </component>
   <component name="RunManager">
-    <configuration name="Lab9" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="D:\Documents\GitHub\Labs_Progs\Sem2\Lab9\in.txt" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Lab9" TARGET_NAME="Lab9" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Lab9" RUN_TARGET_NAME="Lab9">
+    <configuration name="Lab9" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="D:\Documents\GitHub\Labs_Progs\Sem2\Lab9\tests\inOnlyDots.txt" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Lab9" TARGET_NAME="Lab9" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Lab9" RUN_TARGET_NAME="Lab9">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -46,17 +46,13 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e2f9aa4c-e2a3-4d18-afe2-8117cf56777e" name="Default Changelist" comment="" />
-      <created>1586944445000</created>
+      <changelist id="4376e112-65a1-4da5-9ba3-624c6d4248c1" name="Default Changelist" comment="" />
+      <created>1587662924132</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1586944445000</updated>
-      <workItem from="1586944446705" duration="1273000" />
-      <workItem from="1586945763642" duration="2887000" />
-      <workItem from="1587136916515" duration="1936000" />
-      <workItem from="1587138885171" duration="681000" />
-      <workItem from="1587139587008" duration="350000" />
-      <workItem from="1587140007125" duration="25000" />
+      <updated>1587662924132</updated>
+      <workItem from="1587662925699" duration="2493000" />
+      <workItem from="1587930602171" duration="1450000" />
     </task>
     <servers />
   </component>
@@ -64,25 +60,25 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="94" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587139079618">
+    <state x="94" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587932053316">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="94" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.984@0.0.1280.984" timestamp="1587139079618" />
-    <state width="1200" height="240" key="GridCell.Tab.0.bottom" timestamp="1587140031252">
+    <state x="94" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.984@0.0.1280.984" timestamp="1587932053316" />
+    <state width="1236" height="258" key="GridCell.Tab.0.bottom" timestamp="1587665420756">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1200" height="240" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1587140031252" />
-    <state width="1200" height="240" key="GridCell.Tab.0.center" timestamp="1587140031252">
+    <state width="1236" height="258" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1587665420756" />
+    <state width="1236" height="258" key="GridCell.Tab.0.center" timestamp="1587665420756">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1200" height="240" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1587140031252" />
-    <state width="1200" height="240" key="GridCell.Tab.0.left" timestamp="1587140031252">
+    <state width="1236" height="258" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1587665420756" />
+    <state width="1236" height="258" key="GridCell.Tab.0.left" timestamp="1587665420756">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1200" height="240" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1587140031252" />
-    <state width="1200" height="240" key="GridCell.Tab.0.right" timestamp="1587140031252">
+    <state width="1236" height="258" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1587665420756" />
+    <state width="1236" height="258" key="GridCell.Tab.0.right" timestamp="1587665420756">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1200" height="240" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1587140031252" />
+    <state width="1236" height="258" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1587665420756" />
   </component>
 </project>

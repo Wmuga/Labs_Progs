@@ -28,15 +28,15 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
   </component>
   <component name="RunManager">
-    <configuration name="FizLab" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FizLab" TARGET_NAME="FizLab" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="FizLab" RUN_TARGET_NAME="FizLab">
+    <configuration name="FizLab" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FizLab" TARGET_NAME="FizLab" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="FizLab" RUN_TARGET_NAME="FizLab">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -56,41 +56,41 @@
       <workItem from="1583656241043" duration="1764000" />
       <workItem from="1585048855092" duration="1456000" />
       <workItem from="1586284843182" duration="1307000" />
+      <workItem from="1588072560024" duration="3613000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1236" height="258" key="GridCell.Tab.0.bottom" timestamp="1586286151996">
+    <state width="1236" height="258" key="GridCell.Tab.0.bottom" timestamp="1588076268763">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1586286151996" />
-    <state width="1236" height="258" key="GridCell.Tab.0.center" timestamp="1586286151996">
+    <state width="1236" height="258" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1588076268763" />
+    <state width="1236" height="258" key="GridCell.Tab.0.center" timestamp="1588076268763">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1586286151996" />
-    <state width="1236" height="258" key="GridCell.Tab.0.left" timestamp="1586286151995">
+    <state width="1236" height="258" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1588076268763" />
+    <state width="1236" height="258" key="GridCell.Tab.0.left" timestamp="1588076268763">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1586286151995" />
-    <state width="1236" height="258" key="GridCell.Tab.0.right" timestamp="1586286151996">
+    <state width="1236" height="258" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1588076268763" />
+    <state width="1236" height="258" key="GridCell.Tab.0.right" timestamp="1588076268763">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1586286151996" />
+    <state width="1236" height="258" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1588076268763" />
   </component>
 </project>

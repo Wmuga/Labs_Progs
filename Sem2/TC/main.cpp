@@ -4,7 +4,9 @@
 #include "Func.h"
 #include <ctime>
 
-int main() {
+int main(int argc, char** argv) { //Параметры - входной файл, Папка Логов
+    system("chcp 65001");
+
     time_t rawtime;
     struct tm * timeinfo;
     char buffer [255];
@@ -13,21 +15,18 @@ int main() {
     timeinfo = localtime (&rawtime);
     strftime (buffer,255," %d-%b-%Y %H.%M.%S",timeinfo);
 
-    SetConsoleOutputCP(1251);
-    char* logName = new char[256];
-    logName[0]='D'; logName[1]=':'; logName[2]='\\';
-    strcat(logName,"Documents\\GitHub\\Labs_Progs\\Sem2\\TC\\Logs\\Log");
+    char* logName = argv[2];
+    strcat(logName,"Log");
     strcat(logName,buffer);
     strcat(logName,".txt");
     FILE *pLog = fopen(logName,"w");
 
     Init();
-    printf("Khu");
     fprintf(pLog,"Initialised Tree\n");
     fflush(pLog);
-    MakeTree(pLog);
-    fprintf(pLog,"Maked Tree\n");
-    remove(current);
+    MakeTree(pLog, argv[1]);
+    ShowTree(head);
+    remove(&head,pLog);
     fclose(pLog);
     return 0;
 }

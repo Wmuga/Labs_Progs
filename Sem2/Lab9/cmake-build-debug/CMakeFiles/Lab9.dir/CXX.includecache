@@ -11,6 +11,6 @@ cstdio
 -
 cstdlib
 -
-cctype
+algorithm
 -
 

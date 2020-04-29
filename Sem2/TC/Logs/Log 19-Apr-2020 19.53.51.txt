@@ -1,0 +1,5 @@
+Initialised Tree
+Making new tree w/o key
+-----АД ЧД ДД
+-----А Ч А
+-----А Ч А

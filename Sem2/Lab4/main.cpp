@@ -2,21 +2,20 @@
 #include <cmath>
 #include <cstdlib>
 
-bool RCheckElems(double *array, int start, int end) //Рекурсия
+bool RCheckElems(double *array, int start, int end) //Рекурсия (передаем массив, начало и конец)
 {
-    bool  res = false;
-    if (start>end) start=end;
+    bool res; //Наш флаг на условие
     if (start==end) { //Достигли одного элемента
         res = pow((int)array[start], 2) / (end + 1) > 2; //Проверк условия
         if (res) {
-            printf("Найден элемент (#%d), удовлетворяющитй условию поиска\n",start+1);
+            printf("Найден элемент (#%d), удовлетворяющий условию поиска\n",start+1);
         }else{}
         }
-    else //Иначе берем еще треть
+    else
     {
-        double oot = (end-start)/3.0;
-        res = RCheckElems(array, start, (trunc(oot)) + start);
-        if (!res) res = RCheckElems(array, ceil(oot) + start, end);
+        int oot = trunc((end-start)/3.0)+start; //отделяем треть
+        //Проверка отделенных частей (start - oot) первая треть (oot+1 - end) оставшиеся 2 трети
+        res = RCheckElems(array, start, oot) or RCheckElems(array, oot+1, end);
     }
     return res;
 }
@@ -31,8 +30,9 @@ int main() {
     double *array = new double[N];
     for (int i=0;i<N;i++) scanf("%lf",&array[i]);
     fflush(stdin);
-    if (!RCheckElems(array,0,N)) printf("Не найдено элемнтов, удовлетворяющих условию\n");
-    delete []array;
+    if (N!=0) if (!RCheckElems(array, 0, N)) printf("Не найдено элементов, удовлетворяющих условию\n"); else{}
+    else printf("Пустой массив\n");
+    delete[]array;
     printf("Press ENTER");
     getc(stdin);
     return 0;
