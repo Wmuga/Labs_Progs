@@ -13,6 +13,12 @@ struct data       //Данные
     date  dDeath; //Смерти (опционально)
     char* BPlace; //Место рождения(опционально)
 };
+
+struct Node
+{
+
+};
+/*
 struct Node
 {
     data info;
@@ -39,17 +45,7 @@ void NewNode(Node **cur, Node **place= nullptr)
         (*cur)=newNode;
     } else{
         newNode->prev = (*cur);
-        if ((*place) == (*cur)->nextL)
-        {
-            free(*place);
-            (*cur)->nextL=newNode;
-        }
-        else
-        {
-            free(*place);
-            (*cur)->nextR=newNode;
-        }
-            (*place)=newNode;
+        (*place)=newNode;
     }
 }
 
@@ -110,7 +106,6 @@ data getData(Node *cur){
 }
 
 void replDataM(Node **cur,data inf){
-    printf("%s\n",inf.FName);
     (*cur)->info=inf;
 }
 
@@ -121,3 +116,4 @@ void replDataL(Node **cur,data inf){
 void replDataR(Node **cur,data inf){
     (*cur)->nextR->info=inf;
 }
+ */

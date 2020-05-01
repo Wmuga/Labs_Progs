@@ -54,6 +54,7 @@
       <updated>1587055810860</updated>
       <workItem from="1587055812927" duration="768000" />
       <workItem from="1588144668531" duration="650000" />
+      <workItem from="1588188222295" duration="172000" />
     </task>
     <servers />
   </component>
@@ -61,6 +62,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="419" y="232" key="FileChooserDialogImpl" timestamp="1588188390234">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="419" y="232" key="FileChooserDialogImpl/0.0.1280.984/1280.0.2160.1040@0.0.1280.984" timestamp="1588188390234" />
     <state width="1236" height="258" key="GridCell.Tab.0.bottom" timestamp="1587056581368">
       <screen x="0" y="0" width="1280" height="984" />
     </state>

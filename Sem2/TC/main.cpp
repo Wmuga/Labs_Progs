@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <windows.h>
 #include "tree.h"
+//#include "treeR2.h" (вторая реализация дерева)
 #include "Func.h"
 #include <ctime>
 
@@ -15,10 +16,9 @@ int main(int argc, char** argv) { //Параметры - входной файл
     timeinfo = localtime (&rawtime);
     strftime (buffer,255," %d-%b-%Y %H.%M.%S",timeinfo);
 
-    char* logName = argv[2];
-    strcat(logName,"Log");
-    strcat(logName,buffer);
-    strcat(logName,".txt");
+    char* logName = new char[255];
+    snprintf(logName,255,"%sLog%s.txt",argv[2],buffer);
+
     FILE *pLog = fopen(logName,"w");
 
     Init();
@@ -26,7 +26,9 @@ int main(int argc, char** argv) { //Параметры - входной файл
     fflush(pLog);
     MakeTree(pLog, argv[1]);
     ShowTree(head);
+
     remove(&head,pLog);
     fclose(pLog);
+    delete []logName;
     return 0;
 }
