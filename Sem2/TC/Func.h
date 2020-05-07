@@ -1,34 +1,25 @@
+#include "Logger.h"
 
-void remove(Node **cur,FILE *pLog)
+void ShowData(Node *cur,FILE *pfile=stdout)
 {
-    if ((*cur)==head) fprintf(pLog,"Destroyed unsorted tree\n");
-    else if ((*cur)==headKey) fprintf(pLog,"Destroyed sorted tree\n");
-    else{
-        data curData = getData(*cur);
-        fprintf(pLog,"Destroyed branch -%s-%s-%s-\n",curData.FName,curData.SName,curData.LName);
-    }
-    destroy(cur);
+    data info = getData(cur);
+    fprintf(pfile, "%s %s %s Родился %d.%d.%d ", info.SName, info.FName, info.LName, info.dBirth.day, info.dBirth.month, info.dBirth.year);
+    if (info.dDeath.day) fprintf(pfile, "Умер %d.%d.%d ", info.dDeath.day, info.dDeath.month, info.dDeath.year);
+    if (strcmp(info.BPlace,"--")!=0) fprintf(pfile, "Родился в %s", info.BPlace);
+    fprintf(pfile, "\n");
+    fflush(pfile);
 }
 
-void ShowTree(Node *TreeHead, int depth=1,FILE *pLog = stdin){
-    data info = getData(TreeHead);
-    for (int i=0;i<depth;i++) printf("-");
-    fprintf(pLog,"%s %s %s Родился %d.%d.%d ",info.SName,info.FName,info.LName,info.dBirth.day,info.dBirth.month,info.dBirth.year);
-    if (info.dDeath.day) fprintf(pLog,"Умер %d.%d.%d ",info.dDeath.day,info.dDeath.month,info.dDeath.year);
-    if (!strtol(info.BPlace, nullptr,10)) fprintf(pLog,"Родился в %s",info.BPlace);
-    fprintf(pLog,"\n");
-    if (strcmp(getData(curL(TreeHead)).FName,"**")!=0) ShowTree(curL(TreeHead),depth+1,pLog);
-    else if (strcmp(getData(curR(TreeHead)).FName,"**")!=0) ShowTree(curR(TreeHead),depth+1,pLog);
+
+void ShowTree(Node *TreeHead,FILE *pfile=stdout, int depth=0){
+    fprintf(pfile,"%*s",depth*2+3,"-- "); fflush(pfile);
+    ShowData(TreeHead,pfile);
+    if (!IsEmpty(curL(TreeHead)) and strcmp(getData(curL(TreeHead)).FName,"**")!=0) ShowTree(curL(TreeHead), pfile,depth+1);
+    if (!IsEmpty(curR(TreeHead)) and strcmp(getData(curR(TreeHead)).FName,"**")!=0)ShowTree(curR(TreeHead), pfile,depth+1);
 }
+
 
 void ShowTree2(Node *TreeHead) {}
-
-/*
-void MakeTreeKey()
-{
-
-}
-*/
 
 /*
 void AddToKeyTree()
@@ -38,76 +29,93 @@ void AddToKeyTree()
 */
 
 /*
+void MakeTreeKey()
+{
+
+}
+*/
+
+
+/*
 void Task()
 {
 
 }
 */
-void MakeTree(FILE* pLog, char* filename) {
-    bstart();
-    fprintf(pLog,"Making new tree w/o key\n");
-    fflush(pLog);
-    FILE *pFile = fopen(filename, "r");
-    Node* tempor = nullptr;
+//Сделать через рекурсию
+void TreeBranches(FILE *FileIn,Node** CurrentPosition)
+{
     char *buffer = new char[50];
-    char* FName = new char[20]; char* SName=new char[20]; char* LName=new char[20]; char* BPlace=new char[50];
-    while (!feof(pFile)) {
-        printf("1");
-        fscanf(pFile, "%s", buffer);
-        printf("2\n");
-        while (buffer[0] != '*' and !feof(pFile)) {
+    fscanf(FileIn,"%s",buffer);
+    data newinfo;
+    if (!feof(FileIn)) {
+        Node *next;
+        if (buffer[0] != '*') {
+
+            char *FName;
+            char *SName = new char[20];
+            char *LName = new char[20];
+            char *BPlace = new char[50];
+
             FName = buffer;
-            fscanf(pFile, "%s", SName);
-            fscanf(pFile, "%s", LName);
+            fscanf(FileIn, "%s", SName);
+            fscanf(FileIn, "%s", LName);
 
             int day, month, year;
-
-            fscanf(pFile, "%d", &day);
-            fscanf(pFile, "%d", &month);
-            fscanf(pFile, "%d", &year);
-
+            fscanf(FileIn, "%d", &day);
+            fscanf(FileIn, "%d", &month);
+            fscanf(FileIn, "%d", &year);
             date dBirth = {day, month, year};
 
-            fscanf(pFile, "%d", &day);
-            fscanf(pFile, "%d", &month);
-            fscanf(pFile, "%d", &year);
-
+            fscanf(FileIn, "%d", &day);
+            fscanf(FileIn, "%d", &month);
+            fscanf(FileIn, "%d", &year);
             date dDeath = {day, month, year};
 
-            fscanf(pFile, "%s", BPlace);
+            fscanf(FileIn, "%s", BPlace);
 
-            data newinfo = {FName, SName, LName, dBirth, dDeath, BPlace};
-            replDataM(&current, newinfo);
-            fprintf(pLog, "Added -%s %s %s\n", newinfo.FName, newinfo.SName, newinfo.LName);
-            fflush(pLog);
+            newinfo = {FName, SName, LName, dBirth, dDeath, BPlace};
 
-            tempor = curL(current);
-            NewNode(&current, &tempor);
-            current = curL(current);
-            fscanf(pFile, "%s", buffer);
+            next = NewNode(CurrentPosition,'L');
+            replDataM(CurrentPosition,newinfo);
+        }
+        else
+        {
+            newinfo = {(char*)"**"};
+            replDataM(CurrentPosition,newinfo);
+            do
+            {
+                back(CurrentPosition);
+            }while(!IsEmpty(curR(*CurrentPosition)));
+            next = NewNode(CurrentPosition,'R');
         }
 
-        fprintf(pLog, "Went to another branch\n"); fflush(pLog);
-        data newinfo = {(char *) "**"};
-        replDataM(&current, newinfo);
-
-        do {
-            back(&current);
-        }while (!IsEmpty(curR(current)) and !IsEmpty(curL(current)));
-        
-        if (IsEmpty(curR(current))) {
-            tempor = curR(current);
-            NewNode(&current, &tempor);
-            current = curR(current);
-        }
-        else if (IsEmpty(curL(current))){
-            tempor = curL(current);
-            NewNode(&current, &tempor);
-            current = curL(current);
-        }
-        free(tempor);
+        if (strcmp(newinfo.FName,"**")!=0) {PutInLog((char*)"Создана ветвь "); ShowData(*CurrentPosition,pLog);}
+        else PutInLog((char*)"Переход на друю подветвь\n");
+        TreeBranches(FileIn, &next);
     }
-    delete []FName; delete []SName; delete []LName; delete []BPlace; delete []buffer; //Освобождение памяти
-    fprintf(pLog,"Constructed Tree\n"); ShowTree(head,1,pLog);
-    fclose(pFile);
+    else{ //Так как последний ** считывается, но не обрабатывается - делаем сами
+        newinfo = {(char*)"**"};
+        replDataM(CurrentPosition,newinfo);
+    }
+    delete[]buffer;
+}
+void MakeTree(char* filename)
+{
+    backToStartUnsorted();
+    PutInLog((char*)"Построение обыкновенного дерева\n");
+    FILE* in = fopen(filename,"r");
+    TreeBranches(in,&head);
+    PutInLog((char *)"Конец файла\nСоздано дерево\n");
+    ShowTree(head, pLog);
+}
+
+void remove(Node **cur)
+{
+    if ((*cur)==head) PutInLog((char*)"Уничтожено обыкновенное дерево\n");
+    else if ((*cur)==headKey) PutInLog((char*)"Уничтожено отсортированное дерево\n");
+    else{
+        PutInLog((char*)"Уничтожена ветвь "); ShowData(*cur,pLog);
+    }
+    destroy(cur);
 }

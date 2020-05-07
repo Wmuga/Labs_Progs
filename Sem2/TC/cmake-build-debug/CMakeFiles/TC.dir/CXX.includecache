@@ -7,6 +7,12 @@
 #IncludeRegexTransform: 
 
 D:/Documents/GitHub/Labs_Progs/Sem2/TC/Func.h
+Logger.h
+D:/Documents/GitHub/Labs_Progs/Sem2/TC/Logger.h
+
+D:/Documents/GitHub/Labs_Progs/Sem2/TC/Logger.h
+ctime
+-
 
 D:/Documents/GitHub/Labs_Progs/Sem2/TC/main.cpp
 cstdio
@@ -17,8 +23,6 @@ tree.h
 D:/Documents/GitHub/Labs_Progs/Sem2/TC/tree.h
 Func.h
 D:/Documents/GitHub/Labs_Progs/Sem2/TC/Func.h
-ctime
--
 
 D:/Documents/GitHub/Labs_Progs/Sem2/TC/tree.h
 

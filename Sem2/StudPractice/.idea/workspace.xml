@@ -5,7 +5,7 @@
       <config projectName="StudPractice" targetName="StudPractice" />
     </generated>
   </component>
-  <component name="CMakeSettings">
+  <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
@@ -54,10 +54,21 @@
       <option name="presentableId" value="Default" />
       <updated>1588188397788</updated>
       <workItem from="1588188401213" duration="3914000" />
+      <workItem from="1588708905899" duration="2735000" />
+      <workItem from="1588744037947" duration="1003000" />
+      <workItem from="1588757637920" duration="4414000" />
+      <workItem from="1588764234459" duration="468000" />
+      <workItem from="1588879013451" duration="889000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="94" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588761616287">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="94" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.984@0.0.1280.984" timestamp="1588761616287" />
   </component>
 </project>

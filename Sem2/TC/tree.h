@@ -22,35 +22,22 @@ struct Node
 };
 
 //Ссылки на деревья
-Node *head=nullptr,*current=nullptr; //Неупорядоченное
+Node *head=nullptr,    *current=nullptr; //Неупорядоченное
 Node *headKey=nullptr, *currentKey= nullptr; //Упорядоченное
 
 
-void NewNode(Node **cur, Node **place= nullptr)
+Node* NewNode(Node **CurrentPosition, char Pos='0')
 {
     Node *newNode = new Node;
 
     newNode->nextL=nullptr;
-    newNode->nextR= nullptr;
+    newNode->nextR=nullptr;
+    newNode->prev = (CurrentPosition == nullptr ? nullptr : (*CurrentPosition));
 
-    if (place==nullptr)
-    {
-        newNode->prev= nullptr;
-        (*cur)=newNode;
-    } else{
-        newNode->prev = (*cur);
-        if ((*place) == (*cur)->nextL)
-        {
-            free(*place);
-            (*cur)->nextL=newNode;
-        }
-        else
-        {
-            free(*place);
-            (*cur)->nextR=newNode;
-        }
-            (*place)=newNode;
-    }
+    if (Pos=='L') (*CurrentPosition)->nextL=newNode;
+    if (Pos=='R') (*CurrentPosition)->nextR=newNode;
+
+    return newNode;
 }
 
 void destroy(Node **cur)
@@ -76,12 +63,12 @@ void destroy(Node **cur)
     }
 }
 
-Node* Init()
+void Init()
 {
     if (head!=nullptr) destroy(&head);
-    NewNode(&head);
+    head = NewNode(nullptr);
     if (headKey!=nullptr) destroy(&headKey);
-    NewNode(&headKey);
+    headKey = NewNode(nullptr);
 }
 
 bool IsEmpty(Node *nd)
@@ -89,12 +76,17 @@ bool IsEmpty(Node *nd)
     return (nd==nullptr);
 }
 
-void bstart(){
+void backToStartUnsorted(){
     current = head;
 }
 
+void backToStartSorted(){
+    currentKey = headKey;
+}
+
+
 void back(Node **cur) {
-    (*cur) = (*cur)->prev;
+    (*cur)=(*cur)->prev;
 }
 
 Node* curL(Node *cur){
@@ -110,14 +102,15 @@ data getData(Node *cur){
 }
 
 void replDataM(Node **cur,data inf){
-    printf("%s\n",inf.FName);
     (*cur)->info=inf;
 }
 
 void replDataL(Node **cur,data inf){
+    (*cur)->nextL = NewNode(cur);
     (*cur)->nextL->info=inf;
 }
 
 void replDataR(Node **cur,data inf){
+    (*cur)->nextR = NewNode(cur);
     (*cur)->nextR->info=inf;
 }
