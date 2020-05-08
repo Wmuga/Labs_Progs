@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/SearchInArray.cpp
+SearchInArray.h
+D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/SearchInArray.h
+
+D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/SearchInArray.h
+cstring
+-
+
+D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/main.cpp
+iostream
+-
+SearchInArray.h
+D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/SearchInArray.h
+

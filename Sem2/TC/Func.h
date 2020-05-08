@@ -98,7 +98,6 @@ void TreeBranches(FILE *FileIn,Node** CurrentPosition)
         newinfo = {(char*)"**"};
         replDataM(CurrentPosition,newinfo);
     }
-    delete[]buffer;
 }
 void MakeTree(char* filename)
 {

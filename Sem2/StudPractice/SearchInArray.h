@@ -1,12 +1,3 @@
-/*
- * 1. Я написал интерфейс, кмк он должен выглядеть.
- * 2. Кмк лучше переменные будут называться более громоздко, но код будет самокоментируюшимся
- * 3. Кмк лучше для переменных номеров вершин, начала и концов отрезков лучше использовать size_t
- * 4. Начальный массив придется хранить т.к. неизвестно как изменение аргумента function1 влияет
- * на ее значение
- * 5. Также я накинул еще обновления подотрезка и обновление через функции, если я слишком усложняю
- * напишите об этом.
- */
 
 /*
  * Studying practise project
@@ -16,23 +7,22 @@
  * Managed by Daria Kulikova
 */
 
-//Функциональный тип, в конструктор
 //min,sum,max,nElems
 #include <cstring>
-template <typename StartArrayType, typename ArrayType>
+template <class StartArrayType, class ArrayType>
 class SearchElement
 {
 private:
     StartArrayType* _start_array;
     ArrayType* _array;
 
-    ArrayType (*_function1)(StartArrayType);
-    ArrayType (*_function2)(ArrayType, ArrayType);
+    ArrayType (*_function1)(StartArrayType);       //?
+    ArrayType (*_function2)(ArrayType, ArrayType); //min,max,sum
 
     size_t _size;
 
     // функия создания
-    void build(ArrayType* array[],
+    void build(ArrayType* array,
                size_t current_peak,
                size_t begin_sub_section,
                size_t end_sub_section);
@@ -71,9 +61,9 @@ private:
 */
 public:
     // конструктор
-    SearchElement(StartArrayType* start_array[], size_t array_size,
+    SearchElement(StartArrayType* start_array, size_t array_size,
                   ArrayType (*function1)(StartArrayType),
-                  ArrayType (*_function2)(ArrayType, ArrayType));
+                  ArrayType (*function2)(ArrayType, ArrayType));
 
     // деструктор
     ~SearchElement();
@@ -84,7 +74,7 @@ public:
     //изменение подотрзка
     void change_with_new_value(size_t begin_changed_sub_section,
                                size_t end_changed_sub_section,
-                               StartArrayType new_value);
+                               StartArrayType* new_value);
 
     //изменение подотрзка (то же самое с типами
     void change_with_function(size_t begin_changed_sub_section,
@@ -95,3 +85,99 @@ public:
                                */
                               StartArrayType (*function3)(StartArrayType));
 };
+
+
+template<typename StartArrayType,typename ArrayType>
+SearchElement<StartArrayType,ArrayType>::SearchElement(StartArrayType* start_array, size_t array_size,
+                                                       ArrayType (*function1)(StartArrayType),
+                                                       ArrayType (*function2)(ArrayType, ArrayType))
+{
+    _start_array=start_array;
+    _size = array_size;
+    _function1=function1;
+    _function2=function2;
+    _array = new ArrayType[array_size];
+    build(start_array,1,0,0);
+}
+
+
+template<typename StartArrayType,typename ArrayType>
+SearchElement<StartArrayType,ArrayType>::~SearchElement()
+{
+    //delete []_start_array;
+    delete []_array;
+}
+
+
+template<typename StartArrayType,typename ArrayType>
+void SearchElement<StartArrayType,ArrayType>::build(ArrayType* array,
+        size_t current_peak,
+        size_t begin_sub_section,
+        size_t end_sub_section)
+{
+    if (begin_sub_section==end_sub_section) _array[begin_sub_section] = array[begin_sub_section];
+
+    else{
+        int middle = (begin_sub_section + end_sub_section) / 2;
+
+        build(array, current_peak*2,begin_sub_section,middle);
+        build(array, current_peak*2+1,middle+1,end_sub_section);
+
+        _array[current_peak]=_array[current_peak*2]+_array[current_peak*2+1];
+    }
+}
+
+
+template<typename StartArrayType,typename ArrayType>
+void SearchElement<StartArrayType,ArrayType>::update(size_t current_peak,
+        size_t begin_current_sub_section,
+        size_t end_current_sub_section,
+        size_t change_peak,
+        StartArrayType new_value)
+{
+    if (begin_current_sub_section==end_current_sub_section) _array[begin_current_sub_section] = new_value;
+
+    else{
+        int middle = (begin_current_sub_section + end_current_sub_section) / 2;
+        change_peak<=middle ? update(current_peak*2,begin_current_sub_section,middle,change_peak,new_value) : update(current_peak*2,middle+1,end_current_sub_section,change_peak,new_value);
+
+    }
+    _array[current_peak]=_array[current_peak*2]+_array[current_peak*2+1];
+}
+
+
+template<typename StartArrayType,typename ArrayType>
+void SearchElement<StartArrayType,ArrayType>::update(size_t current_peak,
+        size_t begin_current_sub_section,
+        size_t end_current_sub_section,
+        size_t change_peak,
+        StartArrayType (*function3)(StartArrayType))
+{
+    if (begin_current_sub_section==end_current_sub_section) _array[begin_current_sub_section] = function3( _array[begin_current_sub_section]);
+
+    else{
+        int middle = (begin_current_sub_section + end_current_sub_section)/2;
+        change_peak<=middle ? update(current_peak*2,begin_current_sub_section,middle,change_peak,function3) : update(current_peak*2,middle+1,end_current_sub_section,change_peak,function3);
+
+    }
+    _array[current_peak]=_array[current_peak*2]+_array[current_peak*2+1];
+}
+
+//Применение функции
+template<typename StartArrayType,typename ArrayType>
+ArrayType SearchElement<StartArrayType,ArrayType>::search(const size_t begin, const size_t end) {
+
+}
+
+//Изменения
+template<typename StartArrayType,typename ArrayType>
+void SearchElement<StartArrayType,ArrayType>::change_with_new_value(size_t begin_changed_sub_section, size_t end_changed_sub_section, StartArrayType *new_value)
+{
+    for (int position=begin_changed_sub_section; position<end_changed_sub_section; position++) update(1, 0, 0, position, new_value[position]);
+}
+
+template<typename StartArrayType,typename ArrayType>
+void SearchElement<StartArrayType,ArrayType>::change_with_function(size_t begin_changed_sub_section, size_t end_changed_sub_section, StartArrayType (*function3)(StartArrayType))
+{
+    for (int position=begin_changed_sub_section; position<end_changed_sub_section; position++) update(1, 0, 0, position, function3);
+}
