@@ -35,9 +35,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RunManager">
-    <configuration name="StudPractice" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="StudPractice" TARGET_NAME="StudPractice" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="StudPractice" RUN_TARGET_NAME="StudPractice">
+    <configuration name="StudPractice" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="D:\Documents\GitHub\Labs_Progs\Sem2\StudPractice\input.txt" PASS_PARENT_ENVS_2="true" PROJECT_NAME="StudPractice" TARGET_NAME="StudPractice" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="StudPractice" RUN_TARGET_NAME="StudPractice">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -62,32 +63,49 @@
       <workItem from="1588932882498" duration="5367000" />
       <workItem from="1588941181811" duration="1003000" />
       <workItem from="1588943445159" duration="2847000" />
+      <workItem from="1589015287777" duration="7805000" />
+      <workItem from="1589036608757" duration="5870000" />
+      <workItem from="1589082230785" duration="3873000" />
+      <workItem from="1589086558651" duration="253000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="94" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588761616287">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state x="100" y="35" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589041974177">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="94" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.984@0.0.1280.984" timestamp="1588761616287" />
-    <state width="1236" height="258" key="GridCell.Tab.0.bottom" timestamp="1588939409741">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state x="100" y="35" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1589041974177" />
+    <state width="1322" height="174" key="GridCell.Tab.0.bottom" timestamp="1589086811089">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1236" height="258" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1588939409741" />
-    <state width="1236" height="258" key="GridCell.Tab.0.center" timestamp="1588939409741">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state width="1322" height="174" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1589086811089" />
+    <state width="1322" height="174" key="GridCell.Tab.0.center" timestamp="1589086811089">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1236" height="258" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1588939409741" />
-    <state width="1236" height="258" key="GridCell.Tab.0.left" timestamp="1588939409741">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state width="1322" height="174" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1589086811089" />
+    <state width="1322" height="174" key="GridCell.Tab.0.left" timestamp="1589086811089">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1236" height="258" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1588939409741" />
-    <state width="1236" height="258" key="GridCell.Tab.0.right" timestamp="1588939409741">
-      <screen x="0" y="0" width="1280" height="984" />
+    <state width="1322" height="174" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1589086811089" />
+    <state width="1322" height="174" key="GridCell.Tab.0.right" timestamp="1589086811089">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1236" height="258" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1588939409741" />
+    <state width="1322" height="174" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1589086811089" />
+    <state x="184" y="0" key="SettingsEditor" timestamp="1589042165042">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1589042165042" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1589040524750">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1589040524750" />
   </component>
 </project>

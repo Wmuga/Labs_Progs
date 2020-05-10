@@ -6,16 +6,18 @@
 
 #IncludeRegexTransform: 
 
-D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/SearchInArray.cpp
-SearchInArray.h
-D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/SearchInArray.h
-
 D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/SearchInArray.h
 cstring
 -
+algorithm
+-
 
 D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/main.cpp
-iostream
+cstdio
+-
+cstdlib
+-
+cctype
 -
 SearchInArray.h
 D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/SearchInArray.h

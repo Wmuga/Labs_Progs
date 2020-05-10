@@ -36,7 +36,7 @@
     <property name="cf.first.check.clang-format" value="false" />
   </component>
   <component name="RunManager">
-    <configuration name="TC" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="D:\Documents\GitHub\Labs_Progs\Sem2\TC\in1.txt D:\Documents\GitHub\Labs_Progs\Sem2\TC\Logs\" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TC" TARGET_NAME="TC" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="TC" RUN_TARGET_NAME="TC">
+    <configuration name="TC" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="D:\Documents\GitHub\Labs_Progs\Sem2\TC\in1.txt D:\Documents\GitHub\Labs_Progs\Sem2\TC\Logs\" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TC" TARGET_NAME="TC" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="TC" RUN_TARGET_NAME="TC">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -73,23 +73,25 @@
       <workItem from="1588865385390" duration="6116000" />
       <workItem from="1588883023765" duration="3202000" />
       <workItem from="1588920466606" duration="2038000" />
+      <workItem from="1589015235817" duration="38000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="94" y="145" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588885684777">
