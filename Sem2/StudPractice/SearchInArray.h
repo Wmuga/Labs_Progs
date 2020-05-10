@@ -80,12 +80,8 @@ public:
 
     //изменение подотрзка (то же самое с типами
     void change_with_function(size_t begin_changed_sub_section,
-                              size_t end_changed_sub_section,
-                              /*
-                               * эта функция будет обновлять элементы применяя функцию к элементам
-                               * начального массива
-                               */
-                              StartArrayType (*function3)(StartArrayType));
+                              size_t end_changed_sub_section);
+    void watch_contents();
 };
 
 
@@ -98,7 +94,7 @@ SearchElement<StartArrayType,ArrayType>::SearchElement(StartArrayType* start_arr
     _size = array_size;
     _function1=function1;
     _function2=function2;
-    _array = new ArrayType[array_size];
+    _array = new ArrayType[4*array_size];
     build(start_array,1,0,_size-1);
 }
 
@@ -106,8 +102,8 @@ SearchElement<StartArrayType,ArrayType>::SearchElement(StartArrayType* start_arr
 template<typename StartArrayType,typename ArrayType>
 SearchElement<StartArrayType,ArrayType>::~SearchElement()
 {
-    //delete []_start_array;
-    //delete[]_array;
+    delete []_start_array;
+    delete[]_array;
 }
 
 
@@ -124,7 +120,7 @@ void SearchElement<StartArrayType,ArrayType>::build(ArrayType* array,
 
         build(array, current_peak*2,begin_sub_section,middle);
         build(array, current_peak*2+1,middle+1,end_sub_section);
-        _array[current_peak]=_array[current_peak*2]+_array[current_peak*2+1];
+        _array[current_peak]=_function2(_array[current_peak*2],_array[current_peak*2+1]);
     }
 }
 
@@ -141,7 +137,7 @@ void SearchElement<StartArrayType,ArrayType>::update(size_t current_peak,
         size_t middle = (begin_current_sub_section + end_current_sub_section)/2;
         change_peak<=middle ? update(current_peak*2,begin_current_sub_section,middle,change_peak,new_value)
                             : update(current_peak*2+1,middle+1,end_current_sub_section,change_peak,new_value);
-        _array[current_peak]=_array[current_peak*2]+_array[current_peak*2+1];
+        _array[current_peak]=_function2(_array[current_peak*2],_array[current_peak*2+1]);
     }
 
 }
@@ -160,7 +156,7 @@ void SearchElement<StartArrayType,ArrayType>::update(size_t current_peak,
         size_t middle = (begin_current_sub_section + end_current_sub_section)/2;
         change_peak<=middle ? update(current_peak*2,begin_current_sub_section,middle,change_peak,function3)
         : update(current_peak*2+1,middle+1,end_current_sub_section,change_peak,function3);
-        _array[current_peak]=_array[current_peak*2]+_array[current_peak*2+1];
+        _array[current_peak]=_function2(_array[current_peak*2],_array[current_peak*2+1]);
     }
 }
 
@@ -181,11 +177,23 @@ ArrayType SearchElement<StartArrayType,ArrayType>::search(size_t current_peak, s
 template<typename StartArrayType,typename ArrayType>
 void SearchElement<StartArrayType,ArrayType>::change_with_new_values(size_t begin_changed_sub_section, size_t end_changed_sub_section, StartArrayType *new_values)
 {
-    for (int position=0; position<=end_changed_sub_section-begin_changed_sub_section; position++) update(1, 0, _size-1, begin_changed_sub_section+position, new_values[position]);
+    for (int position=begin_changed_sub_section; position<=end_changed_sub_section; position++)
+    {
+        update(1, 0, _size-1, position, new_values[position]);
+        _start_array[position]=new_values[position];
+    }
 }
 
 template<typename StartArrayType,typename ArrayType>
-void SearchElement<StartArrayType,ArrayType>::change_with_function(size_t begin_changed_sub_section, size_t end_changed_sub_section, StartArrayType (*function3)(StartArrayType))
+void SearchElement<StartArrayType,ArrayType>::change_with_function(size_t begin_changed_sub_section, size_t end_changed_sub_section)
 {
-    for (int position=0; position<=end_changed_sub_section-begin_changed_sub_section; position++) update(1, 0, _size-1, begin_changed_sub_section+position, function3);
+    for (int position=begin_changed_sub_section; position<=end_changed_sub_section; position++) {
+        update(1, 0, _size - 1, position, _function1);
+        _start_array[position]=_function1(_start_array[position]);
+    }
+}
+template<typename StartArrayType,typename ArrayType>
+void SearchElement<StartArrayType,ArrayType>::watch_contents(){
+    for (int i=0;i<_size;i++) printf("%d ",_start_array[i]);
+    printf("\n");
 }
