@@ -12,6 +12,8 @@ cstring
 algorithm
 -
 
+D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/functions.h
+
 D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/main.cpp
 cstdio
 -
@@ -21,4 +23,6 @@ cctype
 -
 SearchInArray.h
 D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/SearchInArray.h
+functions.h
+D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/functions.h
 
