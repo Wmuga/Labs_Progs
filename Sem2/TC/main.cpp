@@ -1,19 +1,21 @@
 #include <cstdio>
 #include <windows.h>
-#include "tree.h"
-//#include "treeR2.h" (вторая реализация дерева)
+//#include "tree.h"
+#include "treeR2.h" //(вторая реализация дерева)
 #include "Func.h"
 
+//Параметры - входной файл для безключевого дерева
+//файл для дерева по ключу, , Папка Логов
+int main(int argc, char** argv) {
 
-int main(int argc, char** argv) { //Параметры - входной файл, Папка Логов
     system("chcp 65001");
 
     Init();
-    InitLogger(argv[2]);
+    InitLogger(argv[3]);
 
     PutInLog((char*)"Инициализированы модули\n");
     MakeTree(argv[1]);
-    ShowTree(head);
+    ShowTree2(head);
     PutInLog((char*)"Выведено древо на экран\n");
     remove(&head);
 

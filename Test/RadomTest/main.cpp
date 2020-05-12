@@ -1,9 +1,12 @@
 #include <cmath>
 #include <cstdio>
 
+struct data
+{
+    char* i;
+};
 
 int main() {
-    int res=9;
-    if (res) printf("bruh");
+    printf("%d",7/2);
     return 0;
 }

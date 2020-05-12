@@ -21,12 +21,14 @@ struct Node
     Node *prev;
 };
 
+typedef Node* NodePtr;
+
 //Ссылки на деревья
-Node *head=nullptr,    *current=nullptr; //Неупорядоченное
-Node *headKey=nullptr, *currentKey= nullptr; //Упорядоченное
+NodePtr head=nullptr,    current=nullptr; //Неупорядоченное
+NodePtr headKey=nullptr, currentKey= nullptr; //Упорядоченное
 
-
-Node* NewNode(Node **CurrentPosition, char Pos='0')
+//Создание новой ветви, в зависимости от символа будет правым или левым или же "основой"
+NodePtr NewNode(Node **CurrentPosition, char Pos='0')
 {
     Node *newNode = new Node;
 
@@ -40,25 +42,26 @@ Node* NewNode(Node **CurrentPosition, char Pos='0')
     return newNode;
 }
 
-void destroy(Node **cur)
+void destroy(NodePtr *cur)
 {
+    delete []((*cur)->info.FName);
+    delete []((*cur)->info.SName);
+    delete []((*cur)->info.LName);
+    delete []((*cur)->info.BPlace);
     if ((*cur)->nextL!= nullptr)
-    {
         destroy(&((*cur)->nextL));
-    }
-    else if ((*cur)->nextR!= nullptr)
-    {
+    if ((*cur)->nextR!= nullptr)
         destroy(&((*cur)->nextR));
-    }
-    else if (*cur!=head){
+
+    if (*cur!=head){
         Node *temp = (*cur)->prev;
         if (temp->nextL==(*cur)) temp->nextL=nullptr;
         if (temp->nextR==(*cur)) temp->nextR=nullptr;
-        free(*cur);
+        delete [](*cur);
         (*cur) = temp;
     }
     else {
-        free(*cur);
+        delete [](*cur);
         (*cur) = nullptr;
     }
 }
@@ -85,32 +88,32 @@ void backToStartSorted(){
 }
 
 
-void back(Node **cur) {
+void back(NodePtr *cur) {
     (*cur)=(*cur)->prev;
 }
 
-Node* curL(Node *cur){
+NodePtr curL(NodePtr cur){
     return cur->nextL;
 }
 
-Node* curR(Node *cur){
+NodePtr curR(NodePtr cur){
     return cur->nextR;
 }
 
-data getData(Node *cur){
+data getData(NodePtr cur){
     return cur->info;
 }
 
-void replDataM(Node **cur,data inf){
+void replDataM(NodePtr *cur,data inf){
     (*cur)->info=inf;
 }
 
-void replDataL(Node **cur,data inf){
+void replDataL(NodePtr *cur,data inf){
     (*cur)->nextL = NewNode(cur);
     (*cur)->nextL->info=inf;
 }
 
-void replDataR(Node **cur,data inf){
+void replDataR(NodePtr *cur,data inf){
     (*cur)->nextR = NewNode(cur);
     (*cur)->nextR->info=inf;
 }

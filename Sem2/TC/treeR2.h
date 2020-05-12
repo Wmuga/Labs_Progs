@@ -1,3 +1,4 @@
+#include <utility>
 struct date       //Дата
 {
     int day;
@@ -14,106 +15,97 @@ struct data       //Данные
     char* BPlace; //Место рождения(опционально)
 };
 
-struct Node
+typedef std::pair<int,char> NodePtr;
+ //В зависимости от второго символа опрделяем к какому дереву относится "указатель"
+data* treeUnsorted; NodePtr head;
+data* treeSorted;   NodePtr headKey;
+
+
+//Создание новой ветви, в зависимости от символа будет правым или левым или же "основой"
+NodePtr NewNode(NodePtr *CurrentPosition, char Pos='0')
 {
+    date nullDate = {0,0,0};
+    data nullData = {nullptr,nullptr,nullptr,nullDate,nullDate,nullptr};
+    NodePtr newPos; newPos.second=(*CurrentPosition).second;
+    if (Pos=='L') newPos.first = (*CurrentPosition).first*2;
+    else if (Pos=='R') newPos.first = (*CurrentPosition).first*2+1;
+    else newPos.first = (*CurrentPosition).first;
+    (*CurrentPosition).second == 'u' ? treeUnsorted[newPos.first] = nullData
+                                     : treeSorted[newPos.first] = nullData;
+    return newPos;
+}
 
-};
-/*
-struct Node
+bool IsEmpty(NodePtr nd)
 {
-    data info;
-    Node *nextL;
-    Node *nextR;
-    Node *prev;
-};
-
-//Ссылки на деревья
-Node *head=nullptr,*current=nullptr; //Неупорядоченное
-Node *headKey=nullptr, *currentKey= nullptr; //Упорядоченное
-
-
-void NewNode(Node **cur, Node **place= nullptr)
+    return nd.second=='u' ? treeUnsorted[nd.first].FName==nullptr : treeSorted[nd.first].FName==nullptr;
+}
+void destroy(NodePtr *cur)
 {
-    Node *newNode = new Node;
-
-    newNode->nextL=nullptr;
-    newNode->nextR= nullptr;
-
-    if (place==nullptr)
-    {
-        newNode->prev= nullptr;
-        (*cur)=newNode;
-    } else{
-        newNode->prev = (*cur);
-        (*place)=newNode;
+    if ((*cur).first=='u') {
+        delete[](treeUnsorted[(*cur).first].FName);
+        delete[](treeUnsorted[(*cur).first].SName);
+        delete[](treeUnsorted[(*cur).first].LName);
+        delete[](treeUnsorted[(*cur).first].BPlace);
     }
+    else{
+        delete[](treeSorted[(*cur).first].FName);
+        delete[](treeSorted[(*cur).first].SName);
+        delete[](treeSorted[(*cur).first].LName);
+        delete[](treeSorted[(*cur).first].BPlace);
+    }
+    NodePtr nextL = std::make_pair((*cur).first*2,(*cur).second);
+    NodePtr nextR = std::make_pair((*cur).first*2+1,(*cur).second);
+    if (!IsEmpty(nextL)) destroy(&nextL);
+    if (!IsEmpty(nextL)) destroy(&nextR);
+    if ((*cur)!=head) (*cur) = std::make_pair((*cur).first/2,(*cur).second);
 }
 
-void destroy(Node **cur)
+
+
+
+void Init()
 {
-    if ((*cur)->nextL!= nullptr)
-    {
-        destroy(&((*cur)->nextL));
-    }
-    else if ((*cur)->nextR!= nullptr)
-    {
-        destroy(&((*cur)->nextR));
-    }
-    else if (*cur!=head){
-        Node *temp = (*cur)->prev;
-        if (temp->nextL==(*cur)) temp->nextL=nullptr;
-        if (temp->nextR==(*cur)) temp->nextR=nullptr;
-        free(*cur);
-        (*cur) = temp;
-    }
-    else {
-        free(*cur);
-        (*cur) = nullptr;
-    }
+    treeUnsorted = new data[100]();
+    treeSorted = new data[100]();
+    head = std::make_pair(1,'u');
+    headKey = std::make_pair(1,'s');
 }
 
-Node* Init()
-{
-    if (head!=nullptr) destroy(&head);
-    NewNode(&head);
-    if (headKey!=nullptr) destroy(&headKey);
-    NewNode(&headKey);
+void backToStartUnsorted(){
+//    head = std::make_pair(1,'u');
 }
 
-bool IsEmpty(Node *nd)
-{
-    return (nd==nullptr);
+void backToStartSorted(){
+//    headKey = std::make_pair(1,'s');
 }
 
-void bstart(){
-    current = head;
+
+void back(NodePtr *cur) {
+    (*cur) = std::make_pair((*cur).first/2,(*cur).second);
 }
 
-void back(Node **cur) {
-    (*cur) = (*cur)->prev;
+NodePtr curL(NodePtr cur){
+    return std::make_pair(cur.first*2,cur.second);
 }
 
-Node* curL(Node *cur){
-    return cur->nextL;
+NodePtr curR(NodePtr cur){
+    return std::make_pair(cur.first*2+1,cur.second);
 }
 
-Node* curR(Node *cur){
-    return cur->nextR;
+data getData(NodePtr cur){
+    return cur.second == 'u' ? treeUnsorted[cur.first]: treeSorted[cur.first];
 }
 
-data getData(Node *cur){
-    return cur->info;
+void replDataM(NodePtr *cur,data inf){
+    (*cur).second == 'u' ? treeUnsorted[(*cur).first] = inf: treeSorted[(*cur).first] = inf;
 }
 
-void replDataM(Node **cur,data inf){
-    (*cur)->info=inf;
+void replDataL(NodePtr *cur,data inf){
+    (*cur).second == 'u' ? treeUnsorted[(*cur).first*2] = inf
+            : treeSorted[(*cur).first*2] = inf;
 }
 
-void replDataL(Node **cur,data inf){
-    (*cur)->nextL->info=inf;
+void replDataR(NodePtr *cur,data inf){
+    (*cur).second == 'u' ? treeUnsorted[(*cur).first*2+1] = inf
+            : treeSorted[(*cur).first*2+1] = inf;
 }
-
-void replDataR(Node **cur,data inf){
-    (*cur)->nextR->info=inf;
-}
- */
