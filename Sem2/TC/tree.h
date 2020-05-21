@@ -21,11 +21,14 @@ struct Node
     Node *prev;
 };
 
-typedef Node* NodePtr;
+int elemsCountUnsorted = 0;
+int elemsCountSorted = 0;
 
+typedef Node* NodePtr;
+data nullData = {nullptr,nullptr,nullptr, {0,0,0}, {0,0,0},nullptr};
 //Ссылки на деревья
-NodePtr head=nullptr,    current=nullptr; //Неупорядоченное
-NodePtr headKey=nullptr, currentKey= nullptr; //Упорядоченное
+NodePtr head=nullptr; //Неупорядоченное
+NodePtr headKey=nullptr; //Упорядоченное
 
 //Создание новой ветви, в зависимости от символа будет правым или левым или же "основой"
 NodePtr NewNode(Node **CurrentPosition, char Pos='0')
@@ -39,21 +42,24 @@ NodePtr NewNode(Node **CurrentPosition, char Pos='0')
     if (Pos=='L') (*CurrentPosition)->nextL=newNode;
     if (Pos=='R') (*CurrentPosition)->nextR=newNode;
 
+    newNode->info=nullData;
     return newNode;
 }
 
-void destroy(NodePtr *cur)
+void destroy(NodePtr *cur, int type)
 {
-    delete []((*cur)->info.FName);
-    delete []((*cur)->info.SName);
-    delete []((*cur)->info.LName);
-    delete []((*cur)->info.BPlace);
+    if (!type) {
+        delete[]((*cur)->info.FName);
+        delete[]((*cur)->info.SName);
+        delete[]((*cur)->info.LName);
+        delete[]((*cur)->info.BPlace);
+    }
     if ((*cur)->nextL!= nullptr)
-        destroy(&((*cur)->nextL));
+        destroy(&((*cur)->nextL),type);
     if ((*cur)->nextR!= nullptr)
-        destroy(&((*cur)->nextR));
+        destroy(&((*cur)->nextR),type);
 
-    if (*cur!=head){
+    if (*cur!=head and *cur!=headKey){
         Node *temp = (*cur)->prev;
         if (temp->nextL==(*cur)) temp->nextL=nullptr;
         if (temp->nextR==(*cur)) temp->nextR=nullptr;
@@ -68,9 +74,9 @@ void destroy(NodePtr *cur)
 
 void Init()
 {
-    if (head!=nullptr) destroy(&head);
+    if (head!=nullptr) destroy(&head,0);
     head = NewNode(nullptr);
-    if (headKey!=nullptr) destroy(&headKey);
+    if (headKey!=nullptr) destroy(&headKey,1);
     headKey = NewNode(nullptr);
 }
 
@@ -79,17 +85,17 @@ bool IsEmpty(Node *nd)
     return (nd==nullptr);
 }
 
-void backToStartUnsorted(){
-    current = head;
+NodePtr getStartUnsorted(){
+    return head;
 }
 
-void backToStartSorted(){
-    currentKey = headKey;
+NodePtr getStartSorted(){
+    return headKey;
 }
 
 
-void back(NodePtr *cur) {
-    (*cur)=(*cur)->prev;
+NodePtr back(NodePtr *cur) {
+    return (*cur)->prev;
 }
 
 NodePtr curL(NodePtr cur){

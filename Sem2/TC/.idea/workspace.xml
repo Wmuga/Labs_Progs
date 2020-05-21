@@ -36,7 +36,7 @@
     <property name="cf.first.check.clang-format" value="false" />
   </component>
   <component name="RunManager">
-    <configuration name="TC" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="D:\Documents\GitHub\Labs_Progs\Sem2\TC\in1.txt D:\Documents\GitHub\Labs_Progs\Sem2\TC\in1l.txt D:\Documents\GitHub\Labs_Progs\Sem2\TC\Logs\" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TC" TARGET_NAME="TC" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="TC" RUN_TARGET_NAME="TC">
+    <configuration name="TC" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="D:\Documents\GitHub\Labs_Progs\Sem2\TC\in1.txt D:\Documents\GitHub\Labs_Progs\Sem2\TC\Logs\" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="TC" TARGET_NAME="TC" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="TC" RUN_TARGET_NAME="TC">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -77,6 +77,16 @@
       <workItem from="1589218919211" duration="1970000" />
       <workItem from="1589227911139" duration="2133000" />
       <workItem from="1589277542297" duration="4574000" />
+      <workItem from="1589365419620" duration="676000" />
+      <workItem from="1589366657507" duration="2679000" />
+      <workItem from="1589573441225" duration="4088000" />
+      <workItem from="1589629374573" duration="2644000" />
+      <workItem from="1589695673500" duration="598000" />
+      <workItem from="1589714782734" duration="3942000" />
+      <workItem from="1589732276271" duration="2060000" />
+      <workItem from="1589971993193" duration="2317000" />
+      <workItem from="1589974842718" duration="146000" />
+      <workItem from="1589988751868" duration="943000" />
     </task>
     <servers />
   </component>
@@ -96,42 +106,43 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="31" y="146" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589227960285">
+    <state x="31" y="146" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589988811354">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="34" y="263" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.984/1280.0.2160.1040@0.0.1280.984" timestamp="1588275276080" />
-    <state x="31" y="146" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.984@0.0.1280.984" timestamp="1589227960285" />
+    <state x="31" y="146" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.984@0.0.1280.984" timestamp="1589988811354" />
     <state x="419" y="232" key="FileChooserDialogImpl" timestamp="1588056809942">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="419" y="232" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1588056809942" />
-    <state width="1236" height="258" key="GridCell.Tab.0.bottom" timestamp="1589283786925">
+    <state width="1236" height="260" key="GridCell.Tab.0.bottom" timestamp="1589989704655">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.bottom/0.0.1280.984/1280.0.2160.1040@0.0.1280.984" timestamp="1589222439735" />
-    <state width="1236" height="258" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1589283786925" />
-    <state width="1236" height="258" key="GridCell.Tab.0.center" timestamp="1589283786925">
+    <state width="1236" height="260" key="GridCell.Tab.0.bottom/0.0.1280.984/1280.0.2160.1040@0.0.1280.984" timestamp="1589975002516" />
+    <state width="1236" height="260" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1589989704655" />
+    <state width="1236" height="260" key="GridCell.Tab.0.center" timestamp="1589989704655">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.center/0.0.1280.984/1280.0.2160.1040@0.0.1280.984" timestamp="1589222439735" />
-    <state width="1236" height="258" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1589283786925" />
-    <state width="1236" height="258" key="GridCell.Tab.0.left" timestamp="1589283786924">
+    <state width="1236" height="260" key="GridCell.Tab.0.center/0.0.1280.984/1280.0.2160.1040@0.0.1280.984" timestamp="1589975002516" />
+    <state width="1236" height="260" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1589989704655" />
+    <state width="1236" height="260" key="GridCell.Tab.0.left" timestamp="1589989704655">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.left/0.0.1280.984/1280.0.2160.1040@0.0.1280.984" timestamp="1589222439735" />
-    <state width="1236" height="258" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1589283786924" />
-    <state width="1236" height="258" key="GridCell.Tab.0.right" timestamp="1589283786925">
+    <state width="1236" height="260" key="GridCell.Tab.0.left/0.0.1280.984/1280.0.2160.1040@0.0.1280.984" timestamp="1589975002515" />
+    <state width="1236" height="260" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1589989704655" />
+    <state width="1236" height="260" key="GridCell.Tab.0.right" timestamp="1589989704655">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.right/0.0.1280.984/1280.0.2160.1040@0.0.1280.984" timestamp="1589222439735" />
-    <state width="1236" height="258" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1589283786925" />
+    <state width="1236" height="260" key="GridCell.Tab.0.right/0.0.1280.984/1280.0.2160.1040@0.0.1280.984" timestamp="1589975002516" />
+    <state width="1236" height="260" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1589989704655" />
     <state x="296" y="221" key="run.anything.popup" timestamp="1588275182766">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="296" y="221" key="run.anything.popup/0.0.1280.984/1280.0.2160.1040@0.0.1280.984" timestamp="1588275182766" />
-    <state x="303" y="211" width="672" height="678" key="search.everywhere.popup" timestamp="1587972773907">
+    <state x="303" y="211" width="672" height="678" key="search.everywhere.popup" timestamp="1589574182403">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
+    <state x="303" y="211" width="672" height="678" key="search.everywhere.popup/0.0.1280.984/1280.0.2160.1040@0.0.1280.984" timestamp="1589574182403" />
     <state x="303" y="211" width="672" height="678" key="search.everywhere.popup/0.0.1280.984@0.0.1280.984" timestamp="1587972773907" />
   </component>
 </project>

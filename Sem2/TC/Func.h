@@ -1,4 +1,5 @@
 #include "Logger.h"
+
 /* Функция вывода полной информации.
  * Может выводить в консоль по умолчанию или в в другой поток
  * В частности - файл лога
@@ -22,7 +23,7 @@ void ShowTree(NodePtr TreeHead,FILE *pfile=stdout, int depth=0){
     fprintf(pfile,"%*s",depth*2+3,"-- "); fflush(pfile);
     ShowData(TreeHead,pfile);
     if (!IsEmpty(curL(TreeHead)) and strcmp(getData(curL(TreeHead)).FName,"**")!=0) ShowTree(curL(TreeHead), pfile,depth+1);
-    if (!IsEmpty(curR(TreeHead)) and strcmp(getData(curR(TreeHead)).FName,"**")!=0)ShowTree(curR(TreeHead), pfile,depth+1);
+    if (!IsEmpty(curR(TreeHead)) and strcmp(getData(curR(TreeHead)).FName,"**")!=0) ShowTree(curR(TreeHead), pfile,depth+1);
 }
 
 /* Второй способ выведения дерева лево-корень-право
@@ -36,48 +37,47 @@ void ShowTree2(NodePtr TreeHead,FILE *pfile=stdout, int depth=0) {
     if (!IsEmpty(curR(TreeHead)) and strcmp(getData(curR(TreeHead)).FName,"**")!=0)ShowTree2(curR(TreeHead), pfile,depth+1);
 }
 
-/*Получение полных данных, так как для проверки приходится читать первое слово заранее, отправляем и его.
- * Чтобы не писать дважды, вынесено в отдельную функцию
-*/
-data getFullData(FILE *FileIn,char* buffer)
+
+
+void TreeSortedBranches(NodePtr CurrentPositionOfUnsorted)
 {
-    char *FName= buffer;
-    char *SName = new char[20];
-    char *LName = new char[20];
-    char *BPlace = new char[50];
-
-    fscanf(FileIn, "%s", SName);
-    fscanf(FileIn, "%s", LName);
-
-    int day, month, year;
-    fscanf(FileIn, "%d", &day);
-    fscanf(FileIn, "%d", &month);
-    fscanf(FileIn, "%d", &year);
-    date dBirth = {day, month, year};
-
-    fscanf(FileIn, "%d", &day);
-    fscanf(FileIn, "%d", &month);
-    fscanf(FileIn, "%d", &year);
-    date dDeath = {day, month, year};
-
-    fscanf(FileIn, "%s", BPlace);
-
-    return {FName, SName, LName, dBirth, dDeath, BPlace};
+    data currentData = getData(CurrentPositionOfUnsorted);
+    if (currentData.dDeath.day) {
+        elemsCountSorted++;
+        PutInLog((char*)"Найдена информация о дате смерти в элементе:\n");
+        ShowData(CurrentPositionOfUnsorted,pLog);
+        NodePtr CurrentPosition=headKey;
+        while (getData(CurrentPosition).dDeath.day and CurrentPositionOfUnsorted!=head)
+        {
+            data prevData = getData(CurrentPosition);
+            if ((prevData.dDeath.day-currentData.dDeath.day)+
+            (prevData.dDeath.month-currentData.dDeath.month)*31>0)
+            CurrentPosition=curL(CurrentPosition);
+            else CurrentPosition=curR(CurrentPosition);
+        }
+        replDataM(&CurrentPosition,currentData);
+        data StopCode = {(char*)"**"};
+        NewNode(&CurrentPosition,'R');
+        replDataR(&CurrentPosition,StopCode);
+        NewNode(&CurrentPosition,'L');
+        replDataL(&CurrentPosition,StopCode);
+    }
+    if (!IsEmpty(curL(CurrentPositionOfUnsorted)) and strcmp(getData(curL(CurrentPositionOfUnsorted)).FName,"**")!=0)
+        TreeSortedBranches(curL(CurrentPositionOfUnsorted));
+    if (!IsEmpty(curR(CurrentPositionOfUnsorted)) and strcmp(getData(curR(CurrentPositionOfUnsorted)).FName,"**")!=0)
+        TreeSortedBranches(curR(CurrentPositionOfUnsorted));
 }
 
-/*
-void AddToKeyTree()
-{
 
-}
-*/
 
-/*
 void MakeTreeKey()
 {
-
+    PutInLog((char*)"Построение отсортированного дерева\n");
+    TreeSortedBranches(getStartUnsorted());
+    PutInLog((char*)"Создано дерево:\n");
+    ShowTree(getStartSorted(), pLog);
 }
-*/
+
 
 
 /*
@@ -95,11 +95,33 @@ void TreeBranches(FILE *FileIn,NodePtr* CurrentPosition)
     if (!feof(FileIn)) {
         NodePtr next;
         if (buffer[0] != '*') {
+            elemsCountUnsorted++;
+            char *FName= buffer;
+            char *SName = new char[20];
+            char *LName = new char[20];
+            char *BPlace = new char[50];
 
-            newinfo = getFullData(FileIn,buffer);
+            fscanf(FileIn, "%s", SName);
+            fscanf(FileIn, "%s", LName);
+
+            int day, month, year;
+            fscanf(FileIn, "%d", &day);
+            fscanf(FileIn, "%d", &month);
+            fscanf(FileIn, "%d", &year);
+            date dBirth = {day, month, year};
+
+            fscanf(FileIn, "%d", &day);
+            fscanf(FileIn, "%d", &month);
+            fscanf(FileIn, "%d", &year);
+            date dDeath = {day, month, year};
+
+            fscanf(FileIn, "%s", BPlace);
+
+            newinfo = {FName,SName,LName,dBirth,dDeath,BPlace};
 
             next = NewNode(CurrentPosition,'L');
             replDataM(CurrentPosition,newinfo);
+            PutInLog((char*)"Создана ветвь "); ShowData(*CurrentPosition,pLog);
         }
         else
         {
@@ -107,13 +129,11 @@ void TreeBranches(FILE *FileIn,NodePtr* CurrentPosition)
             replDataM(CurrentPosition,newinfo);
             do
             {
-                back(CurrentPosition);
+                *CurrentPosition = back(CurrentPosition);
             }while(!IsEmpty(curR(*CurrentPosition)));
             next = NewNode(CurrentPosition,'R');
+            PutInLog((char*)"Переход на друю подветвь\n");
         }
-
-        if (strcmp(newinfo.FName,"**")!=0) {PutInLog((char*)"Создана ветвь "); ShowData(*CurrentPosition,pLog);}
-        else PutInLog((char*)"Переход на друю подветвь\n");
         TreeBranches(FileIn, &next);
     }
     else{ //Так как последний ** считывается, но не обрабатывается - делаем сами
@@ -121,22 +141,29 @@ void TreeBranches(FILE *FileIn,NodePtr* CurrentPosition)
         replDataM(CurrentPosition,newinfo);
     }
 }
-//Инициализатор создания дерева
+//Инициализатор создания неупорядоченного дерева
 void MakeTree(char* filename)
 {
     PutInLog((char*)"Построение обыкновенного дерева\n");
     FILE* in = fopen(filename,"r");
     TreeBranches(in,&head);
     PutInLog((char *)"Конец файла\nСоздано дерево:\n");
-    ShowTree(head, pLog);
+    ShowTree(getStartUnsorted(), pLog);
+    fclose(in);
 }
 
 void remove(NodePtr *cur)
 {
-    if ((*cur)==head) PutInLog((char*)"Уничтожено обыкновенное дерево\n");
-    else if ((*cur)==headKey) PutInLog((char*)"Уничтожено отсортированное дерево\n");
+    if ((*cur)==getStartUnsorted()) {
+        PutInLog((char*)"Уничтожено обыкновенное дерево\n");
+        destroy(cur,0);
+    }
+    else if ((*cur)==getStartSorted()) {
+        PutInLog((char*)"Уничтожено отсортированное дерево\n");
+        destroy(cur,1);
+    }
     else{
         PutInLog((char*)"Уничтожена ветвь "); ShowData(*cur,pLog);
+        destroy(cur,0);
     }
-    destroy(cur);
 }
