@@ -25,16 +25,16 @@ int main(int argc,char** argv) {
     for (size_t i=0;i<array_size;i++) fscanf(pInputFile,"%d",&inputArray[i]);
 
     fclose(pInputFile);
-
+    //Инициализация класса, вызов его конструктора
     SearchElement<arrayType,arrayType>
             SearchEl(inputArray,
                      array_size,
                      funcIsElement<arrayType>,
                      funcSearchMin<arrayType>);
-    char* currentFunction = (char*)"Поиск минимума";
+    char* currentFunction = (char*)"Поиск минимума"; //Изначально функция - поиск минимума
     //UserInterface
     bool end = false;
-    int start_pos=0,end_pos=(int)array_size-1;
+    int start_pos=0,end_pos=(int)array_size-1; //Границы текущего отрезка
     char act;
     while (!end)
     {
@@ -46,7 +46,7 @@ int main(int argc,char** argv) {
                "\'m\' - изменить основную функцию\n"
                "\'v\' - просмотреть массив\n"
                "\'x\' - завершить работу\n",
-        currentFunction,start_pos,end_pos);
+        currentFunction,start_pos+1,end_pos+1);
        act = (char)tolower(getc(stdin)); fflush(stdin);
        switch(act)
        {
@@ -57,6 +57,8 @@ int main(int argc,char** argv) {
            case 'c':
                printf("Введите новые границы подотрезка\n");
                scanf("%d %d",&start_pos,&end_pos); fflush(stdin);
+               start_pos--;
+               end_pos--;
                break;
 
            case 's':
@@ -77,7 +79,8 @@ int main(int argc,char** argv) {
                       "\'1\' - произведение\n"
                       "\'2\' - сумма\n"
                       "\'3\' - минимум\n"
-                      "\'4\' - максимум\n");
+                      "\'4\' - максимум\n"
+                      "\'5\' - количество элементов определенного значения\n");
                int f_type; scanf("%d",&f_type); fflush(stdin);
                switch(f_type)
                {
@@ -99,12 +102,19 @@ int main(int argc,char** argv) {
                        SearchEl.change_main_function(funcSearchMax);
                        currentFunction=(char*)"Поиск максимума";
                        break;
+                   case(5):
+                       SearchEl.change_main_function(funcSum);
+                       SearchEl.change_elem_function(funcIsEquals);
+                       printf("Введите с каким значением желаете сравнивать элемнты\n");
+                       scanf("%d",&value<arrayType>);
+                       currentFunction=(char*)"Расчет количества элементов";
+                       break;
                }
                break;
            case 'u':
                printf("Каким образом изменить занчения \'1\'-функцией \'2\'-ввод вручную\n");
                int type = getc(stdin)-'0'; fflush(stdin);
-               if (type==1) SearchEl.change_with_function(start_pos, end_pos, funcIsElement);
+               if (type==1) SearchEl.change_with_function(start_pos, end_pos, funcIncElement);
                else{
                    arrayType newValues[end_pos-start_pos];
                    printf("Введите новые значения:\n");

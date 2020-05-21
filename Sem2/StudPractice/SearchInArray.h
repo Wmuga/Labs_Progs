@@ -7,7 +7,7 @@
  * Managed by Daria Kulikova
 */
 
-//min,sum,max,nElems
+//Необходимые библиотеки
 #include <cstring>
 #include <algorithm>
 
@@ -15,10 +15,10 @@ template <class StartArrayType, class ArrayType>
 class SearchElement
 {
 private:
-    StartArrayType* _start_array;
-    ArrayType* _array;
+    StartArrayType* _start_array; //Входной массив
+    ArrayType* _array; //Само древо
 
-    ArrayType (*_function1)(StartArrayType);       //?
+    ArrayType (*_function1)(StartArrayType);       //Работа с элементом
     ArrayType (*_function2)(ArrayType, ArrayType); //min,max,sum
 
     size_t _size;
@@ -62,10 +62,13 @@ public:
     //изменение подотрзка (то же самое с типами
     void change_with_function(size_t begin_changed_sub_section,
                               size_t end_changed_sub_section, StartArrayType (*function3)(StartArrayType));
+    //Просмотр текущего состояния массива
     void watch_contents();
 
     //Изменение типа дерева (min,max,sum и т.д.)
     void change_main_function(StartArrayType (*funcTypeTree)(ArrayType,ArrayType));
+    //Изменение работы над эелементом
+    void change_elem_function(StartArrayType (*funcValueChange)(ArrayType));
 };
 
 
@@ -95,13 +98,16 @@ void SearchElement<StartArrayType,ArrayType>::build(
         size_t begin_sub_section,
         size_t end_sub_section)
 {
+    //Если дошли до конкретного элемента, передаем его дереву
     if (begin_sub_section==end_sub_section) _array[current_peak] = _function1(_start_array[begin_sub_section]);
 
     else{
+        //Иначе делим отрезок пополам и запускаем рекурсию
         size_t middle = (begin_sub_section + end_sub_section) / 2;
 
         build(current_peak*2,begin_sub_section,middle);
         build(current_peak*2+1,middle+1,end_sub_section);
+        //Формируем "корень" из "листьев" в соответсвии с переданной функцией
         _array[current_peak]=_function2(_array[current_peak*2],_array[current_peak*2+1]);
     }
 }
@@ -113,12 +119,14 @@ void SearchElement<StartArrayType,ArrayType>::update(size_t current_peak,
         size_t end_current_sub_section,
         size_t change_peak,
         StartArrayType new_value)
-{
+{   //Если дошли до конкретного элемента, передаем его дереву
     if (begin_current_sub_section==end_current_sub_section) _array[current_peak] = _function1(new_value);
     else{
+        //Иначе ищем его
         size_t middle = (begin_current_sub_section + end_current_sub_section)/2;
         change_peak<=middle ? update(current_peak*2,begin_current_sub_section,middle,change_peak,new_value)
                             : update(current_peak*2+1,middle+1,end_current_sub_section,change_peak,new_value);
+        //Снова формируем дерево, т.к. изменен элемент
         _array[current_peak]=_function2(_array[current_peak*2],_array[current_peak*2+1]);
     }
 
@@ -132,6 +140,7 @@ void SearchElement<StartArrayType,ArrayType>::update(size_t current_peak,
         size_t change_peak,
         StartArrayType (*function3)(StartArrayType))
 {
+    //Работает так же, как и прошлый update, только изменяет элемнент с помощью function3
     if (begin_current_sub_section==end_current_sub_section) _array[current_peak] = function3(_array[current_peak]);
 
     else{
@@ -145,13 +154,18 @@ void SearchElement<StartArrayType,ArrayType>::update(size_t current_peak,
 //Применение функции
 template<typename StartArrayType,typename ArrayType>
 ArrayType SearchElement<StartArrayType,ArrayType>::search(size_t current_peak, size_t search_start, size_t search_end, size_t current_start, size_t current_end) {
+    //Проверка на аномалию
     if (search_start > search_end) return 0;
+    //Дошли до элемента - возвращаем его
     if (current_start == search_start && current_end == search_end) return _array[current_peak];
     size_t middle = (current_start + current_end) / 2;
+    //Рекурсия для поиска необходимого значения
     ArrayType val1 = search(current_peak*2, search_start, std::min(search_end,middle),current_start,middle);
     ArrayType val2 = search(current_peak*2+1, std::max(search_start,middle+1), search_end,middle+1,current_end);
+    //Дополнительная проверка, чтобы не считали ноль значением "листа" дерева
     if (val1==0 && _array[current_peak*2]!=0) return val2;
     if (val2==0 && _array[current_peak*2+1]!=0) return val1;
+    //И возвращаем результат function2
     return _function2(val1,val2);
 }
 
@@ -159,6 +173,7 @@ ArrayType SearchElement<StartArrayType,ArrayType>::search(size_t current_peak, s
 template<typename StartArrayType,typename ArrayType>
 void SearchElement<StartArrayType,ArrayType>::change_with_new_values(size_t begin_changed_sub_section, size_t end_changed_sub_section, StartArrayType *new_values)
 {
+    //Циклом проходим по массиву и запускаем update с новыми значениям
     for (size_t position=begin_changed_sub_section; position<=end_changed_sub_section; position++)
     {
         update(1, 0, _size-1, position, new_values[position]);
@@ -169,6 +184,7 @@ void SearchElement<StartArrayType,ArrayType>::change_with_new_values(size_t begi
 template<typename StartArrayType,typename ArrayType>
 void SearchElement<StartArrayType,ArrayType>::change_with_function(size_t begin_changed_sub_section, size_t end_changed_sub_section, StartArrayType (*function3)(StartArrayType))
 {
+    //Циклом обновляем дерево с помощью функции
     for (size_t position=begin_changed_sub_section; position<=end_changed_sub_section; position++) {
         update(1, 0, _size - 1, position, function3);
         _start_array[position]=function3(_start_array[position]);
@@ -183,6 +199,15 @@ void SearchElement<StartArrayType,ArrayType>::watch_contents(){
 template<typename StartArrayType,typename ArrayType>
 void SearchElement<StartArrayType,ArrayType>::change_main_function(StartArrayType (*funcTypeTree)(ArrayType,ArrayType))
 {
+    //Изменяем функцию, по которой определяется "корень" и переформировываем дерево
     _function2=funcTypeTree;
+    build(1,0,_size-1);
+}
+
+template<typename StartArrayType,typename ArrayType>
+void SearchElement<StartArrayType,ArrayType>::change_elem_function(StartArrayType (*funcValueChange)(ArrayType))
+{
+    //Изменяем функцию для работы с отдельными элементами и переформировываем дерево
+    _function1=funcValueChange;
     build(1,0,_size-1);
 }
