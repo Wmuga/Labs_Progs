@@ -1,7 +1,8 @@
 #include <cstdio>
 #include <windows.h>
 //#include "tree.h"
-#include "treeR2.h" //(вторая реализация дерева)
+//#include "treeR2.h" //(вторая реализация дерева)
+#include "treeR3.h" //(вторая реализация дерева)
 #include "Func.h"
 
 //Параметры - входной файл для безключевого дерева

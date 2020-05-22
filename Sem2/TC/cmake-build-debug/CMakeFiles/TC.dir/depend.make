@@ -4,5 +4,5 @@
 CMakeFiles/TC.dir/main.cpp.obj: ../Func.h
 CMakeFiles/TC.dir/main.cpp.obj: ../Logger.h
 CMakeFiles/TC.dir/main.cpp.obj: ../main.cpp
-CMakeFiles/TC.dir/main.cpp.obj: ../treeR2.h
+CMakeFiles/TC.dir/main.cpp.obj: ../treeR3.h
 

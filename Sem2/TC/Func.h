@@ -46,7 +46,7 @@ void TreeSortedBranches(NodePtr CurrentPositionOfUnsorted)
         elemsCountSorted++;
         PutInLog((char*)"Найдена информация о дате смерти в элементе:\n");
         ShowData(CurrentPositionOfUnsorted,pLog);
-        NodePtr CurrentPosition=headKey;
+        NodePtr CurrentPosition=getStartSorted();
         while (getData(CurrentPosition).dDeath.day and CurrentPositionOfUnsorted!=head)
         {
             data prevData = getData(CurrentPosition);
@@ -129,6 +129,7 @@ void TreeBranches(FILE *FileIn,NodePtr* CurrentPosition)
             replDataM(CurrentPosition,newinfo);
             do
             {
+                printf("Uh\n");
                 *CurrentPosition = back(CurrentPosition);
             }while(!IsEmpty(curR(*CurrentPosition)));
             next = NewNode(CurrentPosition,'R');

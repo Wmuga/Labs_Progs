@@ -49,7 +49,6 @@ bool IsEmpty(NodePtr nd)
 void destroy(NodePtr *cur, int type)
 {
     if ((*cur).second=='u') {
-        printf("%s\n",treeUnsorted[(*cur).first].FName);
         delete[](treeUnsorted[(*cur).first].FName);
         delete[](treeUnsorted[(*cur).first].SName);
         delete[](treeUnsorted[(*cur).first].LName);
