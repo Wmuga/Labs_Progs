@@ -1,8 +1,8 @@
 #include <cstdio>
 #include <windows.h>
-//#include "tree.h"
+#include "tree.h"
 //#include "treeR2.h" //(вторая реализация дерева)
-#include "treeR3.h" //(вторая реализация дерева)
+//#include "treeR3.h" //(вторая реализация дерева)
 #include "Func.h"
 
 //Параметры - входной файл для безключевого дерева
@@ -23,6 +23,11 @@ int main(int argc, char** argv) {
     printf("--------\n");
     MakeTreeKey();
     NodePtr headSorted = getStartSorted();
+    ShowTree2(headSorted);
+    PutInLog((char*)"Выведено отсортированное древо на экран\n");
+    AddToTreeKey({(char*)"Pogger",(char*)"Pepega",(char*)"Poggers",{1,1,1},{8,10,2012},(char*)"--"},curL(getStartUnsorted()));
+    printf("--------\n");
+    ShowTree(headSorted,pLog);
     ShowTree2(headSorted);
     PutInLog((char*)"Выведено отсортированное древо на экран\n");
     remove(&headUnsorted);

@@ -15,9 +15,6 @@ struct data       //Данные
     char* BPlace; //Место рождения(опционально)
 };
 
-int elemsCountUnsorted=0;
-int elemsCountSorted=0;
-
 data nullData = {nullptr,nullptr,nullptr, {0,0,0}, {0,0,0},nullptr};
 
 //"Указатель" на ветвь содержит текущую позицию и тип дерева, к которому принадлежит
@@ -30,20 +27,23 @@ void Init()
 {
     pTreeUnsorted = fopen("C:\\Users\\Public\\Documents\\treeUnsorted.bin","wb+");
     pTreeSorted = fopen("C:\\Users\\Public\\Documents\\treeSorted.bin","wb+");
-    fseek(pTreeUnsorted, sizeof(data), SEEK_SET);
-    fseek(pTreeSorted, sizeof(data), SEEK_SET);
     head = std::make_pair(1,'u');
     headKey = std::make_pair(1,'s');
 }
 
+NodePtr curL(NodePtr cur){
+    return std::make_pair(cur.first*2,cur.second);
+}
+
+NodePtr curR(NodePtr cur){
+    return std::make_pair(cur.first*2+1,cur.second);
+}
 //Создание новой ветви, в зависимости от символа будет правым или левым или же "основой"
 NodePtr NewNode(NodePtr *CurrentPosition, char Pos='0')
 {
-    NodePtr newPos;
-    if (Pos=='L') newPos.first = (*CurrentPosition).first*2;
-    else if (Pos=='R') newPos.first = (*CurrentPosition).first*2+1;
-    else newPos.first = (*CurrentPosition).first;
-    return newPos;
+    if (Pos=='L') return curL(*CurrentPosition);
+    else if (Pos=='R') return curR(*CurrentPosition);
+    else return (*CurrentPosition);
 }
 
 data getData(NodePtr cur){
@@ -60,9 +60,7 @@ data getData(NodePtr cur){
 
 bool IsEmpty(NodePtr nd)
 {
-    if (!(getData(nd).FName))printf("Khu\n");
-    else printf("%d\n",nd.first);
-    return (getData(nd).FName==nullptr) or nd.second=='u' ? feof(pTreeUnsorted): feof(pTreeSorted);
+    return (getData(nd).FName==nullptr);
 }
 
 void destroy(NodePtr *cur, int type)
@@ -103,14 +101,6 @@ NodePtr getStartSorted(){
 
 NodePtr back(NodePtr *cur) {
     return std::make_pair((*cur).first/2,(*cur).second);
-}
-
-NodePtr curL(NodePtr cur){
-    return std::make_pair(cur.first*2,cur.second);
-}
-
-NodePtr curR(NodePtr cur){
-    return std::make_pair(cur.first*2+1,cur.second);
 }
 
 

@@ -21,8 +21,6 @@ struct Node
     Node *prev;
 };
 
-int elemsCountUnsorted = 0;
-int elemsCountSorted = 0;
 
 typedef Node* NodePtr;
 data nullData = {nullptr,nullptr,nullptr, {0,0,0}, {0,0,0},nullptr};
@@ -80,9 +78,9 @@ void Init()
     headKey = NewNode(nullptr);
 }
 
-bool IsEmpty(Node *nd)
+bool IsEmpty(NodePtr nd)
 {
-    return (nd==nullptr);
+    return (nd->info.FName==nullptr) or (nd==nullptr);
 }
 
 NodePtr getStartUnsorted(){
