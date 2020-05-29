@@ -1,40 +1,51 @@
 #include <utility>
-struct date       //Дата
-{
-    int day;
-    int month;
-    int year;
-};
-struct data       //Данные
-{
-    char*  FName; //Имя
-    char*  SName; //Фамилия
-    char*  LName; //Отчество
-    date  dBirth; //Дата рождения
-    date  dDeath; //Смерти (опционально)
-    char* BPlace; //Место рождения(опционально)
-};
+#include "add_Structs.h"
 
-data nullData = {nullptr,nullptr,nullptr, {0,0,0}, {0,0,0},nullptr};
 
-//"Указатель" на ветвь содержит текущую позицию и тип дерева, к которому принадлежит
-typedef std::pair<int,char> NodePtr;
+//"Указатель" на ветвь содержит текущую позицию и указатель на файл, к которому принадлежит
+typedef std::pair<int,FILE*> NodePtr;
 
 FILE *pTreeUnsorted;NodePtr head;
 FILE *pTreeSorted;  NodePtr headKey;
 
-void Init()
-{
-    pTreeUnsorted = fopen("C:\\Users\\Public\\Documents\\treeUnsorted.bin","wb+");
-    pTreeSorted = fopen("C:\\Users\\Public\\Documents\\treeSorted.bin","wb+");
-    head = std::make_pair(1,'u');
-    headKey = std::make_pair(1,'s');
+//Замена данных:
+//          в текущей ветви
+void replDataM(NodePtr *cur,data inf) {
+    fseek((*cur).second, (*cur).first * sizeof(data), SEEK_SET);
+    fwrite(&inf, sizeof(data), 1, (*cur).second);
+}
+//          слева
+void replDataL(NodePtr *cur,data inf) {
+    fseek((*cur).second, (*cur).first * 2 * sizeof(data), SEEK_SET);
+    fwrite(&inf, sizeof(data), 1, (*cur).second);
+}
+//          справа
+void replDataR(NodePtr *cur,data inf) {
+    fseek((*cur).second, ((*cur).first * 2 + 1) * sizeof(data), SEEK_SET);
+    fwrite(&inf, sizeof(data), 1, (*cur).second);
 }
 
+//Инициализатор
+void Init()
+{
+    //Открываем соответствующие файлы
+    pTreeUnsorted = fopen("C:\\Users\\Public\\Documents\\treeUnsorted.bin","wb+");
+    pTreeSorted = fopen("C:\\Users\\Public\\Documents\\treeSorted.bin","wb+");
+    if (pTreeUnsorted==nullptr or pTreeSorted== nullptr) throw 2;
+    //Инициализируем корни
+    head = std::make_pair(1,pTreeUnsorted);
+    headKey = std::make_pair(1,pTreeSorted);
+    //Записываем в корни пустые данные
+    replDataM(&head,nullData);
+    replDataM(&headKey,nullData);
+}
+
+//Переход влево
 NodePtr curL(NodePtr cur){
     return std::make_pair(cur.first*2,cur.second);
 }
 
+//Переход вправо
 NodePtr curR(NodePtr cur){
     return std::make_pair(cur.first*2+1,cur.second);
 }
@@ -46,91 +57,53 @@ NodePtr NewNode(NodePtr *CurrentPosition, char Pos='0')
     else return (*CurrentPosition);
 }
 
-data getData(NodePtr cur){
+//Получение данных
+data getData(NodePtr cur) {
     data currentData;
-    if (cur.second=='u') {
-        fseek(pTreeUnsorted, cur.first * sizeof(data), SEEK_SET);
-        fread(&currentData, sizeof(data), 1, pTreeUnsorted);
-    } else{
-        fseek(pTreeSorted, cur.first * sizeof(data), SEEK_SET);
-        fread(&currentData, sizeof(data), 1, pTreeSorted);
-    }
+    //Встаем на нужную позицию и считываем данные
+    fseek(cur.second, cur.first * sizeof(data), SEEK_SET);
+    fread(&currentData, sizeof(data), 1, cur.second);
     return currentData;
 }
 
+//Проверка на пустоту
 bool IsEmpty(NodePtr nd)
 {
     return (getData(nd).FName==nullptr);
 }
 
-void destroy(NodePtr *cur, int type)
-{
-    if (*cur==head) {
+//Уничтожение ветви или целого дерева
+void destroy(NodePtr *cur) {
+    //Если уничтожаем корень, то просто закрываем файл и уничтожаем его
+    if (*cur == head) {
         fclose(pTreeUnsorted);
-        remove("treeUnsorted.bin");
-    }
-    else if (*cur==headKey) {
+        remove("C:\\Users\\Public\\Documents\\treeUnsorted.bin");
+    } else if (*cur == headKey) {
         fclose(pTreeSorted);
-        remove("treeSorted.bin");
-    }
-    else
-    {
-        if ((*cur).second=='u') {
-            fseek(pTreeUnsorted, (*cur).first * sizeof(data), SEEK_SET);
-            fread(&nullData, sizeof(data), 1, pTreeUnsorted);
-        } else{
-            fseek(pTreeSorted, (*cur).first * sizeof(data), SEEK_SET);
-            fread(&nullData, sizeof(data), 1, pTreeSorted);
-        }
-        NodePtr nextL = std::make_pair((*cur).first*2,(*cur).second);
-        NodePtr nextR = std::make_pair((*cur).first*2+1,(*cur).second);
-        if (!IsEmpty(nextL)) destroy(&nextL,type);
-        if (!IsEmpty(nextR)) destroy(&nextR,type);
+        remove("C:\\Users\\Public\\Documents\\treeSorted.bin");
+    } else {
+        //Иначе просто записываем в нужный файл на соответствующее место пустые данные
+        fseek((*cur).second, (*cur).first * sizeof(data), SEEK_SET);
+        fwrite(&nullData, sizeof(data), 1, (*cur).second);
+        NodePtr nextL = std::make_pair((*cur).first * 2, (*cur).second);
+        NodePtr nextR = std::make_pair((*cur).first * 2 + 1, (*cur).second);
+        //и переходим влево и вправо
+        if (!IsEmpty(nextL)) destroy(&nextL);
+        if (!IsEmpty(nextR)) destroy(&nextR);
     }
 }
 
-
+//Указатель на корень Геологического дерева
 NodePtr getStartUnsorted(){
     return head;
 }
-
+//Указатель на корень отсортированного дерева
 NodePtr getStartSorted(){
     return headKey;
 }
 
-
+//Возврат назад
 NodePtr back(NodePtr *cur) {
     return std::make_pair((*cur).first/2,(*cur).second);
 }
 
-
-void replDataM(NodePtr *cur,data inf){
-    if ((*cur).second=='u') {
-        fseek(pTreeUnsorted, (*cur).first * sizeof(data), SEEK_SET);
-        fwrite(&inf,sizeof(data),1,pTreeUnsorted);
-    } else{
-        fseek(pTreeSorted, (*cur).first * sizeof(data), SEEK_SET);
-        fwrite(&inf,sizeof(data),1,pTreeSorted);
-    }
-
-}
-
-void replDataL(NodePtr *cur,data inf){
-    if ((*cur).second=='u') {
-        fseek(pTreeUnsorted, (*cur).first* 2 * sizeof(data), SEEK_SET);
-        fwrite(&inf,sizeof(data),1,pTreeUnsorted);
-    } else{
-        fseek(pTreeSorted, (*cur).first*2 * sizeof(data), SEEK_SET);
-        fwrite(&inf,sizeof(data),1,pTreeSorted);
-    }
-}
-
-void replDataR(NodePtr *cur,data inf){
-    if ((*cur).second=='u') {
-        fseek(pTreeUnsorted,((*cur).first*2+1) * sizeof(data), SEEK_SET);
-        fwrite(&inf,sizeof(data),1,pTreeUnsorted);
-    } else{
-        fseek(pTreeSorted, ((*cur).first*2+1) * sizeof(data), SEEK_SET);
-        fwrite(&inf,sizeof(data),1,pTreeSorted);
-    }
-}

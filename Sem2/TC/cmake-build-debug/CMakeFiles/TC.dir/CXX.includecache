@@ -14,10 +14,14 @@ D:/Documents/GitHub/Labs_Progs/Sem2/TC/Logger.h
 ctime
 -
 
+D:/Documents/GitHub/Labs_Progs/Sem2/TC/add_Structs.h
+
 D:/Documents/GitHub/Labs_Progs/Sem2/TC/main.cpp
 cstdio
 -
 windows.h
+-
+cctype
 -
 tree.h
 D:/Documents/GitHub/Labs_Progs/Sem2/TC/tree.h
@@ -25,4 +29,6 @@ Func.h
 D:/Documents/GitHub/Labs_Progs/Sem2/TC/Func.h
 
 D:/Documents/GitHub/Labs_Progs/Sem2/TC/tree.h
+add_Structs.h
+D:/Documents/GitHub/Labs_Progs/Sem2/TC/add_Structs.h
 
