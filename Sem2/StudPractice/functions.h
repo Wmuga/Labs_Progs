@@ -8,16 +8,24 @@
 
 //Предопределение значения для сравнения
 template <typename ArrayType>
-ArrayType value = 1;
+ArrayType eqValue = 1;
+template <typename ArrayType>
+ArrayType chValue = 1;
 
 //Не производит каких-либо операций над значением
 template <typename ArrayType>
 ArrayType funcIsElement(ArrayType ar) {return ar;}
 //Сравнение с предопределенным значением
 template <typename ArrayType>
-ArrayType funcIsEquals(ArrayType ar) {return ar==value<ArrayType>;}
+ArrayType funcIsEquals(ArrayType ar) {return ar == eqValue<ArrayType>;}
 template <typename ArrayType>
-ArrayType funcIncElement(ArrayType ar) {return ar+1;}
+ArrayType funcIncElement(ArrayType ar) {return ar + chValue<ArrayType>;}
+template <typename ArrayType>
+ArrayType funcDecElement(ArrayType ar) {return ar - chValue<ArrayType>;}
+template <typename ArrayType>
+ArrayType funcMultiElement(ArrayType ar) {return ar * chValue<ArrayType>;}
+template <typename ArrayType>
+ArrayType funcDivElement(ArrayType ar) {return ar / chValue<ArrayType>;}
 template <typename ArrayType>
 ArrayType funcMultiply(ArrayType ar1, ArrayType ar2) {return ar1 * ar2;}
 template <typename ArrayType>

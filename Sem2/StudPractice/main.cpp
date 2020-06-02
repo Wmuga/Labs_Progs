@@ -104,7 +104,7 @@ int main(int argc,char** argv) {
                        SearchEl.change_elem_function(funcIsEquals);
                        printf("Введите с каким значением желаете сравнивать элемнты\n");
                        scanf("%s",int_buffer); fflush(stdin);
-                       value<arrayType> = big_integer(int_buffer);
+                       eqValue<arrayType> = big_integer(int_buffer);
                        currentFunction=(char*)"Расчет количества элементов";
                        break;
                }
@@ -112,7 +112,29 @@ int main(int argc,char** argv) {
            case 'u':
                printf("Каким образом изменить занчения \'1\'-функцией \'2\'-ввод вручную\n");
                int type = getc(stdin)-'0'; fflush(stdin);
-               if (type==1) SearchEl.change_with_function(start_pos, end_pos, funcIncElement);
+               if (type==1) {
+                   printf("Какой функцией изменить занчения:\n\'1\'- увеличить\n\'2\'- вычесть\n\'3\'- умножить\n\'4\'- разделить \n");
+                   int ch_type = getc(stdin)-'0'; fflush(stdin);
+                   printf("Каким числом менять значение?\n");
+                   scanf("%s",int_buffer); chValue<arrayType> = big_integer(int_buffer); fflush(stdin);
+                   switch (ch_type) {
+                       default:
+                           printf("Неизвестная функция\n");
+                           break;
+                       case(1):
+                           SearchEl.change_with_function(start_pos, end_pos, funcIncElement);
+                           break;
+                       case(2):
+                           SearchEl.change_with_function(start_pos, end_pos, funcDecElement);
+                           break;
+                       case(3):
+                           SearchEl.change_with_function(start_pos, end_pos, funcMultiElement);
+                           break;
+                       case(4):
+                           SearchEl.change_with_function(start_pos, end_pos, funcDivElement);
+                           break;
+                   }
+               }
                else{
                    arrayType newValues[end_pos-start_pos];
                    printf("Введите новые значения:\n");
