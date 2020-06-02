@@ -1,3 +1,3 @@
 D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E remove -f CMakeFiles\StudPractice.dir/objects.a
 D:\Mingw\bin\ar.exe cr CMakeFiles\StudPractice.dir/objects.a @CMakeFiles\StudPractice.dir\objects1.rsp
-D:\Mingw\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\StudPractice.dir/objects.a -Wl,--no-whole-archive  -o StudPractice.exe -Wl,--out-implib,libStudPractice.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\StudPractice.dir\linklibs.rsp
+D:\Mingw\bin\g++.exe  -static-libstdc++ -static-libgcc -g   -Wl,--whole-archive CMakeFiles\StudPractice.dir/objects.a -Wl,--no-whole-archive  -o StudPractice.exe -Wl,--out-implib,libStudPractice.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\StudPractice.dir\linklibs.rsp

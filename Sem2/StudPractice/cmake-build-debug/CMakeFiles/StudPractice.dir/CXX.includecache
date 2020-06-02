@@ -12,12 +12,28 @@ cstring
 algorithm
 -
 
+D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/big_int.h
+vector
+-
+string
+-
+ostream
+-
+iomanip
+-
+sstream
+-
+
 D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/functions.h
 
 D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/main.cpp
 cstdio
 -
 cstdlib
+-
+big_int.h
+D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/big_int.h
+iostream
 -
 cctype
 -

@@ -1,4 +1,3 @@
-
 /*
  * Studying practise project
  * Code by Alexander Cherkasov
@@ -192,7 +191,7 @@ void SearchElement<StartArrayType,ArrayType>::change_with_function(size_t begin_
 }
 template<typename StartArrayType,typename ArrayType>
 void SearchElement<StartArrayType,ArrayType>::watch_contents(){
-    for (size_t i=0;i<_size;i++) printf("%d ",_start_array[i]);
+    for (size_t i=0;i<_size;i++) std::cout<< _start_array[i] << " ";
     printf("\n");
 }
 

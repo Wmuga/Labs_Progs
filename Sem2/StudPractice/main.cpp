@@ -1,28 +1,25 @@
 #include <cstdio>
 #include <cstdlib>
+#include "big_int.h"
+#include <iostream>
 #include <cctype>
 #include "SearchInArray.h"
 #include "functions.h"
-typedef int arrayType; //Пока считаем, что int. Вполне заменяемо на double, float и char
+
+typedef big_integer arrayType; //Пока считаем, что int. Вполне заменяемо на double, float и char
 
 int main(int argc,char** argv) {
     system("chcp 65001");
     FILE* pInputFile = fopen(argv[1],"r");
+    char* int_buffer = new char[256];
 
-    //Ввод данных тип, размер и массив
-/*
-    char* array_type = new char[10]; fscanf(pInputFile,"%s",array_type);
-
-    Попытка на программном уровне определять тип данных. Не удачная
-    printf("%s\n",array_type);
-    if      (strcmp(array_type,"char")==0)   typedef char   arrayType;
-    else if (strcmp(array_type,"int")==0)    typedef int    arrayType;
-    else if (strcmp(array_type,"double")==0) typedef double arrayType;
-*/
     size_t array_size; fscanf(pInputFile,"%d",&array_size);
     arrayType* inputArray = new arrayType[array_size];
 
-    for (size_t i=0;i<array_size;i++) fscanf(pInputFile,"%d",&inputArray[i]);
+    for (size_t i=0;i<array_size;i++) {
+        fscanf(pInputFile, "%s", int_buffer);
+        inputArray[i] = big_integer(int_buffer);
+    }
 
     fclose(pInputFile);
     //Инициализация класса, вызов его конструктора
@@ -63,7 +60,7 @@ int main(int argc,char** argv) {
 
            case 's':
                printf("Результат работы заданной функции:\n");
-               printf("%d\n", SearchEl.search(1, start_pos, end_pos, 0, array_size - 1));
+               std::cout << SearchEl.search(1, start_pos, end_pos, 0, array_size - 1) << std::endl;
                break;
            case 'v':
                printf("Входной массив:\n");
@@ -106,7 +103,8 @@ int main(int argc,char** argv) {
                        SearchEl.change_main_function(funcSum);
                        SearchEl.change_elem_function(funcIsEquals);
                        printf("Введите с каким значением желаете сравнивать элемнты\n");
-                       scanf("%d",&value<arrayType>);
+                       scanf("%s",int_buffer); fflush(stdin);
+                       value<arrayType> = big_integer(int_buffer);
                        currentFunction=(char*)"Расчет количества элементов";
                        break;
                }
@@ -118,13 +116,17 @@ int main(int argc,char** argv) {
                else{
                    arrayType newValues[end_pos-start_pos];
                    printf("Введите новые значения:\n");
-                   for (int i=0;i<=end_pos-start_pos;i++) scanf("%d",&newValues[i]);
+                   for (int i=0;i<=end_pos-start_pos;i++) {
+                       scanf("%s",int_buffer);
+                       newValues[i] = big_integer(int_buffer);
+                   }
                    fflush(stdin);
                    SearchEl.change_with_new_values(start_pos,end_pos,newValues);
                }
                break;
        }
     }
+    delete []int_buffer;
     delete []currentFunction;
     return 0;
 }
