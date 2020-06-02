@@ -1,16 +1,13 @@
 #include <cmath>
 #include <cstdio>
+#include <iostream>
 #include <cstdlib>
-
-struct data
-{
-    char* i;
-};
+#include "big_int.h"
 
 int main() {
-    data pepega = {(char*)"pepega"};
-    delete []pepega.i;
-    pepega.i = nullptr;
-    if (!pepega.i) printf("pepega");
+    big_integer flat;
+    flat = static_cast<big_integer>(99999)*static_cast<big_integer>(99999);
+    char string[256];
+    printf()
     return 0;
 }

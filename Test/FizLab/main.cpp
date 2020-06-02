@@ -2,15 +2,16 @@
 #include <cmath>
 
 int main() {
-    double p,e,e0,L,x0,R2,Q1,Q2;
-    p=0.42708*pow(10,-6);
-    e=2.0;
+    double q,Q,x,R,e0;
+    q=6*pow(10,-9);
     e0=8.85*pow(10,-12);
-    L=0.1;
-    x0=-0.103;
-    //double k = -1.0*(p/e/e0*0.05*0.05);
-    double k=p*L/2.0/e0*(L/2.0-x0);
-    k-=(p/e/e0*0.05*0.05);
-    printf("%.10f",k);
+    Q = (1.0 - 12.5/34.0)*pow(10,-9);
+    R=0.05;
+    x=R/pow(2,0.5);
+    printf("%.10f\n",q*Q*x/4/3.14/e0/pow(R*R+x*x,1.5));
+    x=R/pow(2,0.5)+0.01;
+    printf("%.10f\n",q*Q*x/4/3.14/e0/pow(R*R+x*x,1.5));
+    x=R/pow(2,0.5)-0.01;
+    printf("%.10f\n",q*Q*x/4/3.14/e0/pow(R*R+x*x,1.5));
     return 0;
 }

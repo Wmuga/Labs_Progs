@@ -6,11 +6,27 @@
 
 #IncludeRegexTransform: 
 
+D:/Documents/GitHub/Labs_Progs/Test/RadomTest/big_int.h
+vector
+-
+string
+-
+ostream
+-
+iomanip
+-
+sstream
+-
+
 D:/Documents/GitHub/Labs_Progs/Test/RadomTest/main.cpp
 cmath
 -
 cstdio
 -
+iostream
+-
 cstdlib
 -
+big_int.h
+D:/Documents/GitHub/Labs_Progs/Test/RadomTest/big_int.h
 
