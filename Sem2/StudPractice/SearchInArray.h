@@ -22,6 +22,7 @@ private:
 
     size_t _size;
 
+
     // функия создания
     void build(size_t current_peak,
                size_t begin_sub_section,
@@ -40,6 +41,8 @@ private:
                 size_t end_current_sub_section,
                 size_t change_peak,
                 StartArrayType (*function3)(StartArrayType));
+
+    std::pair<int,ArrayType> get_value(size_t current_peak, size_t search_start, size_t search_end, size_t current_start, size_t current_end);
 
 public:
     // конструктор
@@ -140,7 +143,7 @@ void SearchElement<StartArrayType,ArrayType>::update(size_t current_peak,
         StartArrayType (*function3)(StartArrayType))
 {
     //Работает так же, как и прошлый update, только изменяет элемнент с помощью function3
-    if (begin_current_sub_section==end_current_sub_section) _array[current_peak] = function3(_array[current_peak]);
+    if (begin_current_sub_section==end_current_sub_section) _array[current_peak] = _function1(function3(_array[current_peak]));
 
     else{
         size_t middle = (begin_current_sub_section + end_current_sub_section)/2;
@@ -153,19 +156,24 @@ void SearchElement<StartArrayType,ArrayType>::update(size_t current_peak,
 //Применение функции
 template<typename StartArrayType,typename ArrayType>
 ArrayType SearchElement<StartArrayType,ArrayType>::search(size_t current_peak, size_t search_start, size_t search_end, size_t current_start, size_t current_end) {
+    return get_value(current_peak, search_start,search_end,current_start,current_end).second;
+}
+template<typename StartArrayType,typename ArrayType>
+std::pair<int,ArrayType> SearchElement<StartArrayType,ArrayType>::get_value(size_t current_peak, size_t search_start, size_t search_end, size_t current_start, size_t current_end)
+{
     //Проверка на аномалию
-    if (search_start > search_end) return 0;
+    if (search_start > search_end) return std::make_pair(1,_array[current_peak]);
     //Дошли до элемента - возвращаем его
-    if (current_start == search_start && current_end == search_end) return _array[current_peak];
+    if (current_start == search_start && current_end == search_end) return std::make_pair(0,_array[current_peak]);
     size_t middle = (current_start + current_end) / 2;
     //Рекурсия для поиска необходимого значения
-    ArrayType val1 = search(current_peak*2, search_start, std::min(search_end,middle),current_start,middle);
-    ArrayType val2 = search(current_peak*2+1, std::max(search_start,middle+1), search_end,middle+1,current_end);
+    std::pair<int,ArrayType> val1 = get_value(current_peak*2, search_start, std::min(search_end,middle),current_start,middle);
+    std::pair<int,ArrayType> val2 = get_value(current_peak*2+1, std::max(search_start,middle+1), search_end,middle+1,current_end);
     //Дополнительная проверка, чтобы не считали ноль значением "листа" дерева
-    if (val1==0 && _array[current_peak*2]!=0) return val2;
-    if (val2==0 && _array[current_peak*2+1]!=0) return val1;
+    if (val1.first==1) return val2;
+    if (val2.first==1) return val1;
     //И возвращаем результат function2
-    return _function2(val1,val2);
+    return std::make_pair(0,_function2(val1.second,val2.second));
 }
 
 //Изменения

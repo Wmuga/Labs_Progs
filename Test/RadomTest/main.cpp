@@ -1,13 +1,9 @@
-#include <cmath>
-#include <cstdio>
+#include "big_double.h"
 #include <iostream>
-#include <cstdlib>
-#include "big_int.h"
+
 
 int main() {
-    big_integer flat;
-    flat = static_cast<big_integer>(99999)*static_cast<big_integer>(99999);
-    char string[256];
-    printf()
+    big_double test = 11112558123.21234567977;
+    std::cout<<test;
     return 0;
 }
