@@ -35,13 +35,6 @@ private:
                 size_t change_peak,
                 StartArrayType new_value);
 
-    //функция обновления вершины
-    void update(size_t current_peak,
-                size_t begin_current_sub_section,
-                size_t end_current_sub_section,
-                size_t change_peak,
-                StartArrayType (*function3)(StartArrayType));
-
     std::pair<int,ArrayType> get_value(size_t current_peak, size_t search_start, size_t search_end, size_t current_start, size_t current_end);
 
 public:
@@ -135,24 +128,6 @@ void SearchElement<StartArrayType,ArrayType>::update(size_t current_peak,
 }
 
 
-template<typename StartArrayType,typename ArrayType>
-void SearchElement<StartArrayType,ArrayType>::update(size_t current_peak,
-        size_t begin_current_sub_section,
-        size_t end_current_sub_section,
-        size_t change_peak,
-        StartArrayType (*function3)(StartArrayType))
-{
-    //Работает так же, как и прошлый update, только изменяет элемнент с помощью function3
-    if (begin_current_sub_section==end_current_sub_section) _array[current_peak] = _function1(function3(_array[current_peak]));
-
-    else{
-        size_t middle = (begin_current_sub_section + end_current_sub_section)/2;
-        change_peak<=middle ? update(current_peak*2,begin_current_sub_section,middle,change_peak,function3)
-        : update(current_peak*2+1,middle+1,end_current_sub_section,change_peak,function3);
-        _array[current_peak]=_function2(_array[current_peak*2],_array[current_peak*2+1]);
-    }
-}
-
 //Применение функции
 template<typename StartArrayType,typename ArrayType>
 ArrayType SearchElement<StartArrayType,ArrayType>::search(size_t current_peak, size_t search_start, size_t search_end, size_t current_start, size_t current_end) {
@@ -184,7 +159,7 @@ void SearchElement<StartArrayType,ArrayType>::change_with_new_values(size_t begi
     for (size_t position=begin_changed_sub_section; position<=end_changed_sub_section; position++)
     {
         update(1, 0, _size-1, position, new_values[position]);
-        _start_array[position]=_function1(new_values[position]);
+        _start_array[position]=new_values[position];
     }
 }
 
@@ -193,8 +168,8 @@ void SearchElement<StartArrayType,ArrayType>::change_with_function(size_t begin_
 {
     //Циклом обновляем дерево с помощью функции
     for (size_t position=begin_changed_sub_section; position<=end_changed_sub_section; position++) {
-        update(1, 0, _size - 1, position, function3);
         _start_array[position]=function3(_start_array[position]);
+        update(1, 0, _size - 1, position,_start_array[position]);
     }
 }
 template<typename StartArrayType,typename ArrayType>

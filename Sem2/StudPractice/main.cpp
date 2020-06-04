@@ -2,22 +2,23 @@
 #include <cstdlib>
 #include <iostream>
 #include <cctype>
+#include "big_int.h"
 #include "SearchInArray.h"
 #include "functions.h"
 
-typedef double arrayType; //Пока считаем, что int. Вполне заменяемо на double, float и char
+typedef big_integer arrayType; //Пока считаем, что int. Вполне заменяемо на double, float и char
 
 int main(int argc,char** argv) {
     system("chcp 65001");
     FILE* pInputFile = fopen(argv[1],"r");
-    char* double_buffer = new char[256];
+    char* int_buffer = new char[256];
 
     size_t array_size; fscanf(pInputFile,"%d",&array_size);
     arrayType* inputArray = new arrayType[array_size];
 
     for (size_t i=0;i<array_size;i++) {
-        fscanf(pInputFile, "%s", double_buffer);
-        inputArray[i] = atof(double_buffer);
+        fscanf(pInputFile, "%s", int_buffer);
+        inputArray[i] = big_integer(int_buffer);
     }
 
     fclose(pInputFile);
@@ -103,8 +104,8 @@ int main(int argc,char** argv) {
                        SearchEl.change_main_function(funcSum);
                        SearchEl.change_elem_function(funcIsEquals);
                        printf("Введите с каким значением желаете сравнивать элемнты\n");
-                       scanf("%s", double_buffer); fflush(stdin);
-                       eqValue<arrayType> = atof(double_buffer);;
+                       scanf("%s",int_buffer); fflush(stdin);
+                       eqValue<arrayType> = big_integer(int_buffer);
                        currentFunction=(char*)"Расчет количества элементов";
                        break;
                }
@@ -116,7 +117,7 @@ int main(int argc,char** argv) {
                    printf("Какой функцией изменить занчения:\n\'1\'- увеличить\n\'2\'- вычесть\n\'3\'- умножить\n\'4\'- разделить \n");
                    int ch_type = getc(stdin)-'0'; fflush(stdin);
                    printf("Каким числом менять значение?\n");
-                   scanf("%s", double_buffer); chValue<arrayType> = atof(double_buffer);; fflush(stdin);
+                   scanf("%s",int_buffer); chValue<arrayType> = big_integer(int_buffer); fflush(stdin);
                    switch (ch_type) {
                        default:
                            printf("Неизвестная функция\n");
@@ -139,8 +140,8 @@ int main(int argc,char** argv) {
                    arrayType newValues[end_pos-start_pos];
                    printf("Введите новые значения:\n");
                    for (int i=0;i<=end_pos-start_pos;i++) {
-                       scanf("%s", double_buffer);
-                       newValues[i] = atof(double_buffer);
+                       scanf("%s",int_buffer);
+                       newValues[i] = big_integer(int_buffer);
                    }
                    fflush(stdin);
                    SearchEl.change_with_new_values(start_pos,end_pos,newValues);
@@ -148,7 +149,7 @@ int main(int argc,char** argv) {
                break;
        }
     }
-    delete []double_buffer;
+    delete []int_buffer;
     delete []currentFunction;
     return 0;
 }
