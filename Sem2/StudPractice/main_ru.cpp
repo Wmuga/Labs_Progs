@@ -9,7 +9,7 @@
 typedef big_integer arrayType; //Пока считаем, что int. Вполне заменяемо на double, float и char
 
 int main(int argc,char** argv) {
-    //system("chcp 1251");
+    system("chcp 1251");
     std::ifstream InputFile(argv[1]);
     std::string data_buffer;
 
@@ -25,97 +25,97 @@ int main(int argc,char** argv) {
                      array_size,
                      funcIsElement<arrayType>,
                      funcSearchMin<arrayType>);
-    std::string currentFunction ="Search minimum"; //Изначально функция - поиск минимума
+    std::string currentFunction ="Поиск минимума"; //Изначально функция - поиск минимума
     //UserInterface
     bool end = false;
     size_t start_pos=0,end_pos=array_size-1; //Границы текущего отрезка
     char act;
     while (!end)
     {
-        std::cout<<"Current function\""<<currentFunction<<"\"\n"<<
-               "Current segment:["<<start_pos+1<<" "<<end_pos+1<<"]\n"<<
-               "\'c\' - change segment\n"<<
-               "\'u\' - update elements\n"<<
-               "\'s\' - run function\n"<<
-               "\'m\' - change main function\n"<<
-               "\'v\' - show array\n"<<
-               "\'x\' - shutdown\n";
+        std::cout<<"Текущая функция \""<<currentFunction<<"\"\n"<<
+               "Текущий подотрезок:["<<start_pos+1<<" "<<end_pos+1<<"]\n"<<
+               "\'c\' - изменить границы подотрезка\n"<<
+               "\'u\' - обновить элементы\n"<<
+               "\'s\' - выполнить функцию\n"<<
+               "\'m\' - изменить основную функцию\n"<<
+               "\'v\' - просмотреть массив\n"<<
+               "\'x\' - завершить работу\n";
        act = (char)tolower(getc(stdin)); fflush(stdin);
        switch(act)
        {
            default:
-               std::cout<<"Unknown command\n";
+               std::cout<<"Неизвестная команда\n";
                break;
 
            case 'c':
-               std::cout<<"Enter new segment boundaries\n";
+               std::cout<<"Введите новые границы подотрезка\n";
                std::cin>>start_pos>>end_pos; fflush(stdin);
                start_pos--;
                end_pos--;
                break;
 
            case 's':
-               std::cout<<"Function result:\n";
+               std::cout<<"Результат работы заданной функции:\n";
                std::cout << SearchEl.search(1, start_pos, end_pos, 0, array_size - 1) << std::endl;
                break;
            case 'v':
-               std::cout<<"Array:\n";
+               std::cout<<"Входной массив:\n";
                SearchEl.watch_contents();
                std::cout<<"\n";
                break;
            case 'x':
-               std::cout<<"Shutting down\n";
+               std::cout<<"Завершение работы\n";
                end=true;
                break;
            case 'm':
-               std::cout<<"Choose new function\n"
-                      "\'1\' - multiply\n"
-                      "\'2\' - sum\n"
-                      "\'3\' - minimum\n"
-                      "\'4\' - maximum\n"
-                      "\'5\' - number of elements of a certain value\n";
+               std::cout<<"Выберите на какую функцию изменить\n"
+                      "\'1\' - произведение\n"
+                      "\'2\' - сумма\n"
+                      "\'3\' - минимум\n"
+                      "\'4\' - максимум\n"
+                      "\'5\' - количество элементов определенного значения\n";
                int f_type; std::cin>>f_type; fflush(stdin);
                switch(f_type)
                {
                    default:
-                       std::cout<<"Unknown choice\n";
+                       std::cout<<"Неизвестная функция\n";
                        break;
                    case(1):
                        SearchEl.change_main_function(funcMultiply);
-                       currentFunction=(char*)"Multiplication";
+                       currentFunction=(char*)"Поиск произведения";
                        break;
                    case(2):
                        SearchEl.change_main_function(funcSum);
-                       currentFunction=(char*)"Summary";
+                       currentFunction=(char*)"Поиск суммы";
                        break;
                    case(3):
                        SearchEl.change_main_function(funcSearchMin);
-                       currentFunction=(char*)"Search minimum";
+                       currentFunction=(char*)"Поиск минимума";
                        break;
                    case(4):
                        SearchEl.change_main_function(funcSearchMax);
-                       currentFunction=(char*)"Search maximum";
+                       currentFunction=(char*)"Поиск максимума";
                        break;
                    case(5):
                        SearchEl.change_main_function(funcSum);
                        SearchEl.change_elem_function(funcIsEquals);
-                       std::cout<<"Enter value to compare elements\n";
+                       std::cout<<"Введите с каким значением желаете сравнивать элемнты\n";
                        std::cin >> eqValue<arrayType>; fflush(stdin);
-                       currentFunction=(char*)"Count elements of a certain value";
+                       currentFunction=(char*)"Расчет количества элементов";
                        break;
                }
                break;
            case 'u':
-               std::cout<<"How to change elements? \'1\'- by function \'2\'- manually\n";
+               std::cout<<"Каким образом изменить занчения \'1\'-функцией \'2\'-ввод вручную\n";
                int type = getc(stdin)-'0'; fflush(stdin);
                if (type==1) {
-                   std::cout<<"What type of function use:\n\'1\'- increase\n\'2\'- decrease\n\'3\'- multiply\n\'4\'- divide \n";
+                   std::cout<<"Какой функцией изменить занчения:\n\'1\'- увеличить\n\'2\'- вычесть\n\'3\'- умножить\n\'4\'- разделить \n";
                    int ch_type = getc(stdin)-'0'; fflush(stdin);
-                   std::cout<<"What value to use?\n";
+                   std::cout<<"Каким числом менять значение?\n";
                    std::cin>>chValue<arrayType>; fflush(stdin);
                    switch (ch_type) {
                        default:
-                           std::cout<<"Unknown choice\n";
+                           std::cout<<"Неизвестная функция\n";
                            break;
                        case(1):
                            SearchEl.change_with_function(start_pos, end_pos, funcIncElement);
@@ -133,7 +133,7 @@ int main(int argc,char** argv) {
                }
                else{
                    arrayType newValues[end_pos-start_pos];
-                   std::cout<<"Enter new values:\n";
+                   std::cout<<"Введите новые значения:\n";
                    for (int i=0;i<=end_pos-start_pos;i++)
                        std::cin>>newValues[i];
                    fflush(stdin);

@@ -82,6 +82,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/SearchInArray.h">
+			<Option target="StudPractice"/>
+		</Unit>
+		<Unit filename="D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/big_int.h">
+			<Option target="StudPractice"/>
+		</Unit>
 		<Unit filename="D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/functions.h">
 			<Option target="StudPractice"/>
 		</Unit>
