@@ -8,9 +8,9 @@
 
 //Предопределение значения для сравнения
 template <typename ArrayType>
-ArrayType eqValue = 1;
+ArrayType eqValue;
 template <typename ArrayType>
-ArrayType chValue = 1;
+ArrayType chValue;
 
 //Не производит каких-либо операций над значением
 template <typename ArrayType>

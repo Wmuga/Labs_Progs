@@ -7,8 +7,15 @@
 */
 
 //Необходимые библиотеки
+#ifndef _GLIBCXX_CSTRING
 #include <cstring>
+#endif
+#ifndef _GLIBCXX_ALGORITHM
 #include <algorithm>
+#endif
+#ifndef _GLIBCXX_IOSTREAM
+#include <iostream>
+#endif
 
 template <class StartArrayType, class ArrayType>
 class SearchElement
@@ -175,7 +182,7 @@ void SearchElement<StartArrayType,ArrayType>::change_with_function(size_t begin_
 template<typename StartArrayType,typename ArrayType>
 void SearchElement<StartArrayType,ArrayType>::watch_contents(){
     for (size_t i=0;i<_size;i++) std::cout<< _start_array[i] << " ";
-    printf("\n");
+    std::cout<<"\n";
 }
 
 template<typename StartArrayType,typename ArrayType>

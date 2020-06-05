@@ -3,7 +3,8 @@
 
 
 int main() {
-    big_double test = 11112558123.21234567977;
+    big_double test;
+    std::cin>>test;
     std::cout<<test;
     return 0;
 }

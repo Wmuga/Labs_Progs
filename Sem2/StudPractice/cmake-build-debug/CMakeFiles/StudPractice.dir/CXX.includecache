@@ -11,18 +11,34 @@ cstring
 -
 algorithm
 -
+iostream
+-
+
+D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/big_int.h
+vector
+-
+string
+-
+ostream
+-
+iomanip
+-
+sstream
+-
 
 D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/functions.h
 
 D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/main.cpp
-cstdio
--
 cstdlib
 -
 iostream
 -
+fstream
+-
 cctype
 -
+big_int.h
+D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/big_int.h
 SearchInArray.h
 D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/SearchInArray.h
 functions.h

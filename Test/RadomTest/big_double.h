@@ -46,5 +46,6 @@ public:
     big_double(double);
     //Put in stream
     friend std::ostream& operator <<(std::ostream&, const big_double&);
+    friend std::istream& operator >>(std::istream&, big_double&);
     operator std::string() const;
 };

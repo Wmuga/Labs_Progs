@@ -35,6 +35,7 @@ public:
     big_integer(unsigned long long);
 
     friend std::ostream& operator <<(std::ostream&, const big_integer&);
+    friend std::istream& operator >>(std::istream&, big_integer&);
     operator std::string() const;
     const big_integer operator +() const;
     const big_integer operator -() const;
@@ -115,6 +116,14 @@ std::ostream& operator <<(std::ostream& os, const big_integer& bi) {
     }
 
     return os;
+}
+
+std::istream& operator >>(std::istream& is, big_integer& value)
+{
+    int buffer;
+    is>>buffer;
+    value._digits.push_back(buffer);
+    return is;
 }
 
 // сравнивает два числа на равенство

@@ -84,10 +84,14 @@ big_double::big_double(double conv_double) {
     _is_negative = std::abs(conv_double) != conv_double;
     conv_double=std::abs(conv_double);
     //Diving to two parts
-    double int_dig;
-    double fractional = modf(conv_double,&int_dig);
-    unsigned long long integer_digits    = static_cast<unsigned long long>(int_dig);
-    unsigned long long fractional_digits = static_cast<unsigned long long>(fractional*pow(10,(ceil(std::abs(log(fractional)/log(10))))));
+    unsigned long long integer_digits    = static_cast<unsigned long long>(floor(conv_double));
+    double fractional = conv_double;
+    unsigned long long fractional_digits=0;
+    while (fractional>floor(fractional))
+    {
+        fractional*=10;
+        fractional_digits=fractional_digits*10+static_cast<unsigned long long>(fractional)%10;
+    }
     while(integer_digits>0)
     {
         if (ceil(log(integer_digits)/log(10))<base_digits_count)
@@ -112,7 +116,6 @@ big_double::big_double(double conv_double) {
             fractional_digits/=base;
         }
     }
-    //and reversing them
 }
 
 void big_double::_remove_leading_zeros() {
@@ -149,3 +152,10 @@ std::ostream& operator <<(std::ostream& os, const big_double& bd)
     }
     return os;
 }
+/*
+std::istream& operator >>(std::istream& is, big_double& value){
+    double buffer;
+    is>>buffer;
+    value._integer_digits.push_back(buffer);
+    return is;
+}*/

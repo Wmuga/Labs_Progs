@@ -82,6 +82,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/functions.h">
+			<Option target="StudPractice"/>
+		</Unit>
 		<Unit filename="D:/Documents/GitHub/Labs_Progs/Sem2/StudPractice/main.cpp">
 			<Option target="StudPractice"/>
 		</Unit>
