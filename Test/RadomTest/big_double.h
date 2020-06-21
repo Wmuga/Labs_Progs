@@ -16,17 +16,19 @@
 
 class big_double{
     //System base
-    static const int base = 1000000;
-    const size_t base_digits_count = ceil(log(base)/log(10));
 
+    const static size_t base = 1000000;
+    const size_t base_digits_count = ceil(log(base)/log(10));
     //container for integer and fractional parts
-    std::vector<int> _integer_digits;
-    std::vector<int> _fractional_digits;
+    std::vector<long long> _integer_digits;
+    std::vector<long long> _fractional_digits;
 
     //is the number negative
     int _is_negative;
 
     void _remove_leading_zeros();
+
+    void fix_containtment();
 public:
     // exception if dividing by zero
     class divide_by_zero: public std::exception {  };
@@ -44,8 +46,44 @@ public:
     big_double(signed long long);
     big_double(unsigned long long);
     big_double(double);
-    //Put in stream
+    big_double(float);
+    //Working with stream
     friend std::ostream& operator <<(std::ostream&, const big_double&);
     friend std::istream& operator >>(std::istream&, big_double&);
+    //bool operators
+    friend bool operator ==(const big_double&, const big_double&);
+    friend bool operator  <(const big_double&, const big_double&);
+    friend bool operator !=(const big_double&, const big_double&);
+    friend bool operator <=(const big_double&, const big_double&);
+    friend bool operator  >(const big_double&, const big_double&);
+    friend bool operator >=(const big_double&, const big_double&);
+    //assignment
+    big_double& operator =(const big_double&);
+    //
+    const big_double operator +() const;
+    const big_double operator -() const;
+    //Increment amd decrement
+    const big_double operator ++();
+    const big_double operator ++(int);
+    const big_double operator --();
+    const big_double operator --(int);
+    //compound assignment
+    big_double& operator +=(const big_double&);
+    big_double& operator -=(const big_double&);
+    big_double& operator *=(const big_double&);
+    big_double& operator /=(const big_double&);
+    big_double& operator %=(const big_double&);
+    //arithmetic operators
+    friend const big_double operator +(const big_double&, const big_double&);
+    friend const big_double operator -(big_double, const big_double&);
+    friend const big_double operator *(const big_double&, const big_double&);
+    friend const big_double operator /(const big_double&, const big_double&);
+    friend const big_double operator %(const big_double&, const big_double&);
+    //absolute value
+    friend big_double abs(const big_double&);
+    /*
+     * currently missing
+     */
+    //conv to string
     operator std::string() const;
 };

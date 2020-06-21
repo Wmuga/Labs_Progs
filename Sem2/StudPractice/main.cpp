@@ -1,30 +1,40 @@
-#include <cstdlib>
 #include <iostream>
 #include <fstream>
 #include <cctype>
+#include <ctime>
 #include "big_int.h"
 #include "SearchInArray.h"
 #include "functions.h"
+#include "Logger.h"
 
-typedef big_integer arrayType; //Пока считаем, что int. Вполне заменяемо на double, float и char
+typedef big_integer arrayType;
 
 int main(int argc,char** argv) {
-    //system("chcp 1251");
+    clock_t time_start,time_end;
+    char *message = new char[255];
+    Log logger((char*)"D:\\Documents\\GitHub\\Labs_Progs\\Sem2\\StudPractice\\Log\\");
     std::ifstream InputFile(argv[1]);
     std::string data_buffer;
 
     size_t array_size; InputFile>>array_size;
     arrayType* inputArray = new arrayType[array_size];
-
+    time_start=clock();
     for (size_t i=0;i<array_size;i++)
         InputFile>>inputArray[i];
-
+    time_end = clock();
+    sprintf(message,"Time consumed for reading file: %.6f seconds\n",(float)(time_end-time_start)/CLOCKS_PER_SEC);
+    logger.PutInLog(message);
     //Инициализация класса, вызов его конструктора
+
+    time_start=clock();
     SearchElement<arrayType,arrayType>
             SearchEl(inputArray,
                      array_size,
                      funcIsElement<arrayType>,
                      funcSearchMin<arrayType>);
+    time_end = clock();
+    sprintf(message,"Time consumed for build tree: %.6f seconds\n",(float)(time_end-time_start)/CLOCKS_PER_SEC);
+    logger.PutInLog(message);
     std::string currentFunction ="Search minimum"; //Изначально функция - поиск минимума
     //UserInterface
     bool end = false;
@@ -56,7 +66,11 @@ int main(int argc,char** argv) {
 
            case 's':
                std::cout<<"Function result:\n";
+               time_start = clock();
                std::cout << SearchEl.search(1, start_pos, end_pos, 0, array_size - 1) << std::endl;
+               time_end = clock();
+               sprintf(message,"Time consumed for executing function: %.15f seconds\n",(float)(time_end-time_start)/CLOCKS_PER_SEC);
+               logger.PutInLog(message);
                break;
            case 'v':
                std::cout<<"Array:\n";
@@ -73,7 +87,8 @@ int main(int argc,char** argv) {
                       "\'2\' - sum\n"
                       "\'3\' - minimum\n"
                       "\'4\' - maximum\n"
-                      "\'5\' - number of elements of a certain value\n";
+                      "\'5\' - number of elements of a certain value\n"
+                      "\'6\' - minimal element more than certain value\n";
                int f_type; std::cin>>f_type; fflush(stdin);
                switch(f_type)
                {
@@ -81,27 +96,62 @@ int main(int argc,char** argv) {
                        std::cout<<"Unknown choice\n";
                        break;
                    case(1):
+                       time_start=clock();
+                       SearchEl.change_elem_function(funcIsElement);
                        SearchEl.change_main_function(funcMultiply);
+                       time_end = clock();
+                       sprintf(message,"Time consumed for build tree: %.6f seconds\n",(float)(time_end-time_start)/CLOCKS_PER_SEC);
+                       logger.PutInLog(message);
                        currentFunction=(char*)"Multiplication";
                        break;
                    case(2):
+                       time_start=clock();
+                       SearchEl.change_elem_function(funcIsElement);
                        SearchEl.change_main_function(funcSum);
+                       time_end = clock();
+                       sprintf(message,"Time consumed for rebuilding tree: %.6f seconds\n",(float)(time_end-time_start)/CLOCKS_PER_SEC);
+                       logger.PutInLog(message);
                        currentFunction=(char*)"Summary";
                        break;
                    case(3):
+                       time_start=clock();
+                       SearchEl.change_elem_function(funcIsElement);
                        SearchEl.change_main_function(funcSearchMin);
+                       time_end = clock();
+                       sprintf(message,"Time consumed for rebuilding tree: %.6f seconds\n",(float)(time_end-time_start)/CLOCKS_PER_SEC);
+                       logger.PutInLog(message);
                        currentFunction=(char*)"Search minimum";
                        break;
                    case(4):
+                       time_start=clock();
+                       SearchEl.change_elem_function(funcIsElement);
                        SearchEl.change_main_function(funcSearchMax);
+                       time_end = clock();
+                       sprintf(message,"Time consumed for rebuilding tree: %.6f seconds\n",(float)(time_end-time_start)/CLOCKS_PER_SEC);
+                       logger.PutInLog(message);
                        currentFunction=(char*)"Search maximum";
                        break;
                    case(5):
-                       SearchEl.change_main_function(funcSum);
-                       SearchEl.change_elem_function(funcIsEquals);
                        std::cout<<"Enter value to compare elements\n";
                        std::cin >> eqValue<arrayType>; fflush(stdin);
+                       time_start=clock();
+                       SearchEl.change_main_function(funcSum);
+                       SearchEl.change_elem_function(funcIsEquals);
+                       time_end = clock();
+                       sprintf(message,"Time consumed for rebuilding tree: %.6f seconds\n",(float)(time_end-time_start)/CLOCKS_PER_SEC);
+                       logger.PutInLog(message);
                        currentFunction=(char*)"Count elements of a certain value";
+                       break;
+                   case(6):
+                       std::cout<<"Enter value to compare elements\n";
+                       std::cin >> eqValue<arrayType>; fflush(stdin);
+                       time_start=clock();
+                       SearchEl.change_elem_function(funcIsElement);
+                       SearchEl.change_main_function(funcSearchMinMore);
+                       time_end = clock();
+                       sprintf(message,"Time consumed for rebuilding tree: %.6f seconds\n",(float)(time_end-time_start)/CLOCKS_PER_SEC);
+                       logger.PutInLog(message);
+                       currentFunction=(char*)"Minimal element more than certain value";
                        break;
                }
                break;
@@ -142,5 +192,6 @@ int main(int argc,char** argv) {
                break;
        }
     }
+    delete []message;
     return 0;
 }

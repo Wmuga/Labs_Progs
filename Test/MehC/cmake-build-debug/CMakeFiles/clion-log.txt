@@ -1,0 +1,6 @@
+D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" D:\Documents\GitHub\Labs_Progs\Test\MehC
+-- Configuring done
+CMake Error: Cannot determine link language for target "MehC".
+CMake Error: CMake can not determine linker language for target: MehC
+-- Generating done
+CMake Generate step failed.  Build files cannot be regenerated correctly.

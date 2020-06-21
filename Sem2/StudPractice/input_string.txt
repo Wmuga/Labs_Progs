@@ -1,0 +1,2 @@
+6
+this is the test with strings
