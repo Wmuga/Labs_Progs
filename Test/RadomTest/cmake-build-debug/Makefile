@@ -122,33 +122,6 @@ RadomTest/fast:
 	$(MAKE) -f CMakeFiles\RadomTest.dir\build.make CMakeFiles/RadomTest.dir/build
 .PHONY : RadomTest/fast
 
-big_double.obj: big_double.cpp.obj
-
-.PHONY : big_double.obj
-
-# target to build an object file
-big_double.cpp.obj:
-	$(MAKE) -f CMakeFiles\RadomTest.dir\build.make CMakeFiles/RadomTest.dir/big_double.cpp.obj
-.PHONY : big_double.cpp.obj
-
-big_double.i: big_double.cpp.i
-
-.PHONY : big_double.i
-
-# target to preprocess a source file
-big_double.cpp.i:
-	$(MAKE) -f CMakeFiles\RadomTest.dir\build.make CMakeFiles/RadomTest.dir/big_double.cpp.i
-.PHONY : big_double.cpp.i
-
-big_double.s: big_double.cpp.s
-
-.PHONY : big_double.s
-
-# target to generate assembly for a file
-big_double.cpp.s:
-	$(MAKE) -f CMakeFiles\RadomTest.dir\build.make CMakeFiles/RadomTest.dir/big_double.cpp.s
-.PHONY : big_double.cpp.s
-
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -185,9 +158,6 @@ help:
 	@echo ... RadomTest
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... big_double.obj
-	@echo ... big_double.i
-	@echo ... big_double.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/RadomTest.dir/big_double.cpp.obj"
   "CMakeFiles/RadomTest.dir/main.cpp.obj"
   "RadomTest.exe"
   "RadomTest.exe.manifest"
