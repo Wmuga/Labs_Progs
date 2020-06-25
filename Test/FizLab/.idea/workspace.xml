@@ -34,6 +34,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RunManager">
     <configuration name="FizLab" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="FizLab" TARGET_NAME="FizLab" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="FizLab" RUN_TARGET_NAME="FizLab">
@@ -64,6 +65,8 @@
       <workItem from="1591713029763" duration="705000" />
       <workItem from="1592452048615" duration="1089000" />
       <workItem from="1592455388579" duration="606000" />
+      <workItem from="1592894596080" duration="846000" />
+      <workItem from="1592926460765" duration="251000" />
     </task>
     <servers />
   </component>
@@ -83,25 +86,33 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1236" height="262" key="GridCell.Tab.0.bottom" timestamp="1592455994237">
+    <state x="418" y="172" key="FileChooserDialogImpl" timestamp="1592926685071">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="418" y="172" key="FileChooserDialogImpl/0.0.1280.984@0.0.1280.984" timestamp="1592926685071" />
+    <state width="1236" height="262" key="GridCell.Tab.0.bottom" timestamp="1592895462623">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state width="1236" height="258" key="GridCell.Tab.0.bottom/0.0.1280.984/1280.0.1280.760@0.0.1280.984" timestamp="1591104809285" />
-    <state width="1236" height="262" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1592455994237" />
-    <state width="1236" height="262" key="GridCell.Tab.0.center" timestamp="1592455994237">
+    <state width="1236" height="262" key="GridCell.Tab.0.bottom/0.0.1280.984@0.0.1280.984" timestamp="1592895462623" />
+    <state width="1236" height="262" key="GridCell.Tab.0.center" timestamp="1592895462623">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state width="1236" height="258" key="GridCell.Tab.0.center/0.0.1280.984/1280.0.1280.760@0.0.1280.984" timestamp="1591104809283" />
-    <state width="1236" height="262" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1592455994237" />
-    <state width="1236" height="262" key="GridCell.Tab.0.left" timestamp="1592455994237">
+    <state width="1236" height="262" key="GridCell.Tab.0.center/0.0.1280.984@0.0.1280.984" timestamp="1592895462623" />
+    <state width="1236" height="262" key="GridCell.Tab.0.left" timestamp="1592895462623">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state width="1236" height="258" key="GridCell.Tab.0.left/0.0.1280.984/1280.0.1280.760@0.0.1280.984" timestamp="1591104809283" />
-    <state width="1236" height="262" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1592455994237" />
-    <state width="1236" height="262" key="GridCell.Tab.0.right" timestamp="1592455994237">
+    <state width="1236" height="262" key="GridCell.Tab.0.left/0.0.1280.984@0.0.1280.984" timestamp="1592895462623" />
+    <state width="1236" height="262" key="GridCell.Tab.0.right" timestamp="1592895462623">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state width="1236" height="258" key="GridCell.Tab.0.right/0.0.1280.984/1280.0.1280.760@0.0.1280.984" timestamp="1591104809283" />
-    <state width="1236" height="262" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1592455994237" />
+    <state width="1236" height="262" key="GridCell.Tab.0.right/0.0.1280.984@0.0.1280.984" timestamp="1592895462623" />
+    <state x="139" y="42" width="998" height="753" key="SettingsEditor" timestamp="1592926698811">
+      <screen x="0" y="0" width="1280" height="984" />
+    </state>
+    <state x="139" y="42" width="998" height="753" key="SettingsEditor/0.0.1280.984@0.0.1280.984" timestamp="1592926698811" />
   </component>
 </project>

@@ -45,6 +45,24 @@ public:
         fflush(pLog);
         delete []msg;
     }
+    Log(std::string LogFolder)
+    {
+        const char* _LogFolder = LogFolder.c_str();
+        char* logName = new char[255];
+        time_t rawtime;
+        struct tm * timeinfo;
+        char buffer [255];
+
+        time (&rawtime);
+        timeinfo = localtime (&rawtime);
+        strftime (buffer,255," %d-%b-%Y %H.%M.%S",timeinfo);
+        snprintf(logName,255,"%sLog%s.txt",_LogFolder,buffer);
+        //Имя файла - пака\Log - день-месяц-год час.минута.секунда.txt на момент создания
+        pLog = fopen(logName,"w");
+        if (pLog==nullptr) throw 0; //Возможность отправить код ошибки, если файл не открыт
+        delete []logName; //Сразу же очищаем лишнюю память
+        delete []_LogFolder;
+    }
 #endif
     //Закрытие файла
    ~Log()

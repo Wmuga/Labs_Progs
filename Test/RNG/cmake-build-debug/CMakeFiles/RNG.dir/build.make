@@ -59,15 +59,15 @@ include CMakeFiles/RNG.dir/flags.make
 CMakeFiles/RNG.dir/main.cpp.obj: CMakeFiles/RNG.dir/flags.make
 CMakeFiles/RNG.dir/main.cpp.obj: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\Labs_Progs\Test\RNG\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/RNG.dir/main.cpp.obj"
-	D:\Mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\RNG.dir\main.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Test\RNG\main.cpp
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\RNG.dir\main.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Test\RNG\main.cpp
 
 CMakeFiles/RNG.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RNG.dir/main.cpp.i"
-	D:\Mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Test\RNG\main.cpp > CMakeFiles\RNG.dir\main.cpp.i
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Test\RNG\main.cpp > CMakeFiles\RNG.dir\main.cpp.i
 
 CMakeFiles/RNG.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RNG.dir/main.cpp.s"
-	D:\Mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Test\RNG\main.cpp -o CMakeFiles\RNG.dir\main.cpp.s
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Test\RNG\main.cpp -o CMakeFiles\RNG.dir\main.cpp.s
 
 # Object files for target RNG
 RNG_OBJECTS = \

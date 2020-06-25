@@ -59,15 +59,15 @@ include CMakeFiles/StudPractiseLog.dir/flags.make
 CMakeFiles/StudPractiseLog.dir/main.cpp.obj: CMakeFiles/StudPractiseLog.dir/flags.make
 CMakeFiles/StudPractiseLog.dir/main.cpp.obj: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\Labs_Progs\Sem2\StudPractiseLog\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/StudPractiseLog.dir/main.cpp.obj"
-	D:\Mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\StudPractiseLog.dir\main.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Sem2\StudPractiseLog\main.cpp
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\StudPractiseLog.dir\main.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Sem2\StudPractiseLog\main.cpp
 
 CMakeFiles/StudPractiseLog.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/StudPractiseLog.dir/main.cpp.i"
-	D:\Mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Sem2\StudPractiseLog\main.cpp > CMakeFiles\StudPractiseLog.dir\main.cpp.i
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Sem2\StudPractiseLog\main.cpp > CMakeFiles\StudPractiseLog.dir\main.cpp.i
 
 CMakeFiles/StudPractiseLog.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/StudPractiseLog.dir/main.cpp.s"
-	D:\Mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Sem2\StudPractiseLog\main.cpp -o CMakeFiles\StudPractiseLog.dir\main.cpp.s
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Sem2\StudPractiseLog\main.cpp -o CMakeFiles\StudPractiseLog.dir\main.cpp.s
 
 # Object files for target StudPractiseLog
 StudPractiseLog_OBJECTS = \

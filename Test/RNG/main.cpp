@@ -9,11 +9,11 @@ int main() {
     size_t array_size;
     //array_size = rand()%70+30; // от 30 до 100
     //array_size = 4000000; //вручную
-    array_size = 10000000; //вручную
+    array_size = 2500000; //вручную
     fprintf(out,"%d\n",array_size);
     for (size_t i = 0; i<array_size;i++)
     {
-        char num = (char)(rand()%401-200);
+        int num = (char)(rand()%2+1);
         fprintf(out,"%d ",num); // выводим от +1 - нижний предел до %50 - верхний (изменить числа - другие пределы)
     }
     fclose(out);

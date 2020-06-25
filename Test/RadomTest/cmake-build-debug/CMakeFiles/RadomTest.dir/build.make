@@ -59,15 +59,15 @@ include CMakeFiles/RadomTest.dir/flags.make
 CMakeFiles/RadomTest.dir/main.cpp.obj: CMakeFiles/RadomTest.dir/flags.make
 CMakeFiles/RadomTest.dir/main.cpp.obj: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\Labs_Progs\Test\RadomTest\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/RadomTest.dir/main.cpp.obj"
-	D:\Mingw\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\RadomTest.dir\main.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Test\RadomTest\main.cpp
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\RadomTest.dir\main.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Test\RadomTest\main.cpp
 
 CMakeFiles/RadomTest.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/RadomTest.dir/main.cpp.i"
-	D:\Mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Test\RadomTest\main.cpp > CMakeFiles\RadomTest.dir\main.cpp.i
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Test\RadomTest\main.cpp > CMakeFiles\RadomTest.dir\main.cpp.i
 
 CMakeFiles/RadomTest.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/RadomTest.dir/main.cpp.s"
-	D:\Mingw\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Test\RadomTest\main.cpp -o CMakeFiles\RadomTest.dir\main.cpp.s
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Test\RadomTest\main.cpp -o CMakeFiles\RadomTest.dir\main.cpp.s
 
 # Object files for target RadomTest
 RadomTest_OBJECTS = \
