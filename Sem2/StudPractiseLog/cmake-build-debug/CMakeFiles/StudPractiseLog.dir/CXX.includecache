@@ -19,6 +19,8 @@ algorithm
 -
 iostream
 -
+windows.h
+D:/Documents/GitHub/Labs_Progs/Sem2/StudPractiseLog/windows.h
 
 D:/Documents/GitHub/Labs_Progs/Sem2/StudPractiseLog/big_int.h
 vector
@@ -47,8 +49,8 @@ big_int.h
 D:/Documents/GitHub/Labs_Progs/Sem2/StudPractiseLog/big_int.h
 SearchInArray.h
 D:/Documents/GitHub/Labs_Progs/Sem2/StudPractiseLog/SearchInArray.h
-Logger.h
-D:/Documents/GitHub/Labs_Progs/Sem2/StudPractiseLog/Logger.h
 functions.h
 D:/Documents/GitHub/Labs_Progs/Sem2/StudPractiseLog/functions.h
+Logger.h
+D:/Documents/GitHub/Labs_Progs/Sem2/StudPractiseLog/Logger.h
 

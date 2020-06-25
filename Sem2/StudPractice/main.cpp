@@ -62,6 +62,18 @@ int main(int argc,char** argv) {
                std::cin>>start_pos>>end_pos; fflush(stdin);
                start_pos--;
                end_pos--;
+               if(start_pos<0){
+                   std::cout<<"Incorrect start position. Corrected to 0\n";
+                   start_pos=0;
+               }
+               if (end_pos>=array_size){
+                   std::cout<<"Incorrect last position. Corrected to array size\n";
+                   end_pos=array_size-1;
+               }
+               if (start_pos>end_pos){
+                   std::cout<<"Incorrect boundaries. Corrected start position to end position - 1\n";
+                   start_pos=end_pos-1;
+               }
                break;
 
            case 's':
