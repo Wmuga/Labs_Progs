@@ -4,10 +4,10 @@
 int main() {
     srand(time(nullptr));
     //Путь измени на свой (первое) два слеша т.к. первый отвечает за то, что указывается спец сиивол, второй - какой
-    FILE *out = fopen("D:\\Documents\\GitHub\\Labs_Progs\\Sem2\\StudPractiseLog\\input.txt","w");
+    FILE *out = fopen("D:\\Documents\\GitHub\\Labs_Progs\\Sem2\\StudPractiseLog\\input_test.txt","w");
     // размер массива
     size_t array_size;
-    array_size = 10000000; //вручную
+    array_size = 7000000; //вручную
     fprintf(out,"%d\n",array_size);
     for (size_t i = 0; i<array_size;i++)
     {

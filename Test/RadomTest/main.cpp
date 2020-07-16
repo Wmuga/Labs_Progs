@@ -1,13 +1,22 @@
 #include <iostream>
 #include <cmath>
+#include <thread>
 #include "big_int.h"
+
+bool t = false;
+
+void f()
+{
+    getchar();
+    t=true;
+}
+
 int main() {
-    double s = 1;
-    std::cout<<((pow
-    (
-            1+
-            8*5*pow(10,6)*(5*pow(10,6)+1)/2/2
-            +4*s*s-4*s
-            ,0.5)-1)/2);
+    std::thread t1(f);
+    while (!t)
+    {
+        std::cout<<"t";
+    }
+    t1.join();
     return 0;
 }

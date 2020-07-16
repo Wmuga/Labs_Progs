@@ -1,4 +1,0 @@
-Time consumed for reading file: 5.477000 seconds
-Time consumed for build tree: 14.248000 seconds
-Time consumed for build tree: 1189.198000 seconds
-Time consumed for executing function: 15.032999999999999 seconds

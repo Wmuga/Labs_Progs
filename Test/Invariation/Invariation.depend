@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1594306345 source:d:\desktop\invariation\main.cpp
+	<iostream>
+	<vector>
+

@@ -23,6 +23,8 @@ iostream
 -
 cmath
 -
+thread
+-
 big_int.h
 D:/Documents/GitHub/Labs_Progs/Test/RadomTest/big_int.h
 

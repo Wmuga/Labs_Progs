@@ -63,8 +63,16 @@ int main(int argc,char** argv) {
                start_pos--;
                end_pos--;
                if(start_pos<0){
-                   std::cout<<"Incorrect start position. Corrected to 0\n";
+                   std::cout<<"Incorrect start position. Corrected to start\n";
                    start_pos=0;
+               }
+               if(start_pos>=array_size){
+                   std::cout<<"Incorrect start position. Corrected to start\n";
+                   start_pos=0;
+               }
+               if (end_pos<0){
+                   std::cout<<"Incorrect last position. Corrected to array size\n";
+                   end_pos=array_size-1;
                }
                if (end_pos>=array_size){
                    std::cout<<"Incorrect last position. Corrected to array size\n";

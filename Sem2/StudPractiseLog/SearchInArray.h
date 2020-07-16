@@ -89,7 +89,6 @@ SearchElement<StartArrayType,ArrayType>::SearchElement(StartArrayType* start_arr
 template<typename StartArrayType,typename ArrayType>
 SearchElement<StartArrayType,ArrayType>::~SearchElement()
 {
-    delete []_start_array;
     delete[]_array;
 }
 
