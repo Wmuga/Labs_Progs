@@ -68,9 +68,19 @@ return 0;
 
 #define pi 3.1415
 
+void draw()
+{
+    size_t s_width = 1920, s_height = 1200;
+    bmp_writer draw((char*)"D:\\Desktop\\drawing.bmp",s_width,s_height,32);
+    tagRGBQUAD _color1 {0,0,125,0};
+    tagRGBQUAD _color2 {0,165,255,0};
+    draw.write_gradient(0,0,s_width/2-1,s_height/2-1,_color1,_color2);
+    draw.write_gradient(s_width-1,0,s_width/2,s_height/2-1,_color1,_color2);
+    draw.write_gradient(0,s_height-1,s_width/2-1,s_height/2,_color1,_color2);
+    draw.write_gradient(s_width-1,s_height-1,s_width/2,s_height/2,_color1,_color2);
+}
+
 int main() {
-    bmp_writer test((char*)R"(D:\Documents\GitHub\Labs_Progs\Images\bmp\test_rectanle.bmp)",width,height,32);
-    tagRGBQUAD _color1{0,0,0,0};
-    test.write_rectangle(5,5,-4,4,0,_color1);
+    draw();
     return 0;
 }

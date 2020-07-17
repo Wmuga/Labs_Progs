@@ -163,19 +163,23 @@ void bmp_writer::flip(size_t x1, size_t y1, size_t x2, size_t y2) {
 }
 
 void bmp_writer::write_gradient(size_t x1, size_t y1, size_t x2, size_t y2, tagRGBQUAD _color1, tagRGBQUAD _color2) {
-    double step_r = ((double)_color2.rgbRed-(double)_color1.rgbRed)/(pow(pow(x2-x1,2)+pow(y2-y1,2),0.5));
-    double step_g = ((double)_color2.rgbGreen-(double)_color1.rgbGreen)/(pow(pow(x2-x1,2)+pow(y2-y1,2),0.5));
-    double step_b = ((double)_color2.rgbBlue-(double)_color1.rgbBlue)/(pow(pow(x2-x1,2)+pow(y2-y1,2),0.5));
+    double step_r = ((double)_color2.rgbRed-(double)_color1.rgbRed)/(pow(pow((double)x2-(double)x1,2)+pow((double)y2-(double)y1,2),0.5));
+    double step_g = ((double)_color2.rgbGreen-(double)_color1.rgbGreen)/(pow(pow((double)x2-(double)x1,2)+pow((double)y2-(double)y1,2),0.5));
+    double step_b = ((double)_color2.rgbBlue-(double)_color1.rgbBlue)/(pow(pow((double)x2-(double)x1,2)+pow((double)y2-(double)y1,2),0.5));
+
 
     tagRGBQUAD new_color{0,0,0,0};
 
-    for (size_t i=x1;i<=x2;i++)
+    int step_x = ((int)x2-(int)x1)/std::abs((int)x2-(int)x1);
+    int step_y = ((int)y2-(int)y1)/std::abs((int)y2-(int)y1);
+    for (size_t i=x1;i!=x2+step_x;i+=step_x)
     {
-        for(size_t j=y1;j<=y2;j++)
+        for(size_t j=y1;j!=y2+step_y;j+=step_y)
         {
-            new_color.rgbRed=_color1.rgbRed+step_r*(pow(pow(i-x1,2)+pow(j-y1,2),0.5));
-            new_color.rgbGreen=_color1.rgbGreen+step_g*(pow(pow(i-x1,2)+pow(j-y1,2),0.5));
-            new_color.rgbBlue=_color1.rgbBlue+step_b*(pow(pow(i-x1,2)+pow(j-y1,2),0.5));
+            new_color.rgbRed=_color1.rgbRed+step_r*(pow(pow((double)i-(double)x1,2)+pow((double)j-(double)y1,2),0.5));
+            new_color.rgbGreen=_color1.rgbGreen+step_g*(pow(pow((double)i-(double)x1,2)+pow((double)j-(double)y1,2),0.5));
+            new_color.rgbBlue=_color1.rgbBlue+step_b*(pow(pow((double)i-(double)x1,2)+pow((double)j-(double)y1,2),0.5));
+
             write_pixel(i,j,new_color);
         }
     }
@@ -186,7 +190,7 @@ void bmp_writer::write_gradient_horizontal(size_t x1, size_t y1, size_t x2, size
     double step_g = ((double)_color2.rgbGreen-(double)_color1.rgbGreen)/(x2-x1);
     double step_b = ((double)_color2.rgbBlue-(double)_color1.rgbBlue)/(x2-x1);
 
-    tagRGBQUAD new_color;
+    tagRGBQUAD new_color{0,0,0,0};
 
     for (size_t i=x1;i<=x2;i++)
     {
@@ -205,7 +209,7 @@ void bmp_writer::write_gradient_vertical(size_t x1, size_t y1, size_t x2, size_t
     double step_g = ((double)_color2.rgbGreen-(double)_color1.rgbGreen)/(y2-y1);
     double step_b = ((double)_color2.rgbBlue-(double)_color1.rgbBlue)/(y2-y1);
 
-    tagRGBQUAD new_color;
+    tagRGBQUAD new_color{0,0,0,0};
 
     for (size_t j=y1;j<=y2;j++)
     {
@@ -227,7 +231,6 @@ void bmp_writer::write_rectangle(size_t x, size_t y , size_t size_x, size_t size
     double step_x = ((double)x2-(double)x)/((double)y2-(double)y);
     for (;y<=y2;y++)
     {
-        std::clog << "("<< x << " " << y << " " << x1 << " " << y1 << ")";
         write_line(x,y,x1,y1,_color);
         y1++;
         x+=step_x;
