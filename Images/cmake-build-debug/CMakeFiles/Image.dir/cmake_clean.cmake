@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Image.dir/bmp_writer.cpp.obj"
+  "CMakeFiles/Image.dir/bmp.cpp.obj"
   "CMakeFiles/Image.dir/main.cpp.obj"
   "Image.exe"
   "Image.exe.manifest"

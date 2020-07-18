@@ -38,10 +38,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe
+CMAKE_COMMAND = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E remove -f
+RM = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -58,7 +58,7 @@ CMAKE_BINARY_DIR = D:\Documents\GitHub\Labs_Progs\Images\cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available."
+	"D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -69,7 +69,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -122,32 +122,32 @@ Image/fast:
 	$(MAKE) -f CMakeFiles\Image.dir\build.make CMakeFiles/Image.dir/build
 .PHONY : Image/fast
 
-bmp_writer.obj: bmp_writer.cpp.obj
+bmp.obj: bmp.cpp.obj
 
-.PHONY : bmp_writer.obj
+.PHONY : bmp.obj
 
 # target to build an object file
-bmp_writer.cpp.obj:
-	$(MAKE) -f CMakeFiles\Image.dir\build.make CMakeFiles/Image.dir/bmp_writer.cpp.obj
-.PHONY : bmp_writer.cpp.obj
+bmp.cpp.obj:
+	$(MAKE) -f CMakeFiles\Image.dir\build.make CMakeFiles/Image.dir/bmp.cpp.obj
+.PHONY : bmp.cpp.obj
 
-bmp_writer.i: bmp_writer.cpp.i
+bmp.i: bmp.cpp.i
 
-.PHONY : bmp_writer.i
+.PHONY : bmp.i
 
 # target to preprocess a source file
-bmp_writer.cpp.i:
-	$(MAKE) -f CMakeFiles\Image.dir\build.make CMakeFiles/Image.dir/bmp_writer.cpp.i
-.PHONY : bmp_writer.cpp.i
+bmp.cpp.i:
+	$(MAKE) -f CMakeFiles\Image.dir\build.make CMakeFiles/Image.dir/bmp.cpp.i
+.PHONY : bmp.cpp.i
 
-bmp_writer.s: bmp_writer.cpp.s
+bmp.s: bmp.cpp.s
 
-.PHONY : bmp_writer.s
+.PHONY : bmp.s
 
 # target to generate assembly for a file
-bmp_writer.cpp.s:
-	$(MAKE) -f CMakeFiles\Image.dir\build.make CMakeFiles/Image.dir/bmp_writer.cpp.s
-.PHONY : bmp_writer.cpp.s
+bmp.cpp.s:
+	$(MAKE) -f CMakeFiles\Image.dir\build.make CMakeFiles/Image.dir/bmp.cpp.s
+.PHONY : bmp.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -185,9 +185,9 @@ help:
 	@echo ... Image
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... bmp_writer.obj
-	@echo ... bmp_writer.i
-	@echo ... bmp_writer.s
+	@echo ... bmp.obj
+	@echo ... bmp.i
+	@echo ... bmp.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

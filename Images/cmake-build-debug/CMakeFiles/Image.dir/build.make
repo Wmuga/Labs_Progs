@@ -33,10 +33,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe
+CMAKE_COMMAND = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E remove -f
+RM = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,39 +59,39 @@ include CMakeFiles/Image.dir/flags.make
 CMakeFiles/Image.dir/main.cpp.obj: CMakeFiles/Image.dir/flags.make
 CMakeFiles/Image.dir/main.cpp.obj: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\Labs_Progs\Images\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Image.dir/main.cpp.obj"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Image.dir\main.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Images\main.cpp
+	D:\Programs\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Image.dir\main.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Images\main.cpp
 
 CMakeFiles/Image.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Image.dir/main.cpp.i"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Images\main.cpp > CMakeFiles\Image.dir\main.cpp.i
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Images\main.cpp > CMakeFiles\Image.dir\main.cpp.i
 
 CMakeFiles/Image.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Image.dir/main.cpp.s"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Images\main.cpp -o CMakeFiles\Image.dir\main.cpp.s
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Images\main.cpp -o CMakeFiles\Image.dir\main.cpp.s
 
-CMakeFiles/Image.dir/bmp_writer.cpp.obj: CMakeFiles/Image.dir/flags.make
-CMakeFiles/Image.dir/bmp_writer.cpp.obj: ../bmp_writer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\Labs_Progs\Images\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Image.dir/bmp_writer.cpp.obj"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Image.dir\bmp_writer.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Images\bmp_writer.cpp
+CMakeFiles/Image.dir/bmp.cpp.obj: CMakeFiles/Image.dir/flags.make
+CMakeFiles/Image.dir/bmp.cpp.obj: ../bmp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\Labs_Progs\Images\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Image.dir/bmp.cpp.obj"
+	D:\Programs\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Image.dir\bmp.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Images\bmp.cpp
 
-CMakeFiles/Image.dir/bmp_writer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Image.dir/bmp_writer.cpp.i"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Images\bmp_writer.cpp > CMakeFiles\Image.dir\bmp_writer.cpp.i
+CMakeFiles/Image.dir/bmp.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Image.dir/bmp.cpp.i"
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Images\bmp.cpp > CMakeFiles\Image.dir\bmp.cpp.i
 
-CMakeFiles/Image.dir/bmp_writer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Image.dir/bmp_writer.cpp.s"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Images\bmp_writer.cpp -o CMakeFiles\Image.dir\bmp_writer.cpp.s
+CMakeFiles/Image.dir/bmp.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Image.dir/bmp.cpp.s"
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Images\bmp.cpp -o CMakeFiles\Image.dir\bmp.cpp.s
 
 # Object files for target Image
 Image_OBJECTS = \
 "CMakeFiles/Image.dir/main.cpp.obj" \
-"CMakeFiles/Image.dir/bmp_writer.cpp.obj"
+"CMakeFiles/Image.dir/bmp.cpp.obj"
 
 # External object files for target Image
 Image_EXTERNAL_OBJECTS =
 
 Image.exe: CMakeFiles/Image.dir/main.cpp.obj
-Image.exe: CMakeFiles/Image.dir/bmp_writer.cpp.obj
+Image.exe: CMakeFiles/Image.dir/bmp.cpp.obj
 Image.exe: CMakeFiles/Image.dir/build.make
 Image.exe: CMakeFiles/Image.dir/linklibs.rsp
 Image.exe: CMakeFiles/Image.dir/objects1.rsp

@@ -1,4 +1,4 @@
-#include "bmp_writer.h"
+#include "bmp.h"
 #include "digits_bool_array.h"
 #include <cmath>
 #include <iostream>
@@ -240,4 +240,27 @@ void bmp_writer::write_rectangle(size_t x, size_t y , size_t size_x, size_t size
 
 bmp_writer::~bmp_writer() {
     fclose(this->img_out);
+}
+
+bmp_reader::bmp_reader(char *filename) {
+    this->img_in = fopen(filename,"rb");
+    fread(&this->bfh,sizeof(BITMAPFILEHEADER),1,this->img_in);
+    fread(&this->bih,sizeof(BITMAPINFOHEADER),1,this->img_in);
+}
+
+tagRGBQUAD bmp_reader::get_pixel(size_t x, size_t y) {
+    size_t sizeofcolor = this->bih.biBitCount/8;
+    size_t y1 = this->bih.biHeight-y-1;
+    size_t line = this->bih.biWidth;
+    fseek(this->img_in,sizeof(BITMAPFILEHEADER)+sizeof(BITMAPINFOHEADER)+sizeofcolor*(x+y1*line),SEEK_SET);
+    tagRGBQUAD _color{};
+    fread(&_color,sizeof(tagRGBQUAD),1,this->img_in);
+    return _color;
+}
+
+BITMAPINFOHEADER bmp_reader::get_info_header() {return this->bih;}
+BITMAPFILEHEADER bmp_reader::get_file_header() {return this->bfh;}
+
+bmp_reader::~bmp_reader() {
+    fclose(this->img_in);
 }

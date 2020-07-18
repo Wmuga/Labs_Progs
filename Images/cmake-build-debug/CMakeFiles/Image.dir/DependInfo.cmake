@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/Documents/GitHub/Labs_Progs/Images/bmp_writer.cpp" "D:/Documents/GitHub/Labs_Progs/Images/cmake-build-debug/CMakeFiles/Image.dir/bmp_writer.cpp.obj"
+  "D:/Documents/GitHub/Labs_Progs/Images/bmp.cpp" "D:/Documents/GitHub/Labs_Progs/Images/cmake-build-debug/CMakeFiles/Image.dir/bmp.cpp.obj"
   "D:/Documents/GitHub/Labs_Progs/Images/main.cpp" "D:/Documents/GitHub/Labs_Progs/Images/cmake-build-debug/CMakeFiles/Image.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

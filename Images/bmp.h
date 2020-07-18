@@ -89,3 +89,18 @@ private:
     void swap_pixel(size_t, size_t, size_t, size_t);
     tagRGBQUAD back_color;
 };
+
+class bmp_reader
+{
+    FILE* img_in;
+    BITMAPFILEHEADER bfh{};
+    BITMAPINFOHEADER bih{};
+    
+public:
+    bmp_reader(char*);
+    tagRGBQUAD get_pixel(size_t,size_t);
+    BITMAPINFOHEADER get_info_header();
+    BITMAPFILEHEADER get_file_header();
+    ~bmp_reader();
+
+};

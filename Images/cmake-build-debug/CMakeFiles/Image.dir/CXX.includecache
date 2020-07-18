@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-D:/Documents/GitHub/Labs_Progs/Images/bmp_writer.h
+D:/Documents/GitHub/Labs_Progs/Images/bmp.h
 vector
 -
 string
@@ -17,14 +17,20 @@ windows.h
 -
 
 D:/Documents/GitHub/Labs_Progs/Images/main.cpp
+bmp.h
+D:/Documents/GitHub/Labs_Progs/Images/bmp.h
+test_func.h
+D:/Documents/GitHub/Labs_Progs/Images/test_func.h
+
+D:/Documents/GitHub/Labs_Progs/Images/test_func.h
 iostream
 -
 ctime
 -
 fstream
 -
-bmp_writer.h
-D:/Documents/GitHub/Labs_Progs/Images/bmp_writer.h
+cmath
+-
 ppm_writer.h
 D:/Documents/GitHub/Labs_Progs/Images/ppm_writer.h
 
