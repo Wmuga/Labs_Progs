@@ -49,6 +49,10 @@ struct tagRGBQUAD
 };
 */
 
+#ifndef bmp
+
+#define bmp = 1
+
 class bmp_writer
 {
     FILE* img_out;
@@ -83,11 +87,14 @@ public:
     //x,y,size_x,size_y,angle in  rad,color
     void write_rectangle(size_t, size_t, size_t, size_t, size_t,tagRGBQUAD);
 
+    BITMAPINFOHEADER get_info_header();
+    BITMAPFILEHEADER get_file_header();
+
     ~bmp_writer();
 
 private:
     void swap_pixel(size_t, size_t, size_t, size_t);
-    tagRGBQUAD back_color;
+    tagRGBQUAD back_color{255,255,255,0};
 };
 
 class bmp_reader
@@ -104,3 +111,5 @@ public:
     ~bmp_reader();
 
 };
+
+#endif

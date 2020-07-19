@@ -7,10 +7,6 @@ bmp_writer::bmp_writer(char *filename, size_t width, size_t height, size_t color
 {
     this->img_out = fopen(filename,"wb+");
 
-    this->back_color.rgbReserved=0;
-    this->back_color.rgbGreen=255;
-    this->back_color.rgbBlue=255;
-    this->back_color.rgbRed=255;
 
     this->bfh.bfType = 0x4D42;
     this->bfh.bfSize=sizeof(BITMAPINFOHEADER)+sizeof(BITMAPFILEHEADER)+width*height*color_bit/8;
@@ -237,6 +233,10 @@ void bmp_writer::write_rectangle(size_t x, size_t y , size_t size_x, size_t size
         x1+=step_x;
     }
 }
+
+BITMAPINFOHEADER bmp_writer::get_info_header() {return this->bih;}
+BITMAPFILEHEADER bmp_writer::get_file_header() {return this->bfh;}
+
 
 bmp_writer::~bmp_writer() {
     fclose(this->img_out);
