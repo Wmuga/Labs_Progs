@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/Labs_Progs/Images/bmp.h
+vector
+-
+string
+-
+cstdlib
+-
+windows.h
+-
+
+D:/Documents/GitHub/Labs_Progs/Images/resizer.cpp
+resizer.h
+D:/Documents/GitHub/Labs_Progs/Images/resizer.h
+iostream
+-
+algorithm
+-
+fstream
+-
+
+D:/Documents/GitHub/Labs_Progs/Images/resizer.h
+vector
+-
+bmp.h
+D:/Documents/GitHub/Labs_Progs/Images/bmp.h
+

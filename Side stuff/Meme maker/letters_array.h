@@ -1,0 +1,8 @@
+//
+// Created by Alex on 21.07.2020.
+//
+
+#ifndef MEME_MAKER_LETTERS_ARRAY_H
+#define MEME_MAKER_LETTERS_ARRAY_H
+
+#endif //MEME_MAKER_LETTERS_ARRAY_H
