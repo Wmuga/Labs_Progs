@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-D:/Documents/GitHub/Labs_Progs/Images/bmp.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Images/bmp.h
 vector
 -
 string
@@ -16,19 +16,29 @@ cstdlib
 windows.h
 -
 
-D:/Documents/GitHub/Labs_Progs/Images/resizer.cpp
+D:/Documents/GitHub/Labs_Progs/Side stuff/Images/main.cpp
+bmp.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Images/bmp.h
 resizer.h
-D:/Documents/GitHub/Labs_Progs/Images/resizer.h
-iostream
--
-algorithm
--
-fstream
--
+D:/Documents/GitHub/Labs_Progs/Side stuff/Images/resizer.h
+test_func.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Images/test_func.h
 
-D:/Documents/GitHub/Labs_Progs/Images/resizer.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Images/resizer.h
 vector
 -
 bmp.h
-D:/Documents/GitHub/Labs_Progs/Images/bmp.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Images/bmp.h
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/Images/test_func.h
+iostream
+-
+ctime
+-
+fstream
+-
+cmath
+-
+ppm_writer.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Images/ppm_writer.h
 

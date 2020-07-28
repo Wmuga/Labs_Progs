@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/TextToImage/bmp.cpp
+bmp.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/TextToImage/bmp.h
+digits_bool_array.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/TextToImage/digits_bool_array.h
+cmath
+-
+iostream
+-
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/TextToImage/bmp.h
+vector
+-
+string
+-
+cstdlib
+-
+windows.h
+-
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/TextToImage/digits_bool_array.h
+

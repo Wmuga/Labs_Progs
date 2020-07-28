@@ -57,6 +57,7 @@ void meme_maker::black_screen_meme(char* image_filename,bool is_cirillic,char* t
 
     //setting upp meme
     bmp_writer fout;
+    size_t height_b = (size_t)image_width*1.87/(6 * count + 1)*6;
     fout.create(meme_filename,(size_t)image_width*1.334,(size_t)image_height*1.2+(size_t)image_width*1.87/(6 * count + 1)*6,24);
     //placing image with outline
     for (int j=-(int)image_height*0.007;j<image_height+(int)image_height*0.007;j++)
@@ -84,7 +85,7 @@ void meme_maker::black_screen_meme(char* image_filename,bool is_cirillic,char* t
         {
             for (size_t i=0;i<fin.get_info_header().biWidth;i++)
             {
-                fout.write_pixel(i+image_width*0.306-(size_t)image_width*0.8/(6 * count + 1),j+image_height*1.1+(size_t)image_width*1.07/(6 * count + 1)*6,fin.get_pixel(i,j));
+                fout.write_pixel(i+image_width*0.306-(size_t)image_width*0.8/(6 * count + 1),j+image_height*1.1+height_b,fin.get_pixel(i,j));
             }
         }
     }

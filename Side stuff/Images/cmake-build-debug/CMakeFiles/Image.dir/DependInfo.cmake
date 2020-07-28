@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/Documents/GitHub/Labs_Progs/Images/bmp.cpp" "D:/Documents/GitHub/Labs_Progs/Images/cmake-build-debug/CMakeFiles/Image.dir/bmp.cpp.obj"
-  "D:/Documents/GitHub/Labs_Progs/Images/main.cpp" "D:/Documents/GitHub/Labs_Progs/Images/cmake-build-debug/CMakeFiles/Image.dir/main.cpp.obj"
-  "D:/Documents/GitHub/Labs_Progs/Images/resizer.cpp" "D:/Documents/GitHub/Labs_Progs/Images/cmake-build-debug/CMakeFiles/Image.dir/resizer.cpp.obj"
+  "D:/Documents/GitHub/Labs_Progs/Side stuff/Images/bmp.cpp" "D:/Documents/GitHub/Labs_Progs/Side stuff/Images/cmake-build-debug/CMakeFiles/Image.dir/bmp.cpp.obj"
+  "D:/Documents/GitHub/Labs_Progs/Side stuff/Images/main.cpp" "D:/Documents/GitHub/Labs_Progs/Side stuff/Images/cmake-build-debug/CMakeFiles/Image.dir/main.cpp.obj"
+  "D:/Documents/GitHub/Labs_Progs/Side stuff/Images/resizer.cpp" "D:/Documents/GitHub/Labs_Progs/Side stuff/Images/cmake-build-debug/CMakeFiles/Image.dir/resizer.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

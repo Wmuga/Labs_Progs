@@ -6,11 +6,37 @@
 
 #IncludeRegexTransform: 
 
-D:/Documents/GitHub/Labs_Progs/Side stuff/Meme maker/main.cpp
-iostream
+D:/Documents/GitHub/Labs_Progs/Side stuff/Meme maker/bmp.h
+vector
 -
+string
+-
+cstdlib
+-
+windows.h
+-
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/Meme maker/meme_maker.cpp
 meme_maker.h
 D:/Documents/GitHub/Labs_Progs/Side stuff/Meme maker/meme_maker.h
+resizer.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Meme maker/resizer.h
+bmp.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Meme maker/bmp.h
+iostream
+-
+algorithm
+-
+cmath
+-
+cstring
+-
 
 D:/Documents/GitHub/Labs_Progs/Side stuff/Meme maker/meme_maker.h
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/Meme maker/resizer.h
+vector
+-
+bmp.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Meme maker/bmp.h
 

@@ -42,10 +42,10 @@ RM = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Documents\GitHub\Labs_Progs\Images
+CMAKE_SOURCE_DIR = "D:\Documents\GitHub\Labs_Progs\Side stuff\Images"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Documents\GitHub\Labs_Progs\Images\cmake-build-debug
+CMAKE_BINARY_DIR = "D:\Documents\GitHub\Labs_Progs\Side stuff\Images\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Image.dir/depend.make
@@ -58,42 +58,42 @@ include CMakeFiles/Image.dir/flags.make
 
 CMakeFiles/Image.dir/main.cpp.obj: CMakeFiles/Image.dir/flags.make
 CMakeFiles/Image.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\Labs_Progs\Images\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Image.dir/main.cpp.obj"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Image.dir\main.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Images\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Documents\GitHub\Labs_Progs\Side stuff\Images\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Image.dir/main.cpp.obj"
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Image.dir\main.cpp.obj -c "D:\Documents\GitHub\Labs_Progs\Side stuff\Images\main.cpp"
 
 CMakeFiles/Image.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Image.dir/main.cpp.i"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Images\main.cpp > CMakeFiles\Image.dir\main.cpp.i
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Documents\GitHub\Labs_Progs\Side stuff\Images\main.cpp" > CMakeFiles\Image.dir\main.cpp.i
 
 CMakeFiles/Image.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Image.dir/main.cpp.s"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Images\main.cpp -o CMakeFiles\Image.dir\main.cpp.s
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Documents\GitHub\Labs_Progs\Side stuff\Images\main.cpp" -o CMakeFiles\Image.dir\main.cpp.s
 
 CMakeFiles/Image.dir/bmp.cpp.obj: CMakeFiles/Image.dir/flags.make
 CMakeFiles/Image.dir/bmp.cpp.obj: ../bmp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\Labs_Progs\Images\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Image.dir/bmp.cpp.obj"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Image.dir\bmp.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Images\bmp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Documents\GitHub\Labs_Progs\Side stuff\Images\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Image.dir/bmp.cpp.obj"
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Image.dir\bmp.cpp.obj -c "D:\Documents\GitHub\Labs_Progs\Side stuff\Images\bmp.cpp"
 
 CMakeFiles/Image.dir/bmp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Image.dir/bmp.cpp.i"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Images\bmp.cpp > CMakeFiles\Image.dir\bmp.cpp.i
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Documents\GitHub\Labs_Progs\Side stuff\Images\bmp.cpp" > CMakeFiles\Image.dir\bmp.cpp.i
 
 CMakeFiles/Image.dir/bmp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Image.dir/bmp.cpp.s"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Images\bmp.cpp -o CMakeFiles\Image.dir\bmp.cpp.s
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Documents\GitHub\Labs_Progs\Side stuff\Images\bmp.cpp" -o CMakeFiles\Image.dir\bmp.cpp.s
 
 CMakeFiles/Image.dir/resizer.cpp.obj: CMakeFiles/Image.dir/flags.make
 CMakeFiles/Image.dir/resizer.cpp.obj: ../resizer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\Labs_Progs\Images\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Image.dir/resizer.cpp.obj"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Image.dir\resizer.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Images\resizer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Documents\GitHub\Labs_Progs\Side stuff\Images\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Image.dir/resizer.cpp.obj"
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Image.dir\resizer.cpp.obj -c "D:\Documents\GitHub\Labs_Progs\Side stuff\Images\resizer.cpp"
 
 CMakeFiles/Image.dir/resizer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Image.dir/resizer.cpp.i"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Images\resizer.cpp > CMakeFiles\Image.dir\resizer.cpp.i
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Documents\GitHub\Labs_Progs\Side stuff\Images\resizer.cpp" > CMakeFiles\Image.dir\resizer.cpp.i
 
 CMakeFiles/Image.dir/resizer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Image.dir/resizer.cpp.s"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Images\resizer.cpp -o CMakeFiles\Image.dir\resizer.cpp.s
+	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Documents\GitHub\Labs_Progs\Side stuff\Images\resizer.cpp" -o CMakeFiles\Image.dir\resizer.cpp.s
 
 # Object files for target Image
 Image_OBJECTS = \
@@ -111,7 +111,7 @@ Image.exe: CMakeFiles/Image.dir/build.make
 Image.exe: CMakeFiles/Image.dir/linklibs.rsp
 Image.exe: CMakeFiles/Image.dir/objects1.rsp
 Image.exe: CMakeFiles/Image.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Documents\GitHub\Labs_Progs\Images\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Image.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="D:\Documents\GitHub\Labs_Progs\Side stuff\Images\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Image.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Image.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -124,6 +124,6 @@ CMakeFiles/Image.dir/clean:
 .PHONY : CMakeFiles/Image.dir/clean
 
 CMakeFiles/Image.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Documents\GitHub\Labs_Progs\Images D:\Documents\GitHub\Labs_Progs\Images D:\Documents\GitHub\Labs_Progs\Images\cmake-build-debug D:\Documents\GitHub\Labs_Progs\Images\cmake-build-debug D:\Documents\GitHub\Labs_Progs\Images\cmake-build-debug\CMakeFiles\Image.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "D:\Documents\GitHub\Labs_Progs\Side stuff\Images" "D:\Documents\GitHub\Labs_Progs\Side stuff\Images" "D:\Documents\GitHub\Labs_Progs\Side stuff\Images\cmake-build-debug" "D:\Documents\GitHub\Labs_Progs\Side stuff\Images\cmake-build-debug" "D:\Documents\GitHub\Labs_Progs\Side stuff\Images\cmake-build-debug\CMakeFiles\Image.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/Image.dir/depend
 

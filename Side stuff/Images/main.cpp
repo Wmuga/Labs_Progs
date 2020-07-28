@@ -5,6 +5,6 @@
 
 int main() {
     resizer rs;
-    rs.liquid_resize((char*)R"(D:\Documents\GitHub\Labs_Progs\Images\tests\m.bmp)",(char*)R"(D:\Documents\GitHub\Labs_Progs\Images\tests\m_test.bmp)",40);
+    rs.liquid_resize((char*)"..\\tests\\Waifu.bmp",(char*)"..\\tests\\Waifu2.bmp",40);
     return 0;
 }
