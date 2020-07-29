@@ -130,7 +130,7 @@ void resizer::liquid_resize(char* img_in, char* img_out,int add_count) {
     get_paths_array(fout.get_info_header().biWidth-add_count,fout.get_info_header().biHeight);
     get_path(fout.get_info_header().biWidth-add_count,fout.get_info_header().biHeight,add_count);
     std::sort(line_coords.begin(),line_coords.end(),[](std::vector<std::pair<int,int> > v1,std::vector<std::pair<int,int> > v2){
-        return v1[0].first<v2[0].first;
+        return v1[0].first>v2[0].first;
     });
 
     for (size_t added_x=0;added_x<add_count;added_x++) {
@@ -141,8 +141,9 @@ void resizer::liquid_resize(char* img_in, char* img_out,int add_count) {
                 std::vector<std::pair<int,int> > line = line_coords[added_x];
                 if (line[fout.get_info_header().biHeight-j]==_pair)
                 {
-                    if (j==fout.get_info_header().biHeight) std::cout << i << " " << j-1 << "\n";
-                    fout.push_with_new(i+added_x,j-1,{255,255,255,0}); //fout.get_pixel(i+added_x,j-1)
+                    //if (j==fout.get_info_header().biHeight) std::clog << i << " " << j-1 << "\n";
+                   //fout.push_with_new(i+added_x,j-1,{255,255,255,0});
+                   fout.push_with_new(i,j-1,fout.get_pixel(i,j-1));
                 }
             }
         }
@@ -224,8 +225,9 @@ void resizer::get_path(size_t xmax, size_t ymax,size_t count) {
         std::vector<std::pair<int, int> > line_coord;
         for (size_t j = ymax; j != 0; j--) {
             auto buffer = energy_array[j-1];
-            int x = *std::find(energy_array[j-1].begin(),energy_array[j-1].end(),buffer[0]);
             std::sort(buffer.begin(),buffer.end(),[](int a,int b){return a>b;});
+            auto value= buffer[0];
+            int x; for (size_t i=0;i<xmax;i++) if (energy_array[j-1][i]==value) x=i;
             std::pair<int, int> dot{x, j - 1};
             if (j == ymax) {
                 for (size_t i = 0; i < xmax; i++) {
@@ -233,7 +235,7 @@ void resizer::get_path(size_t xmax, size_t ymax,size_t count) {
                         if (!line_coords.empty()) {
                             bool is_unique = true;
                             for (auto lines: line_coords) {
-                                if (lines[0].first == i) {
+                                if (lines[0].first-2 == i || lines[0].first-1 == i || lines[0].first == i || lines[0].first+1 == i || lines[0].first+2 == i) {
                                     is_unique = false;
                                     break;
                                 }
@@ -246,12 +248,20 @@ void resizer::get_path(size_t xmax, size_t ymax,size_t count) {
                 }
             } else {
                 size_t start_pos = line_coord[ymax - j - 1].first == 0 ? 0 : line_coord[ymax - j - 1].first - 1;
-                dot.first = start_pos;
                 size_t end_pos = line_coord[ymax - j - 1].first == xmax - 1 ? xmax - 1 : line_coord[ymax - j - 1].first + 1;
+                dot.first = end_pos;
                 for (size_t i = start_pos; i <= end_pos; i++) {
                     if (energy_path_array[j - 1][dot.first] > energy_path_array[j - 1][i] &&
                         energy_path_array[j - 1][i] != 0) {
-                        dot.first = i;
+                       // dot.first = i;
+                        bool is_unique = true;
+                        for (auto lines: line_coords) {
+                            if (lines[0].first-2 == i || lines[0].first-1 == i || lines[0].first == i || lines[0].first+1 == i || lines[0].first+2 == i) {
+                                is_unique = false;
+                                break;
+                            }
+                        }
+                        if (is_unique) dot.first = i;
                     }
                 }
             }
@@ -263,10 +273,10 @@ void resizer::get_path(size_t xmax, size_t ymax,size_t count) {
 }
 
 void resizer::transpose(size_t mx,size_t my){
-    std::vector<std::vector<int> > array_temp;
+    std::vector<std::vector<int> > array_temp{};
     for (size_t j=0;j<my;j++)
     {
-        std::vector<int> new_line;
+        std::vector<int> new_line{};
         for (size_t i=0;i<mx;i++)
             new_line.push_back(energy_array[i][j]);
         array_temp.push_back(new_line);

@@ -1,3 +1,5 @@
+#ifndef RESIZER_H
+#define RESIZER_H
 #include <vector>
 #include "bmp.h"
 class resizer
@@ -25,3 +27,4 @@ private:
     void get_path(size_t, size_t,size_t);
     void transpose(size_t,size_t);
 };
+#endif
