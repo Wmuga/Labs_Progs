@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/TestWav/main.cpp
+iostream
+-
+iomanip
+-
+windows.h
+-
+fstream
+-
+

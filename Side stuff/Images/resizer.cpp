@@ -134,6 +134,7 @@ void resizer::liquid_resize(char* img_in, char* img_out,int add_count) {
     });
 
     for (size_t added_x=0;added_x<add_count;added_x++) {
+        std::clog << "\rcolumn:" << added_x;
         for (size_t j = fout.get_info_header().biHeight; j >0 ; j--) {
             for (size_t i = 0; i < fout.get_info_header().biWidth; i++)
             {

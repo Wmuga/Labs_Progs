@@ -1,0 +1,3 @@
+D:/Documents/GitHub/Labs_Progs/Side stuff/TestWav/cmake-build-debug/CMakeFiles/TestWav.dir
+D:/Documents/GitHub/Labs_Progs/Side stuff/TestWav/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Documents/GitHub/Labs_Progs/Side stuff/TestWav/cmake-build-debug/CMakeFiles/rebuild_cache.dir
