@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/map/hmap.h
+map.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/map/map.h
+map.cpp
+D:/Documents/GitHub/Labs_Progs/Side stuff/map/map.cpp
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/map/main.cpp
+iostream
+-
+hmap.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/map/hmap.h
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/map/map.cpp
+map.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/map/map.h
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/map/map.h
+utility
+-
+cstdlib
+-
+algorithm
+-
+stdexcept
+-
+

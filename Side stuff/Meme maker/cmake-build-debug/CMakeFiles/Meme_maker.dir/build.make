@@ -33,10 +33,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe
+CMAKE_COMMAND = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E remove -f
+RM = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,54 +59,54 @@ include CMakeFiles/Meme_maker.dir/flags.make
 CMakeFiles/Meme_maker.dir/main.cpp.obj: CMakeFiles/Meme_maker.dir/flags.make
 CMakeFiles/Meme_maker.dir/main.cpp.obj: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Meme_maker.dir/main.cpp.obj"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Meme_maker.dir\main.cpp.obj -c "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\main.cpp"
+	D:\Programs\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Meme_maker.dir\main.cpp.obj -c "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\main.cpp"
 
 CMakeFiles/Meme_maker.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Meme_maker.dir/main.cpp.i"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\main.cpp" > CMakeFiles\Meme_maker.dir\main.cpp.i
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\main.cpp" > CMakeFiles\Meme_maker.dir\main.cpp.i
 
 CMakeFiles/Meme_maker.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Meme_maker.dir/main.cpp.s"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\main.cpp" -o CMakeFiles\Meme_maker.dir\main.cpp.s
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\main.cpp" -o CMakeFiles\Meme_maker.dir\main.cpp.s
 
 CMakeFiles/Meme_maker.dir/bmp.cpp.obj: CMakeFiles/Meme_maker.dir/flags.make
 CMakeFiles/Meme_maker.dir/bmp.cpp.obj: ../bmp.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Meme_maker.dir/bmp.cpp.obj"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Meme_maker.dir\bmp.cpp.obj -c "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\bmp.cpp"
+	D:\Programs\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Meme_maker.dir\bmp.cpp.obj -c "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\bmp.cpp"
 
 CMakeFiles/Meme_maker.dir/bmp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Meme_maker.dir/bmp.cpp.i"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\bmp.cpp" > CMakeFiles\Meme_maker.dir\bmp.cpp.i
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\bmp.cpp" > CMakeFiles\Meme_maker.dir\bmp.cpp.i
 
 CMakeFiles/Meme_maker.dir/bmp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Meme_maker.dir/bmp.cpp.s"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\bmp.cpp" -o CMakeFiles\Meme_maker.dir\bmp.cpp.s
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\bmp.cpp" -o CMakeFiles\Meme_maker.dir\bmp.cpp.s
 
 CMakeFiles/Meme_maker.dir/resizer.cpp.obj: CMakeFiles/Meme_maker.dir/flags.make
 CMakeFiles/Meme_maker.dir/resizer.cpp.obj: ../resizer.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Meme_maker.dir/resizer.cpp.obj"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Meme_maker.dir\resizer.cpp.obj -c "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\resizer.cpp"
+	D:\Programs\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Meme_maker.dir\resizer.cpp.obj -c "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\resizer.cpp"
 
 CMakeFiles/Meme_maker.dir/resizer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Meme_maker.dir/resizer.cpp.i"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\resizer.cpp" > CMakeFiles\Meme_maker.dir\resizer.cpp.i
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\resizer.cpp" > CMakeFiles\Meme_maker.dir\resizer.cpp.i
 
 CMakeFiles/Meme_maker.dir/resizer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Meme_maker.dir/resizer.cpp.s"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\resizer.cpp" -o CMakeFiles\Meme_maker.dir\resizer.cpp.s
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\resizer.cpp" -o CMakeFiles\Meme_maker.dir\resizer.cpp.s
 
 CMakeFiles/Meme_maker.dir/meme_maker.cpp.obj: CMakeFiles/Meme_maker.dir/flags.make
 CMakeFiles/Meme_maker.dir/meme_maker.cpp.obj: ../meme_maker.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Meme_maker.dir/meme_maker.cpp.obj"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Meme_maker.dir\meme_maker.cpp.obj -c "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\meme_maker.cpp"
+	D:\Programs\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Meme_maker.dir\meme_maker.cpp.obj -c "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\meme_maker.cpp"
 
 CMakeFiles/Meme_maker.dir/meme_maker.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Meme_maker.dir/meme_maker.cpp.i"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\meme_maker.cpp" > CMakeFiles\Meme_maker.dir\meme_maker.cpp.i
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\meme_maker.cpp" > CMakeFiles\Meme_maker.dir\meme_maker.cpp.i
 
 CMakeFiles/Meme_maker.dir/meme_maker.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Meme_maker.dir/meme_maker.cpp.s"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\meme_maker.cpp" -o CMakeFiles\Meme_maker.dir\meme_maker.cpp.s
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\meme_maker.cpp" -o CMakeFiles\Meme_maker.dir\meme_maker.cpp.s
 
 # Object files for target Meme_maker
 Meme_maker_OBJECTS = \

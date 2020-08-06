@@ -43,16 +43,16 @@ RM = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -E remov
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker"
+CMAKE_SOURCE_DIR = "D:\Documents\GitHub\Labs_Progs\Side stuff\map"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\cmake-build-debug"
+CMAKE_BINARY_DIR = "D:\Documents\GitHub\Labs_Progs\Side stuff\map\cmake-build-debug"
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/Meme_maker.dir/all
+all: CMakeFiles/map.dir/all
 
 .PHONY : all
 
@@ -62,36 +62,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/Meme_maker.dir/clean
+clean: CMakeFiles/map.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Meme_maker.dir
+# Target rules for target CMakeFiles/map.dir
 
 # All Build rule for target.
-CMakeFiles/Meme_maker.dir/all:
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/depend
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4,5 "Built target Meme_maker"
-.PHONY : CMakeFiles/Meme_maker.dir/all
+CMakeFiles/map.dir/all:
+	$(MAKE) -f CMakeFiles\map.dir\build.make CMakeFiles/map.dir/depend
+	$(MAKE) -f CMakeFiles\map.dir\build.make CMakeFiles/map.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="D:\Documents\GitHub\Labs_Progs\Side stuff\map\cmake-build-debug\CMakeFiles" --progress-num=1,2 "Built target map"
+.PHONY : CMakeFiles/map.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Meme_maker.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\cmake-build-debug\CMakeFiles" 5
-	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/Meme_maker.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\cmake-build-debug\CMakeFiles" 0
-.PHONY : CMakeFiles/Meme_maker.dir/rule
+CMakeFiles/map.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Documents\GitHub\Labs_Progs\Side stuff\map\cmake-build-debug\CMakeFiles" 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/map.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Documents\GitHub\Labs_Progs\Side stuff\map\cmake-build-debug\CMakeFiles" 0
+.PHONY : CMakeFiles/map.dir/rule
 
 # Convenience name for target.
-Meme_maker: CMakeFiles/Meme_maker.dir/rule
+map: CMakeFiles/map.dir/rule
 
-.PHONY : Meme_maker
+.PHONY : map
 
 # clean rule for target.
-CMakeFiles/Meme_maker.dir/clean:
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/clean
-.PHONY : CMakeFiles/Meme_maker.dir/clean
+CMakeFiles/map.dir/clean:
+	$(MAKE) -f CMakeFiles\map.dir\build.make CMakeFiles/map.dir/clean
+.PHONY : CMakeFiles/map.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

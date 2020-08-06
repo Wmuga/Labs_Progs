@@ -47,10 +47,10 @@ RM = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -E remov
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker"
+CMAKE_SOURCE_DIR = "D:\Documents\GitHub\Labs_Progs\Side stuff\map"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\cmake-build-debug"
+CMAKE_BINARY_DIR = "D:\Documents\GitHub\Labs_Progs\Side stuff\map\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\cmake-build-debug\CMakeFiles" "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Documents\GitHub\Labs_Progs\Side stuff\map\cmake-build-debug\CMakeFiles" "D:\Documents\GitHub\Labs_Progs\Side stuff\map\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Documents\GitHub\Labs_Progs\Side stuff\Meme maker\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\Documents\GitHub\Labs_Progs\Side stuff\map\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -110,44 +110,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Meme_maker
+# Target rules for targets named map
 
 # Build rule for target.
-Meme_maker: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 Meme_maker
-.PHONY : Meme_maker
+map: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 map
+.PHONY : map
 
 # fast build rule for target.
-Meme_maker/fast:
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/build
-.PHONY : Meme_maker/fast
-
-bmp.obj: bmp.cpp.obj
-
-.PHONY : bmp.obj
-
-# target to build an object file
-bmp.cpp.obj:
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/bmp.cpp.obj
-.PHONY : bmp.cpp.obj
-
-bmp.i: bmp.cpp.i
-
-.PHONY : bmp.i
-
-# target to preprocess a source file
-bmp.cpp.i:
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/bmp.cpp.i
-.PHONY : bmp.cpp.i
-
-bmp.s: bmp.cpp.s
-
-.PHONY : bmp.s
-
-# target to generate assembly for a file
-bmp.cpp.s:
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/bmp.cpp.s
-.PHONY : bmp.cpp.s
+map/fast:
+	$(MAKE) -f CMakeFiles\map.dir\build.make CMakeFiles/map.dir/build
+.PHONY : map/fast
 
 main.obj: main.cpp.obj
 
@@ -155,7 +128,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/main.cpp.obj
+	$(MAKE) -f CMakeFiles\map.dir\build.make CMakeFiles/map.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -164,7 +137,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles\map.dir\build.make CMakeFiles/map.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -173,62 +146,8 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles\map.dir\build.make CMakeFiles/map.dir/main.cpp.s
 .PHONY : main.cpp.s
-
-meme_maker.obj: meme_maker.cpp.obj
-
-.PHONY : meme_maker.obj
-
-# target to build an object file
-meme_maker.cpp.obj:
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/meme_maker.cpp.obj
-.PHONY : meme_maker.cpp.obj
-
-meme_maker.i: meme_maker.cpp.i
-
-.PHONY : meme_maker.i
-
-# target to preprocess a source file
-meme_maker.cpp.i:
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/meme_maker.cpp.i
-.PHONY : meme_maker.cpp.i
-
-meme_maker.s: meme_maker.cpp.s
-
-.PHONY : meme_maker.s
-
-# target to generate assembly for a file
-meme_maker.cpp.s:
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/meme_maker.cpp.s
-.PHONY : meme_maker.cpp.s
-
-resizer.obj: resizer.cpp.obj
-
-.PHONY : resizer.obj
-
-# target to build an object file
-resizer.cpp.obj:
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/resizer.cpp.obj
-.PHONY : resizer.cpp.obj
-
-resizer.i: resizer.cpp.i
-
-.PHONY : resizer.i
-
-# target to preprocess a source file
-resizer.cpp.i:
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/resizer.cpp.i
-.PHONY : resizer.cpp.i
-
-resizer.s: resizer.cpp.s
-
-.PHONY : resizer.s
-
-# target to generate assembly for a file
-resizer.cpp.s:
-	$(MAKE) -f CMakeFiles\Meme_maker.dir\build.make CMakeFiles/Meme_maker.dir/resizer.cpp.s
-.PHONY : resizer.cpp.s
 
 # Help Target
 help:
@@ -236,21 +155,12 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
-	@echo ... Meme_maker
+	@echo ... map
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... bmp.obj
-	@echo ... bmp.i
-	@echo ... bmp.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... meme_maker.obj
-	@echo ... meme_maker.i
-	@echo ... meme_maker.s
-	@echo ... resizer.obj
-	@echo ... resizer.i
-	@echo ... resizer.s
 .PHONY : help
 
 
