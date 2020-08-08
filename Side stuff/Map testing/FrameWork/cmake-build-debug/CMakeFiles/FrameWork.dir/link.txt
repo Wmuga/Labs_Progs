@@ -1,0 +1,3 @@
+"D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\FrameWork.dir/objects.a
+D:\Programs\MinGW\bin\ar.exe cr CMakeFiles\FrameWork.dir/objects.a @CMakeFiles\FrameWork.dir\objects1.rsp
+D:\Programs\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\FrameWork.dir/objects.a -Wl,--no-whole-archive  -o FrameWork.exe -Wl,--out-implib,libFrameWork.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\FrameWork.dir\linklibs.rsp
