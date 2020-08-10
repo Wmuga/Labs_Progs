@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/Calculus/calc.cpp
+calc.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Calculus/calc.h
+algorithm
+-
+iostream
+-
+cctype
+-
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/Calculus/calc.h
+map
+-
+fstream
+-
+vector
+-
+sstream
+-
+

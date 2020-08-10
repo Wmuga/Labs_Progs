@@ -1,3 +1,0 @@
-D:/Documents/GitHub/Labs_Progs/Test/untitled/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Documents/GitHub/Labs_Progs/Test/untitled/cmake-build-debug/CMakeFiles/untitled.dir
-D:/Documents/GitHub/Labs_Progs/Test/untitled/cmake-build-debug/CMakeFiles/rebuild_cache.dir

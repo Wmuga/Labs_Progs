@@ -6,15 +6,33 @@
 
 #IncludeRegexTransform: 
 
-D:/Documents/GitHub/Labs_Progs/Side stuff/Map testing/FrameWork/hmap.h
-map.h
-D:/Documents/GitHub/Labs_Progs/Side stuff/Map testing/FrameWork/map.h
-map.cpp
-D:/Documents/GitHub/Labs_Progs/Side stuff/Map testing/FrameWork/map.cpp
+D:/Documents/GitHub/Labs_Progs/Side stuff/Map testing/FrameWork/hash_table.h
+htable.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Map testing/FrameWork/htable.h
+htable.cpp
+D:/Documents/GitHub/Labs_Progs/Side stuff/Map testing/FrameWork/htable.cpp
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/Map testing/FrameWork/htable.cpp
+htable.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Map testing/FrameWork/htable.h
+iostream
+-
+cmath
+-
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/Map testing/FrameWork/htable.h
+utility
+-
+vector
+-
+cstring
+-
+string
+-
 
 D:/Documents/GitHub/Labs_Progs/Side stuff/Map testing/FrameWork/main.cpp
-hmap.h
-D:/Documents/GitHub/Labs_Progs/Side stuff/Map testing/FrameWork/hmap.h
+hash_table.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Map testing/FrameWork/hash_table.h
 iostream
 -
 fstream
@@ -22,21 +40,5 @@ fstream
 thread
 -
 ctime
--
-
-D:/Documents/GitHub/Labs_Progs/Side stuff/Map testing/FrameWork/map.cpp
-map.h
-D:/Documents/GitHub/Labs_Progs/Side stuff/Map testing/FrameWork/map.h
-
-D:/Documents/GitHub/Labs_Progs/Side stuff/Map testing/FrameWork/map.h
-utility
--
-cstdlib
--
-algorithm
--
-stdexcept
--
-vector
 -
 

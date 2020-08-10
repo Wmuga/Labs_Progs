@@ -1,4 +1,4 @@
-#include "hmap.h"
+#include "hash_table.h"
 #include <iostream>
 #include <fstream>
 #include <thread>
@@ -11,28 +11,79 @@ struct Node
 };
 
 
-void tester(std::ofstream& out,const std::vector<Node>& array)
+size_t tester_insert(std::ofstream* out,const std::vector<Node>& array)
 {
     clock_t start,end;
+    size_t coll;
     //for (size_t i=5000-1;i<1000000;i+=5000)
-    for (size_t i=0;i<10;i++)
+    for (size_t i=0;i<100;i+=1)
     {
-        out<<i+1<<std::endl;
-        std::clog<<i+1<<std::endl;
-        map<std::string,int> _map;
+        coll=0;
+        *out<<i+1<<std::endl;
+        std::clog<<"Insert "<<i+1<<std::endl;
+        hash_table<int> _map(11,11);
         start=clock();
         for (size_t j=0;j<i;j++)
         {
-            _map.emplace(array[j].key,array[j].value);
+            if(!_map.insert(array[j].key,array[j].value).second)coll++;
         }
         end=clock();
-        out<<end-start<<std::endl;
+        *out<<end-start<<std::endl;
         std::clog<<end-start<<std::endl;
     }
+    return coll;
 }
 
+size_t tester_find(std::ofstream* out,const std::vector<Node>& array)
+{
+    clock_t start,end;
+    size_t coll;
+    //for (size_t i=5000-1;i<1000000;i+=5000)
+    for (size_t i=0;i<100;i+=1)
+    {
+        coll=0;
+        *out<<i+1<<std::endl;
+        std::clog<<"Find "<<i+1<<std::endl;
+        hash_table<int> _map(11,11);
+        for (size_t j=0;j<i;j++)
+        {
+            if(!_map.insert(array[j].key,array[j].value).second)coll++;
+        }
+        start=clock();
+        _map.find(array[i/2].key);
+        end=clock();
+        *out<<end-start<<std::endl;
+        std::clog<<end-start<<std::endl;
+    }
+    return coll;
+}
 
-int main() {
+size_t tester_erase(std::ofstream* out,const std::vector<Node>& array)
+{
+    clock_t start,end;
+    size_t coll;
+    //for (size_t i=5000-1;i<1000000;i+=5000)
+    for (size_t i=0;i<100;i+=1)
+    {
+        coll=0;
+        *out<<i+1<<std::endl;
+        std::clog<<"Erase "<<i+1<<std::endl;
+        hash_table<int> _map(11,11);
+        for (size_t j=0;j<i;j++)
+        {
+            if(!_map.insert(array[j].key,array[j].value).second)coll++;
+        }
+        start=clock();
+        _map.erase(array[i/2].key);
+        end=clock();
+        *out<<end-start<<std::endl;
+        std::clog<<end-start<<std::endl;
+    }
+    return coll;
+}
+
+size_t tester_main(size_t (*tester_func)(std::ofstream*,const std::vector<Node>&),const std::string& fout)
+{
     std::ofstream out1("..\\out1.txt");
     std::ofstream out2("..\\out2.txt");
     std::ofstream out3("..\\out3.txt");
@@ -47,18 +98,18 @@ int main() {
         in_ar.push_back(el);
     }
     in1.close();
-    //std::thread t1(tester,out3,in_ar);
-    //std::thread t2(tester,out3,in_ar);
-    tester(out3,in_ar);
-    //t1.join();
-    //t2.join();
+    std::thread t1(tester_func,&out1,in_ar);
+    std::thread t2(tester_func,&out2,in_ar);
+    size_t collisions = tester_func(&out3,in_ar);
+    t1.join();
+    t2.join();
     out1.close();out2.close();out3.close();
 
     std::ifstream fin1("..\\out1.txt");
     std::ifstream fin2("..\\out2.txt");
     std::ifstream fin3("..\\out3.txt");
 
-    std::ofstream out("..\\out.txt");
+    std::ofstream out(fout);
 
     while (true)
     {
@@ -75,6 +126,15 @@ int main() {
 
     fin1.close();fin2.close();fin3.close(); out.close();
     remove("..\\out1.txt");remove("..\\out2.txt");remove("..\\out3.txt");
+    return collisions;
+}
 
+
+int main() {
+    size_t coll = tester_main(tester_insert,  "..\\Insert.txt");
+    size_t coll2 = tester_main(tester_find,    "..\\Find.txt");
+    size_t coll3 = tester_main(tester_erase,   "..\\Erase.txt");
+    std::ofstream off("collisions.txt");
+    off<<coll << " "<< coll2 << " " << coll3;
     return 0;
 }
