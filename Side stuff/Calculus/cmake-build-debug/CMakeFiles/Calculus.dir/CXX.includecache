@@ -6,6 +6,20 @@
 
 #IncludeRegexTransform: 
 
+D:/Documents/GitHub/Labs_Progs/Side stuff/Calculus/b_tree.cpp
+b_tree.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Calculus/b_tree.h
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/Calculus/b_tree.h
+utility
+-
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/Calculus/binary_tree.h
+b_tree.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Calculus/b_tree.h
+b_tree.cpp
+D:/Documents/GitHub/Labs_Progs/Side stuff/Calculus/b_tree.cpp
+
 D:/Documents/GitHub/Labs_Progs/Side stuff/Calculus/calc.cpp
 calc.h
 D:/Documents/GitHub/Labs_Progs/Side stuff/Calculus/calc.h
@@ -25,4 +39,6 @@ vector
 -
 sstream
 -
+binary_tree.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Calculus/binary_tree.h
 

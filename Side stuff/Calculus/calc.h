@@ -10,13 +10,21 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
+#include "binary_tree.h"
 
 class calculator{
     std::map<std::string,double> variables;
     char* act_symbols = (char*)"_+-*/=";
-    double current_out=0;
     size_t iteration;
     std::stringstream _sin;
+
+    enum actions {VAR=0,SUM='+',SUB='-',DIV='/',MUL='*'};
+    struct var{
+        actions act;
+        double val;
+    };
+    binary_tree<var> tree;
+    actions cur_act;
 public:
     calculator(const std::string&);
     ~calculator();
@@ -24,12 +32,12 @@ public:
 private:
     void calculate();
     std::string get_name();
-    std::string get_prev_name(std::string);
     void set_variables();
     double get_value();
-    double get_prev_value(std::string);
     std::vector<std::string> split_by(const std::string&,char);
     std::string to_lower(const std::string& str_in);
+    void build_tree();
+    double tree_get(binary_tree<var>::leaf);
 };
 
 #endif //CALCULUS_CALC_H
