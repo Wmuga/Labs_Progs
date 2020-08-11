@@ -29,7 +29,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Hash table/CMakeLists.txt" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="Calculus" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="&quot;;;&quot;" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Calculus" TARGET_NAME="Calculus" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Calculus" RUN_TARGET_NAME="Calculus">
@@ -54,6 +54,7 @@
       <workItem from="1597047979244" duration="4812000" />
       <workItem from="1597074520892" duration="3364000" />
       <workItem from="1597081630702" duration="2392000" />
+      <workItem from="1597129056367" duration="640000" />
     </task>
     <servers />
   </component>

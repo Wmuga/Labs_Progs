@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/BinaryTreeClass/b_tree.cpp
+b_tree.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/BinaryTreeClass/b_tree.h
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/BinaryTreeClass/b_tree.h
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/BinaryTreeClass/binary_tree.h
+b_tree.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/BinaryTreeClass/b_tree.h
+b_tree.cpp
+D:/Documents/GitHub/Labs_Progs/Side stuff/BinaryTreeClass/b_tree.cpp
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/BinaryTreeClass/main.cpp
+iostream
+-
+binary_tree.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/BinaryTreeClass/binary_tree.h
+
