@@ -1,3 +1,0 @@
-D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E remove -f CMakeFiles\Draw.dir/objects.a
-D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\ar.exe cr CMakeFiles\Draw.dir/objects.a @CMakeFiles\Draw.dir\objects1.rsp
-D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\Draw.dir/objects.a -Wl,--no-whole-archive  -o Draw.exe -Wl,--out-implib,libDraw.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Draw.dir\linklibs.rsp
