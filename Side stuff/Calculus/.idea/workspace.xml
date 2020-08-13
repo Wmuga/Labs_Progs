@@ -32,7 +32,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
-    <configuration name="Calculus" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="&quot;pr=10 rr=11;pr+rr*9/3-1;0+result1*10&quot;" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Calculus" TARGET_NAME="Calculus" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Calculus" RUN_TARGET_NAME="Calculus">
+    <configuration name="Calculus" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="&quot;pr=10 rr=11;pr+rr*9/3-1;result1*10&quot;" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Calculus" TARGET_NAME="Calculus" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Calculus" RUN_TARGET_NAME="Calculus">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -58,6 +58,7 @@
       <workItem from="1597142215410" duration="2127000" />
       <workItem from="1597148611718" duration="7964000" />
       <workItem from="1597212614255" duration="86000" />
+      <workItem from="1597337932574" duration="194000" />
     </task>
     <servers />
   </component>
@@ -65,30 +66,30 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="67" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597156178999">
+    <state x="67" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597338112236">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state x="67" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog/1280.-120.1280.984/0.0.1280.984@0.0.1280.984" timestamp="1597156178999" />
+    <state x="67" y="121" key="#com.intellij.execution.impl.EditConfigurationsDialog/1280.-120.1280.984/0.0.1280.984@0.0.1280.984" timestamp="1597338112236" />
     <state x="420" y="245" key="FileChooserDialogImpl" timestamp="1597084151716">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
     <state x="420" y="245" key="FileChooserDialogImpl/1280.-120.1280.984/0.0.1280.984@0.0.1280.984" timestamp="1597084151716" />
-    <state width="1236" height="258" key="GridCell.Tab.0.bottom" timestamp="1597156142155">
+    <state width="1236" height="258" key="GridCell.Tab.0.bottom" timestamp="1597338130038">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.bottom/1280.-120.1280.984/0.0.1280.984@0.0.1280.984" timestamp="1597156142155" />
-    <state width="1236" height="258" key="GridCell.Tab.0.center" timestamp="1597156142155">
+    <state width="1236" height="258" key="GridCell.Tab.0.bottom/1280.-120.1280.984/0.0.1280.984@0.0.1280.984" timestamp="1597338130038" />
+    <state width="1236" height="258" key="GridCell.Tab.0.center" timestamp="1597338130038">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.center/1280.-120.1280.984/0.0.1280.984@0.0.1280.984" timestamp="1597156142155" />
-    <state width="1236" height="258" key="GridCell.Tab.0.left" timestamp="1597156142155">
+    <state width="1236" height="258" key="GridCell.Tab.0.center/1280.-120.1280.984/0.0.1280.984@0.0.1280.984" timestamp="1597338130038" />
+    <state width="1236" height="258" key="GridCell.Tab.0.left" timestamp="1597338130037">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.left/1280.-120.1280.984/0.0.1280.984@0.0.1280.984" timestamp="1597156142155" />
-    <state width="1236" height="258" key="GridCell.Tab.0.right" timestamp="1597156142155">
+    <state width="1236" height="258" key="GridCell.Tab.0.left/1280.-120.1280.984/0.0.1280.984@0.0.1280.984" timestamp="1597338130037" />
+    <state width="1236" height="258" key="GridCell.Tab.0.right" timestamp="1597338130038">
       <screen x="0" y="0" width="1280" height="984" />
     </state>
-    <state width="1236" height="258" key="GridCell.Tab.0.right/1280.-120.1280.984/0.0.1280.984@0.0.1280.984" timestamp="1597156142155" />
+    <state width="1236" height="258" key="GridCell.Tab.0.right/1280.-120.1280.984/0.0.1280.984@0.0.1280.984" timestamp="1597338130038" />
     <state width="1236" height="319" key="GridCell.Tab.1.bottom" timestamp="1597156118221">
       <screen x="0" y="0" width="1280" height="984" />
     </state>

@@ -103,34 +103,40 @@ void calculator::build_tree() {
     tree.insert_c(cur,{VAR,v});
     while(!_sin.eof()) {
         char symb = _sin.get();
-        if (symb==-1) break;
+        if (symb == -1) break;
         double cur_val = 0;
         if (isalpha(symb) or isdigit(symb)) {
             _sin.unget();
             cur_val = get_value();
             auto buffer = cur;
-            while (buffer->next_r!= nullptr) buffer=buffer->next_r;
-            tree.insert_r(buffer,{VAR,cur_val});
-        }
-        else {
+            while (buffer->next_r != nullptr) buffer = buffer->next_r;
+            tree.insert_r(buffer, {VAR, cur_val});
+        } else {
             cur_act = static_cast<actions>(symb);
             switch (cur_act) {
                 case SUB:
                 case SUM: {
-                    binary_tree<var>::leaf _leaf = tree.create_Node({cur_act, 0},nullptr);
+                    binary_tree<var>::leaf _leaf = tree.create_Node({cur_act, 0}, nullptr);
                     cur->prev = _leaf;
-                    _leaf->next_l=cur;
+                    _leaf->next_l = cur;
                     cur = _leaf;
-                }break;
-                case DIV:
-                case MUL:
-                {
-                    binary_tree<var>::leaf _leaf = tree.create_Node({cur_act, 0},nullptr);
-                    _leaf->prev=cur;
-                    _leaf->next_l = cur->next_r;
-                    cur->next_r=_leaf;
                 }
                     break;
+                case DIV:
+                case MUL: {
+                    binary_tree<var>::leaf _leaf = tree.create_Node({cur_act, 0}, nullptr);
+                    if (cur->value.act == VAR) {
+                        _leaf->next_l=cur;
+                        cur->prev=_leaf;
+                        cur=_leaf;
+                    } else {
+
+                        _leaf->prev = cur;
+                        _leaf->next_l = cur->next_r;
+                        cur->next_r = _leaf;
+                    }
+                    break;
+                }
             }
         }
     }
