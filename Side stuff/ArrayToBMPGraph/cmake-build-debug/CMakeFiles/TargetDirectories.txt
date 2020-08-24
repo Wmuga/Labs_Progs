@@ -1,3 +1,0 @@
-D:/Documents/GitHub/Labs_Progs/Side stuff/ArrayToBMPGraph/cmake-build-debug/CMakeFiles/ArrayToBMPGraph.dir
-D:/Documents/GitHub/Labs_Progs/Side stuff/ArrayToBMPGraph/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Documents/GitHub/Labs_Progs/Side stuff/ArrayToBMPGraph/cmake-build-debug/CMakeFiles/rebuild_cache.dir

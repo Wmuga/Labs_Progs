@@ -1,3 +1,0 @@
-D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E remove -f CMakeFiles\Visualization.dir/objects.a
-D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\ar.exe cr CMakeFiles\Visualization.dir/objects.a @CMakeFiles\Visualization.dir\objects1.rsp
-D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\Visualization.dir/objects.a -Wl,--no-whole-archive  -o Visualization.exe -Wl,--out-implib,libVisualization.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Visualization.dir\linklibs.rsp
