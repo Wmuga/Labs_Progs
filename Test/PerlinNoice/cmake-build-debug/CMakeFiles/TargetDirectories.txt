@@ -1,3 +1,0 @@
-D:/Documents/GitHub/Labs_Progs/Test/PerlinNoice/cmake-build-debug/CMakeFiles/PerlinNoice.dir
-D:/Documents/GitHub/Labs_Progs/Test/PerlinNoice/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Documents/GitHub/Labs_Progs/Test/PerlinNoice/cmake-build-debug/CMakeFiles/rebuild_cache.dir
