@@ -1,0 +1,13 @@
+﻿  Converter.cpp
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab1 st\Converter.h(32,48): warning C4244: аргумент: преобразование "unsigned __int64" в "double", возможна потеря данных
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab1 st\Converter.h(32,52): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab1 st\Converter.h(56,44): warning C4244: аргумент: преобразование "unsigned __int64" в "double", возможна потеря данных
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab1 st\Converter.cpp(27,5): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab1 st\Converter.cpp(35,15): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+  MainWindow.cpp
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab1 st\Converter.h(32,48): warning C4244: аргумент: преобразование "unsigned __int64" в "double", возможна потеря данных
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab1 st\Converter.h(32,52): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab1 st\Converter.h(56,44): warning C4244: аргумент: преобразование "unsigned __int64" в "double", возможна потеря данных
+  Создание кода...
+  Converter.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
+  Lab1.vcxproj -> D:\Documents\GitHub\Labs_Progs\Sem3\Lab1 st\x64\Debug\Lab1.exe

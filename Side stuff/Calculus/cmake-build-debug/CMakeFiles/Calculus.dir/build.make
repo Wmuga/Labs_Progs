@@ -33,10 +33,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe
+CMAKE_COMMAND = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E remove -f
+RM = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,28 +59,28 @@ include CMakeFiles/Calculus.dir/flags.make
 CMakeFiles/Calculus.dir/main.cpp.obj: CMakeFiles/Calculus.dir/flags.make
 CMakeFiles/Calculus.dir/main.cpp.obj: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Documents\GitHub\Labs_Progs\Side stuff\Calculus\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Calculus.dir/main.cpp.obj"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Calculus.dir\main.cpp.obj -c "D:\Documents\GitHub\Labs_Progs\Side stuff\Calculus\main.cpp"
+	D:\Programs\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Calculus.dir\main.cpp.obj -c "D:\Documents\GitHub\Labs_Progs\Side stuff\Calculus\main.cpp"
 
 CMakeFiles/Calculus.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Calculus.dir/main.cpp.i"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Documents\GitHub\Labs_Progs\Side stuff\Calculus\main.cpp" > CMakeFiles\Calculus.dir\main.cpp.i
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Documents\GitHub\Labs_Progs\Side stuff\Calculus\main.cpp" > CMakeFiles\Calculus.dir\main.cpp.i
 
 CMakeFiles/Calculus.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Calculus.dir/main.cpp.s"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Documents\GitHub\Labs_Progs\Side stuff\Calculus\main.cpp" -o CMakeFiles\Calculus.dir\main.cpp.s
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Documents\GitHub\Labs_Progs\Side stuff\Calculus\main.cpp" -o CMakeFiles\Calculus.dir\main.cpp.s
 
 CMakeFiles/Calculus.dir/calc.cpp.obj: CMakeFiles/Calculus.dir/flags.make
 CMakeFiles/Calculus.dir/calc.cpp.obj: ../calc.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="D:\Documents\GitHub\Labs_Progs\Side stuff\Calculus\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Calculus.dir/calc.cpp.obj"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Calculus.dir\calc.cpp.obj -c "D:\Documents\GitHub\Labs_Progs\Side stuff\Calculus\calc.cpp"
+	D:\Programs\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Calculus.dir\calc.cpp.obj -c "D:\Documents\GitHub\Labs_Progs\Side stuff\Calculus\calc.cpp"
 
 CMakeFiles/Calculus.dir/calc.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Calculus.dir/calc.cpp.i"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Documents\GitHub\Labs_Progs\Side stuff\Calculus\calc.cpp" > CMakeFiles\Calculus.dir\calc.cpp.i
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "D:\Documents\GitHub\Labs_Progs\Side stuff\Calculus\calc.cpp" > CMakeFiles\Calculus.dir\calc.cpp.i
 
 CMakeFiles/Calculus.dir/calc.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Calculus.dir/calc.cpp.s"
-	D:\Mingw\i686-8.1.0-posix-dwarf-rt_v6-rev0\mingw32\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Documents\GitHub\Labs_Progs\Side stuff\Calculus\calc.cpp" -o CMakeFiles\Calculus.dir\calc.cpp.s
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "D:\Documents\GitHub\Labs_Progs\Side stuff\Calculus\calc.cpp" -o CMakeFiles\Calculus.dir\calc.cpp.s
 
 # Object files for target Calculus
 Calculus_OBJECTS = \

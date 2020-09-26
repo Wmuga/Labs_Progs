@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "D:/Documents/GitHub/Labs_Progs/Sem3/Lab4/main.cpp" "D:/Documents/GitHub/Labs_Progs/Sem3/Lab4/cmake-build-debug/CMakeFiles/Lab4.dir/main.cpp.obj"
-  "D:/Documents/GitHub/Labs_Progs/Sem3/Lab4/stack.cpp" "D:/Documents/GitHub/Labs_Progs/Sem3/Lab4/cmake-build-debug/CMakeFiles/Lab4.dir/stack.cpp.obj"
+  "D:/Documents/GitHub/Labs_Progs/Sem3/Lab4/tInt.cpp" "D:/Documents/GitHub/Labs_Progs/Sem3/Lab4/cmake-build-debug/CMakeFiles/Lab4.dir/tInt.cpp.obj"
   "D:/Documents/GitHub/Labs_Progs/Sem3/Lab4/vector.cpp" "D:/Documents/GitHub/Labs_Progs/Sem3/Lab4/cmake-build-debug/CMakeFiles/Lab4.dir/vector.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

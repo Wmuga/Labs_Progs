@@ -69,18 +69,18 @@ CMakeFiles/Lab4.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lab4.dir/main.cpp.s"
 	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Sem3\Lab4\main.cpp -o CMakeFiles\Lab4.dir\main.cpp.s
 
-CMakeFiles/Lab4.dir/stack.cpp.obj: CMakeFiles/Lab4.dir/flags.make
-CMakeFiles/Lab4.dir/stack.cpp.obj: ../stack.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\Labs_Progs\Sem3\Lab4\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Lab4.dir/stack.cpp.obj"
-	D:\Programs\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Lab4.dir\stack.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Sem3\Lab4\stack.cpp
+CMakeFiles/Lab4.dir/tInt.cpp.obj: CMakeFiles/Lab4.dir/flags.make
+CMakeFiles/Lab4.dir/tInt.cpp.obj: ../tInt.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Documents\GitHub\Labs_Progs\Sem3\Lab4\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Lab4.dir/tInt.cpp.obj"
+	D:\Programs\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Lab4.dir\tInt.cpp.obj -c D:\Documents\GitHub\Labs_Progs\Sem3\Lab4\tInt.cpp
 
-CMakeFiles/Lab4.dir/stack.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lab4.dir/stack.cpp.i"
-	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Sem3\Lab4\stack.cpp > CMakeFiles\Lab4.dir\stack.cpp.i
+CMakeFiles/Lab4.dir/tInt.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lab4.dir/tInt.cpp.i"
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\Documents\GitHub\Labs_Progs\Sem3\Lab4\tInt.cpp > CMakeFiles\Lab4.dir\tInt.cpp.i
 
-CMakeFiles/Lab4.dir/stack.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lab4.dir/stack.cpp.s"
-	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Sem3\Lab4\stack.cpp -o CMakeFiles\Lab4.dir\stack.cpp.s
+CMakeFiles/Lab4.dir/tInt.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lab4.dir/tInt.cpp.s"
+	D:\Programs\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\Documents\GitHub\Labs_Progs\Sem3\Lab4\tInt.cpp -o CMakeFiles\Lab4.dir\tInt.cpp.s
 
 CMakeFiles/Lab4.dir/vector.cpp.obj: CMakeFiles/Lab4.dir/flags.make
 CMakeFiles/Lab4.dir/vector.cpp.obj: ../vector.cpp
@@ -98,14 +98,14 @@ CMakeFiles/Lab4.dir/vector.cpp.s: cmake_force
 # Object files for target Lab4
 Lab4_OBJECTS = \
 "CMakeFiles/Lab4.dir/main.cpp.obj" \
-"CMakeFiles/Lab4.dir/stack.cpp.obj" \
+"CMakeFiles/Lab4.dir/tInt.cpp.obj" \
 "CMakeFiles/Lab4.dir/vector.cpp.obj"
 
 # External object files for target Lab4
 Lab4_EXTERNAL_OBJECTS =
 
 Lab4.exe: CMakeFiles/Lab4.dir/main.cpp.obj
-Lab4.exe: CMakeFiles/Lab4.dir/stack.cpp.obj
+Lab4.exe: CMakeFiles/Lab4.dir/tInt.cpp.obj
 Lab4.exe: CMakeFiles/Lab4.dir/vector.cpp.obj
 Lab4.exe: CMakeFiles/Lab4.dir/build.make
 Lab4.exe: CMakeFiles/Lab4.dir/linklibs.rsp

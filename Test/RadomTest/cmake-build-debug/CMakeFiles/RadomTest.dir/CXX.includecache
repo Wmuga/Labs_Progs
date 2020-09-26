@@ -6,25 +6,17 @@
 
 #IncludeRegexTransform: 
 
-D:/Documents/GitHub/Labs_Progs/Test/RadomTest/big_int.h
-vector
--
+D:/Documents/GitHub/Labs_Progs/Test/RadomTest/Converter.h
 string
 -
-ostream
+stdexcept
 -
-iomanip
--
-sstream
+cmath
 -
 
 D:/Documents/GitHub/Labs_Progs/Test/RadomTest/main.cpp
 iostream
 -
-cmath
--
-thread
--
-big_int.h
-D:/Documents/GitHub/Labs_Progs/Test/RadomTest/big_int.h
+Converter.h
+D:/Documents/GitHub/Labs_Progs/Test/RadomTest/Converter.h
 

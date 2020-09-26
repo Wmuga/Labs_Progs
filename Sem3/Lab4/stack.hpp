@@ -4,81 +4,107 @@
 
 #ifndef LAB4_STACK_HPP
 #define LAB4_STACK_HPP
-
-template<class T>
-struct tStackPart{
-
-    T data;
-    tStackPart* back;
-
-    tStackPart(){
-        data = T();
-        back = nullptr;
-    }
-    tStackPart(const T& _data){
-        data = _data;
-        back = nullptr;
-    }
-};
+#include <malloc.h>
+#include <istream>
+#include <vector>
+#include <algorithm>
 
 template<class T>
 class stack {
-    tStackPart<T>* last;
+    std::vector<T> array;
 public:
     stack();
+    ~stack();
+    //Standart push and pop
+    void push_back(const T&);
+    T pop();
+    //Overloaded+= acting as push
+    stack& operator+=(const T&);
+    //Prefix and postfix -- acting as pop
+    stack& operator--();
+    stack operator--(int);
+
+    stack operator+(const stack&);
+
+    //Error if elements in second are not in first
+    stack operator-(const stack&);
+
+    stack& operator=(const stack&);
+
+    template<class T1>
+    friend std::ostream& operator<<(std::ostream&,const stack<T1>&);
+
 };
+
+template<class T>
+stack<T>::~stack() = default;
+
+template<class T>
+stack<T>::stack() = default;
+
+template<class T>
+void stack<T>::push_back(const T& item) {
+    array.push_back(item);
+}
+
+template<class T>
+T stack<T>::pop() {
+    T item = array[array.size()-1];
+    array.pop_back();
+    return item;
+}
+
+template<class T>
+stack<T>& stack<T>::operator+=(const T& item) {
+    push_back(item);
+    return *this;
+}
+
+template<class T>
+stack<T>& stack<T>::operator=(const stack& in) {
+    this->array=in.array;
+    return *this;
+}
+
+template<class T>
+stack<T>& stack<T>::operator--() {
+    pop();
+    return *this;
+}
+
+template<class T>
+stack<T> stack<T>::operator--(int) {
+    stack<T> prev_stack = (*this);
+    pop();
+    return prev_stack;
+}
+
+template<class T>
+stack<T> stack<T>::operator-(const stack& decr) {
+    stack<T> new_stack = *this;
+    for (const T& item : decr.array){
+        auto item_position = std::find(new_stack.array.begin(),new_stack.array.end(),item);
+        if (item_position==new_stack.array.end()) throw std::invalid_argument("Unable find element in first stack");
+        new_stack.array.erase(item_position);
+    }
+    return new_stack;
+}
+
+template<class T>
+stack<T> stack<T>::operator+(const stack& incr) {
+    stack<T> new_stack = *this;
+    for (auto item_iter = incr.array.rbegin(); item_iter<incr.array.rend();item_iter++)
+        new_stack.push_back(*item_iter);
+    return new_stack;
+}
+
+template<class T>
+std::ostream &operator<<(std::ostream& os, const stack<T>& out) {
+    os << "[ ";
+    for (const T& item: out.array) os << item << " ";
+    os << "]";
+    return os;
+}
 
 
 #endif //LAB4_STACK_HPP
-
-/*
-#include <cstdlib>
-
-typedef int TInfo; //удобство для написания абстрактных функций
-struct stack{      //Элемент стэка
-    TInfo data;    //содержание
-    stack* back;   //указатель на предыдущий
-};
-void s_push(stack** pstack, TInfo Data) //Добавление элемента в стек
-{
-    if ((*pstack) == nullptr) { //Если стек пустой
-        stack* newElem = new stack; //Новый адресс памяти
-        newElem->data = Data; //Передаем значение
-        newElem->back = nullptr; //Предыдущего нет
-        (*pstack) = newElem; //Присваеваем новой адресс памяти текущему
-    } else{
-        stack* newElem = new stack; //Новый адресс памяти
-        newElem->data = Data;
-        newElem->back = (*pstack); //Текущий становиться предыдущим
-        (*pstack) = newElem; //Присваеваем новой адресс памяти текущему
-    }
-}
-
-
-void destr_last(stack** pstack) //Удаление нынешнего элемента
-{
-    stack* temp = (*pstack)->back; //Уходим назад
-    free(pstack); //Удаляем нынешний элемент
-    (*pstack) =temp; //Присвпиваем предыдущий
-}
-
-TInfo s_pop(stack** pstack) //"Вытаскивание" элемента
-// (в текущем не используется т.к. нет необходимости в "вытаскивании элемента", а только получение значений стека)
-{
-    if ((*pstack)==nullptr) throw 1; //Код ошибки на случай пустого
-    else {
-        TInfo value = (*pstack)->data; //Получаем значение
-        destr_last(pstack); //Удаляем нынешний
-        return value; //Возврашаем значение
-    }
-}
-
-
-void s_destructor(stack** pstack) //Полное уничтожение стека
-{
-    while ((*pstack))
-    {
-        destr_last(pstack);
-    }
-}
- */

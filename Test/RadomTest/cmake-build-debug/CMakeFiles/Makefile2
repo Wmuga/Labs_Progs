@@ -34,10 +34,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe
+CMAKE_COMMAND = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E remove -f
+RM = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -73,12 +73,12 @@ clean: CMakeFiles/RadomTest.dir/clean
 CMakeFiles/RadomTest.dir/all:
 	$(MAKE) -f CMakeFiles\RadomTest.dir\build.make CMakeFiles/RadomTest.dir/depend
 	$(MAKE) -f CMakeFiles\RadomTest.dir\build.make CMakeFiles/RadomTest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\Documents\GitHub\Labs_Progs\Test\RadomTest\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target RadomTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\Documents\GitHub\Labs_Progs\Test\RadomTest\cmake-build-debug\CMakeFiles --progress-num=1,2,3 "Built target RadomTest"
 .PHONY : CMakeFiles/RadomTest.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/RadomTest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\GitHub\Labs_Progs\Test\RadomTest\cmake-build-debug\CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\GitHub\Labs_Progs\Test\RadomTest\cmake-build-debug\CMakeFiles 3
 	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/RadomTest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\GitHub\Labs_Progs\Test\RadomTest\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/RadomTest.dir/rule

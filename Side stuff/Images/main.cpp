@@ -1,12 +1,11 @@
 #include "bmp.h"
-#include "resizer.h"
 #include "test_func.h"
 
 
 int main() {
-    resizer rs;
-    //rs.liquid_resize((char*)"..\\tests\\Waifu.bmp",(char*)"..\\tests\\Waifu2.bmp",70);
-    rs.resize((char*)"..\\tests\\Kromia.bmp",(char*)"..\\tests\\Kromia2.bmp",224,224);
-    rs.increase_smart((char*)"..\\tests\\Kromia2.bmp",(char*)"..\\tests\\Kromia4.bmp");
+    bmp_rw newBmp;
+    newBmp.create(".\\Test.bmp",5,5,32);
+    newBmp.write_line(0,0,5,5,{255,255,255},0.7);
+    newBmp.wclose();
     return 0;
 }

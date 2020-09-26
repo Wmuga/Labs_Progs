@@ -7,10 +7,5 @@ CMakeFiles/Image.dir/bmp.cpp.obj: ../digits_bool_array.h
 
 CMakeFiles/Image.dir/main.cpp.obj: ../bmp.h
 CMakeFiles/Image.dir/main.cpp.obj: ../main.cpp
-CMakeFiles/Image.dir/main.cpp.obj: ../resizer.h
 CMakeFiles/Image.dir/main.cpp.obj: ../test_func.h
-
-CMakeFiles/Image.dir/resizer.cpp.obj: ../bmp.h
-CMakeFiles/Image.dir/resizer.cpp.obj: ../resizer.cpp
-CMakeFiles/Image.dir/resizer.cpp.obj: ../resizer.h
 

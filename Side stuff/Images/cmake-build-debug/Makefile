@@ -38,10 +38,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe
+CMAKE_COMMAND = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E remove -f
+RM = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -58,7 +58,7 @@ CMAKE_BINARY_DIR = "D:\Documents\GitHub\Labs_Progs\Side stuff\Images\cmake-build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available."
+	"D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -69,7 +69,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -176,33 +176,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\Image.dir\build.make CMakeFiles/Image.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-resizer.obj: resizer.cpp.obj
-
-.PHONY : resizer.obj
-
-# target to build an object file
-resizer.cpp.obj:
-	$(MAKE) -f CMakeFiles\Image.dir\build.make CMakeFiles/Image.dir/resizer.cpp.obj
-.PHONY : resizer.cpp.obj
-
-resizer.i: resizer.cpp.i
-
-.PHONY : resizer.i
-
-# target to preprocess a source file
-resizer.cpp.i:
-	$(MAKE) -f CMakeFiles\Image.dir\build.make CMakeFiles/Image.dir/resizer.cpp.i
-.PHONY : resizer.cpp.i
-
-resizer.s: resizer.cpp.s
-
-.PHONY : resizer.s
-
-# target to generate assembly for a file
-resizer.cpp.s:
-	$(MAKE) -f CMakeFiles\Image.dir\build.make CMakeFiles/Image.dir/resizer.cpp.s
-.PHONY : resizer.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -218,9 +191,6 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... resizer.obj
-	@echo ... resizer.i
-	@echo ... resizer.s
 .PHONY : help
 
 

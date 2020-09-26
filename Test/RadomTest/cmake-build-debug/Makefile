@@ -38,10 +38,10 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe
+CMAKE_COMMAND = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E remove -f
+RM = "D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -58,7 +58,7 @@ CMAKE_BINARY_DIR = D:\Documents\GitHub\Labs_Progs\Test\RadomTest\cmake-build-deb
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available."
+	"D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -69,7 +69,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -122,6 +122,33 @@ RadomTest/fast:
 	$(MAKE) -f CMakeFiles\RadomTest.dir\build.make CMakeFiles/RadomTest.dir/build
 .PHONY : RadomTest/fast
 
+Converter.obj: Converter.cpp.obj
+
+.PHONY : Converter.obj
+
+# target to build an object file
+Converter.cpp.obj:
+	$(MAKE) -f CMakeFiles\RadomTest.dir\build.make CMakeFiles/RadomTest.dir/Converter.cpp.obj
+.PHONY : Converter.cpp.obj
+
+Converter.i: Converter.cpp.i
+
+.PHONY : Converter.i
+
+# target to preprocess a source file
+Converter.cpp.i:
+	$(MAKE) -f CMakeFiles\RadomTest.dir\build.make CMakeFiles/RadomTest.dir/Converter.cpp.i
+.PHONY : Converter.cpp.i
+
+Converter.s: Converter.cpp.s
+
+.PHONY : Converter.s
+
+# target to generate assembly for a file
+Converter.cpp.s:
+	$(MAKE) -f CMakeFiles\RadomTest.dir\build.make CMakeFiles/RadomTest.dir/Converter.cpp.s
+.PHONY : Converter.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -158,6 +185,9 @@ help:
 	@echo ... RadomTest
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... Converter.obj
+	@echo ... Converter.i
+	@echo ... Converter.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

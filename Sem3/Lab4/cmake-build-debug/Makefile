@@ -149,32 +149,32 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\Lab4.dir\build.make CMakeFiles/Lab4.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-stack.obj: stack.cpp.obj
+tInt.obj: tInt.cpp.obj
 
-.PHONY : stack.obj
+.PHONY : tInt.obj
 
 # target to build an object file
-stack.cpp.obj:
-	$(MAKE) -f CMakeFiles\Lab4.dir\build.make CMakeFiles/Lab4.dir/stack.cpp.obj
-.PHONY : stack.cpp.obj
+tInt.cpp.obj:
+	$(MAKE) -f CMakeFiles\Lab4.dir\build.make CMakeFiles/Lab4.dir/tInt.cpp.obj
+.PHONY : tInt.cpp.obj
 
-stack.i: stack.cpp.i
+tInt.i: tInt.cpp.i
 
-.PHONY : stack.i
+.PHONY : tInt.i
 
 # target to preprocess a source file
-stack.cpp.i:
-	$(MAKE) -f CMakeFiles\Lab4.dir\build.make CMakeFiles/Lab4.dir/stack.cpp.i
-.PHONY : stack.cpp.i
+tInt.cpp.i:
+	$(MAKE) -f CMakeFiles\Lab4.dir\build.make CMakeFiles/Lab4.dir/tInt.cpp.i
+.PHONY : tInt.cpp.i
 
-stack.s: stack.cpp.s
+tInt.s: tInt.cpp.s
 
-.PHONY : stack.s
+.PHONY : tInt.s
 
 # target to generate assembly for a file
-stack.cpp.s:
-	$(MAKE) -f CMakeFiles\Lab4.dir\build.make CMakeFiles/Lab4.dir/stack.cpp.s
-.PHONY : stack.cpp.s
+tInt.cpp.s:
+	$(MAKE) -f CMakeFiles\Lab4.dir\build.make CMakeFiles/Lab4.dir/tInt.cpp.s
+.PHONY : tInt.cpp.s
 
 vector.obj: vector.cpp.obj
 
@@ -215,9 +215,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... stack.obj
-	@echo ... stack.i
-	@echo ... stack.s
+	@echo ... tInt.obj
+	@echo ... tInt.i
+	@echo ... tInt.s
 	@echo ... vector.obj
 	@echo ... vector.i
 	@echo ... vector.s

@@ -1,6 +1,8 @@
 #include <iostream>
+#include "logger.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    logger new_log("");
+    new_log<<"message";
     return 0;
 }

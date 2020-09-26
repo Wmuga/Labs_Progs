@@ -3,4 +3,4 @@ project(RadomTest)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(RadomTest main.cpp)
+add_executable(RadomTest main.cpp Converter.h Converter.cpp)

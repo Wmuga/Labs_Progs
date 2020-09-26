@@ -53,55 +53,12 @@ struct tagRGBQUAD
 
 #define bmp = 1
 
-class bmp_writer
-{
-    FILE* img_out{};
-    BITMAPFILEHEADER bfh{};
-    BITMAPINFOHEADER bih{};
-
-public:
-    void create(char*, size_t, size_t, size_t);
-    //x,y,color
-    void write_pixel(size_t, size_t, tagRGBQUAD);
-    //start - end coords, color
-    void write_line(size_t, size_t, size_t, size_t, tagRGBQUAD);
-    //x,y of top-left corner, digit, color
-    void write_digit(size_t,size_t,int,tagRGBQUAD);
-    //x,y,r,color ,is hollow
-    void write_circle(size_t,size_t,size_t,tagRGBQUAD,bool);
-    /*
-    void write_rectangle();
-
-    void write_triangle();
-     */
-    //start - end coords
-    void flip_horizontal(size_t, size_t, size_t, size_t);
-    //start - end coords
-    void flip_vertical(size_t, size_t, size_t, size_t);
-    //start - end coords
-    void flip(size_t, size_t, size_t, size_t);
-
-    void write_gradient_horizontal(size_t, size_t, size_t, size_t,tagRGBQUAD,tagRGBQUAD);
-    void write_gradient_vertical(size_t, size_t, size_t, size_t,tagRGBQUAD,tagRGBQUAD);
-    void write_gradient(size_t, size_t, size_t, size_t,tagRGBQUAD,tagRGBQUAD);
-
-    //x,y,size_x,size_y,angle in  rad,color
-    void write_rectangle(size_t, size_t, size_t, size_t, size_t,tagRGBQUAD);
-
-    BITMAPINFOHEADER get_info_header();
-    BITMAPFILEHEADER get_file_header();
-
-    void wclose();
-    ~bmp_writer(){wclose();}
-
-private:
-    void swap_pixel(size_t, size_t, size_t, size_t);
-    tagRGBQUAD back_color{0,0,0,0};
-};
+tagRGBQUAD operator+(const tagRGBQUAD&,const tagRGBQUAD&);
+tagRGBQUAD operator*(const tagRGBQUAD&,double);
 
 class bmp_reader
 {
-    FILE* img_in{};
+    FILE* img{};
     BITMAPFILEHEADER bfh{};
     BITMAPINFOHEADER bih{};
     
@@ -114,24 +71,22 @@ public:
     ~bmp_reader(){rclose();}
 };
 
-class bmp_rw{
+class bmp_writer
+{
     FILE* img{};
     BITMAPFILEHEADER bfh{};
     BITMAPINFOHEADER bih{};
+
 public:
-    void open(char*);
-    tagRGBQUAD get_pixel(size_t,size_t);
-    BITMAPINFOHEADER get_info_header();
-    BITMAPFILEHEADER get_file_header();
     void create(char*, size_t, size_t, size_t);
     //x,y,color
-    void write_pixel(size_t, size_t, tagRGBQUAD);
+    void write_pixel(size_t, size_t, tagRGBQUAD,double = 1.0);
     //start - end coords, color
-    void write_line(size_t, size_t, size_t, size_t, tagRGBQUAD);
+    void write_line(size_t, size_t, size_t, size_t, tagRGBQUAD,double = 1.0);
     //x,y of top-left corner, digit, color
-    void write_digit(size_t,size_t,int,tagRGBQUAD);
+    void write_digit(size_t,size_t,int,tagRGBQUAD,double = 1.0);
     //x,y,r,color ,is hollow
-    void write_circle(size_t,size_t,size_t,tagRGBQUAD,bool);
+    void write_circle(size_t,size_t,size_t,tagRGBQUAD,bool,double = 1.0);
     //start - end coords
     void flip_horizontal(size_t, size_t, size_t, size_t);
     //start - end coords
@@ -144,14 +99,21 @@ public:
     void write_gradient(size_t, size_t, size_t, size_t,tagRGBQUAD,tagRGBQUAD);
 
     //x,y,size_x,size_y,angle in  rad,color
-    void write_rectangle(size_t, size_t, size_t, size_t, size_t,tagRGBQUAD);
-    void push_with_new(size_t,size_t,tagRGBQUAD);
-    void close();
-    ~bmp_rw(){close();}
+    void write_rectangle(size_t, size_t, size_t, size_t, size_t,tagRGBQUAD,double = 1.0);
+
+    BITMAPINFOHEADER get_info_header();
+    BITMAPFILEHEADER get_file_header();
+
+    void wclose();
+    ~bmp_writer(){wclose();}
 
 private:
     void swap_pixel(size_t, size_t, size_t, size_t);
+    friend tagRGBQUAD bmp_reader::get_pixel(size_t,size_t);
     tagRGBQUAD back_color{0,0,0,0};
+};
+
+class bmp_rw:public bmp_reader,public bmp_writer{
 };
 
 #endif

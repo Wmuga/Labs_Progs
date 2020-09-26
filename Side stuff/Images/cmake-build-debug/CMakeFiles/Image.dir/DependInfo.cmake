@@ -6,7 +6,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "D:/Documents/GitHub/Labs_Progs/Side stuff/Images/bmp.cpp" "D:/Documents/GitHub/Labs_Progs/Side stuff/Images/cmake-build-debug/CMakeFiles/Image.dir/bmp.cpp.obj"
   "D:/Documents/GitHub/Labs_Progs/Side stuff/Images/main.cpp" "D:/Documents/GitHub/Labs_Progs/Side stuff/Images/cmake-build-debug/CMakeFiles/Image.dir/main.cpp.obj"
-  "D:/Documents/GitHub/Labs_Progs/Side stuff/Images/resizer.cpp" "D:/Documents/GitHub/Labs_Progs/Side stuff/Images/cmake-build-debug/CMakeFiles/Image.dir/resizer.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

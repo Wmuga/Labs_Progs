@@ -1,3 +1,0 @@
-D:/Documents/GitHub/Labs_Progs/Test/FizLab/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-D:/Documents/GitHub/Labs_Progs/Test/FizLab/cmake-build-debug/CMakeFiles/FizLab.dir
-D:/Documents/GitHub/Labs_Progs/Test/FizLab/cmake-build-debug/CMakeFiles/edit_cache.dir

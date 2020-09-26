@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/Fraction/Fraction.h
+iostream
+-
+vector
+-
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/Fraction/main.cpp
+iostream
+-
+Fraction.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/Fraction/Fraction.h
+
