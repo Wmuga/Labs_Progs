@@ -1,3 +1,0 @@
-D:/Documents/GitHub/Labs_Progs/Test/OwnStream/cmake-build-debug/CMakeFiles/OwnStream.dir
-D:/Documents/GitHub/Labs_Progs/Test/OwnStream/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Documents/GitHub/Labs_Progs/Test/OwnStream/cmake-build-debug/CMakeFiles/rebuild_cache.dir

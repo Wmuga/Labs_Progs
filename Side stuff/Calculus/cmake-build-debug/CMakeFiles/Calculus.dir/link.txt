@@ -1,3 +1,0 @@
-"D:\Programs\JetBrains\CLion 2020.1.2\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\Calculus.dir/objects.a
-D:\Programs\MinGW\bin\ar.exe cr CMakeFiles\Calculus.dir/objects.a @CMakeFiles\Calculus.dir\objects1.rsp
-D:\Programs\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\Calculus.dir/objects.a -Wl,--no-whole-archive  -o Calculus.exe -Wl,--out-implib,libCalculus.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Calculus.dir\linklibs.rsp

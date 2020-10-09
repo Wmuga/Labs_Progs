@@ -1,3 +1,0 @@
-D:/Documents/GitHub/Labs_Progs/Side stuff/WinApi/cmake-build-debug/CMakeFiles/WinApi.dir
-D:/Documents/GitHub/Labs_Progs/Side stuff/WinApi/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Documents/GitHub/Labs_Progs/Side stuff/WinApi/cmake-build-debug/CMakeFiles/rebuild_cache.dir

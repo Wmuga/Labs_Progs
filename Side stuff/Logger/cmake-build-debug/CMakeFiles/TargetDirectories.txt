@@ -1,3 +1,0 @@
-D:/Documents/GitHub/Labs_Progs/Side stuff/Logger/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-D:/Documents/GitHub/Labs_Progs/Side stuff/Logger/cmake-build-debug/CMakeFiles/Logger.dir
-D:/Documents/GitHub/Labs_Progs/Side stuff/Logger/cmake-build-debug/CMakeFiles/edit_cache.dir
