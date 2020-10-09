@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/aeed/ae_coder.h
+set
+-
+map
+-
+fstream
+-
+
+D:/Documents/GitHub/Labs_Progs/Side stuff/aeed/main.cpp
+iostream
+-
+ae_coder.h
+D:/Documents/GitHub/Labs_Progs/Side stuff/aeed/ae_coder.h
+

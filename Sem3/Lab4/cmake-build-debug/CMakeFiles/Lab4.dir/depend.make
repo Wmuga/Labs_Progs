@@ -3,7 +3,7 @@
 
 CMakeFiles/Lab4.dir/main.cpp.obj: ../lab_ui.hpp
 CMakeFiles/Lab4.dir/main.cpp.obj: ../main.cpp
-CMakeFiles/Lab4.dir/main.cpp.obj: ../stack.hpp
+CMakeFiles/Lab4.dir/main.cpp.obj: ../queue.hpp
 CMakeFiles/Lab4.dir/main.cpp.obj: ../tInt.h
 CMakeFiles/Lab4.dir/main.cpp.obj: ../vector.h
 

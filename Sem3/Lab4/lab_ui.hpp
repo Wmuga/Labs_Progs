@@ -1,5 +1,5 @@
 #include "tInt.h"
-#include "stack.hpp"
+#include "queue.hpp"
 #include "vector.h"
 #include <istream>
 
@@ -8,9 +8,9 @@ class lab4Ui{
     std::istream& is;
 
     tInt* newInt;
-    bool is_first_stack;
-    stack<long>* firstStack;
-    stack<long>* secondStack;
+    bool is_first_queue;
+    queue<long>* firstQueue;
+    queue<long>* secondQueue;
     vector* newVector;
     unsigned short type;
 
@@ -20,7 +20,7 @@ public:
 
     void set_tInt_ui();
 
-    void set_stack_ui();
+    void set_queue_ui();
 
     void set_vector_ui();
 
@@ -28,29 +28,48 @@ public:
 
 private:
     bool tInt_eventHandler(const int&);
-    bool stack_eventHandler(const int&);
+    bool queue_eventHandler(const int&);
     bool vector_eventHandler(const int&);
 
     int tInt_get_user_command();
-    int stack_get_user_command();
+    int queue_get_user_command();
     int vector_get_user_command();
 };
 
 lab4Ui::lab4Ui(std::ostream& _os, std::istream& _is): os(_os), is(_is), newInt(nullptr),
-firstStack(nullptr), secondStack(nullptr), newVector(nullptr), type(0),is_first_stack(false) {
+                                                      firstQueue(nullptr), secondQueue(nullptr), newVector(nullptr), type(0), is_first_queue(false) {
 }
 
 
 void lab4Ui::show_ui() {
+    bool show_ui  = true;
     switch(type) {
         default:
-            while (tInt_eventHandler(tInt_get_user_command()));
+            while (show_ui){
+                try{
+                   show_ui = tInt_eventHandler(tInt_get_user_command());
+                } catch (std::exception& error) {
+                    os<< error.what() << std::endl;
+                }
+            }
             break;
         case(1):
-            while(stack_eventHandler(stack_get_user_command()));
+            while(show_ui){
+                try{
+                    show_ui = queue_eventHandler(queue_get_user_command());
+                } catch (std::exception& error) {
+                    os<< error.what() << std::endl;
+                }
+            }
             break;
         case(2):
-            while(vector_eventHandler(vector_get_user_command()));
+            while(show_ui){
+                try{
+                    show_ui = vector_eventHandler(vector_get_user_command());
+                } catch (std::exception& error) {
+                    os<< error.what() << std::endl;
+                }
+            }
             break;
     }
 }
@@ -60,10 +79,10 @@ void lab4Ui::set_tInt_ui() {
     type = 0;
 }
 
-void lab4Ui::set_stack_ui() {
-    firstStack = new stack<long>;
-    secondStack = new stack<long>;
-    is_first_stack=true;
+void lab4Ui::set_queue_ui() {
+    firstQueue = new queue<long>;
+    secondQueue = new queue<long>;
+    is_first_queue=true;
     type = 1;
 }
 
@@ -137,20 +156,20 @@ bool lab4Ui::tInt_eventHandler(const int& command) {
 
 lab4Ui::~lab4Ui() {
     delete newInt;
-    delete firstStack;
-    delete secondStack;
+    delete firstQueue;
+    delete secondQueue;
     delete newVector;
 }
 
-int lab4Ui::stack_get_user_command() {
-    stack<long>* current_stack = (is_first_stack) ? firstStack : secondStack;
-    os << "Task2 Stack. Current stack" << static_cast<int>(!is_first_stack)+1 << ":\n" << (*current_stack) << std::endl <<
-       "create: to recreate stack" << std::endl <<
-       "switch: to switch between first and second stack"<< std::endl <<
-       "add:  to add new element to stack"<< std::endl <<
-       "pop: to pop last element from stack"<< std::endl <<
-       "sum: to sum first and second stack"<< std::endl <<
-       "sub: to subtract second stack from first"<< std::endl<<
+int lab4Ui::queue_get_user_command() {
+    queue<long>* current_queue = (is_first_queue) ? firstQueue : secondQueue;
+    os << "Task2 Queue. Current queue" << static_cast<int>(!is_first_queue) + 1 << ":\n" << (*current_queue) << std::endl <<
+       "create: to recreate queue" << std::endl <<
+       "switch: to switch between first and second queue"<< std::endl <<
+       "add:    to add new element to queue"<< std::endl <<
+       "pop:    to pop first element from queue"<< std::endl <<
+       "sum:    to sum first and second queue"<< std::endl <<
+       "sub:    to subtract second queue from first"<< std::endl<<
        "exit:   to exit the menu"<< std::endl;
 
     int command_code=0;
@@ -168,19 +187,19 @@ int lab4Ui::stack_get_user_command() {
     return command_code;
 }
 
-bool lab4Ui::stack_eventHandler(const int& command) {
+bool lab4Ui::queue_eventHandler(const int& command) {
     switch (command) {
         default:
             os << "Unknown command" << std::endl;
             break;
         case (1): {
-            if (is_first_stack){
-                delete firstStack;
-                firstStack = new stack<long>;
+            if (is_first_queue){
+                delete firstQueue;
+                firstQueue = new queue<long>;
             }
             else{
-                delete secondStack;
-                secondStack = new stack<long>;
+                delete secondQueue;
+                secondQueue = new queue<long>;
             }
         }
             break;
@@ -189,7 +208,7 @@ bool lab4Ui::stack_eventHandler(const int& command) {
             os<<"Type value to add" << std::endl;
             try {
                 is >> buffer;
-                (*((is_first_stack) ? firstStack : secondStack))+=(std::stol(buffer));
+                (*((is_first_queue) ? firstQueue : secondQueue))+=(std::stol(buffer));
             }
             catch (const std::exception &) {
                 os << "Wrong argument" << std::endl;
@@ -197,17 +216,17 @@ bool lab4Ui::stack_eventHandler(const int& command) {
         }
             break;
         case (3):
-            --(*((is_first_stack) ? firstStack : secondStack));
+            --(*((is_first_queue) ? firstQueue : secondQueue));
             break;
         case (4):
         {
-            stack<long> new_stack = (*firstStack);
-            (*((is_first_stack) ? firstStack : secondStack)) = new_stack;
+            queue<long> new_stack = (*firstQueue);
+            (*((is_first_queue) ? firstQueue : secondQueue)) = new_stack;
         }
             break;
         case (5):
             try {
-                (*((is_first_stack) ? firstStack : secondStack)) = ((*firstStack) - (*secondStack));
+                (*((is_first_queue) ? firstQueue : secondQueue)) = ((*firstQueue) - (*secondQueue));
             }
             catch (const std::exception& error){
                 os << error.what() << std::endl;
@@ -216,7 +235,7 @@ bool lab4Ui::stack_eventHandler(const int& command) {
         case (6):
             return false;
         case(7):
-            is_first_stack=!is_first_stack;
+            is_first_queue=!is_first_queue;
             break;
     }
     return true;
@@ -225,9 +244,9 @@ bool lab4Ui::stack_eventHandler(const int& command) {
 int lab4Ui::vector_get_user_command() {
     os << "Task3 Vector. Current vector:\n" << (*newVector) << std::endl <<
        "create: to recreate vector" << std::endl <<
-       "add:  to add new element to vector"<< std::endl <<
-       "rem: to remove element from vector"<< std::endl <<
-       "pop: to pop last element from vector"<< std::endl <<
+       "add:    to add new element to vector"<< std::endl <<
+       "rem:    to remove element from vector"<< std::endl <<
+       "pop:    to pop last element from vector"<< std::endl <<
        "exit:   to exit the menu"<< std::endl;
 
     int command_code=0;
@@ -291,7 +310,9 @@ bool lab4Ui::vector_eventHandler(const int& command) {
             break;
         case (2): {
             os << "Would you like to specify element? y/n" << std::endl;
-            switch (static_cast<char>(getchar())) {
+            char command_char;
+            is>>command_char;
+            switch (command_char) {
                 case('y'): {
                     os << "Type element" << std::endl;
                     long element=0;

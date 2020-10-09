@@ -2,7 +2,7 @@
 #include <malloc.h>
 #include <iostream>
 
-std::invalid_argument vector::no_element = std::invalid_argument("vector::no_element_in_first");
+std::invalid_argument vector::no_element = std::invalid_argument("vector::unable_to_find_element");
 
 vector::vector():array(nullptr),length(0),element_count(0) {
 }
@@ -61,10 +61,13 @@ void vector::push_back(const long& new_element) {
 }
 
 long vector::pop() {
-    long value = array[--element_count];
-    if (element_count+length_step==length)
-        reallocate_memory(element_count);
-    return value;
+    if (element_count) {
+        long value = array[--element_count];
+        if (element_count + length_step == length)
+            reallocate_memory(element_count);
+        return value;
+    }
+    throw no_element;
 }
 
 long &vector::operator[](const size_t& position) {
