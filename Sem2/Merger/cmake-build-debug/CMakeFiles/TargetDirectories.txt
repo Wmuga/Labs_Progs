@@ -1,3 +1,0 @@
-D:/Documents/GitHub/Labs_Progs/Sem2/Merger/cmake-build-debug/CMakeFiles/Merger.dir
-D:/Documents/GitHub/Labs_Progs/Sem2/Merger/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Documents/GitHub/Labs_Progs/Sem2/Merger/cmake-build-debug/CMakeFiles/rebuild_cache.dir

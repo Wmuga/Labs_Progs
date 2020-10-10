@@ -1,3 +1,0 @@
-D:/Documents/GitHub/Labs_Progs/Sem2/TC/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Documents/GitHub/Labs_Progs/Sem2/TC/cmake-build-debug/CMakeFiles/TC.dir
-D:/Documents/GitHub/Labs_Progs/Sem2/TC/cmake-build-debug/CMakeFiles/rebuild_cache.dir

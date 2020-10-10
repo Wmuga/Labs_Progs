@@ -1,3 +1,0 @@
-D:\Programming\JetBrains\CLion\bin\cmake\win\bin\cmake.exe -E remove -f CMakeFiles\Lab8.dir/objects.a
-D:\Mingw\bin\ar.exe cr CMakeFiles\Lab8.dir/objects.a @CMakeFiles\Lab8.dir\objects1.rsp
-D:\Mingw\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\Lab8.dir/objects.a -Wl,--no-whole-archive  -o Lab8.exe -Wl,--out-implib,libLab8.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Lab8.dir\linklibs.rsp
