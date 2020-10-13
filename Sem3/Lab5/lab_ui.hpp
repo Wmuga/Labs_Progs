@@ -57,7 +57,6 @@ private:
 
 template<class T>
 void lab_ui::generate_vector(std::vector<T>& v) {
-    srand(10);
     const double max_number = 15;
 
     size_t vector_size = rand()%20;
@@ -70,6 +69,7 @@ void lab_ui::generate_vector(std::vector<T>& v) {
 lab_ui::lab_ui(): vInt(nullptr), vDouble(nullptr), vFloat(nullptr), vType(0){}
 
 void lab_ui::showUI() {
+    srand(time(0));
     vInt = new std::vector<int>;
     commands = new std::map<std::string,short>;
     *commands = {{"generate",1},{"type",2},{"sum",3},{"mult",4},{"sort",5},{"switch",6},{"exit",7}};
