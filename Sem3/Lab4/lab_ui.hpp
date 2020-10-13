@@ -15,6 +15,7 @@ class lab4Ui{
     unsigned short type;
 
 public:
+    lab4Ui();
     lab4Ui(std::ostream&, std::istream&);
     ~lab4Ui();
 
@@ -35,6 +36,10 @@ private:
     int queue_get_user_command();
     int vector_get_user_command();
 };
+
+lab4Ui::lab4Ui(): os(std::cout), is(std::cin), newInt(nullptr),
+                                                      firstQueue(nullptr), secondQueue(nullptr), newVector(nullptr), type(0), is_first_queue(false) {
+}
 
 lab4Ui::lab4Ui(std::ostream& _os, std::istream& _is): os(_os), is(_is), newInt(nullptr),
                                                       firstQueue(nullptr), secondQueue(nullptr), newVector(nullptr), type(0), is_first_queue(false) {

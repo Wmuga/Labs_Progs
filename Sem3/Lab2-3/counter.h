@@ -1,7 +1,3 @@
-//
-// Created by Alex on 12.09.2020.
-//
-
 #ifndef LAB2_3_COUNTER_H
 #define LAB2_3_COUNTER_H
 #include <string>
