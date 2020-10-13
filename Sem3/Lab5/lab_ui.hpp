@@ -42,6 +42,10 @@ private:
     static void get_vector(std::vector<T>&);
     template<class T>
     static void show_vector(std::vector<T>&);
+    template<class T>
+    static void show_sum(std::vector<T>&);
+    template<class T>
+    static void show_mult(std::vector<T>&);
 
     static double get_num();
 
@@ -89,11 +93,11 @@ bool lab_ui::event_handler(short command) {
             execute(get_vector);
             break;
         case(3):
-            execute(sumOfNegative);
+            execute(show_sum);
             break;
         case(4):
             try {
-                execute(mulFromMinToMax);
+                execute(show_mult);
             } catch (std::exception& error) {
                 std::cout << error.what() << std::endl;
             }
@@ -103,7 +107,7 @@ bool lab_ui::event_handler(short command) {
             break;
         case(6): {
             execute(bubbleSort);
-            std::cout << "Which type to use? int float double?";
+            std::cout << "Which type to use? int float double?"<<std::endl;
             std::string newType;
             std::cin>> newType;
             for (auto& item: newType) item=tolower(item);
@@ -136,6 +140,13 @@ bool lab_ui::event_handler(short command) {
 short lab_ui::get_command() {
     std::cout << "Current Vector:\n";
     execute(show_vector);
+    std::cout<<"\nsum - Get sum of negative elements of array"<< std::endl <<
+                 "mult - Multiply elements between minimum and maximum"<< std::endl <<
+                 "sort - sort array using shaking(modificated bubble) sort"<< std::endl <<
+                 "type - Write new array"<< std::endl <<
+                 "generate - Get new auto generated array"<< std::endl <<
+                 "switch - Switch between array types"<< std::endl <<
+                 "exit - Close menu"<< std::endl;
     std::string command;
     std::cin>>command;
     for (auto& item: command) item=tolower(item);
@@ -172,6 +183,16 @@ double lab_ui::get_num() {
         }
     }
     return num;
+}
+
+template<class T>
+void lab_ui::show_sum(std::vector<T>& v) {
+    std::cout << "Sum of negative elements in array:" << sumOfNegative(v) << std::endl;
+}
+
+template<class T>
+void lab_ui::show_mult(std::vector<T>& v) {
+    std::cout << "Result of multiplication of elements between min and max:"  << mulFromMinToMax(v) << std::endl;
 }
 
 

@@ -30,6 +30,8 @@ T sumOfNegative(const std::vector<T>& array){
 
 template<class T>
 T mulFromMinToMax(const std::vector<T>& array){
+    if (array.empty()) throw std::runtime_error("no_elements");
+
     auto minElementIterator = std::min_element(array.begin(),array.end());
     auto maxElementIterator = std::max_element(array.begin(),array.end());
 
