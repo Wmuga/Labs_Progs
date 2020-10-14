@@ -138,11 +138,11 @@ bool lab_ui::event_handler(short command) {
 }
 
 short lab_ui::get_command() {
-    std::cout << "Current Vector:\n";
+    std::cout << "\nCurrent Vector: "<< (vType ? vType==1 ? "float" : "double" : "int") <<"\n";
     execute(show_vector);
     std::cout<<"\nsum - Get sum of negative elements of array"<< std::endl <<
                  "mult - Multiply elements between minimum and maximum"<< std::endl <<
-                 "sort - sort array using shaking(modificated bubble) sort"<< std::endl <<
+                 "sort - sort array using shaking(modified bubble) sort"<< std::endl <<
                  "type - Write new array"<< std::endl <<
                  "generate - Get new auto generated array"<< std::endl <<
                  "switch - Switch between array types"<< std::endl <<
@@ -159,8 +159,14 @@ short lab_ui::get_command() {
 }
 
 template<class T>
-void lab_ui::get_vector(std::vector<T> &) {
-
+void lab_ui::get_vector(std::vector<T>& v) {
+    std::cout << "Specify size" << std::endl;
+    auto vector_size = static_cast<size_t>(get_num());
+    std::cout << "Fill in elements" << std::endl;
+    std::vector<T> new_vector;
+    for (size_t i=0;i<vector_size;i++)
+        new_vector.push_back(static_cast<T>(get_num()));
+    v = new_vector;
 }
 
 template<class T>
