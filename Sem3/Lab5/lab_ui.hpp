@@ -1,11 +1,8 @@
-//
-// Created by Alex on 10.10.2020.
-//
-
 #ifndef LAB5_LAB_UI_HPP
 #define LAB5_LAB_UI_HPP
 #include <ctime>
 #include <map>
+#include <iostream>
 #include "task_functions.hpp"
 
 
@@ -18,7 +15,6 @@ std::ostream& operator<<(std::ostream& os,const std::vector<T>& v){
 }
 
 class lab_ui {
-//First task for int float and double
     std::vector<int>* vInt;
     std::vector<float>* vFloat;
     std::vector<double>* vDouble;
@@ -106,7 +102,6 @@ bool lab_ui::event_handler(short command) {
             execute(bubbleSort);
             break;
         case(6): {
-            execute(bubbleSort);
             std::cout << "Which type to use? int float double?"<<std::endl;
             std::string newType;
             std::cin>> newType;

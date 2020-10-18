@@ -1,13 +1,8 @@
-//
-// Created by Alex on 11.10.2020.
-//
-
 #ifndef LAB5_TASK_FUNCTIONS_HPP
 #define LAB5_TASK_FUNCTIONS_HPP
 #include <vector>
 #include <algorithm>
 #include <cmath>
-//#include <windows.h>
 
 
 template<class T>
@@ -18,8 +13,6 @@ T mulFromMinToMax(const std::vector<T>&);
 
 template<class T>
 void bubbleSort(std::vector<T>&);
-
-//some shit function for task2
 
 template<class T>
 T sumOfNegative(const std::vector<T>& array){
