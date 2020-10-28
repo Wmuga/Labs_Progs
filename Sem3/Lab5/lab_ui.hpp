@@ -1,5 +1,6 @@
 #ifndef LAB5_LAB_UI_HPP
 #define LAB5_LAB_UI_HPP
+
 #include <ctime>
 #include <map>
 #include <iostream>
@@ -62,7 +63,7 @@ void lab_ui::generate_vector(std::vector<T>& v) {
     }
 }
 
-lab_ui::lab_ui(): vInt(nullptr), vDouble(nullptr), vFloat(nullptr), vType(0){}
+lab_ui::lab_ui(): vInt(nullptr), vDouble(nullptr), vFloat(nullptr), vType(0), commands(nullptr){}
 
 void lab_ui::showUI() {
     srand(time(0));
@@ -99,7 +100,11 @@ bool lab_ui::event_handler(short command) {
             }
             break;
         case(5):
-            execute(bubbleSort);
+            try {
+                execute(bubbleSort);
+            } catch (std::exception& error) {
+                std::cout << error.what() << std::endl;
+            }
             break;
         case(6): {
             std::cout << "Which type to use? int float double?"<<std::endl;

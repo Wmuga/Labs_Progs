@@ -1,14 +1,12 @@
-//
-// Created by Alex on 18.09.2020.
-//
-
 #ifndef LAB4_TINT_H
 #define LAB4_TINT_H
 #include <istream>
 
 class tInt {
+    //Текущее значение
     int* value;
 public:
+    //Конструкторы
     tInt();
     explicit tInt(const int&);
     //Prefix

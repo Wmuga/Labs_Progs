@@ -1,0 +1,16 @@
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\bin\Debug\netcoreapp3.1\Lab6.exe
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\bin\Debug\netcoreapp3.1\Lab6.deps.json
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\bin\Debug\netcoreapp3.1\Lab6.runtimeconfig.json
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\bin\Debug\netcoreapp3.1\Lab6.runtimeconfig.dev.json
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\bin\Debug\netcoreapp3.1\Lab6.dll
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\bin\Debug\netcoreapp3.1\Lab6.pdb
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\obj\Debug\netcoreapp3.1\Lab6.csprojAssemblyReference.cache
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\obj\Debug\netcoreapp3.1\Lab6.AssemblyInfoInputs.cache
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\obj\Debug\netcoreapp3.1\Lab6.AssemblyInfo.cs
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\obj\Debug\netcoreapp3.1\Lab6.csproj.CoreCompileInputs.cache
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\obj\Debug\netcoreapp3.1\Lab6.dll
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\obj\Debug\netcoreapp3.1\Lab6.pdb
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\obj\Debug\netcoreapp3.1\Lab6.genruntimeconfig.cache
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\obj\Debug\netcoreapp3.1\Lab6.Form1.resources
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\obj\Debug\netcoreapp3.1\Lab6.csproj.GenerateResource.cache
+D:\Documents\GitHub\Labs_Progs\Sem3\Lab6\Lab6\obj\Debug\netcoreapp3.1\Lab6.task2.resources

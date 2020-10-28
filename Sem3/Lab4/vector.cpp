@@ -1,6 +1,5 @@
 #include "vector.h"
 #include <malloc.h>
-#include <iostream>
 
 std::invalid_argument vector::no_element = std::invalid_argument("vector::unable_to_find_element");
 
@@ -28,8 +27,8 @@ void vector::copy(const long* source,const size_t& source_size,long* new_array) 
 
 
 vector::vector(long* new_array, const size_t& new_size) {
-    array = new_array;
-    length = new_size;
+    reallocate_memory(new_size+length_step);
+    copy(new_array,new_size,array);
     element_count=new_size;
 }
 

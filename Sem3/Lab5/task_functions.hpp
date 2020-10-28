@@ -68,6 +68,9 @@ void bubbleSort(std::vector<T>& array){
             }
         }
     }
+    else{
+        throw std::invalid_argument("empty_array");
+    }
 }
 
 #endif //LAB5_TASK_FUNCTIONS_HPP

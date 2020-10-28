@@ -18,20 +18,19 @@ public:
     lab4Ui();
     lab4Ui(std::ostream&, std::istream&);
     ~lab4Ui();
-
+    //Методы подготовки меню под определенный тип данных
     void set_tInt_ui();
-
     void set_queue_ui();
-
     void set_vector_ui();
-
+    //Вывод меню
     void show_ui();
 
 private:
+    //Обработчики команд
     bool tInt_eventHandler(const int&);
     bool queue_eventHandler(const int&);
     bool vector_eventHandler(const int&);
-
+    //Вывод меню и получение команд от пользователя
     int tInt_get_user_command();
     int queue_get_user_command();
     int vector_get_user_command();
@@ -45,7 +44,9 @@ lab4Ui::lab4Ui(std::ostream& _os, std::istream& _is): os(_os), is(_is), newInt(n
                                                       firstQueue(nullptr), secondQueue(nullptr), newVector(nullptr), type(0), is_first_queue(false) {
 }
 
-
+//Все меню работают одинаково: обработчик событий выдает завершилась программа или нет,
+//а метод получения комманд возвращает их код, что позволяет обернуть их в виде
+//цикл с предусловием(обработчик комманд(получение комманды()))
 void lab4Ui::show_ui() {
     bool show_ui  = true;
     switch(type) {
@@ -57,6 +58,7 @@ void lab4Ui::show_ui() {
                     os<< error.what() << std::endl;
                 }
             }
+            delete newInt;
             break;
         case(1):
             while(show_ui){
@@ -66,6 +68,8 @@ void lab4Ui::show_ui() {
                     os<< error.what() << std::endl;
                 }
             }
+            delete firstQueue;
+            delete secondQueue;
             break;
         case(2):
             while(show_ui){
@@ -75,6 +79,7 @@ void lab4Ui::show_ui() {
                     os<< error.what() << std::endl;
                 }
             }
+            delete newVector;
             break;
     }
 }
@@ -276,7 +281,9 @@ bool lab4Ui::vector_eventHandler(const int& command) {
             delete newVector;
             try{
                 os << "How to create vector?\n1 - empty vector\n2 - with one element\n3 - with preallocated memory\n4 - type all elements" << std::endl;
-                switch (getchar()-'0') {
+                char ctype;
+                is>>ctype;
+                switch (ctype-'0') {
                     default:
                         throw std::invalid_argument("Unknown command");
                     case(1):

@@ -1,8 +1,10 @@
 #include <iostream>
-#include "tester_framework.hpp"
+#include "lab_ui.hpp"
 #include <ctime>
+//#include "tester_framework.hpp"
 
 int main() {
+    /*
     srand(time(0));
     for (size_t i=0;i<4;i++) {
         std::ofstream out(R"(D:\ADD_LINK\Git\Labs_Progs\Sem3\Lab5\t\out)" + std::to_string(i) + ".txt");
@@ -25,5 +27,8 @@ int main() {
 
         }
     }
+    */
+    lab_ui ui;
+    ui.showUI();
     return 0;
 }
