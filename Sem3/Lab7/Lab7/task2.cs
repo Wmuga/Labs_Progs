@@ -9,7 +9,7 @@ namespace Lab7
     {
         private void getFileButton_Click(object sender, EventArgs e)
         {
-            bool[] allSymb = {false,false,false,false};
+            byte allSymb = 0;
             var getFile = new OpenFileDialog();
             if (getFile.ShowDialog() == DialogResult.OK)
             {
@@ -19,37 +19,37 @@ namespace Lab7
                 while ((line = readFile.ReadLine()) != null)
                 {
                     PrintWait("Прочитано: " + line);
-                    if (!allSymb[0] && line.Split(new[] {'Д', 'д'}).Length != 1)
+                    if ((allSymb&1)==0 && line.Split(new[] {'Д', 'д'}).Length != 1)
                     {
-                        allSymb[0] = true;
+                        allSymb|=1;
                         PrintWait("Найден д");
                     }
 
-                    if (!allSymb[1] && line.Split(new[] {'Е', 'е'}).Length != 1)
+                    if ((allSymb&2)==0 && line.Split(new[] {'Е', 'е'}).Length != 1)
                     {
-                        allSymb[1] = true;
+                        allSymb|=2;
                         PrintWait("Найден е");
                     }
 
-                    if (!allSymb[2] && line.Split(new[] {'Н', 'н'}).Length != 1)
+                    if ((allSymb&4)==0 && line.Split(new[] {'Н', 'н'}).Length != 1)
                     {
-                        allSymb[2] = true;
+                        allSymb|=4;
                         PrintWait("Найден н");
                     }
-                    if (!allSymb[3] && line.Split(new[] {'Ь', 'ь'}).Length != 1)
+                    if ((allSymb&8)==0 && line.Split(new[] {'Ь', 'ь'}).Length != 1)
                     {
-                        allSymb[3] = true;
+                        allSymb|=8;
                         PrintWait("Найден ь");
                     }
 
                     if (debugMode)
                     {
-                        var msg = "";
-                        foreach (var b in allSymb) msg += b.ToString();
+                        var msg = ((allSymb & 1) != 0).ToString() + ((allSymb & 2) != 0) + ((allSymb & 4) != 0) +
+                                  ((allSymb & 8) != 0);
                         PrintWait(msg);
                     }
                     
-                    if (allSymb[0] && allSymb[1] && allSymb[2] && allSymb[3])
+                    if ((allSymb&0b1111)==0b1111)
                     {
                         PrintWait("Найдены все символы");
                         secondOutBox.Text = "Найдены все символы слова \"ДЕНЬ\"";
