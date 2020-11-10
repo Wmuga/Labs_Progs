@@ -1,5 +1,0 @@
-D:\Documents\GitHub\Labs_Progs\Sem3\Lab1\Debug\Lab1.vcxprojAssemblyReference.cache
-D:\Documents\GitHub\Labs_Progs\Sem3\Lab1\Debug\Lab1.MainWindow.resources
-D:\Documents\GitHub\Labs_Progs\Sem3\Lab1\Debug\Lab1.vcxproj.GenerateResource.cache
-D:\Documents\GitHub\Labs_Progs\Sem3\Lab1\Debug\Lab1.exe
-D:\Documents\GitHub\Labs_Progs\Sem3\Lab1\Debug\Lab1.pdb

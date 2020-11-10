@@ -1,3 +1,0 @@
-D:\Desktop\Sem3 Labs\Lab1\Debug\Lab1.vcxprojAssemblyReference.cache
-D:\Desktop\Sem3 Labs\Lab1\Debug\Lab1.exe
-D:\Desktop\Sem3 Labs\Lab1\Debug\Lab1.pdb

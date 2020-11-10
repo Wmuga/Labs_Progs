@@ -1,2 +1,0 @@
-D:\Desktop\Sem3 Labs\Lab1\Release\Lab1.vcxprojAssemblyReference.cache
-D:\Desktop\Sem3 Labs\Lab1\Release\Lab1.exe
