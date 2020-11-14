@@ -54,7 +54,7 @@ namespace Lab6
             this.getFile.Name = "getFile";
             this.getFile.Size = new System.Drawing.Size(141, 32);
             this.getFile.TabIndex = 1;
-            this.getFile.Text = "Выбрать файл\r\n";
+            this.getFile.Text = "Выбрать файл";
             this.getFile.UseVisualStyleBackColor = true;
             this.getFile.Click += new System.EventHandler(this.getFile_Click);
             // 

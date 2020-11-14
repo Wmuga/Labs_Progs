@@ -58,6 +58,8 @@ namespace Lab7
                     var binaryIn = new BinaryReader(new FileStream(saveFile.FileName,FileMode.Open));
                     double max = 0;
                     binaryIn.BaseStream.Seek(0, SeekOrigin.Begin);
+                    int currentNum = 1;
+                    int maxNum = 1;
                     try
                     {
                         while (true)
@@ -65,8 +67,13 @@ namespace Lab7
                             double current;
                             current = binaryIn.ReadDouble();
                             PrintWait("Прочитали " + current);
-                            if (current > max) max = current;
+                            if (current > max)
+                            {
+                                max = current;
+                                maxNum = currentNum;
+                            }
                             firstOutputBox.Text += current + " ";
+                            currentNum++;
                         }
                     }
                     catch (EndOfStreamException exc)
@@ -76,6 +83,7 @@ namespace Lab7
                     binaryIn.Close();
                     PrintWait("Конец работы с файлом");
                     firstMaxOutBox.Text = max.ToString();
+                    textBox1.Text = maxNum.ToString();
                 }
                 catch (FileNotFoundException fnfe)
                 {

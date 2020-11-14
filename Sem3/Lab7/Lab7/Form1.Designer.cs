@@ -42,6 +42,7 @@
             this.secondOutBox = new System.Windows.Forms.TextBox();
             this.getFileButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.firstTaskTab.SuspendLayout();
             this.secondTaskTab.SuspendLayout();
@@ -61,6 +62,7 @@
             // 
             // firstTaskTab
             // 
+            this.firstTaskTab.Controls.Add(this.textBox1);
             this.firstTaskTab.Controls.Add(this.label3);
             this.firstTaskTab.Controls.Add(this.label2);
             this.firstTaskTab.Controls.Add(this.firstMaxOutBox);
@@ -77,7 +79,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(55, 121);
+            this.label3.Location = new System.Drawing.Point(55, 143);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(260, 18);
             this.label3.TabIndex = 5;
@@ -104,7 +106,7 @@
             // firstOutputBox
             // 
             this.firstOutputBox.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (204)));
-            this.firstOutputBox.Location = new System.Drawing.Point(26, 142);
+            this.firstOutputBox.Location = new System.Drawing.Point(26, 164);
             this.firstOutputBox.Multiline = true;
             this.firstOutputBox.Name = "firstOutputBox";
             this.firstOutputBox.ReadOnly = true;
@@ -170,6 +172,13 @@
             this.label4.Text = "Выяснить, верно ли, что среди символов строки произвольной длины, расположенной в" + " файле, имеются все символы, входящие в слово ДЕНЬ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(193, 106);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(172, 20);
+            this.textBox1.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,6 +194,8 @@
             this.secondTaskTab.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.TextBox textBox1;
 
         private System.Windows.Forms.Button getFileButton;
         private System.Windows.Forms.TextBox secondOutBox;
