@@ -1,1 +1,0 @@
-start Lab12.exe "in/input1.txt" "out/output.txt"

@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/*
+	Лабораторная работа #6
+	Выполнил Черкасов.А.А А-08-19 
+	Вариант 1
+	1)Ввести текст, состоящий из нескольких предложений. Вывести каждое слово в обратном порядке
+	2)Дан текстовый файл. Вывести все слова, состоящие только из цифр.
+*/
 namespace Lab6
 {
     static class Program

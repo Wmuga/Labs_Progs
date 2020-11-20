@@ -1,6 +1,0 @@
-start Lab12.exe "in/inputE_max.txt" "out/outputE_max.txt"
-start Lab12.exe "in/inputP_max.txt" "out/outputP_max.txt"
-start Lab12.exe "in/input_max.txt" "out/output_max.txt"
-start Lab12.exe "in/inputE_min.txt" "out/outputE_min.txt"
-start Lab12.exe "in/inputP_min.txt" "out/outputP_min.txt"
-start Lab12.exe "in/input_min.txt" "out/output_min.txt"

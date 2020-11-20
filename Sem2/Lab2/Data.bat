@@ -1,1 +1,0 @@
-for /l %%i in (1,1,8) do start Data.exe "typed/typed%%i" "Data/test%%i.txt"
