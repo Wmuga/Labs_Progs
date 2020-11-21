@@ -67,7 +67,7 @@
         private System.Windows.Forms.Panel field;
 
         private System.Windows.Forms.Button button1;
-        
+
 
         #endregion
     }

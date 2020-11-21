@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,7 +17,12 @@ namespace IndividualTask
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            var f = new Form1();
+            Thread t = new Thread(f.UpdateContains);
+            t.Start();
+            Application.Run(f);
+            t.Abort();
+
         }
     }
 }

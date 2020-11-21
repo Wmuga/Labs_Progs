@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace IndividualTask
@@ -17,10 +11,23 @@ namespace IndividualTask
             InitializeComponent();
         }
 
+        public void UpdateContains()
+        {
+            while (true)
+            {
+                foreach (var particle in field.Controls)
+                {
+                    ((IParticle) particle).Tick(1);
+                }
+
+                Thread.Sleep(10);
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             var r = new Random();
-            var p = new IParticle(r.Next()%field.Width,r.Next()%field.Height);
+            var p = new IParticle(r.Next()%field.Width-field.Width/2,r.Next()%field.Width-field.Width/2,r.Next()%field.Height-field.Height/2);
             field.Controls.Add(p);
         }
 

@@ -32,11 +32,11 @@ namespace IndividualTask
 
         private void SetDefaults()
         {
-            this.Width = 1;
-            this.Height = 1;
-            this.BackColor = Color.White;
-            this.baseRadSpeed = 0.01745;
-            this.angle = 0;
+            Width = 1;
+            Height = 1;
+            BackColor = Color.White;
+            baseRadSpeed = 0.01745;
+            angle = 0;
         }
         
 

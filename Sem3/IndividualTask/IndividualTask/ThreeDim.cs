@@ -1,3 +1,8 @@
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+using IndividualTask;
+
 namespace IndividualTask
 {
     public class TVector
@@ -49,32 +54,40 @@ namespace IndividualTask
         public int x;
         public int y;
         public int z;
-    }
 
-    public class Matrix
+        public TPoint(int _x, int _y, int _z)
+        {
+            x = _x;
+            y = _y;
+            z = _z;
+        }
+
+        public static TPoint operator +(TPoint lhs, TPoint rhs)
+        {
+            return new TPoint(lhs.x+rhs.x,lhs.y+rhs.y,lhs.z+rhs.z);
+        }
+    }
+    
+    
+}
+
+namespace Projection
+{
+    public class TTT
     {
-        #region parameters
-
-        private int _w;
-        private int _h;
-
-        #endregion
-        
-        public Matrix(int w, int h)
+        public static Point Projection(TPoint tDim)
         {
-            
+            double x = (tDim.x - tDim.y) * Math.Cos(Math.PI/3);
+            double y = -(tDim.x + tDim.y) * Math.Sin(Math.PI/3) + tDim.z;
+            return new Point((int)x+401,(int)y+183);
         }
 
-        public double[][] matrix;
-        
-        public static Matrix operator*(Matrix rhs, Matrix lhs)
+        public static TPoint RotateZ(TPoint startVector,double angle)
         {
-            return new Matrix(0,0);
+            return  new TPoint((int)(startVector.x*Math.Cos(angle)-startVector.y*Math.Sin(angle)),
+                (int)(startVector.x*Math.Sin(angle)+startVector.y*Math.Cos(angle)),
+                startVector.z
+                );
         }
-
-        public TVector ToTVector()
-        {
-            return new TVector();
-        }
-    }
+    } 
 }
