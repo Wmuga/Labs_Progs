@@ -9,20 +9,17 @@ namespace IndividualTask
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+        public static Thread t;
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var f = new Form1();
-            Thread t = new Thread(f.UpdateContains);
+            t = new Thread(f.UpdateContains);
             t.Start();
             Application.Run(f);
             t.Abort();
-
         }
     }
 }

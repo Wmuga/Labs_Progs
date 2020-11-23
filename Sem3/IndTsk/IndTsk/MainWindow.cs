@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -9,28 +11,40 @@ namespace IndividualTask
         public Form1()
         {
             InitializeComponent();
+            Additional();
         }
 
+        private void Additional()
+        {
+            _particles = new List<IAtom>();
+            _graphics = field.CreateGraphics();
+        }
+        
         public void UpdateContains()
         {
             while (true)
             {
-                foreach (var particle in field.Controls)
+                foreach (var particle in _particles)
                 {
-                    ((IParticle) particle).Tick(1);
+                    particle.Tick(1);
+                    particle.Draw(_graphics);
                 }
-
                 Thread.Sleep(10);
             }
         }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Program.t.Abort();
             var r = new Random();
-            var p = new IParticle(r.Next()%field.Width-field.Width/2,r.Next()%field.Width-field.Width/2,r.Next()%field.Height-field.Height/2);
-            field.Controls.Add(p);
+            var p = new Hydrogen((r.Next()%field.Width/2-field.Width/4),(r.Next()%field.Width/2-field.Width/4),(int)(r.Next()%field.Height-field.Height/5.5));
+            _particles.Add(p);
+            Program.t = new Thread(UpdateContains);
+            Program.t.Start();
         }
 
-
+        private List<IAtom> _particles;
+        private Graphics _graphics;
     }
 }
