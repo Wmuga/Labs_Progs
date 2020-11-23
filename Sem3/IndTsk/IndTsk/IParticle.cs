@@ -1,76 +1,90 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using Projection;
 
 namespace IndividualTask
 {
-    public partial class IParticle : Control
+    public abstract class IParticle
     {
-        public IParticle()
+
+        public abstract void Tick(double Coeff);
+
+        public abstract void Draw(Graphics e);
+        
+        public void SetCoords(int x, int y, int z)
         {
-            InitializeComponent();
-            SetDefaults();
+            BasePoint= new TPoint(x,y,z);
+        }
+        
+        public void SetCoords(TPoint p)
+        {
+            BasePoint= p;
         }
 
-        public IParticle(IContainer container)
+        public TPoint GetCoords()
         {
-            container.Add(this);
-
-            InitializeComponent();
-            SetDefaults();
+            return BasePoint;
         }
 
-        public IParticle(int x, int y,int z)
+        #region Parameters
+
+        protected TPoint BasePoint;
+        protected int Width;
+        protected int Height;
+        
+        #endregion
+    }
+
+    public class Electron : IParticle
+    {
+        public Electron()
         {
-            InitializeComponent();
-            SetDefaults();
-            basePoint = new TPoint(x,y,z);
-            this.Location = TTT.Projection(basePoint);
+            SetParameters();
         }
 
-        private void SetDefaults()
+        public Electron(int x, int y, int z,double angle =0)
+        {
+            SetParameters();
+            BasePoint = new TPoint(x,y,z);
+            _angle = angle;
+
+        }
+
+        private void SetParameters()
         {
             Width = 1;
             Height = 1;
-            BackColor = Color.White;
-            baseRadSpeed = 0.01745;
-            angle = 0;
+            _radius = new TPoint(20,0,0);
+            _angle = 0;
+            BasePoint = new TPoint(0,0,0);
+            _baseRadSpeed = Math.PI / 180;
         }
-        
 
-        public virtual void Tick(double tCoeff)
+        public override void Tick(double Coeff)
         {
-            if (angle < 2 * Math.PI) angle += baseRadSpeed * tCoeff;
-            else angle = 0;
-            Location = TTT.Projection(basePoint + TTT.RotateZ(radius,angle));
+            _angle += _baseRadSpeed * Coeff;
+            if (_angle >= Math.PI * 2) _angle = 0;
+            _prevLocation = new Point(_location.X,_location.Y);
+            _location = TTT.Projection(BasePoint + TTT.RotateZ(_radius, _angle));
         }
-/*
-        protected void CheckCoordinates()
-        {
-            const int w = 802;
-            const int h = 367;
-            var x = Location.X;
-            var y =  Location.Y;
-            if  (Location.X > w) x = w * 2 - Location.X;
-            if (Location.Y > h) y = h * 2 - Location.Y;
-            Location = new Point(x,y);
-        }*/
-    }
 
-    public class Atom : IParticle
-    {
-        private void Draw(PaintEventArgs e)
+        public override void Draw(Graphics e)
         {
-            
+            e.DrawRectangle(new Pen(Color.White),_location.X,_location.Y,1,1);
+            e.DrawRectangle(new Pen(Color.Black),_prevLocation.X,_prevLocation.Y,1,1);
         }
-        
-    }
 
-    public class Molecule: IParticle
-    {
+        #region AdditionalParameters
         
-    }
+        private double _baseRadSpeed;
+        private double _angle;
+        private Point _location;
+        private Point _prevLocation;
+        private TPoint _radius;
 
+        #endregion
+    }
 }
