@@ -1,5 +1,6 @@
 using System;
 using System.Drawing;
+using System.Security.Cryptography.X509Certificates;
 using IndividualTask;
 
 namespace IndividualTask
@@ -76,8 +77,8 @@ namespace Projection
     {
         public static Point Projection(TPoint tDim)
         {
-            double x = (tDim.x - tDim.y) * Math.Cos(Math.PI/3);
-            double y = -(tDim.x + tDim.y) * Math.Sin(Math.PI/3) + tDim.z;
+            double x = (tDim.x - tDim.y) * Math.Cos(Math.PI/6);
+            double y = (tDim.x + tDim.y) * Math.Sin(Math.PI/6) - tDim.z;
             return new Point((int)x+401,(int)y+183);
         }
 
@@ -87,6 +88,13 @@ namespace Projection
                 (int)(startVector.x*Math.Sin(angle)+startVector.y*Math.Cos(angle)),
                 startVector.z
                 );
+        }
+        public static TPoint RotateX(TPoint startVector,double angle)
+        {
+            return  new TPoint(startVector.x,
+                (int)(startVector.y*Math.Cos(angle)-startVector.z*Math.Sin(angle)),
+                (int)(startVector.y*Math.Sin(angle)+startVector.z*Math.Cos(angle))
+            );
         }
     } 
 }

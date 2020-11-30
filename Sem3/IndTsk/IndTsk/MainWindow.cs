@@ -38,7 +38,10 @@ namespace IndividualTask
         {
             Program.t.Abort();
             var r = new Random();
-            var p = new Hydrogen((r.Next()%field.Width/2-field.Width/4),(r.Next()%field.Width/2-field.Width/4),(int)(r.Next()%field.Height-field.Height/5.5));
+            IAtom p;
+            if (r.Next()%2==0) p = new Oxygen((r.Next()%field.Width/2-field.Width/4),(r.Next()%field.Width/2-field.Width/4),(int)(r.Next()%field.Height-field.Height/5.5));
+            else p = new Hydrogen((r.Next()%field.Width/2-field.Width/4),(r.Next()%field.Width/2-field.Width/4),(int)(r.Next()%field.Height-field.Height/5.5));
+
             _particles.Add(p);
             Program.t = new Thread(UpdateContains);
             Program.t.Start();

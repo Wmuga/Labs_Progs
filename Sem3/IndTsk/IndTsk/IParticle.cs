@@ -1,8 +1,5 @@
 using System;
-using System.ComponentModel;
 using System.Drawing;
-using System.Security.Cryptography.X509Certificates;
-using System.Windows.Forms;
 using Projection;
 
 namespace IndividualTask
@@ -42,11 +39,13 @@ namespace IndividualTask
     {
         public Electron()
         {
+            _level = 1;
             SetParameters();
         }
 
-        public Electron(int x, int y, int z,double angle =0)
+        public Electron(int x, int y, int z,int level = 1,double angle =0)
         {
+            _level = level;
             SetParameters();
             BasePoint = new TPoint(x,y,z);
             _angle = angle;
@@ -57,7 +56,17 @@ namespace IndividualTask
         {
             Width = 1;
             Height = 1;
-            _radius = new TPoint(20,0,0);
+            switch (_level)
+            {
+                case 1:
+                    _radius = new TPoint(20,0,0);
+                    _rotate = TTT.RotateZ;
+                    break;
+                case 2:
+                    _radius = new TPoint(0,30,0);
+                    _rotate = TTT.RotateX;
+                    break;
+            }
             _angle = 0;
             BasePoint = new TPoint(0,0,0);
             _baseRadSpeed = Math.PI / 180;
@@ -68,7 +77,7 @@ namespace IndividualTask
             _angle += _baseRadSpeed * Coeff;
             if (_angle >= Math.PI * 2) _angle = 0;
             _prevLocation = new Point(_location.X,_location.Y);
-            _location = TTT.Projection(BasePoint + TTT.RotateZ(_radius, _angle));
+            _location = TTT.Projection(BasePoint + _rotate(_radius, _angle));
         }
 
         public override void Draw(Graphics e)
@@ -84,6 +93,10 @@ namespace IndividualTask
         private Point _location;
         private Point _prevLocation;
         private TPoint _radius;
+        private int _level;
+        private delegate TPoint Rotation(TPoint vector, double angle);
+
+        private Rotation _rotate;
 
         #endregion
     }
