@@ -1,54 +1,8 @@
 using System;
 using System.Drawing;
-using System.Security.Cryptography.X509Certificates;
-using IndividualTask;
 
-namespace IndividualTask
+namespace TDim
 {
-    public class TVector
-    {
-        #region parameters
-
-        private int x;
-        private int y;
-        private int z;
-
-        #endregion
-
-        #region Constructors
-
-        public TVector()
-        {
-            SetCoords(0,0,0);
-        }
-
-        public TVector(int x, int y, int z)
-        {
-            SetCoords(x,y,z);
-        }
-
-        public TVector(TPoint coords)
-        {
-            SetCoords(coords);
-        }
-
-        #endregion
-        
-        public void SetCoords(TPoint coords)
-        {
-            this.x = coords.x;
-            this.y = coords.y;
-            this.z = coords.z;
-        }
-
-        public void SetCoords(int x, int y, int z)
-        {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
-    }
-
     public struct TPoint
     {
         public int x;
@@ -67,19 +21,13 @@ namespace IndividualTask
             return new TPoint(lhs.x+rhs.x,lhs.y+rhs.y,lhs.z+rhs.z);
         }
     }
-    
-    
-}
-
-namespace Projection
-{
     public class TTT
     {
         public static Point Projection(TPoint tDim)
         {
             double x = (tDim.x - tDim.y) * Math.Cos(Math.PI/6);
             double y = (tDim.x + tDim.y) * Math.Sin(Math.PI/6) - tDim.z;
-            return new Point((int)x+401,(int)y+183);
+            return new Point((int)x+401,((int)y+183)%367);
         }
 
         public static TPoint RotateZ(TPoint startVector,double angle)
@@ -94,6 +42,13 @@ namespace Projection
             return  new TPoint(startVector.x,
                 (int)(startVector.y*Math.Cos(angle)-startVector.z*Math.Sin(angle)),
                 (int)(startVector.y*Math.Sin(angle)+startVector.z*Math.Cos(angle))
+            );
+        }
+        public static TPoint RotateY(TPoint startVector,double angle)
+        {
+            return  new TPoint((int)(startVector.x*Math.Cos(angle)-startVector.z*Math.Sin(angle)),
+                startVector.y,
+                (int)(startVector.x*Math.Sin(angle)+startVector.z*Math.Cos(angle))
             );
         }
     } 
