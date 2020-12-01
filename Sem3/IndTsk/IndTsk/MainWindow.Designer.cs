@@ -32,6 +32,7 @@
             this.NewParticleButton = new System.Windows.Forms.Button();
             this.field = new System.Windows.Forms.Panel();
             this.TempertureControl = new System.Windows.Forms.HScrollBar();
+            this.showElectronsCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // NewParticleButton
@@ -59,12 +60,23 @@
             this.TempertureControl.Size = new System.Drawing.Size(544, 18);
             this.TempertureControl.TabIndex = 3;
             // 
+            // showElectronsCheckBox
+            // 
+            this.showElectronsCheckBox.Location = new System.Drawing.Point(30, 414);
+            this.showElectronsCheckBox.Name = "showElectronsCheckBox";
+            this.showElectronsCheckBox.Size = new System.Drawing.Size(179, 22);
+            this.showElectronsCheckBox.TabIndex = 4;
+            this.showElectronsCheckBox.Text = "Показ электронов";
+            this.showElectronsCheckBox.UseVisualStyleBackColor = true;
+            this.showElectronsCheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.showElectronsCheckBox);
             this.Controls.Add(this.TempertureControl);
             this.Controls.Add(this.field);
             this.Controls.Add(this.NewParticleButton);
@@ -72,6 +84,8 @@
             this.Text = "Симуляция";
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.CheckBox showElectronsCheckBox;
 
         private System.Windows.Forms.Button NewParticleButton;
         private System.Windows.Forms.HScrollBar TempertureControl;

@@ -1,9 +1,10 @@
 using System;
 using System.Drawing;
-using Projection;
+using TDim;
 
 namespace IndividualTask
 {
+    //База для атомов, основана на частица
     public abstract class IAtom: IParticle
     {
         #region AdditionalParameters
@@ -23,8 +24,8 @@ namespace IndividualTask
             }
             Wander();
         }
-
-        protected virtual void Wander()
+        //"Шевеление" атома
+        private void Wander()
         {
             var rnd = new Random();
             var speed = new TPoint(rnd.Next()%3-1,rnd.Next()%3-1,rnd.Next()%3-1);
@@ -54,14 +55,14 @@ namespace IndividualTask
             e.FillEllipse(new SolidBrush(AtomColor), r);
         }
     }
-
-    public class Hydrogen : IAtom
+    //Сами электроны
+    public class AHydrogen : IAtom
     {
-        public Hydrogen()
+        public AHydrogen()
         {
             SetParameters();
         }
-        public Hydrogen(int x, int y, int z)
+        public AHydrogen(int x, int y, int z)
         {
             SetParameters();
             BasePoint = new TPoint(x,y,z);
@@ -80,13 +81,13 @@ namespace IndividualTask
         }
     }
 
-    public class Oxygen : IAtom
+    public class AOxygen : IAtom
     {
-        public Oxygen()
+        public AOxygen()
         {
             SetParameters();
         }
-        public Oxygen(int x, int y, int z)
+        public AOxygen(int x, int y, int z)
         {
             SetParameters();
             BasePoint = new TPoint(x,y,z);
@@ -116,13 +117,13 @@ namespace IndividualTask
         }
         
     }
-    public class Chlorine : IAtom
+    public class AChlorine : IAtom
     {
-        public Chlorine()
+        public AChlorine()
         {
             SetParameters();
         }
-        public Chlorine(int x, int y, int z)
+        public AChlorine(int x, int y, int z)
         {
             SetParameters();
             BasePoint = new TPoint(x,y,z);
@@ -155,13 +156,13 @@ namespace IndividualTask
             }
         }
     }
-    public class Potassium : IAtom
+    public class APotassium : IAtom
     {
-        public Potassium()
+        public APotassium()
         {
             SetParameters();
         }
-        public Potassium(int x, int y, int z)
+        public APotassium(int x, int y, int z)
         {
             SetParameters();
             BasePoint = new TPoint(x,y,z);
