@@ -11,6 +11,7 @@ namespace IndividualTask
         protected Electron[] Electrons;
         protected Point Location;
         protected Point PrevLocation;
+        protected Color AtomColor;
 
         #endregion
 
@@ -36,6 +37,22 @@ namespace IndividualTask
                 electron.SetCoords(BasePoint);
             }
         }
+
+        public override void Clear(Graphics e,int state)
+        {
+            if((state&1)==1) foreach (var el in Electrons) el.Clear(e,state);
+            var pr = new Rectangle(PrevLocation.X,PrevLocation.Y,Width,Height);
+            e.DrawEllipse(new Pen(Color.Black), pr);
+            e.FillEllipse(new SolidBrush(Color.Black), pr);
+        }
+        public override void Draw(Graphics e,int state)
+        {
+            if((state&1)==1) foreach (var el in Electrons) el.Draw(e,state);
+            
+            var r = new Rectangle(Location.X,Location.Y,Width,Height);
+            e.DrawEllipse(new Pen(AtomColor), r);
+            e.FillEllipse(new SolidBrush(AtomColor), r);
+        }
     }
 
     public class Hydrogen : IAtom
@@ -59,16 +76,7 @@ namespace IndividualTask
             Location = TTT.Projection(BasePoint);
             Electrons = new Electron[1];
             Electrons[0] = new Electron(BasePoint.x,BasePoint.y,BasePoint.z);
-        }
-        public override void Draw(Graphics e)
-        {
-            Electrons[0].Draw(e);
-            var r = new Rectangle(Location.X,Location.Y,Width,Height);
-            var pr = new Rectangle(PrevLocation.X,PrevLocation.Y,Width,Height);
-            e.DrawEllipse(new Pen(Color.Black), pr);
-            e.FillEllipse(new SolidBrush(Color.Black), pr);
-            e.DrawEllipse(new Pen(Color.Blue), r);
-            e.FillEllipse(new SolidBrush(Color.Blue), r);
+            AtomColor = Color.Blue;
         }
     }
 
@@ -92,6 +100,7 @@ namespace IndividualTask
             BasePoint = new TPoint(0,0,0);
             Location = TTT.Projection(BasePoint);
             Electrons = new Electron[8];
+            AtomColor = Color.Red;
             for (var i = 0; i < 8; i++)
             {
                 if (i < 2)
@@ -105,16 +114,84 @@ namespace IndividualTask
                 
             }
         }
-        public override void Draw(Graphics e)
+        
+    }
+    public class Chlorine : IAtom
+    {
+        public Chlorine()
         {
-            foreach (var el in Electrons) el.Draw(e);
-            
-            var r = new Rectangle(Location.X,Location.Y,Width,Height);
-            var pr = new Rectangle(PrevLocation.X,PrevLocation.Y,Width,Height);
-            e.DrawEllipse(new Pen(Color.Black), pr);
-            e.FillEllipse(new SolidBrush(Color.Black), pr);
-            e.DrawEllipse(new Pen(Color.Red), r);
-            e.FillEllipse(new SolidBrush(Color.Red), r);
+            SetParameters();
+        }
+        public Chlorine(int x, int y, int z)
+        {
+            SetParameters();
+            BasePoint = new TPoint(x,y,z);
+
+        }
+
+        private void SetParameters()
+        {
+            Width = 4;
+            Height = 4;
+            BasePoint = new TPoint(0,0,0);
+            Location = TTT.Projection(BasePoint);
+            Electrons = new Electron[17];
+            AtomColor = Color.Yellow;
+            for (var i = 0; i < 17; i++)
+            {
+                if (i < 2)
+                {
+                    Electrons[i] = new Electron(BasePoint.x,BasePoint.y,BasePoint.z,1,Math.PI*i);
+                }
+                else if (i<10)
+                {
+                    Electrons[i] = new Electron(BasePoint.x,BasePoint.y,BasePoint.z,2,2*Math.PI/8*(i-2));
+                }
+                else
+                {
+                    Electrons[i] = new Electron(BasePoint.x,BasePoint.y,BasePoint.z,3,2*Math.PI/7*(i-10));
+                }
+                
+            }
+        }
+    }
+    public class Potassium : IAtom
+    {
+        public Potassium()
+        {
+            SetParameters();
+        }
+        public Potassium(int x, int y, int z)
+        {
+            SetParameters();
+            BasePoint = new TPoint(x,y,z);
+
+        }
+
+        private void SetParameters()
+        {
+            Width = 4;
+            Height = 4;
+            BasePoint = new TPoint(0,0,0);
+            Location = TTT.Projection(BasePoint);
+            Electrons = new Electron[19];
+            AtomColor = Color.Gray;
+            for (var i = 0; i < 19; i++)
+            {
+                if (i < 2)
+                {
+                    Electrons[i] = new Electron(BasePoint.x,BasePoint.y,BasePoint.z,1,Math.PI*i);
+                }
+                else if (i<10)
+                {
+                    Electrons[i] = new Electron(BasePoint.x,BasePoint.y,BasePoint.z,2,2*Math.PI/8*(i-2));
+                }
+                else
+                {
+                    Electrons[i] = new Electron(BasePoint.x,BasePoint.y,BasePoint.z,3,2*Math.PI/9*(i-10));
+                }
+                
+            }
         }
     }
 }
