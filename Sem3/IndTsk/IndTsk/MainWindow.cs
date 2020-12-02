@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using IndTsk;
 
 namespace IndividualTask
 {
@@ -16,11 +17,12 @@ namespace IndividualTask
 
         private void Additional()
         {
-            _particles = new List<IAtom>();
-            _molecules = new List<IMolecule>();
+            _atoms = new List<IParticle>();
+            _molecules = new List<IParticle>();
             _graphics = field.CreateGraphics();
             _drawState = 0;
             _update = true;
+            NewParticle = null;
         }
         //Функция на обновление и отрисовку частиц
         public void UpdateContains()
@@ -33,7 +35,7 @@ namespace IndividualTask
                     molecule.Tick(1);
                     molecule.Draw(_graphics,_drawState);
                 }
-                foreach (var particle in _particles)
+                foreach (var particle in _atoms)
                 {
                     particle.Tick(1);
                     particle.Clear(_graphics,_drawState);
@@ -45,15 +47,17 @@ namespace IndividualTask
         private int _drawState;
         private delegate void coveredtsk();
         private bool _update;
-        private List<IAtom> _particles;
-        private List<IMolecule> _molecules;
+        private List<IParticle> _atoms;
+        private List<IParticle> _molecules;
         private Graphics _graphics;
+        public IParticle NewParticle;
+        public bool IsMolecule;
         //Рисовать электроны или нет
         private void ChangeDrawingState()
         {
             foreach (var molecule in _molecules) molecule.Clear(_graphics, _drawState);
 
-            foreach (var particle in _particles)
+            foreach (var particle in _atoms)
             {
                 particle.Tick(1);
                 particle.Clear(_graphics, _drawState);
@@ -62,33 +66,29 @@ namespace IndividualTask
             if ((_drawState & 1) == 1) _drawState -= 1;
             else _drawState += 1;
         }
+
         //Добавление частиц
+        private static void Run(object o)
+        {
+            Application.Run((Form)o);
+        }
         private void AddParticle()
         {
-            var r = new Random();
-            IAtom p;
-            int x = r.Next()%field.Width/2 - field.Width/4;
-            int y = r.Next()%field.Width/2 - field.Width/4;
-            int z = r.Next() % (field.Height-(int)((x+y)*Math.Sin(Math.PI/6)))-r.Next()&field.Height/4;
-            if (r.Next()%2==0) p = new APotassium(x,y,z);
-            else p = new AChlorine(x,y,z);
+            var choose = new ChooseItemWindow();
+            var t = new Thread(new ParameterizedThreadStart(Run));
+            t.Start(choose);
+            t.Join();
 
-            _particles.Add(p);
+            if (IsMolecule) _molecules.Add(NewParticle);
+            else _atoms.Add(NewParticle);
+            
+            NewParticle = null;
         }
-
-        private void AddMolecule()
-        {
-            var r = new Random();
-            IMolecule p;
-            int x = r.Next()%field.Width/2 - field.Width/4;
-            int y = r.Next()%field.Width/2 - field.Width/4;
-            int z = r.Next() % (field.Height-(int)((x+y)*Math.Sin(Math.PI/6)))-r.Next()&field.Height/4;
-            _molecules.Add(new MChlorine(x,y,z));
-        }
+        
         //Вызов нужных функций
         private void button1_Click(object sender, EventArgs e)
         {
-            DoWithStoppingThread(AddMolecule);
+            DoWithStoppingThread(AddParticle);
         }
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {

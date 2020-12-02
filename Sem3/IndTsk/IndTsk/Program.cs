@@ -10,12 +10,13 @@ namespace IndividualTask
     static class Program
     {
         public static Thread t;
+        public static Form1 f;
         [STAThread]
         private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var f = new Form1();
+            f = new Form1();
             t = new Thread(f.UpdateContains);
             t.Start();
             Application.Run(f);
