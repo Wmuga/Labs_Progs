@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 using IndTsk;
+using Tree;
 
 namespace IndividualTask
 {
@@ -17,8 +19,7 @@ namespace IndividualTask
 
         private void Additional()
         {
-            _atoms = new List<IParticle>();
-            _molecules = new List<IParticle>();
+            _tree = new QuadTree(new Rectangle(0,0,field.Width,field.Height));
             _graphics = field.CreateGraphics();
             _drawState = 0;
             _update = true;
@@ -29,39 +30,23 @@ namespace IndividualTask
         {
             while (_update)
             {
-                foreach (var molecule in _molecules)
-                {
-                    molecule.Clear(_graphics,_drawState);
-                    molecule.Tick(1);
-                    molecule.Draw(_graphics,_drawState);
-                }
-                foreach (var particle in _atoms)
-                {
-                    particle.Tick(1);
-                    particle.Clear(_graphics,_drawState);
-                    particle.Draw(_graphics,_drawState);
-                }
+                _tree.DrawBoundaries(_graphics,Color.White);
+                _tree.ClearContents(_graphics,_drawState);
+                _tree.Tick(1);
+                _tree.DrawContents(_graphics,_drawState);
                 Thread.Sleep(10);
             }
         }
         private int _drawState;
         private delegate void coveredtsk();
         private bool _update;
-        private List<IParticle> _atoms;
-        private List<IParticle> _molecules;
+        private QuadTree _tree;
         private Graphics _graphics;
         public IParticle NewParticle;
-        public bool IsMolecule;
         //Рисовать электроны или нет
         private void ChangeDrawingState()
         {
-            foreach (var molecule in _molecules) molecule.Clear(_graphics, _drawState);
-
-            foreach (var particle in _atoms)
-            {
-                particle.Tick(1);
-                particle.Clear(_graphics, _drawState);
-            }
+            _tree.ClearContents(_graphics,_drawState);
             
             if ((_drawState & 1) == 1) _drawState -= 1;
             else _drawState += 1;
@@ -79,8 +64,7 @@ namespace IndividualTask
             t.Start(choose);
             t.Join();
 
-            if (IsMolecule) _molecules.Add(NewParticle);
-            else _atoms.Add(NewParticle);
+            _tree.Append(NewParticle);
             
             NewParticle = null;
         }

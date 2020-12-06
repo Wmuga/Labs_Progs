@@ -15,7 +15,6 @@ namespace IndTsk
         private void buttonH_Click(object sender, EventArgs e)
         {
             var nCoords = GetRandCoords();
-            Program.f.IsMolecule = _isMolecule;
             if (_isMolecule) Program.f.NewParticle = new MHydrogen(nCoords.x,nCoords.y,nCoords.z);
             else Program.f.NewParticle = new AHydrogen(nCoords.x,nCoords.y,nCoords.z);
             Close();
@@ -24,7 +23,6 @@ namespace IndTsk
         private void buttonCl_Click(object sender, EventArgs e)
         {
             var nCoords = GetRandCoords();
-            Program.f.IsMolecule = _isMolecule;
             if (_isMolecule) Program.f.NewParticle = new MChlorine(nCoords.x,nCoords.y,nCoords.z);
             else Program.f.NewParticle = new AChlorine(nCoords.x,nCoords.y,nCoords.z);
             Close();
@@ -33,7 +31,6 @@ namespace IndTsk
         private void buttonO_Click(object sender, EventArgs e)
         {
             var nCoords = GetRandCoords();
-            Program.f.IsMolecule = _isMolecule;
             if (_isMolecule) Program.f.NewParticle = new MOxygen(nCoords.x,nCoords.y,nCoords.z);
             else Program.f.NewParticle = new AOxygen(nCoords.x,nCoords.y,nCoords.z);
             Close();
@@ -42,7 +39,6 @@ namespace IndTsk
         private void buttonK_Click(object sender, EventArgs e)
         {
             var nCoords = GetRandCoords();
-            Program.f.IsMolecule = false;
             Program.f.NewParticle = new APotassium(nCoords.x,nCoords.y,nCoords.z);
             Close();
         }
@@ -50,7 +46,6 @@ namespace IndTsk
         private void buttonW_Click(object sender, EventArgs e)
         {
             var nCoords = GetRandCoords();
-            Program.f.IsMolecule = true;
             Program.f.NewParticle = new MHOH(nCoords.x,nCoords.y,nCoords.z);
             Close();
         }
@@ -58,7 +53,6 @@ namespace IndTsk
         private void buttonHCl_Click(object sender, EventArgs e)
         {
             var nCoords = GetRandCoords();
-            Program.f.IsMolecule = true;
             Program.f.NewParticle = new MHCl(nCoords.x,nCoords.y,nCoords.z);
             Close();
         }
@@ -66,7 +60,6 @@ namespace IndTsk
         private void buttonKCl_Click(object sender, EventArgs e)
         {
             var nCoords = GetRandCoords();
-            Program.f.IsMolecule = true;
             Program.f.NewParticle = new MKCl(nCoords.x,nCoords.y,nCoords.z);
             Close();
         }
@@ -74,7 +67,6 @@ namespace IndTsk
         private void buttonKOH_Click(object sender, EventArgs e)
         {
             var nCoords = GetRandCoords();
-            Program.f.IsMolecule = true;
             Program.f.NewParticle = new MKOH(nCoords.x,nCoords.y,nCoords.z);
             Close();
         }
