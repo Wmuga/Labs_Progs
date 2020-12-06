@@ -27,7 +27,7 @@ namespace TDim
         {
             double x = (tDim.x - tDim.y) * Math.Cos(Math.PI/6);
             double y = (tDim.x + tDim.y) * Math.Sin(Math.PI/6) - tDim.z;
-            return new Point((int)x+401,((int)y+183)%367);
+            return new Point((int)x+401,(int)y+183);
         }
 
         public static TPoint RotateZ(TPoint startVector,double angle)

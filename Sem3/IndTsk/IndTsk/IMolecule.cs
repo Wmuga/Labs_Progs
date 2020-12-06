@@ -56,6 +56,17 @@ namespace IndividualTask
             {
                 atom.SetCoords(atom.GetCoords()+speed);
             }
+            var location = TTT.Projection(BasePoint);
+            
+            if (location.X>=802)
+                BasePoint= new TPoint(BasePoint.x-3,BasePoint.y,BasePoint.z);
+            if (location.X<=0)
+                BasePoint= new TPoint(BasePoint.x,BasePoint.y-3,BasePoint.z);
+            if (location.Y>=367)
+                BasePoint= new TPoint(BasePoint.x,BasePoint.y,BasePoint.z+3);
+            if (location.Y<=0)
+                BasePoint= new TPoint(BasePoint.x,BasePoint.y,BasePoint.z-3);
+
         }
 
         #region AdditonalParameters

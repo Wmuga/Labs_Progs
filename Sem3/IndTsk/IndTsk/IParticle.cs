@@ -4,6 +4,7 @@ using TDim;
 
 namespace IndividualTask
 {
+
     //Основа для всех частиц
     public abstract class IParticle
     {

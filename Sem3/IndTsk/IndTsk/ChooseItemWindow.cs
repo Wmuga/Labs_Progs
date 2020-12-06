@@ -11,7 +11,7 @@ namespace IndTsk
         {
             InitializeComponent();
         }
-
+        //Создание нового объекта на основе выбора пользователя
         private void buttonH_Click(object sender, EventArgs e)
         {
             var nCoords = GetRandCoords();

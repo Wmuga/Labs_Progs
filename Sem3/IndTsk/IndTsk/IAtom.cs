@@ -32,6 +32,27 @@ namespace IndividualTask
             BasePoint += speed;
             PrevLocation = Location;
             Location = TTT.Projection(BasePoint);
+            //Проверка на выходы за пределы поля
+            if (Location.X>=802) 
+            {
+                BasePoint= new TPoint(BasePoint.x-3,BasePoint.y,BasePoint.z);
+                Location = TTT.Projection(BasePoint);
+            }
+            if (Location.X<=0) 
+            {
+                BasePoint= new TPoint(BasePoint.x,BasePoint.y-3,BasePoint.z);
+                Location = TTT.Projection(BasePoint);
+            }
+            if (Location.Y>=367) 
+            {
+                BasePoint= new TPoint(BasePoint.x,BasePoint.y,BasePoint.z+3);
+                Location = TTT.Projection(BasePoint);
+            }
+            if (Location.Y<=0) 
+            {
+                BasePoint= new TPoint(BasePoint.x,BasePoint.y,BasePoint.z-3);
+                Location = TTT.Projection(BasePoint);
+            }
 
             foreach (var electron in Electrons)
             {
