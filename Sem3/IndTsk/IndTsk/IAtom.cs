@@ -27,8 +27,7 @@ namespace IndividualTask
         //"Шевеление" атома
         private void Wander()
         {
-            var rnd = new Random();
-            var speed = new TPoint(rnd.Next()%3-1,rnd.Next()%3-1,rnd.Next()%3-1);
+            var speed = new TPoint(Program.r.Next()%3-1,Program.r.Next()%3-1,Program.r.Next()%3-1);
             BasePoint += speed;
             PrevLocation = Location;
             Location = TTT.Projection(BasePoint);

@@ -30,6 +30,8 @@ namespace IndividualTask
         {
             while (_update)
             {
+                _tree.DrawBoundaries(_graphics,Color.Black);
+                RebuildTree();
                 _tree.DrawBoundaries(_graphics,Color.White);
                 _tree.ClearContents(_graphics,_drawState);
                 _tree.Tick(1);
@@ -88,6 +90,14 @@ namespace IndividualTask
             Program.t = new Thread(UpdateContains);
             Program.t.Start();
         }
-        
+        //Дерево необходимо перестраивать, т.к. элементы меняют свою позицию
+        private void RebuildTree()
+        {
+            var newTree = new QuadTree(new Rectangle(0,0,field.Width,field.Height));
+            var contents = new List<IParticle>();
+            _tree.GetContents(contents);
+            foreach (var element in contents) newTree.Append(element);
+            _tree = newTree;
+        }
     }
 }

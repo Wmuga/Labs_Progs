@@ -11,11 +11,13 @@ namespace IndividualTask
     {
         public static Thread t;
         public static Form1 f;
+        public static Random r;
         [STAThread]
         private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            r = new Random();
             f = new Form1();
             t = new Thread(f.UpdateContains);
             t.Start();

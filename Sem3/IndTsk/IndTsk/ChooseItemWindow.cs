@@ -73,12 +73,11 @@ namespace IndTsk
 
         private TDim.TPoint GetRandCoords()
         {
-            var r = new Random();
             const int fw = 802;
             const int fh = 367;
-            int x = r.Next()%fw/2 - fw/4;
-            int y = r.Next()%fw/2 - fw/4;
-            int z = r.Next() % (fh-(int)((x+y)*Math.Sin(Math.PI/6)))-r.Next()&fh/4;
+            int x = Program.r.Next()%fw/2 - fw/4;
+            int y = Program.r.Next()%fw/2 - fw/4;
+            int z = Program.r.Next() % (fh-(int)((x+y)*Math.Sin(Math.PI/6)))-Program.r.Next()&fh/4;
             return new TPoint(x,y,z);
         }
 

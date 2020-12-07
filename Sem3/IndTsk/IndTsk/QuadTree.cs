@@ -30,10 +30,10 @@ namespace Tree
         //Разделение корня на 4 ветви
         private void Split()
         {
-            ul = new QuadTree(new Rectangle(_boundaries.X,_boundaries.Y,_boundaries.Width/2,_boundaries.Height/2));
-            ur = new QuadTree(new Rectangle(_boundaries.X+_boundaries.Width/2,_boundaries.Y,_boundaries.Width/2,_boundaries.Height/2));
-            ll = new QuadTree(new Rectangle(_boundaries.X,_boundaries.Y+_boundaries.Height/2,_boundaries.Width/2,_boundaries.Height/2));
-            lr = new QuadTree(new Rectangle(_boundaries.X+_boundaries.Width/2,_boundaries.Y+_boundaries.Height/2,_boundaries.Width/2,_boundaries.Height/2));
+            ll = new QuadTree(new Rectangle(_boundaries.X,_boundaries.Y,_boundaries.Width/2,_boundaries.Height/2));
+            lr = new QuadTree(new Rectangle(_boundaries.X+_boundaries.Width/2,_boundaries.Y,_boundaries.Width/2,_boundaries.Height/2));
+            ul = new QuadTree(new Rectangle(_boundaries.X,_boundaries.Y+_boundaries.Height/2,_boundaries.Width/2,_boundaries.Height/2));
+            ur = new QuadTree(new Rectangle(_boundaries.X+_boundaries.Width/2,_boundaries.Y+_boundaries.Height/2,_boundaries.Width/2,_boundaries.Height/2));
             foreach (var element in _elements)
             {
                 AddToLower(element);
@@ -45,10 +45,10 @@ namespace Tree
         private void AddToLower(IParticle element)
         {
             var location = TDim.TTT.Projection(element.GetCoords());
-            if (location.X<=_boundaries.X+_boundaries.Width/2 && location.Y<=_boundaries.Y+_boundaries.Height/2) ul.Append(element);
-            if (location.X>_boundaries.X+_boundaries.Width/2 && location.Y<=_boundaries.Y+_boundaries.Height/2) ur.Append(element);
-            if (location.X<=_boundaries.X+_boundaries.Width/2 && location.Y>_boundaries.Y+_boundaries.Height/2) ll.Append(element);
-            if (location.X>_boundaries.X+_boundaries.Width/2 && location.Y>_boundaries.Y+_boundaries.Height/2) lr.Append(element);
+            if (location.X<=_boundaries.X+_boundaries.Width/2 && location.Y<=_boundaries.Y+_boundaries.Height/2) ll.Append(element);
+            if (location.X>_boundaries.X+_boundaries.Width/2 && location.Y<=_boundaries.Y+_boundaries.Height/2) lr.Append(element);
+            if (location.X<=_boundaries.X+_boundaries.Width/2 && location.Y>_boundaries.Y+_boundaries.Height/2) ul.Append(element);
+            if (location.X>_boundaries.X+_boundaries.Width/2 && location.Y>_boundaries.Y+_boundaries.Height/2) ur.Append(element);
         }
         //Отрисовка элемнтов
         public void DrawContents(Graphics gr, int drawstate)
@@ -124,6 +124,23 @@ namespace Tree
                 ur.GetContents(array);
                 ll.GetContents(array);
                 lr.GetContents(array);
+            }
+        }
+        
+        //Элементы, ограниченные определенной областью
+        public void GetContentsLimited(List<IParticle> array, Rectangle boundaries)
+        {
+            if (array==null) array = new List<IParticle>();
+            if (boundaries.IntersectsWith(_boundaries))
+            {
+                if (ul == null) foreach (var element in _elements) array.Add(element);
+                else
+                {
+                    ul.GetContentsLimited(array,boundaries);
+                    ur.GetContentsLimited(array,boundaries);
+                    ll.GetContentsLimited(array,boundaries);
+                    lr.GetContentsLimited(array,boundaries);
+                }
             }
         }
 
