@@ -35,7 +35,7 @@ namespace IndividualTask
         protected TPoint BasePoint;
         protected int Width;
         protected int Height;
-        
+
         #endregion
     }
     //Простейшая частица - электрон

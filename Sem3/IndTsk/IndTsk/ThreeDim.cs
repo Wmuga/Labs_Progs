@@ -16,10 +16,12 @@ namespace TDim
             z = _z;
         }
 
-        public static TPoint operator +(TPoint lhs, TPoint rhs)
-        {
-            return new TPoint(lhs.x+rhs.x,lhs.y+rhs.y,lhs.z+rhs.z);
-        }
+        public static TPoint operator +(TPoint lhs, TPoint rhs) => new TPoint(lhs.x+rhs.x,lhs.y+rhs.y,lhs.z+rhs.z);
+        public static TPoint operator -(TPoint lhs) => new TPoint(-lhs.x, -lhs.y, -lhs.z);
+        public static TPoint operator -(TPoint lhs, TPoint rhs) => lhs+(-rhs);
+        public static TPoint operator *(TPoint lhs, double rhs) => new TPoint((int)(lhs.x*rhs),(int)(lhs.y*rhs),(int)(lhs.z*rhs));
+        public static TPoint operator /(TPoint lhs, double rhs) => lhs * (1 / rhs);
+
     }
     public class TTT
     {
@@ -50,6 +52,11 @@ namespace TDim
                 startVector.y,
                 (int)(startVector.x*Math.Sin(angle)+startVector.z*Math.Cos(angle))
             );
+        }
+
+        public static double Radius(TPoint lhs, TPoint rhs)
+        {
+            return Math.Sqrt(Math.Pow((lhs.x - rhs.x), 2) + Math.Pow((lhs.y - rhs.y), 2) + Math.Pow((lhs.z - rhs.z), 2));
         }
     } 
 }

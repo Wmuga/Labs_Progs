@@ -1,4 +1,3 @@
-using System;
 using System.Drawing;
 using TDim;
 
@@ -13,6 +12,9 @@ namespace IndividualTask
             foreach (var atom in ContainedAtoms)
             {
                 atom.Tick(Coeff);
+                var atomLocation = atom.GetCoords();
+                if (TTT.Radius(atomLocation, BasePoint) > 8) atom.SetCoords(atomLocation - (atomLocation-BasePoint)/8);
+                if (TTT.Radius(atomLocation, BasePoint) < 2) atom.SetCoords(atomLocation + (atomLocation-BasePoint)*1.5);
             }
         }
 
@@ -46,7 +48,7 @@ namespace IndividualTask
             }
         }
         
-        protected virtual void Wander()
+        private void Wander()
         {
             var speed = new TPoint(Program.r.Next()%3-1,Program.r.Next()%3-1,Program.r.Next()%3-1);
             BasePoint += speed;
@@ -67,7 +69,8 @@ namespace IndividualTask
                 BasePoint= new TPoint(BasePoint.x,BasePoint.y,BasePoint.z-3);
 
         }
-        
+
+
         #region AdditonalParameters
 
         protected IAtom[] ContainedAtoms;
@@ -100,6 +103,7 @@ namespace IndividualTask
             ContainedAtoms[0]= new AHydrogen(BasePoint.x-10,BasePoint.y,BasePoint.z);
             ContainedAtoms[1]= new AHydrogen(BasePoint.x,BasePoint.y-10,BasePoint.z);
         }
+        
     }
     public class MOxygen : IMolecule
     {
@@ -153,6 +157,7 @@ namespace IndividualTask
             ContainedAtoms[0]= new AChlorine(BasePoint.x-10,BasePoint.y,BasePoint.z);
             ContainedAtoms[1]= new AChlorine(BasePoint.x,BasePoint.y-10,BasePoint.z);
         }
+        
     }
     public class MHCl : IMolecule
     {
@@ -179,6 +184,7 @@ namespace IndividualTask
             ContainedAtoms[0]= new AHydrogen(BasePoint.x-10,BasePoint.y,BasePoint.z);
             ContainedAtoms[1]= new AChlorine(BasePoint.x,BasePoint.y-10,BasePoint.z);
         }
+        
     }
      public class MKCl : IMolecule
     {

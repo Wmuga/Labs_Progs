@@ -133,7 +133,12 @@ namespace Tree
             if (array==null) array = new List<IParticle>();
             if (boundaries.IntersectsWith(_boundaries))
             {
-                if (ul == null) foreach (var element in _elements) array.Add(element);
+                if (ul == null) foreach (var element in _elements)
+                {
+                    var location = TDim.TTT.Projection(element.GetCoords());
+                    if (location.X<boundaries.X+boundaries.Width && location.X>boundaries.X &&
+                        location.Y<boundaries.Y+boundaries.Height && location.Y>boundaries.Y) array.Add(element);
+                }
                 else
                 {
                     ul.GetContentsLimited(array,boundaries);

@@ -33,6 +33,8 @@
             this.field = new System.Windows.Forms.Panel();
             this.TempertureControl = new System.Windows.Forms.HScrollBar();
             this.showElectronsCheckBox = new System.Windows.Forms.CheckBox();
+            this.changeDrawTreeBox = new System.Windows.Forms.CheckBox();
+            this.DebugLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // NewParticleButton
@@ -70,12 +72,31 @@
             this.showElectronsCheckBox.UseVisualStyleBackColor = true;
             this.showElectronsCheckBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // changeDrawTreeBox
+            // 
+            this.changeDrawTreeBox.Location = new System.Drawing.Point(205, 414);
+            this.changeDrawTreeBox.Name = "changeDrawTreeBox";
+            this.changeDrawTreeBox.Size = new System.Drawing.Size(179, 22);
+            this.changeDrawTreeBox.TabIndex = 4;
+            this.changeDrawTreeBox.Text = "Показывать границы дерева";
+            this.changeDrawTreeBox.UseVisualStyleBackColor = true;
+            this.changeDrawTreeBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // DebugLabel
+            // 
+            this.DebugLabel.Location = new System.Drawing.Point(423, 414);
+            this.DebugLabel.Name = "DebugLabel";
+            this.DebugLabel.Size = new System.Drawing.Size(195, 21);
+            this.DebugLabel.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DebugLabel);
+            this.Controls.Add(this.changeDrawTreeBox);
             this.Controls.Add(this.showElectronsCheckBox);
             this.Controls.Add(this.TempertureControl);
             this.Controls.Add(this.field);
@@ -84,6 +105,9 @@
             this.Text = "Симуляция";
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.CheckBox changeDrawTreeBox;
+        private System.Windows.Forms.Label DebugLabel;
 
         private System.Windows.Forms.CheckBox showElectronsCheckBox;
 
