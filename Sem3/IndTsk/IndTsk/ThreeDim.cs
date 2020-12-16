@@ -5,11 +5,11 @@ namespace TDim
 {
     public struct TPoint
     {
-        public int x;
-        public int y;
-        public int z;
+        public double x;
+        public double y;
+        public double z;
 
-        public TPoint(int _x, int _y, int _z)
+        public TPoint(double _x, double _y, double _z)
         {
             x = _x;
             y = _y;
@@ -19,7 +19,7 @@ namespace TDim
         public static TPoint operator +(TPoint lhs, TPoint rhs) => new TPoint(lhs.x+rhs.x,lhs.y+rhs.y,lhs.z+rhs.z);
         public static TPoint operator -(TPoint lhs) => new TPoint(-lhs.x, -lhs.y, -lhs.z);
         public static TPoint operator -(TPoint lhs, TPoint rhs) => lhs+(-rhs);
-        public static TPoint operator *(TPoint lhs, double rhs) => new TPoint((int)(lhs.x*rhs),(int)(lhs.y*rhs),(int)(lhs.z*rhs));
+        public static TPoint operator *(TPoint lhs, double rhs) => new TPoint((lhs.x*rhs),(lhs.y*rhs),(lhs.z*rhs));
         public static TPoint operator /(TPoint lhs, double rhs) => lhs * (1 / rhs);
 
     }

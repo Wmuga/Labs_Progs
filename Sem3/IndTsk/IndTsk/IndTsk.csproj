@@ -46,6 +46,7 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Interactions.cs" />
         <Compile Include="ChooseItemWindow.cs">
           <SubType>Form</SubType>
         </Compile>

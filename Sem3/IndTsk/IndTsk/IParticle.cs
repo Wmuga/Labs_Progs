@@ -15,7 +15,7 @@ namespace IndividualTask
         //"Чистка" предыдущего положения объекта
         public abstract void Clear(Graphics e, int s);
         //Установление новых координат объекта
-        public void SetCoords(int x, int y, int z)
+        public void SetCoords(double x, double y, double z)
         {
             BasePoint= new TPoint(x,y,z);
         }
@@ -47,7 +47,7 @@ namespace IndividualTask
             SetParameters();
         }
 
-        public Electron(int x, int y, int z,int level = 1,double angle =0)
+        public Electron(double x, double y, double z,int level = 1,double angle =0)
         {
             _level = level;
             SetParameters();
@@ -84,13 +84,12 @@ namespace IndividualTask
         {
             _angle += _baseRadSpeed * Coeff;
             if (_angle >= Math.PI * 2) _angle = 0;
-            _prevLocation = new Point(_location.X,_location.Y);
             _location = TTT.Projection(BasePoint + _rotate(_radius, _angle));
         }
 
         public override void Clear(Graphics e, int state)
         {
-            e.DrawRectangle(new Pen(Color.Black), _prevLocation.X, _prevLocation.Y, 1, 1);
+            e.DrawRectangle(new Pen(Color.Black), _location.X, _location.Y, 1, 1);
         }
 
         public override void Draw(Graphics e,int state)
@@ -103,7 +102,6 @@ namespace IndividualTask
         private double _baseRadSpeed;
         private double _angle;
         private Point _location;
-        private Point _prevLocation;
         private TPoint _radius;
         private readonly int _level;
         private delegate TPoint Rotation(TPoint vector, double angle);

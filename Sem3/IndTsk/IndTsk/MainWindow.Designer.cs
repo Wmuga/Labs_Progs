@@ -35,11 +35,12 @@
             this.showElectronsCheckBox = new System.Windows.Forms.CheckBox();
             this.changeDrawTreeBox = new System.Windows.Forms.CheckBox();
             this.DebugLabel = new System.Windows.Forms.Label();
+            this.clearButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // NewParticleButton
             // 
-            this.NewParticleButton.Location = new System.Drawing.Point(643, 393);
+            this.NewParticleButton.Location = new System.Drawing.Point(643, 380);
             this.NewParticleButton.Name = "NewParticleButton";
             this.NewParticleButton.Size = new System.Drawing.Size(145, 31);
             this.NewParticleButton.TabIndex = 1;
@@ -57,10 +58,12 @@
             // 
             // TempertureControl
             // 
+            this.TempertureControl.LargeChange = 1;
             this.TempertureControl.Location = new System.Drawing.Point(51, 380);
             this.TempertureControl.Name = "TempertureControl";
             this.TempertureControl.Size = new System.Drawing.Size(544, 18);
             this.TempertureControl.TabIndex = 3;
+            this.TempertureControl.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TemperatureControl_Scroll);
             // 
             // showElectronsCheckBox
             // 
@@ -89,12 +92,23 @@
             this.DebugLabel.Size = new System.Drawing.Size(195, 21);
             this.DebugLabel.TabIndex = 5;
             // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(643, 417);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(126, 30);
+            this.clearButton.TabIndex = 6;
+            this.clearButton.Text = "Очистить";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.DebugLabel);
             this.Controls.Add(this.changeDrawTreeBox);
             this.Controls.Add(this.showElectronsCheckBox);
@@ -105,6 +119,8 @@
             this.Text = "Симуляция";
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button clearButton;
 
         private System.Windows.Forms.CheckBox changeDrawTreeBox;
         private System.Windows.Forms.Label DebugLabel;

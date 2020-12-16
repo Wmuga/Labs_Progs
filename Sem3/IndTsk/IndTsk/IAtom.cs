@@ -11,7 +11,6 @@ namespace IndividualTask
 
         protected Electron[] Electrons;
         protected Point Location;
-        protected Point PrevLocation;
         protected Color AtomColor;
 
         #endregion
@@ -22,14 +21,13 @@ namespace IndividualTask
             {
                 electron.Tick(Coeff);
             }
-            Wander();
+            Wander(Coeff);
         }
         //"Шевеление" атома
-        private void Wander()
+        private void Wander(double coeff)
         {
-            var speed = new TPoint(Program.r.Next()%3-1,Program.r.Next()%3-1,Program.r.Next()%3-1);
-            BasePoint += speed;
-            PrevLocation = Location;
+            var speed = new TPoint(Program.r.NextDouble()+(Program.r.Next()%3-1),Program.r.NextDouble()+(Program.r.Next()%3-1),Program.r.NextDouble()+(Program.r.Next()%3-1));
+            BasePoint += speed*coeff;
             Location = TTT.Projection(BasePoint);
             //Проверка на выходы за пределы поля
             if (Location.X>=802) 
@@ -62,7 +60,7 @@ namespace IndividualTask
         public override void Clear(Graphics e,int state)
         {
             if((state&1)==1) foreach (var el in Electrons) el.Clear(e,state);
-            var pr = new Rectangle(PrevLocation.X,PrevLocation.Y,Width,Height);
+            var pr = new Rectangle(Location.X,Location.Y,Width,Height);
             e.DrawEllipse(new Pen(Color.Black), pr);
             e.FillEllipse(new SolidBrush(Color.Black), pr);
         }
@@ -82,7 +80,7 @@ namespace IndividualTask
         {
             SetParameters();
         }
-        public AHydrogen(int x, int y, int z)
+        public AHydrogen(double x, double y, double z)
         {
             SetParameters();
             BasePoint = new TPoint(x,y,z);
@@ -107,7 +105,7 @@ namespace IndividualTask
         {
             SetParameters();
         }
-        public AOxygen(int x, int y, int z)
+        public AOxygen(double x, double y, double z)
         {
             SetParameters();
             BasePoint = new TPoint(x,y,z);
@@ -143,7 +141,7 @@ namespace IndividualTask
         {
             SetParameters();
         }
-        public AChlorine(int x, int y, int z)
+        public AChlorine(double x, double y, double z)
         {
             SetParameters();
             BasePoint = new TPoint(x,y,z);
@@ -182,7 +180,7 @@ namespace IndividualTask
         {
             SetParameters();
         }
-        public APotassium(int x, int y, int z)
+        public APotassium(double x, double y, double z)
         {
             SetParameters();
             BasePoint = new TPoint(x,y,z);

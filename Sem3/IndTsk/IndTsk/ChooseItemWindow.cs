@@ -75,9 +75,9 @@ namespace IndTsk
         {
             const int fw = 802;
             const int fh = 367;
-            int x = Program.r.Next()%fw/2 - fw/4;
-            int y = Program.r.Next()%fw/2 - fw/4;
-            int z = Program.r.Next() % (fh-(int)((x+y)*Math.Sin(Math.PI/6)))-Program.r.Next()&fh/4;
+            double x = Program.r.Next()%fw/2.0 - fw/4.0;
+            double y = Program.r.Next()%fw/2.0 - fw/4.0;
+            double z = Program.r.Next() % (int)(fh-((x+y)*Math.Sin(Math.PI/6)))-Program.r.Next()&fh/4;
             return new TPoint(x,y,z);
         }
 

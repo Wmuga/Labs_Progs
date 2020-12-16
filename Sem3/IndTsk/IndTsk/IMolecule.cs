@@ -8,7 +8,7 @@ namespace IndividualTask
     {
         public override void Tick(double Coeff)
         {
-            Wander();
+            Wander(Coeff);
             foreach (var atom in ContainedAtoms)
             {
                 atom.Tick(Coeff);
@@ -48,14 +48,14 @@ namespace IndividualTask
             }
         }
         
-        private void Wander()
+        private void Wander(double coeff)
         {
-            var speed = new TPoint(Program.r.Next()%3-1,Program.r.Next()%3-1,Program.r.Next()%3-1);
-            BasePoint += speed;
+            var speed = new TPoint(Program.r.NextDouble()+(Program.r.Next()%3-1),Program.r.NextDouble()+(Program.r.Next()%3-1),Program.r.NextDouble()+(Program.r.Next()%3-1));
+            BasePoint += speed*coeff;
 
             foreach (var atom in ContainedAtoms)
             {
-                atom.SetCoords(atom.GetCoords()+speed);
+                atom.SetCoords(atom.GetCoords()+speed*coeff);
             }
             var location = TTT.Projection(BasePoint);
             
@@ -86,7 +86,7 @@ namespace IndividualTask
             SetAtoms();
         }
 
-        public MHydrogen(int x, int y, int z)
+        public MHydrogen(double x, double y, double z)
         {
             SetParameters();
             BasePoint = new TPoint(x,y,z);
@@ -113,7 +113,7 @@ namespace IndividualTask
             SetAtoms();
         }
 
-        public MOxygen(int x, int y, int z)
+        public MOxygen(double x, double y, double z)
         {
             SetParameters();
             BasePoint = new TPoint(x,y,z);
@@ -140,7 +140,7 @@ namespace IndividualTask
             SetAtoms();
         }
 
-        public MChlorine(int x, int y, int z)
+        public MChlorine(double x, double y, double z)
         {
             SetParameters();
             BasePoint = new TPoint(x,y,z);
@@ -167,7 +167,7 @@ namespace IndividualTask
             SetAtoms();
         }
 
-        public MHCl(int x, int y, int z)
+        public MHCl(double x, double y, double z)
         {
             SetParameters();
             BasePoint = new TPoint(x,y,z);
@@ -194,7 +194,7 @@ namespace IndividualTask
             SetAtoms();
         }
 
-        public MKCl(int x, int y, int z)
+        public MKCl(double x, double y, double z)
         {
             SetParameters();
             BasePoint = new TPoint(x,y,z);
@@ -220,7 +220,7 @@ namespace IndividualTask
             SetAtoms();
         }
 
-        public MKOH(int x, int y, int z)
+        public MKOH(double x, double y, double z)
         {
             SetParameters();
             BasePoint = new TPoint(x,y,z);
@@ -247,7 +247,7 @@ namespace IndividualTask
             SetAtoms();
         }
 
-        public MHOH(int x, int y, int z)
+        public MHOH(double x, double y, double z)
         {
             SetParameters();
             BasePoint = new TPoint(x,y,z);

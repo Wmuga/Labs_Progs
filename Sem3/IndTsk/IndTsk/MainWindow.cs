@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 using IndTsk;
+using TDim;
 using Tree;
 
 namespace IndividualTask
@@ -21,9 +22,12 @@ namespace IndividualTask
             _tree = new QuadTree(new Rectangle(0, 0, field.Width, field.Height));
             _graphics = field.CreateGraphics();
             _drawState = 0;
+            _tempCoeff = 0;
             _update = true;
             NewParticle = null;
+            field.MouseClick += field_Click;
         }
+        
 
         //Функция на обновление и отрисовку частиц
         public void UpdateContains()
@@ -33,9 +37,9 @@ namespace IndividualTask
                 var drawBoundaries = (_drawState & 2) == 2;
                 if (drawBoundaries) _tree.DrawBoundaries(_graphics, Color.Black);
                 RebuildTree();
+                _tree.ClearContents(_graphics,_drawState);
                 if (drawBoundaries) _tree.DrawBoundaries(_graphics, Color.Aquamarine);
-                _tree.ClearContents(_graphics, _drawState);
-                _tree.Tick(1);
+                _tree.Tick(_tempCoeff);
                 _tree.DrawContents(_graphics, _drawState);
                 Thread.Sleep(10);
             }
@@ -48,6 +52,7 @@ namespace IndividualTask
         private bool _update;
         private QuadTree _tree;
         private Graphics _graphics;
+        private double _tempCoeff;
 
         public IParticle NewParticle;
 
@@ -92,6 +97,23 @@ namespace IndividualTask
 
             NewParticle = null;
         }
+        
+        private void AddParticleCoords(TPoint coords)
+        {
+            var choose = new ChooseItemWindow();
+            var t = new Thread(new ParameterizedThreadStart(Run));
+            t.Start(choose);
+            t.Join();
+
+            if (NewParticle != null)
+            {
+                DebugLabel.Text = NewParticle.GetType().ToString().Split('.')[1];
+                NewParticle.SetCoords(coords);
+                _tree.Append(NewParticle);
+            }
+
+            NewParticle = null;
+        }
 
         //Вызов нужных функций
         private void button1_Click(object sender, EventArgs e)
@@ -102,6 +124,16 @@ namespace IndividualTask
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             DoWithStoppingThread(ChangeDrawingState);
+        }
+        private void field_Click(object sender, MouseEventArgs e)
+        {
+            _update = false;
+            Program.t.Join();
+            var particleCoords = new TPoint(((e.X-field.Width/2)/Math.Cos(Math.PI/6)),0,-e.Y+field.Height/2+(e.X-field.Width/2)*Math.Cos(Math.PI/6));
+            AddParticleCoords(particleCoords);
+            _update = true;
+            Program.t = new Thread(UpdateContains);
+            Program.t.Start();
         }
 
         //Обложка на приостановку потока и выполнение самой функции
@@ -121,71 +153,27 @@ namespace IndividualTask
             var newTree = new QuadTree(new Rectangle(0, 0, field.Width, field.Height));
             var contents = new List<IParticle>();
             _tree.GetContents(contents);
+            ApplyForce(contents);
             SetReactions(contents);
             foreach (var element in contents) newTree.Append(element);
             _tree = newTree;
         }
 
-        private void SetReactions(List<IParticle> reagents)
+        private void ClearAll()
         {
-            var newContents = new List<IParticle>();
-            int i = 0;
-            while (i < reagents.Count)
-            {
-                var thisReagent = reagents[i];
-                var thisReagentLocation = TDim.TTT.Projection(thisReagent.GetCoords());
-                var closestReagents = new List<IParticle>();
-                _tree.GetContentsLimited(closestReagents,
-                    new Rectangle(thisReagentLocation.X - 8, thisReagentLocation.Y - 8, 16, 16));
-                i++;
-                foreach (var anotherReagent in closestReagents)
-                {
-                    if (!thisReagent.Equals(anotherReagent))
-                    {
-                        var thisType = thisReagent.GetType().ToString().Split('.')[1];
-                        var anotherType = anotherReagent.GetType().ToString().Split('.')[1];
-                        if (thisType[0] == anotherType[0])
-                        {
-                            if (thisType[0] == 'A')
-                            {
-                                if (thisType == anotherType && thisType[1]!='P')
-                                {
-                                    var thisLocation = thisReagent.GetCoords();
-                                    var anotherLocation = anotherReagent.GetCoords();
-                                    var center = (thisLocation + anotherLocation) / 2;
-                                    i--;
-                                    reagents.Remove(thisReagent);
-                                    reagents.Remove(anotherReagent);
-                                    thisReagent.Clear(_graphics,_drawState);
-                                    anotherReagent.Clear(_graphics,_drawState);
-                                    switch (thisType[1])
-                                    {
-                                        case ('H'):
-                                            newContents.Add(new MHydrogen(center.x,center.y,center.z));
-                                            break;
-                                        case ('O'):
-                                            newContents.Add(new MOxygen(center.x,center.y,center.z));
-                                            break;
-                                        case ('C'):
-                                            newContents.Add(new MChlorine(center.x,center.y,center.z));
-                                            break;
-                                    }
-                                    break;
-                                }
-                            }
-                            else
-                            {
-                                ///Not Implemented yet
-                            }
-                        }
-                    }
-                }
-            }
+            _tree.ClearContents(_graphics,_drawState);
+            _tree = new QuadTree(new Rectangle(0, 0, field.Width, field.Height));
+        }
+        
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            DoWithStoppingThread(ClearAll);
+        }
 
-            foreach (var item in newContents)
-            {
-                reagents.Add(item);
-            }
+        private void TemperatureControl_Scroll(object sender, ScrollEventArgs e)
+        {
+            _tempCoeff = TempertureControl.Value / 10.0;
+            DebugLabel.Text = _tempCoeff.ToString();
         }
     }
 }
