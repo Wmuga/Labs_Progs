@@ -34,6 +34,7 @@ namespace IndividualTask
         {
             while (_update)
             {
+                var tStart = DateTime.Now;
                 var drawBoundaries = (_drawState & 2) == 2;
                 if (drawBoundaries) _tree.DrawBoundaries(_graphics, Color.Black);
                 RebuildTree();
@@ -42,6 +43,8 @@ namespace IndividualTask
                 _tree.Tick(_tempCoeff);
                 _tree.DrawContents(_graphics, _drawState);
                 Thread.Sleep(10);
+                var tPassed = DateTime.Now.Subtract(tStart);
+                if (tPassed.TotalSeconds!=0) FPSLabel.Text = (int)(1.0 / tPassed.TotalSeconds) + " FPS";
             }
         }
 
@@ -73,7 +76,10 @@ namespace IndividualTask
                 _drawState -= 2;
             }
 
-            if (changeDrawTreeBox.Checked) _drawState |= 0b10;
+            if (changeDrawTreeBox.Checked)
+            {
+                _drawState |= 0b10;
+            }
         }
 
         //Добавление частиц
@@ -81,22 +87,7 @@ namespace IndividualTask
         {
             Application.Run((Form) o);
         }
-
-        private void AddParticle()
-        {
-            var choose = new ChooseItemWindow();
-            var t = new Thread(new ParameterizedThreadStart(Run));
-            t.Start(choose);
-            t.Join();
-
-            if (NewParticle != null)
-            {
-                DebugLabel.Text = NewParticle.GetType().ToString().Split('.')[1];
-                _tree.Append(NewParticle);
-            }
-
-            NewParticle = null;
-        }
+        
         
         private void AddParticleCoords(TPoint coords)
         {
@@ -107,19 +98,14 @@ namespace IndividualTask
 
             if (NewParticle != null)
             {
-                DebugLabel.Text = NewParticle.GetType().ToString().Split('.')[1];
+                DebugLabel.Text = "Создано:" + NewParticle.GetType().ToString().Split('.')[1];
                 NewParticle.SetCoords(coords);
                 _tree.Append(NewParticle);
             }
 
             NewParticle = null;
         }
-
         //Вызов нужных функций
-        private void button1_Click(object sender, EventArgs e)
-        {
-            DoWithStoppingThread(AddParticle);
-        }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -161,6 +147,7 @@ namespace IndividualTask
 
         private void ClearAll()
         {
+            _tree.DrawBoundaries(_graphics,Color.Black);
             _tree.ClearContents(_graphics,_drawState);
             _tree = new QuadTree(new Rectangle(0, 0, field.Width, field.Height));
         }
@@ -168,12 +155,19 @@ namespace IndividualTask
         private void clearButton_Click(object sender, EventArgs e)
         {
             DoWithStoppingThread(ClearAll);
+            DebugLabel.Visible = true;
+            DebugLabel.Text = "";
         }
 
         private void TemperatureControl_Scroll(object sender, ScrollEventArgs e)
         {
             _tempCoeff = TempertureControl.Value / 10.0;
             DebugLabel.Text = _tempCoeff.ToString();
+        }
+
+        private void DebugLabel_Click(object sender, EventArgs e)
+        {
+            DebugLabel.Visible = false;
         }
     }
 }
