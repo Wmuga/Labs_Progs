@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using IndividualTask;
 
 namespace Tree
@@ -84,11 +85,13 @@ namespace Tree
         //Логика
         public void Tick(double coeff)
         {
-            if (ul==null)
+            if (ul == null)
+            {
                 foreach (var element in _elements)
                 {
                     element.Tick(coeff);
                 }
+            }
             else
             {
                 ul.Tick(coeff);
